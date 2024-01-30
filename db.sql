@@ -48,7 +48,7 @@ plato2 varchar(250),
 plato3 varchar(250),
 plato4 varchar(250),
 plato5 varchar(250),
-cantidadPacks int not null,
+cantidad_packs int not null,
 id_prov int not null,
 FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov),
 primary key(id_menu)
