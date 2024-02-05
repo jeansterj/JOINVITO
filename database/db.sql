@@ -1,8 +1,8 @@
-drop database if exists yoinvito;
+drop database if exists joinvito;
 
-create database yoinvito;
+create database joinvito;
 
-use yoinvito;
+use joinvito;
 
 create table usuarios(
 id_usu int auto_increment,
@@ -79,6 +79,17 @@ id_punto int,
 FOREIGN KEY (id_rider) REFERENCES riders(id_rider),
 FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_prov),
 FOREIGN KEY (id_punto) REFERENCES puntos_entrega(id_punto),
+primary key(id_pedido)
+);
+
+create table historico_pedidos(
+id_pedido int auto_increment,
+id_rider int not null,
+id_proveedor int not null,
+cantidad_packs int not null,
+fecha date not null,
+estado_pedido varchar(15) not null,
+id_punto int,
 primary key(id_pedido)
 );
 
