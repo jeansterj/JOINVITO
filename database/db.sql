@@ -114,3 +114,8 @@ primary key(id_noti),
 FOREIGN KEY (id_rider) REFERENCES riders(id_rider),
 FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov)
 );
+
+create table user_settings(
+id_usu int not null,
+idioma varchar(3) not null
+);
