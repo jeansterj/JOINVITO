@@ -19,6 +19,7 @@ primer_apellido varchar(100) not null,
 primary key(id_rider),
 FOREIGN KEY (id_rider) REFERENCES usuarios(id_usu)
 );
+
 create table proveedores(
 id_prov int auto_increment,
 nombre varchar(50) not null,
@@ -31,16 +32,18 @@ cp varchar(5) not null,
 primary key(id_prov),
 FOREIGN KEY proveedores(id_prov) REFERENCES usuarios(id_usu)
 );
-create table centros_sociales(
-id_centro int auto_increment,
-nombre varchar(50) not null,
-direccion varchar(250) not null,
-piso varchar(30),
-ciudad varchar(250) not null,
-cp varchar(5) not null,
-primary key(id_centro),
-FOREIGN KEY (id_centro) REFERENCES usuarios(id_usu)
-);
+
+-- create table centros_sociales(
+-- id_centro int auto_increment,
+-- nombre varchar(50) not null,
+-- direccion varchar(250) not null,
+-- piso varchar(30),
+-- ciudad varchar(250) not null,
+-- cp varchar(5) not null,
+-- primary key(id_centro),
+-- FOREIGN KEY (id_centro) REFERENCES usuarios(id_usu)
+-- );
+
 create table menus(
 id_menu int auto_increment,
 plato1 varchar(250) not null,
