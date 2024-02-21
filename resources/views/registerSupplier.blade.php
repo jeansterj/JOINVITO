@@ -22,7 +22,7 @@
 <input type="email">
 
 <label for="">Contraseña</label>
-<input type="password" maxlength="50">
+<input type="text" maxlength="50">
 
 <label for="">Nombre</label>
 <input type="text">
