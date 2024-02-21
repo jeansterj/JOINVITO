@@ -30,6 +30,7 @@
         @endsection
 
 @section('content')
+  <h3>MENU</h3>
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Restaurants</a>
@@ -38,4 +39,20 @@
       <a class="nav-link" href="#">Favorites</a>
     </li>
   </ul>
+
+  <div class="card" id="restaurants" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <div class="card" id="favorites" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+@endsection
+
+@section('map')
+  <h3>MENU</h3>
+  
 @endsection
