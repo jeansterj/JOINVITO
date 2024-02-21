@@ -1,3 +1,11 @@
 .logo img {
     width: 150px;
 }
+
+nav.navbar.navbar-expand-lg {
+    border-radius: 0 0 35px 35px;
+}
+
+.container-fluid {
+    height: 100px;
+}
