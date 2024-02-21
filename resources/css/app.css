@@ -1,0 +1,45 @@
+.logo img {
+    width: 150px;
+}
+.container {
+    color: white;
+    text-align: center;
+}
+.forms {
+    display: grid;
+    justify-items: center;
+}
+.rider {
+    margin-right: 20px;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #243E57;
+}
+.supplier {
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #243E57;
+}
+
+nav.navbar.navbar-expand-lg {
+    border-radius: 0 0 35px 35px;
+}
+
+.container-fluid {
+    height: 100px;
+}
+
+.container-fluid {
+    display: flex;
+  }
+
+  .cuadroTitulo.logo {
+    margin-bottom: auto; 
+  }
+  
+  .logo img {
+    display: block; 
+    margin: 0 auto; 
+  }
