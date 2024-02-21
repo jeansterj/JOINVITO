@@ -12,9 +12,8 @@
 
 <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
   <div class="container-fluid">
-  <div class="cuadroTitulo">
-            <h1 class="titulo">JOINVITO</h1>
-            <img src="{{ asset('img/skyline.png') }}" alt="">  
+  <div class="cuadroTitulo logo">
+            <img src="{{ asset('img/logo_JOINVITO.svg') }}" alt="">  
             </div>   
   @yield('navbar')
     </div>
