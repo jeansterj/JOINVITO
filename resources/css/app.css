@@ -9,3 +9,16 @@ nav.navbar.navbar-expand-lg {
 .container-fluid {
     height: 100px;
 }
+
+.container-fluid {
+    display: flex;
+  }
+
+  .cuadroTitulo.logo {
+    margin-bottom: auto; 
+  }
+  
+  .logo img {
+    display: block; 
+    margin: 0 auto; 
+  }
