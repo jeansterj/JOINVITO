@@ -12,15 +12,15 @@
 
 <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
   <div class="container-fluid">
-  <div class="cuadroTitulo logo">
-            <img src="{{ asset('img/logo_JOINVITO.svg') }}" alt="">  
+  <div class="logo">
+            <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
             </div>   
   @yield('navbar')
     </div>
   </div>
 </nav>
 
-<body>
+<body class="bg-secondary">
     <div class="container">
         @yield('header')
     </div>
