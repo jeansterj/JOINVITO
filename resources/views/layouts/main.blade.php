@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
 </head>
@@ -12,14 +14,12 @@
   <div class="container-fluid">
   <div class="cuadroTitulo">
             <h1 class="titulo">JOINVITO</h1>
-            <img src="../../../public/img/skyline.png" alt="">
-    </div>   
+            <img src="{{ asset('img/skyline.png') }}" alt="">  
+            </div>   
   @yield('navbar')
     </div>
   </div>
 </nav>
-
-
 
 <body>
     <div class="container">
