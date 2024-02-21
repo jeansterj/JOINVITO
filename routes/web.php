@@ -24,3 +24,7 @@ Route::get('/register2', function () {
     return view('registerSupplier');
 
 });
+
+Route::get('/rider-home', function () {
+    return view('rider.rider_home');
+});
