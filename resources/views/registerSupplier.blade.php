@@ -15,35 +15,35 @@
 
 <input id="" name="" type="hidden" value="" />
 
-<label for="">Nombre Usuario</label>
-<input type="text">
+<label for="userName">Nombre Usuario</label>
+<input type="text" id="userName">
 
-<label for="">Email</label>
-<input type="email">
+<label for="email">Email</label>
+<input type="email" id="email">
 
-<label for="">Contraseña</label>
-<input type="text" maxlength="50">
+<label for="password">Contraseña</label>
+<input type="text" maxlength="50" id="password">
 
-<label for="">Nombre</label>
-<input type="text">
+<label for="name">Nombre</label>
+<input type="text" id="name">
 
-<label for="">Apellido</label>
-<input type="text">
+<label for="lastName">Apellido</label>
+<input type="text" id="lastName">
 
-<label for="">Nombre Establecimiento</label>
-<input type="text">
+<label for="localName">Nombre Establecimiento</label>
+<input type="text" id="localName">
 
-<label for="">Dirección</label>
-<input type="text">
+<label for="address">Dirección</label>
+<input type="text" id="address">
 
-<label for="">Piso</label>
-<input type="number">
+<label for="floor">Piso</label>
+<input type="number" id="floor">
 
-<label for="">Ciudad</label>
-<input type="text">
+<label for="city">Ciudad</label>
+<input type="text" id="city">
 
-<label for="">Código Postal</label>
-<input type="number">
+<label for="postalCode">Código Postal</label>
+<input type="number" id="postalCode">
 
 
 </form>
