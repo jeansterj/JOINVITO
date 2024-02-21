@@ -7,6 +7,20 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
 </head>
+
+<nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
+  <div class="container-fluid">
+  <div class="cuadroTitulo">
+            <h1 class="titulo">JOINVITO</h1>
+            <img src="../../../public/img/skyline.png" alt="">
+    </div>   
+  @yield('navbar')
+    </div>
+  </div>
+</nav>
+
+
+
 <body>
     <div class="container">
         @yield('content')
