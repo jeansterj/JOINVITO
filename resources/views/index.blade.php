@@ -34,5 +34,5 @@
         @endsection
 
 @section('content')
-    <p>Hola mundo</p>
+    
 @endsection
