@@ -11,36 +11,38 @@
 
 @section('content')
 
+<h1>Register</h1>
+
 <form action="">
 
 <input id="" name="" type="hidden" value="" />
 
 <label for="email">Email</label>
-<input type="email" id="email" maxlength="50">
+<input class="form-control" type="email" id="email" maxlength="50" placeholder="jondoe@gmail.com" required>
 
-<label for="password">Contraseña</label>
-<input type="text" maxlength="50" id="password">
+<label for="password">Password</label>
+<input class="form-control" type="text" maxlength="50" id="password" placeholder="1234A*" required>
 
-<label for="name">Nombre</label>
-<input type="text" id="name" maxlength="50">
+<label for="name">Name</label>
+<input class="form-control" type="text" id="name" maxlength="50" placeholder="Jon" required>
 
-<label for="lastName">Apellido</label>
-<input type="text" id="lastName" maxlength="100">
+<label for="lastName">Surname</label>
+<input class="form-control" type="text" id="lastName" maxlength="100" placeholder="Doe" required>
 
-<label for="localName">Nombre Establecimiento</label>
-<input type="text" id="localName" maxlength="250">
+<label for="localName">Company</label>
+<input class="form-control" type="text" id="localName" maxlength="250" placeholder="joinvito"required>
 
-<label for="address">Dirección</label>
-<input type="text" id="address" maxlength="250">
+<label for="address">Direction</label>
+<input class="form-control" type="text" id="address" maxlength="250" placeholder="Barcelona"required>
 
-<label for="floor">Piso</label>
-<input type="text" id="floor" maxlength="30">
+<label for="floor">Floor (Opcional)</label>
+<input class="form-control" type="text" id="floor" maxlength="30" placeholder="Street 24 G">
 
-<label for="city">Ciudad</label>
-<input type="text" id="city" maxlength="250">
+<label for="city">City</label>
+<input class="form-control" type="text" id="city" maxlength="250" placeholder="25"required>
 
-<label for="postalCode">Código Postal</label>
-<input type="text" id="postalCode" maxlength="5">
+<label for="postalCode">Postal Code</label>
+<input class="form-control" type="text" id="postalCode" maxlength="5" placeholder="09989" required>
 
 <button type="submit">Sing Up</button>
 
