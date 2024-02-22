@@ -33,10 +33,39 @@ nav.navbar.navbar-expand-lg {
     margin: 0 auto; 
   }
 
-  .nav-tabs{
-
-  }
   
   .form-control {
     width: 50% !important;
+}
+
+/* Header */
+
+a.nav-link{
+  font-family: Montserrat, Helvetica, sans-serif;
+  color: #07203C;
+  font-size: 30px;
+  letter-spacing: 5%;
+  font-weight: 600;
+}
+
+div#navbarSupportedContent{
+  padding-top: 20px;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: #07203C!important;
+}
+
+/* div#navbarSupportedContent {
+  height: 220px;
+} */
+
+button.btn.btn-login {
+  background-color: #fff;
+  border-radius: 25px;
+  font-family: ;
+}
+
+.btn-login img{
+  padding-right: 10px;
 }
