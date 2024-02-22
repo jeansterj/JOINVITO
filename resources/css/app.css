@@ -6,23 +6,17 @@
     text-align: center;
 }
 .forms {
-    display: grid;
-    justify-items: center;
+   display: inline-flex;
+}
+.formSelectorIcon {
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #243E57;
 }
 .rider {
     margin-right: 20px;
-    border-radius: 25px;
-    width: 150px;
-    height: 150px;
-    border: 5px solid #243E57;
 }
-.supplier {
-    border-radius: 25px;
-    width: 150px;
-    height: 150px;
-    border: 5px solid #243E57;
-}
-
 nav.navbar.navbar-expand-lg {
     border-radius: 0 0 35px 35px;
 }
@@ -38,4 +32,11 @@ nav.navbar.navbar-expand-lg {
     display: block; 
     margin: 0 auto; 
   }
+
+  .nav-tabs{
+
+  }
   
+  .form-control {
+    width: 50% !important;
+}
