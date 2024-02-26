@@ -22,7 +22,7 @@
         <img src="{{ asset('img/user.png') }}" alt="">  
       </button>
     <div class="logo">
-              <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
+              <img src="{{ asset('img/JoInvitoLogo.svg') }}" alt="">  
               </div>   
     @yield('navbar')
     </div>
