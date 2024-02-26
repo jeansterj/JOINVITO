@@ -19,10 +19,9 @@
   <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
     <div class="container-fluid">
     <div class="logo">
-              <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
+              <img src="{{ asset('img/JoInvitoLogo.svg') }}" alt="">  
               </div>   
     @yield('navbar')
-      </div>
     </div>
   </nav>
     <div class="container">
