@@ -1,0 +1,33 @@
+/* *{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+} */
+
+.nav.nav-tabs{
+    border: none;
+}
+
+.nav.nav-tabs .nav-item{
+    background-color:#243E57;
+}
+
+.nav.nav-tabs .nav-item .nav-link{
+    border: none;
+    color: white;
+}
+
+.nav.nav-tabs .nav-item .nav-link.active{
+    background-color:#FFCA10;
+    color: #07203C !important;
+}
+
+#restaurants,#favorites{
+    position: absolute;
+    height: 380px;
+    background-color:#FFCA10;
+    border-radius: 0px 0px 1px 1px;
+    border: none;
+    
+}
