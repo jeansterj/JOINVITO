@@ -1,3 +1,8 @@
+.gird-placeContent{
+  padding: 10px;
+  display: grid;
+  place-items: center;
+}
 .logo img {
     width: 150px;
 }
@@ -63,7 +68,7 @@ div#navbarSupportedContent{
 button.btn.btn-login {
   background-color: #fff;
   border-radius: 25px;
-  font-family: ;
+  /* font-family: ; */
 }
 
 .btn-login img{
