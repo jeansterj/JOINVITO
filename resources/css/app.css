@@ -38,11 +38,41 @@ nav.navbar.navbar-expand-lg {
     margin: 0 auto; 
   }
 
-  
+  .container-form {
+    font-size: 23px;
+  }
   .form-control {
-    width: 50% !important;
+    height: 39px;
+    text-align: center;
+    border-radius: 51px !important;
+    width: 281px !important;
 }
-
+.box {
+  margin: 10px 0px 20px 109px;
+  transform: scale(1.1);
+  padding: 12px 8px 12px 9px;
+  border-radius: 29px;
+  width: 144px;
+  border: 3px solid #243E57;
+}
+.btn_login {
+  padding: 0 !important;
+  height: 39px;
+  font-size: 24px !important;
+  margin-top: 20px;
+  border-radius: 51px !important;
+  width: 281px !important;
+}
+.accountQuestion {
+  margin-top: 20px;
+}
+.dontHaveAccount {
+  color: #FFCA10;
+}
+.p {
+  margin-top: 0;
+    margin-bottom: 0rem;
+}
 /* Header */
 
 a.nav-link{
