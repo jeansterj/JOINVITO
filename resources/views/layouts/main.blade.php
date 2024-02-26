@@ -12,21 +12,19 @@
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js'])
 </head>
 
-<nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
-  <div class="container-fluid">
-  <div class="logo">
-            <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
-            </div>   
-  @yield('navbar')
-    </div>
-  </div>
-</nav>
+
 
 <body class="bg-primary">
 {{-- <body class="bg-secondary"> --}}
-    <div class="container">
-        @yield('header')
+  <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
+    <div class="container-fluid">
+    <div class="logo">
+              <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
+              </div>   
+    @yield('navbar')
+      </div>
     </div>
+  </nav>
     <div class="container">
         @yield('content')
     </div>
