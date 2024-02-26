@@ -11,16 +11,20 @@
 
 .nav.nav-tabs .nav-item{
     background-color:#243E57;
+    width: 50%;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .nav.nav-tabs .nav-item .nav-link{
     border: none;
     color: white;
+    font-size: 20px;
+    
 }
 
 .nav.nav-tabs .nav-item .nav-link.active{
     background-color:#FFCA10;
-    color: #07203C !important;
+    color: #07203C !important;    
 }
 
 #restaurants,#favorites{
@@ -29,5 +33,34 @@
     background-color:#FFCA10;
     border-radius: 0px 0px 1px 1px;
     border: none;
-    
+    width: 95%;
+}
+
+#carouselExampleIndicators{
+    top: 15px;
+}
+
+.carousel-item{
+    width: 445px;
+}
+
+.carousel-item .card{
+    margin: auto;
+    width: 240px;
+    height: 314px;
+    background-color: #ebdddda3;
+    border-radius: 10px;
+}
+
+.carousel-item .card .quantity{
+    font-size: 45px;
+    color: #07203C;
+}
+
+.carousel-item .card button{
+    border: none;
+    background-color: #FFCA10;
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 25px;
 }

@@ -24,7 +24,7 @@
       <button type="button" class="btn btn-signup">Sign up</button>
     </div>
   </ul>
-        @endsection
+@endsection
 
 @section('content')
     
