@@ -49,7 +49,7 @@ a.nav-link{
   font-family: Montserrat, Helvetica, sans-serif;
   color: #07203C;
   font-size: 30px;
-  letter-spacing: 5%;
+  letter-spacing: 3px;
   font-weight: 600;
 }
 
@@ -66,11 +66,38 @@ div#navbarSupportedContent{
 } */
 
 button.btn.btn-login {
+  margin-right: 7px;
+  width: 130px; 
   background-color: #fff;
   border-radius: 25px;
+  height: 55px;
+  font-size: 24px;
+  width: 150px;
+  /* font-family: ; */
+}
+
+button.btn.btn-signup {
+  margin-left: 7px;
+  width: 130px;
+  background-color: #07203C;
+  border-radius: 25px;
+  color: #fff;
+  height: 55px;
+  font-size: 24px;
+  width: 150px;
   /* font-family: ; */
 }
 
 .btn-login img{
   padding-right: 10px;
+  width: 40px 
 }
+
+.navbar-toggler{
+  border: none!important;
+}
+
+.navbar-toggler:focus{
+  box-shadow: none!important;
+}
+

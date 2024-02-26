@@ -18,11 +18,13 @@
 {{-- <body class="bg-secondary"> --}}
   <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
     <div class="container-fluid">
+      <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="{{ asset('img/user.png') }}" alt="">  
+      </button>
     <div class="logo">
               <img src="{{ asset('img/logo_joinvito.png') }}" alt="">  
               </div>   
     @yield('navbar')
-      </div>
     </div>
   </nav>
     <div class="container">
