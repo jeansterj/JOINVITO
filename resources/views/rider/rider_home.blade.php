@@ -27,25 +27,25 @@
       <a class="nav-link disabled" aria-disabled="true">Disabled</a>
     </li>
   </ul>
-        @endsection
+  @endsection
 
 @section('content')
   <h3>MENU</h3>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Restaurants</a>
+      <a class="nav-link active" aria-current="page" href="#">RESTAURANTS</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Favorites</a>
+      <a class="nav-link" href="#">FAVORITES</a>
     </li>
   </ul>
 
-  <div class="card" id="restaurants" style="width: 18rem;">
+  <div class="card" id="restaurants">
     <div class="card-body">
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
   </div>
-  <div class="card" id="favorites" style="width: 18rem;">
+  <div class="card" id="favorites">
     <div class="card-body">
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
