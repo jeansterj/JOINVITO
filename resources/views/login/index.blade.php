@@ -104,8 +104,8 @@
                 <form class="registerForm">
                     <form action="">
                         <input id="" name="" type="hidden" value="" />
-                        <div class="container-fluid">
-                            <div class="col-7">
+                        <div class="container-fluid" id="medForm">
+                            <div class="col-3 col-md-7">
                                 <div class="form-group gird-placeContent">
                                     <label for="email">Email</label>
                                     <input class="form-control" type="email" id="email" maxlength="50"
