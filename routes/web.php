@@ -31,3 +31,5 @@ Route::get('rider-home', function () {
 Route::get('login', function () {
     return view('login.index');
 });
+
+Route::resource('puntos', PuntosEntregaController::class);
