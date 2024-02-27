@@ -27,60 +27,108 @@
 @endsection
 
 @section('content')
-    <h1>REGISTER</h1>
-    <h2>CHOOSE USER TYPE</h2>
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-          </button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
-          </button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="box">
-              <img src="../public/img/rider_icon.png" alt="rider_icon.png" width="132px" >
-              <figcaption>RIDER</figcaption>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="box">
-              <img src="../public/img/supplier_icon.png" alt="supplier_icon.png">
-              <figcaption>SUPPLIER</figcaption>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="box">
-              <img src="../public/img/sCenter_icon.png" alt="sCenter_icon.png" width="111px">
-              <figcaption>S.CENTER</figcaption>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+<div class="container">
+  <h1>REGISTER</h1>
+  <h2>CHOOSE USER TYPE</h2>
+  <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
         </button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div class="container-form">
-        <form class="registerForm">
-          <div class="form-group gird-placeContent">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="box">
+            <img src="../public/img/rider_icon.png" alt="rider_icon.png" width="132px" >
+            <figcaption>RIDER</figcaption>
           </div>
-          <div class="form-group gird-placeContent">
-            <label for="exampleInputPassword1" >Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            <img src="../public/img/supplier_icon.png" alt="supplier_icon.png">
+            <figcaption>SUPPLIER</figcaption>
           </div>
-          <button type="submit" class="btn btn-light btn_login">Sign Up</button>
-          </form>
-        <div class="accountQuestion">
-          <p class="p">Don't have an account</p>
-          <a href="" class="dontHaveAccount">Create account</a>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            <img src="../public/img/sCenter_icon.png" alt="sCenter_icon.png" width="111px">
+            <figcaption>S.CENTER</figcaption>
+          </div>
         </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    <div class="container-form" id="riderDiv">
+      <form class="registerForm">
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputPassword1" >Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+        </form>
+      <div class="accountQuestion">
+        <p class="p">Don't have an account</p>
+        <a href="" class="dontHaveAccount">Create account</a>
+      </div>
+    </div> 
+
+    <div class="container-form" id="supplierDiv">
+      <form class="registerForm">
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group gird-placeContent">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group gird-placeContent">
+          <label for="surname">Surname</label>
+          <input type="text" class="form-control" id="surname" placeholder="Surname">
+        </div>
+        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+      </form>
+      <div class="accountQuestion">
+        <p class="p">Don't have an account</p>
+        <a href="" class="dontHaveAccount">Create account</a>
+      </div>
+    </div> 
+
+    <div class="container-form" id="sCenter">
+      <form class="registerForm">
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group gird-placeContent">
+          <label for="exampleInputPassword1" >Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+        </form>
+      <div class="accountQuestion">
+        <p class="p">Don't have an account</p>
+        <a href="" class="dontHaveAccount">Create account</a>
+      </div>
+    </div> 
+</div>
+    
 @endsection
