@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PuntosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,4 @@ Route::get('login', function () {
     return view('login.index');
 });
 
-Route::resource('puntos', PuntosEntregaController::class);
+Route::resource('puntos', PuntosController::class);

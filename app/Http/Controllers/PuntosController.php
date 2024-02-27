@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PuntosEntrega;
+use App\Models\Puntos;
 use Illuminate\Http\Request;
 
-class PuntosEntregaController extends Controller
+class PuntosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $puntos = PuntosEntrega::all();
+        $puntos = Puntos::all();
 
-        // var_dump(json_encode($puntos));
-        // die();
-        return json_encode($puntos);
-        // return view('rider.rider_home',compact('puntos'));
+        return $puntos;
     }
 
     /**

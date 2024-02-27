@@ -97,7 +97,14 @@
     color: black;
 }
 
+.mapboxgl-popup-content h3{
+    font-size: 22px;
+}
+
+.mapboxgl-popup-content span{
+    font-size: 14px;
+}
+
 .mapboxgl-popup-close-button{
     font-size: 27px;
 }
-  

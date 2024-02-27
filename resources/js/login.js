@@ -7,26 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+    if(dontHaveAccount != null){
+        dontHaveAccount.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (document.documentElement.clientWidth < 1200) {
+                loginDiv.style.display = 'none'
 
-    dontHaveAccount.addEventListener('click', function(event) {
-        event.preventDefault();
-        if (document.documentElement.clientWidth < 1200) {
-            loginDiv.style.display = 'none'
-            
-        divRegister.classList.remove('bg-secondary'); 
-        divRegister.classList.remove('col-9'); 
-        divRegister.classList.add('col-12'); 
-        medForm.style.display = 'grid';
-        medForm.style.placeContent = 'center';
+            divRegister.classList.remove('bg-secondary');
+            divRegister.classList.remove('col-9');
+            divRegister.classList.add('col-12');
+            medForm.style.display = 'grid';
+            medForm.style.placeContent = 'center';
 
 
-        }
-        divRegister.style.display = 'block';
+            }
+            divRegister.style.display = 'block';
 
-        col3Container.classList.remove('col-12'); 
-        col3Container.classList.add('col-3');
+            col3Container.classList.remove('col-12');
+            col3Container.classList.add('col-3');
+         });
+    }
 
-        
-
-     });
 });
