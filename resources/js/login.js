@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         divRegister.classList.remove('bg-secondary'); 
         divRegister.classList.remove('col-9'); 
         divRegister.classList.add('col-12'); 
-        medForm.style.display = 'block';
+        medForm.style.display = 'grid';
+        medForm.style.placeContent = 'center';
+
 
         }
         divRegister.style.display = 'block';
