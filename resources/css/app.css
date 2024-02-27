@@ -27,6 +27,8 @@ nav.navbar.navbar-expand-lg {
 }
 .container-fluid {
     display: flex;
+    color: white;
+    text-align: center;
   }
 
   .cuadroTitulo.logo {

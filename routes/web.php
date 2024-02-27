@@ -28,3 +28,6 @@ Route::get('/register2', function () {
 Route::get('rider-home', function () {
     return view('rider.rider_home');
 });
+Route::get('login', function () {
+    return view('login.index');
+});
