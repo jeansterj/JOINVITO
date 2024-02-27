@@ -11,5 +11,8 @@
         "laravel-vite-plugin": "^1.0.0",
         "sass": "^1.71.1",
         "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "tinker": "^0.0.4"
     }
 }
