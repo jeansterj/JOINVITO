@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dontHaveAccount.addEventListener('click', function(event) {
         event.preventDefault();
-
+        let loginDiv = document.getElementById('loginDiv')
+        if (document.documentElement.clientWidth) {
+            loginDiv.style.display = 'none'
+        }
         divRegister.style.display = 'block';
 
         col3Container.classList.remove('col-12'); 

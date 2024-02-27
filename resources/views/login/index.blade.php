@@ -30,7 +30,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-12">
+        <div class="col-12" id="loginDiv">
             <h1>LOGIN</h1>
 
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
