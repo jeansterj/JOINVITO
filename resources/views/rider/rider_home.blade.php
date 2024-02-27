@@ -211,15 +211,7 @@
 @endsection
 
 @section('map')
-    <div id="map"></div>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmdhYXIiLCJhIjoiY2x0M2o1bG51MXl1djJycGxoOTMxOWM2cyJ9.OvUbOSJo5uD6WNRmhBcujQ';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            center: [2.173225, 41.388737], // starting position [lng, lat]
-            zoom: 13 // starting zoom
-        });
-    </script>
+    <div class="container" id="map"></div>
 @endsection
 
 @section('footer')

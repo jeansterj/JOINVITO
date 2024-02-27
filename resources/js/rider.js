@@ -54,5 +54,34 @@ document.addEventListener('DOMContentLoaded',function(){
             restTab.classList.remove('hidden')
         }
     }
+      
+    var lat;
+    var lng;
+
+    function getLocation(callback) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                lat  = position.coords.latitude;
+                lng  = position.coords.longitude;
+                callback();
+            })
+        }
+    }
+      
+
+      function printLocation() {
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmdhYXIiLCJhIjoiY2x0M2o1bG51MXl1djJycGxoOTMxOWM2cyJ9.OvUbOSJo5uD6WNRmhBcujQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            center: [lng, lat], // starting position [lng, lat]
+            zoom: 16 // starting zoom
+        });
+      }
+      
+      // Call the getLocation() function with printLocation() as a callback
+      getLocation(printLocation);
+
+    
 
 });
+
