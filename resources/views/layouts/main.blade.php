@@ -11,14 +11,15 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
+    'resources/js/login.js'])
 </head>
 
 
 
 <body class="bg-primary">
 {{-- <body class="bg-secondary"> --}}
-  <nav class="navbar navbar-expand-lg " style="background-color: #FFCA10;">
+  <nav class="navbar navbar-expand-lg bg-light" >
     <div class="container-fluid">
       <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('img/user.png') }}" alt="">
