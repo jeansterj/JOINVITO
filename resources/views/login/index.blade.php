@@ -30,6 +30,7 @@
 
 @section('content')
     <div class="container-fluid">
+        
         <div class="col-12">
             <h1>LOGIN</h1>
 
