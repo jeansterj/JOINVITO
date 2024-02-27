@@ -29,16 +29,10 @@
     @yield('navbar')
     </div>
   </nav>
-    <div class="container">
-        @yield('content')
-    </div>
+  @yield('content')
+      
+  @yield('map')
 
-    <div class="container">
-        @yield('map')
-    </div>
-
-    <div class="container">
-        @yield('footer')
-    </div>
+  @yield('footer')
 </body>
 </html>

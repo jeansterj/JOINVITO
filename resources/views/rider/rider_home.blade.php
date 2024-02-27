@@ -23,195 +23,199 @@
   @endsection
 
 @section('content')
-  <h3>MENU</h3>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" data-type="restaurant" aria-current="page" href="#">RESTAURANTS</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" data-type="favorites" href="#">FAVORITES</a>
-    </li>
-  </ul>
-  <div class="card" id="restaurants">
-    <div class="card-body">
-      <div id="carouselRestaurants" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>5</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">5</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
+  <div class="container">
+    <h3>MENU</h3>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" data-type="restaurant" aria-current="page" href="#">RESTAURANTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" data-type="favorites" href="#">FAVORITES</a>
+      </li>
+    </ul>
+    <div class="card" id="restaurants">
+      <div class="card-body">
+        <div id="carouselRestaurants" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>5</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">5</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
                     </div>
                   </div>
+                  <button type="button" class="btn btn-primary">GET</button>
                 </div>
-                <button type="button" class="btn btn-primary">GET</button>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>4</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">4</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary">GET</button>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>3</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">3</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary">GET</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>4</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">4</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary">GET</button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>3</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">3</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary">GET</button>
-              </div>
-            </div>
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselRestaurants" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselRestaurants" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRestaurants" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselRestaurants" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
-  </div>
-  <div class="card" id="favorites">
-    <div class="card-body">
-      <div id="carouselFavorites" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>5</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">5</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
+    <div class="card" id="favorites">
+      <div class="card-body">
+        <div id="carouselFavorites" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>5</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">5</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
                     </div>
                   </div>
+                  <button type="button" class="btn btn-primary">GET</button>
                 </div>
-                <button type="button" class="btn btn-primary">GET</button>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>4</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">4</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary">GET</button>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><span>3</span> PACKS LEFT</h5>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <p class="card-text">Some quick example </p>
+                  <div class="container text-center">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <span class="quantity">-</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">3</span>
+                      </div>
+                      <div class="col">
+                        <span class="quantity">+</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary">GET</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>4</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">4</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary">GET</button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><span>3</span> PACKS LEFT</h5>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <p class="card-text">Some quick example </p>
-                <div class="container text-center">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      <span class="quantity">-</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">3</span>
-                    </div>
-                    <div class="col">
-                      <span class="quantity">+</span>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary">GET</button>
-              </div>
-            </div>
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselFavorites" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselFavorites" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFavorites" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselFavorites" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
   </div>
 @endsection
 
 @section('map')
-    <div class="container" id="map"></div>
+    <div class="container">
+        <div id="map"></div>
+    </div>
 @endsection
 
 @section('footer')
