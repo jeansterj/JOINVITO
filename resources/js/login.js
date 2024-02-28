@@ -33,12 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
      });
 
      function handleResize() {
-        // Obtén el ancho de la ventana
-        var screenWidth = window.innerWidth;
+        let screenWidth = window.innerWidth;
 
-        // Puedes ajustar estos valores según tus necesidades
         if (screenWidth < 960) {
-            console.log("Pantalla pequeña");
             if (divRegister.style.display === 'block') {
                 loginDiv.style.display = 'none'
                 divRegister.classList.remove('bg-secondary'); 
@@ -47,9 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 medForm.style.display = 'grid';
                 medForm.style.placeContent = 'center';
             }
-            // Aquí puedes realizar acciones específicas para pantallas pequeñas
         } else if (screenWidth >= 960) {
-            console.log("Pantalla mediana");
             if (divRegister.style.display === 'block') {
                 col3Container.classList.remove('col-12');
                 col3Container.classList.add('col-3');
@@ -65,10 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     }
 
-    // Agrega un event listener para el evento de cambio de tamaño
     window.addEventListener('resize', handleResize);
 
-    // Llama a la función inicialmente para manejar el tamaño de la pantalla al cargar la página
     handleResize();
 
 
