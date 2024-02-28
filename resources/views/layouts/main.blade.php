@@ -13,6 +13,7 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
     'resources/js/login.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js']) --}}
 </head>
 
 
@@ -33,7 +34,11 @@
   @yield('content')
       
   @yield('map')
+<footer>
+  <p>JOINVITO</p>
+  <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
+    © 2024 JOINVITO Technologies Inc.</p>
+</footer>
 
-  @yield('footer')
 </body>
 </html>
