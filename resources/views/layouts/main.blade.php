@@ -34,7 +34,7 @@
   @yield('content')
       
   @yield('map')
-<footer>
+<footer style="display: none">
   <p>JOINVITO</p>
   <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
     © 2024 JOINVITO Technologies Inc.</p>
