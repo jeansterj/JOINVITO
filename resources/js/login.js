@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dontHaveAccount.addEventListener('click', function(event) {
         event.preventDefault();
         divRegister.style.display = 'block';
+        
         if (document.documentElement.clientWidth < 1200) 
         
         {
