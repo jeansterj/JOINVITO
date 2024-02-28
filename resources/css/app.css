@@ -133,3 +133,9 @@ button.btn.btn-signup {
   box-shadow: none!important;
 }
 
+/* Footer */
+
+footer{
+  background-color: #243E57;
+  height: 50px;
+}
