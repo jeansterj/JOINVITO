@@ -56,7 +56,7 @@ FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov),
 primary key(id_menu)
 );
 
-create table puntos_entrega(
+create table puntos(
 id_punto int auto_increment,
 nombre varchar(50) not null,
 direccion varchar(250) not null,
@@ -67,9 +67,12 @@ fecha_inactivo date,
 fecha_alta date,
 fecha_baja date,
 puntos int not null,
-tipo enum("Homeless","Centro"),
+tipo enum("Homeless","Centro","Proveedor"),
 primary key(id_punto)
 );
+
+insert into puntos values(1,'Punto 1','Calle 1',41.3888845,2.1706315,1,null,'2024-02-27',null,10,'Centro');
+insert into puntos values(2,'Punto 2','Calle 2',41.389289,2.1709058,1,null,'2024-02-27',null,10,'Centro');
 
 create table pedidos(
 id_pedido int auto_increment,
@@ -90,7 +93,7 @@ id_punto int not null,
 cantidad_packs int not null,
 fecha date not null,
 entregado boolean,
-FOREIGN KEY (id_punto) REFERENCES puntos_entrega(id_punto),
+FOREIGN KEY (id_punto) REFERENCES puntos(id_punto),
 FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
 primary key(id_entrega)
 );

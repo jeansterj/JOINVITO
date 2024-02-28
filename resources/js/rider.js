@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded',function(){
             restTab.classList.remove('hidden')
         }
     }
-      
+
     var lat;
     var lng;
 
@@ -67,21 +67,137 @@ document.addEventListener('DOMContentLoaded',function(){
             })
         }
     }
-      
+
 
       function printLocation() {
+
+        //lng - 2.1745089
+        //lat - 41.3907285
+        // 'coordinates': [2.1745089, 41.3907285]
         mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmdhYXIiLCJhIjoiY2x0M2o1bG51MXl1djJycGxoOTMxOWM2cyJ9.OvUbOSJo5uD6WNRmhBcujQ';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            center: [lng, lat], // starting position [lng, lat]
-            zoom: 16 // starting zoom
-        });
+
+        async function fetchPuntos() {
+
+            let puntosData;
+
+            fetch('puntos')
+                .then(function(response){
+                    response.json()
+                    .then(function(response) {
+
+                        let arrayPuntos = new Array();
+                        response.forEach((item) => {
+
+                            let jsonDataPunto = {
+                                'type': 'Feature',
+                                'geometry': {
+                                'type': 'Point',
+                                'coordinates': [item.longitud,item.latitud]
+                                },
+                                'properties': {
+                                'title': item.nombre,
+                                'description': [
+                                    `<span>Agua</span>
+                                    <span>Ensalada</span>
+                                    <span>Jamon</span>`
+                                ]
+                                }
+                            }
+
+                            arrayPuntos.push(jsonDataPunto);
+
+                        });
+
+                        const geojson = {
+                            'type': 'FeatureCollection',
+                            'features': arrayPuntos
+                        };
+
+                        // const geojson = {
+                        //     'type': 'FeatureCollection',
+                        //     'features':
+                        //     [
+                        //     {
+                        //         'type': 'Feature',
+                        //         'geometry': {
+                        //         'type': 'Point',
+                        //         // 'coordinates': [2.1706315,41.3888845]
+                        //         'coordinates': [response[0].longitud,response[0].latitud]
+                        //         },
+                        //         'properties': {
+                        //         'title': 'Mapbox',
+                        //         'description': 'Mapa, D.C.'
+                        //         }
+                        //     }
+                        //     ,
+                        //     {
+                        //         'type': 'Feature',
+                        //         'geometry': {
+                        //         'type': 'Point',
+                        //         // 'coordinates': [2.1709058,41.389289] //lng y lat
+                        //         'coordinates': [response[1].longitud,response[1].latitud]
+                        //         },
+                        //         'properties': {
+                        //         'title': 'Mapbox',
+                        //         'description': 'Prueba, D.C.'
+                        //         }
+                        //     }
+                        //     ]
+                        //     };
+
+
+                            const map = new mapboxgl.Map({
+                                container: 'map', // container ID
+                                center: [lng, lat], // starting position [lng, lat]
+                                zoom: 6 // starting zoom
+                            });
+
+
+                            // add markers to map
+                            for (const feature of geojson.features) {
+                                // create a HTML element for each feature
+                                const el = document.createElement('div');
+                                el.className = 'marker';
+
+                                // make a marker for each feature and add it to the map
+                                new mapboxgl.Marker(el)
+                                .setLngLat(feature.geometry.coordinates)
+                                .setPopup(
+                                new mapboxgl.Popup({ offset: 25 }) // add popups
+                                .setHTML(
+                                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                                )
+                                )
+                                .addTo(map);
+                                }
+                    })
+                    // .catch(function(e){
+                    // console.log(e);
+                    // });
+                })
+                .catch(function(e){
+                    console.log(e);
+                });
+
+
+
+
+        }
+
+        fetchPuntos()
+
+
+
+
+
       }
-      
+
+
+
       // Call the getLocation() function with printLocation() as a callback
       getLocation(printLocation);
 
-    
+
 
 });
 
