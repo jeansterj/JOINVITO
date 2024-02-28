@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PuntosController;
+use App\Http\Controllers\RidersController;
 
 /*
 |--------------------------------------------------------------------------

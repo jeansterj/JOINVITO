@@ -33,7 +33,7 @@ class Proveedores extends Model
     {
         return $this->hasMany(Menus::class, 'id_prov');
     }
-    
+
     /**
      * The roles that belong to the Proveedores
      *
@@ -43,5 +43,10 @@ class Proveedores extends Model
     {
         return $this->belongsToMany(Favoritos::class, 'id_prov');
     }
-    
+
+    public function riders()
+    {
+        return $this->belongsToMany(Riders::class, 'favoritos', 'id_proveedor', 'id_rider');
+    }
+
 }

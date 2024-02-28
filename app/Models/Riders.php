@@ -33,4 +33,19 @@ class Riders extends Model
     {
         return $this->hasMany(Favoritos::class, 'id_rider');
     }
+
+    /**
+     * The proveedores the Riders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function proveedores()
+    {
+        return $this->belongsToMany(Proveedores::class, 'favoritos', 'id_rider', 'id_proveedor');
+    }
+
+    public function menus()
+    {
+        return $this->hasMany(Menus::class, 'id_prov');
+    }
 }
