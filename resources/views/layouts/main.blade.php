@@ -32,12 +32,19 @@
     </div>
   </nav>
   @yield('content')
-      
+  <div class="flotante container text-center">
+    <div class="row align-items-end">
+      <div class="col"><img src="img/user.png" alt=""></div>
+      <div class="col"><img src="img/user.png" alt=""></div>
+      <div class="col"><img src="img/user.png" alt=""></div>
+      <div class="col"><img src="img/user.png" alt=""></div>
+    </div>
+  </div>
   @yield('map')
-<footer style="display: none">
-  <p>JOINVITO</p>
+<footer >
+  <p class="footerTitle">JOINVITO</p>
   <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
-    © 2024 JOINVITO Technologies Inc.</p>
+  </br> © 2024 JOINVITO Technologies Inc.</p>
 </footer>
 
 </body>

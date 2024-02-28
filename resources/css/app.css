@@ -139,12 +139,40 @@ button.btn.btn-signup {
 /* Footer */
 
 footer{
-  background-color: #243E57;
-  height: 50px;
+  background-color:#07203C;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin: 10%;
 }
-
+footer p{
+  font-size: 13px;
+}
 #register{
 
 display: none;
+}
+.footerTitle{
+  font-size: 15px;
+}
+
+.logo {
+  margin-bottom: -25px;
+}
+
+.flotante{
+  height: 85px;
+  background-color: #FFCA10;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.flotante {
+  position: fixed;
+  bottom: 0;
+}
+
+.flotante .col{
+  text-align: center;
 }
 
