@@ -37,3 +37,6 @@ Route::get('rider', function () {
 });
 
 Route::resource('puntos', PuntosController::class);
+
+Route::get('rider-menu-selection', [RidersController::class,'showFavorites']);
+

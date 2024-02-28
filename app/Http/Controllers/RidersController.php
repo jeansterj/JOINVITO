@@ -12,7 +12,7 @@ class RidersController extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**
@@ -61,5 +61,17 @@ class RidersController extends Controller
     public function destroy(Riders $riders)
     {
         //
+    }
+
+    public function showFavorites(){
+
+        //$favoritos = Favoritos::select('id_menu','bebida','plato1','plato2','cantidad_packs')->join('Proveedores','Proveedores.id_prov','=','id_prov')->join('Menus','Proveedores.id_prov','=','Menus.id_prov')->where('id_rider','=',1)->distinct()->get();
+
+        // $favoritos = Riders::select('id_menu','bebida','plato1','plato2','cantidad_packs')->join('Proveedores','Proveedores.id_prov','=','id_prov')->join('Menus','Proveedores.id_prov','=','Menus.id_prov')->where('id_rider','=',1)->distinct()->get();
+
+        $favoritos = Riders::where('id_rider','=',1)->with('favoritos')->with('proveedores')->with('menus')->distinct()->get();
+
+        
+        return view('rider.menu_selection',compact('favoritos'));
     }
 }

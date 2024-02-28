@@ -23,4 +23,25 @@ class Proveedores extends Model
     {
         return $this->belongsTo(Usuarios::class, 'id_prov');
     }
+
+    /**
+     * Get all of the comments for the Proveedores
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function menus()
+    {
+        return $this->hasMany(Menus::class, 'id_prov');
+    }
+    
+    /**
+     * The roles that belong to the Proveedores
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favoritos()
+    {
+        return $this->belongsToMany(Favoritos::class, 'id_prov');
+    }
+    
 }

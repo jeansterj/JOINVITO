@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Riders;
-use App\Models\Favoritos;
+use App\Models\Centros;
 use Illuminate\Http\Request;
 
-class FavoritosController extends Controller
+class CentrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +34,7 @@ class FavoritosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Favoritos $favoritos)
+    public function show(CentrosSociales $centrosSociales)
     {
         //
     }
@@ -43,7 +42,7 @@ class FavoritosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Favoritos $favoritos)
+    public function edit(CentrosSociales $centrosSociales)
     {
         //
     }
@@ -51,7 +50,7 @@ class FavoritosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Favoritos $favoritos)
+    public function update(Request $request, CentrosSociales $centrosSociales)
     {
         //
     }
@@ -59,9 +58,8 @@ class FavoritosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Favoritos $favoritos)
+    public function destroy(CentrosSociales $centrosSociales)
     {
         //
     }
-
 }

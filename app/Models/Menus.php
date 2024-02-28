@@ -13,4 +13,14 @@ class Menus extends Model
     protected $primaryKey = 'id_menu';
     public $incrementing = false;
     public $timestamps = false;
+
+    /**
+     * Get the proveedor that own
+     *
+     * @return \Illuminate\DatabasProveedoresoquent\Relid_proveedorngsTo
+     */
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedores::class, 'id_proveedor');
+    }
 }

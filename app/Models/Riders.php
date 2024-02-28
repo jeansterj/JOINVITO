@@ -23,4 +23,14 @@ class Riders extends Model
     {
         return $this->belongsTo(Usuarios::class, 'id_rider');
     }
+
+    /**
+     * Get all of the comments for the Riders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function favoritos()
+    {
+        return $this->hasMany(Favoritos::class, 'id_rider');
+    }
 }

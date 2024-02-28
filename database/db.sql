@@ -4,21 +4,39 @@ create database joinvito;
 
 use joinvito;
 
+create table roles(
+id_rol int auto_increment, 
+nombre varchar(15) not null,
+primary key(id_rol)
+);
+
+insert into roles values(1,'admin');
+insert into roles values(2,'rider');
+insert into roles values(3,'centro');
+insert into roles values(4,'proveedor');
+
 create table usuarios(
 id_usu int auto_increment,
 email varchar(50) not null,
 pass_usu varchar(50) not null,
-rol varchar(10) not null,
+id_rol int not null,
+FOREIGN KEY (id_rol) REFERENCES roles(id_rol),
 primary key(id_usu)
 );
+
+insert into usuarios values(1,'jean@prueba.com','prueba',2);
+insert into usuarios values(2,'aleix@prueba.com','prueba',4);
 
 create table riders(
 id_rider int auto_increment,
 nombre varchar(50) not null,
 primer_apellido varchar(100) not null,
-primary key(id_rider),
-FOREIGN KEY (id_rider) REFERENCES usuarios(id_usu)
+FOREIGN KEY (id_rider) REFERENCES usuarios(id_usu),
+primary key(id_rider)
 );
+
+insert into riders values(1,'Jean','Pol');
+
 create table proveedores(
 id_prov int auto_increment,
 nombre varchar(50) not null,
@@ -28,19 +46,22 @@ direccion varchar(250) not null,
 piso varchar(30),
 ciudad varchar(250) not null,
 cp varchar(5) not null,
-primary key(id_prov),
-FOREIGN KEY proveedores(id_prov) REFERENCES usuarios(id_usu)
+FOREIGN KEY proveedores(id_prov) REFERENCES usuarios(id_usu),
+primary key(id_prov)
 );
 
-create table centros_sociales(
+insert into proveedores values(1,'Pepe','Sanchez','Panaderia Pepe','Calle 1',null,'Barcelona','08830');
+insert into proveedores values(2,'Antonio','Recio','Mariscos Recio','Calle 2',null,'Barcelona','08831');
+
+create table centros(
 id_centro int auto_increment,
 nombre varchar(50) not null,
 direccion varchar(250) not null,
 piso varchar(30),
 ciudad varchar(250) not null,
 cp varchar(5) not null,
-primary key(id_centro),
-FOREIGN KEY (id_centro) REFERENCES usuarios(id_usu)
+FOREIGN KEY (id_centro) REFERENCES usuarios(id_usu),
+primary key(id_centro)
 );
 
 
@@ -56,6 +77,9 @@ FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov),
 primary key(id_menu)
 );
 
+insert into menus values(1,'Agua','Ensalada','Jamon',1,1,'2024-02-28');
+insert into menus values(2,'Cola','Pasta','Yogurt',1,1,'2024-02-28');
+
 create table puntos(
 id_punto int auto_increment,
 nombre varchar(50) not null,
@@ -68,11 +92,13 @@ fecha_alta date,
 fecha_baja date,
 puntos int not null,
 tipo enum("Homeless","Centro","Proveedor"),
+propietario_punto int,
+FOREIGN KEY (propietario_punto) REFERENCES usuarios(id_usu),
 primary key(id_punto)
 );
 
-insert into puntos values(1,'Punto 1','Calle 1',41.3888845,2.1706315,1,null,'2024-02-27',null,10,'Centro');
-insert into puntos values(2,'Punto 2','Calle 2',41.389289,2.1709058,1,null,'2024-02-27',null,10,'Centro');
+insert into puntos values(1,'Punto 1','Calle 1',41.3888845,2.1706315,1,null,'2024-02-27',null,10,'Proveedor',1);
+insert into puntos values(2,'Punto 2','Calle 2',41.389289,2.1709058,1,null,'2024-02-27',null,10,'Proveedor',2);
 
 create table pedidos(
 id_pedido int auto_increment,
@@ -116,6 +142,9 @@ FOREIGN KEY (id_rider) REFERENCES riders(id_rider),
 FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_prov),
 primary key(id_fav)
 );
+
+insert into favoritos values(1,1,2);
+insert into favoritos values(2,1,2);
 
 create table notis_usuario(
 id_noti int auto_increment,

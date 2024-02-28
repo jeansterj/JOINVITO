@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CentrosSociales extends Model
+class Centros extends Model
 {
     use HasFactory;
 
-    protected $table = 'centros_sociales';
+    protected $table = 'centros';
     protected $primaryKey = 'id_centro';
     public $incrementing = false;
     public $timestamps = false;
 
     /**
-     * Get the user that owns the CentrosSociales
+     * Get the user that owns the Centros
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

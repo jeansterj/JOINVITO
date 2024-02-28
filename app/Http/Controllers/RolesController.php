@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CentrosSociales;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 
-class CentrosSocialesController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class CentrosSocialesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CentrosSociales $centrosSociales)
+    public function show(Roles $roles)
     {
         //
     }
@@ -42,7 +42,7 @@ class CentrosSocialesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CentrosSociales $centrosSociales)
+    public function edit(Roles $roles)
     {
         //
     }
@@ -50,7 +50,7 @@ class CentrosSocialesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CentrosSociales $centrosSociales)
+    public function update(Request $request, Roles $roles)
     {
         //
     }
@@ -58,7 +58,7 @@ class CentrosSocialesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CentrosSociales $centrosSociales)
+    public function destroy(Roles $roles)
     {
         //
     }
