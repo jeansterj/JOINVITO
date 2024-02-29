@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Favoritos extends Model
 {
@@ -24,14 +25,24 @@ class Favoritos extends Model
         return $this->belongsTo(Riders::class, 'id_rider');
     }
 
+    // /**
+    //  * Get the user associated with the Favoritos
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    //  */
+    // public function proveedor()
+    // {
+    //     return $this->hasOne(Proveedores::class, 'id_prov');
+    // }
+
     /**
-     * Get the user associated with the Favoritos
+     * Get the proveedor that owns the Favoritos
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function proveedor()
+    public function proveedor(): BelongsTo
     {
-        return $this->hasOne(Proveedores::class, 'id_prov');
+        return $this->belongsTo(Proveedores::class, 'id_proveedor');
     }
 
     /**
