@@ -14,24 +14,15 @@ class Riders extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+    
     /**
      * Get the user that owns the Riders
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function usuarios()
+    public function usuario()
     {
-        return $this->belongsTo(Usuarios::class, 'id_rider');
-    }
-
-    /**
-     * Get all of the comments for the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function favoritos()
-    {
-        return $this->hasMany(Favoritos::class, 'id_rider');
+        return $this->belongsTo(User::class, 'id_rider');
     }
 
     /**
@@ -44,8 +35,14 @@ class Riders extends Model
         return $this->belongsToMany(Proveedores::class, 'favoritos', 'id_rider', 'id_proveedor');
     }
 
+    
+    /**
+     * The roles that belong to the Riders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function menus()
     {
-        return $this->hasMany(Menus::class, 'id_prov');
+        return $this->belongsToMany(Riders::class, 'pedidos', 'id_rider', 'id_menu');
     }
 }

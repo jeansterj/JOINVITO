@@ -71,8 +71,8 @@ class RidersController extends Controller
 
         $favoritos = Riders::where('id_rider','=',1)->with('menus')->distinct()->get();
 
-        var_dump($favoritos[0]);
-        die();
+        // var_dump($favoritos);
+        // die();
 
         return view('rider.menu_selection',compact('favoritos'));
     }

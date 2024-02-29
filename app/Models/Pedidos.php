@@ -13,4 +13,14 @@ class Pedidos extends Model
     protected $primaryKey = 'id_pedido';
     public $incrementing = false;
     public $timestamps = false;
+
+    /**
+     * Get all of the comments for the Pedidos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function entregas()
+    {
+        return $this->hasMany(Entregas::class, 'id_pedido');
+    }
 }

@@ -34,4 +34,14 @@ class Favoritos extends Model
         return $this->hasOne(Proveedores::class, 'id_prov');
     }
 
+    /**
+     * Get the user associated with the Favoritos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function noti()
+    {
+        return $this->hasOne(NotisUsuario::class);
+    }
+
 }

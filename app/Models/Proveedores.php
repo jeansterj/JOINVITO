@@ -19,7 +19,7 @@ class Proveedores extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function usuarios()
+    public function usuario()
     {
         return $this->belongsTo(Usuarios::class, 'id_prov');
     }

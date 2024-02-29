@@ -19,7 +19,7 @@ class Centros extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function usuarios()
+    public function usuario()
     {
         return $this->belongsTo(User::class, 'id_centro');
     }

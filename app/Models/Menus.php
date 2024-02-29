@@ -14,13 +14,14 @@ class Menus extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+    
     /**
-     * Get the proveedor that own
+     * The roles that belong to the Menus
      *
-     * @return \Illuminate\DatabasProveedoresoquent\Relid_proveedorngsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function proveedor()
+    public function riders()
     {
-        return $this->belongsTo(Proveedores::class, 'id_proveedor');
+        return $this->belongsToMany(Riders::class, 'pedidos', 'id_menu', 'id_rider');
     }
 }
