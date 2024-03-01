@@ -15,7 +15,7 @@ class Riders extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    
+
     /**
      * Get the user that owns the Riders
      *
@@ -26,15 +26,6 @@ class Riders extends Model
         return $this->belongsTo(User::class, 'id_rider');
     }
 
-    /**
-     * The proveedores the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    // public function proveedores()
-    // {
-    //     return $this->belongsToMany(Proveedores::class, 'favoritos', 'id_rider', 'id_proveedor');
-    // }
 
     /**
      * Get all of the comments for the Riders

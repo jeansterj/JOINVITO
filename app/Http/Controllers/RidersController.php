@@ -69,11 +69,8 @@ class RidersController extends Controller
 
         // $favoritos = Riders::select('id_menu','bebida','plato1','plato2','cantidad_packs')->join('Proveedores','Proveedores.id_prov','=','id_prov')->join('Menus','Proveedores.id_prov','=','Menus.id_prov')->where('id_rider','=',1)->distinct()->get();
 
-        $favoritos = Riders::where('id_rider','=',1)->with('menus')->distinct()->get();
+        $datos = Riders::find(1)->with(['favoritos.proveedor.menus'])->get();
 
-        // var_dump($favoritos);
-        // die();
-
-        return view('rider.menu_selection',compact('favoritos'));
+        return view('rider.menu_selection',compact('datos'));
     }
 }

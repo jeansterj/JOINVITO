@@ -25,15 +25,6 @@ class Favoritos extends Model
         return $this->belongsTo(Riders::class, 'id_rider');
     }
 
-    // /**
-    //  * Get the user associated with the Favoritos
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\HasOne
-    //  */
-    // public function proveedor()
-    // {
-    //     return $this->hasOne(Proveedores::class, 'id_prov');
-    // }
 
     /**
      * Get the proveedor that owns the Favoritos
