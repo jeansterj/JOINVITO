@@ -154,3 +154,6 @@ leido boolean,
 FOREIGN KEY (id_fav) REFERENCES favoritos(id_fav),
 primary key(id_noti)
 );
+
+insert into notis_usuario values (1, 'prueba', 1, false);
+insert into notis_usuario values (2, 'prueba2', 2, true);
