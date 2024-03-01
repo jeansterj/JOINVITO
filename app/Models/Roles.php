@@ -14,4 +14,14 @@ class Roles extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+
+    /**
+     * Get all of the comments for the Roles
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function usuarios()
+    {
+        return $this->hasMany(Usuarios::class, 'id_rol');
+    }
 }

@@ -21,6 +21,6 @@ class NotisUsuario extends Model
      */
     public function favorito()
     {
-        return $this->belongsTo(Favoritos::class);
+        return $this->belongsTo(Favoritos::class, 'id_fav');
     }
 }

@@ -78,8 +78,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
         async function fetchPuntos() {
 
-            let puntosData;
-
             fetch('puntos')
                 .then(function(response){
                     response.json()

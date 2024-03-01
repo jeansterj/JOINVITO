@@ -31,7 +31,7 @@ class Usuarios extends Model
      */
     public function centros()
     {
-        return $this->hasMany(CentrosSociales::class, 'id_centro');
+        return $this->hasMany(Centros::class, 'id_centro');
     }
 
     /**
@@ -45,5 +45,23 @@ class Usuarios extends Model
     }
 
     
-    // App\Models\Usuarios::join('Riders','Riders.id_rider','=','Usuarios.id_usu')->where('id_usu','=',1)->get();
+    /**
+     * Get all of the comments for the Usuarios
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function puntos()
+    {
+        return $this->hasMany(Puntos::class, 'id_punto');
+    }
+
+    /**
+     * Get the usuario t
+     *
+     * @return \Illuminate\Rolesbase\Eloquent\Relations\BelongsTo
+     */
+    public function usuario()
+    {
+        return $this->belongsTo(Roles::class, 'id_rol');
+    }
 }

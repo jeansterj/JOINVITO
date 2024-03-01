@@ -34,27 +34,13 @@ class Proveedores extends Model
         return $this->hasMany(Menus::class, 'id_prov');
     }
 
-    // /**
-    //  * The roles that belong to the Proveedores
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    //  */
-    // public function favoritos()
-    // {
-    //     return $this->belongsToMany(Favoritos::class, 'id_prov');
-    // }
-
-    // public function riders()
-    // {
-    //     return $this->belongsToMany(Riders::class, 'favoritos', 'id_proveedor', 'id_rider');
-    // }
 
     /**
      * Get all of the favoritos for the Proveedores
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function favoritos(): HasMany
+    public function favoritos()
     {
         return $this->hasMany(Favoritos::class, 'id_proveedor');
     }

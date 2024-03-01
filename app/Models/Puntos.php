@@ -23,4 +23,14 @@ class Puntos extends Model
     {
         return $this->hasMany(Entregas::class, 'id_punto');
     }
+
+    /**
+     * Get the user that owns the Puntos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function usuario()
+    {
+        return $this->belongsTo(Usuarios::class, 'id_punto');
+    }
 }

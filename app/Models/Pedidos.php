@@ -23,4 +23,24 @@ class Pedidos extends Model
     {
         return $this->hasMany(Entregas::class, 'id_pedido');
     }
+
+    /**
+     * Get the user that owns the Pedidos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function rider()
+    {
+        return $this->belongsTo(Riders::class, 'id_rider');
+    }
+
+    /**
+     * Get the menu that owns the Pedidos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function menu()
+    {
+        return $this->belongsTo(Menus::class, 'id_menu');
+    }
 }

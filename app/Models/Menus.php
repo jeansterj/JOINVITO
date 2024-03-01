@@ -22,6 +22,16 @@ class Menus extends Model
      */
     public function riders()
     {
-        return $this->belongsToMany(Riders::class, 'pedidos', 'id_menu', 'id_rider');
+        return $this->belongsToMany(Riders::class, 'pedidos', 'id_menu', 'id_rider')->withPivot('cantidad_packs', 'fecha','entregado_a_rider');
+    }
+
+    /**
+     * Get all of the comments for the Menus
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pedidos()
+    {
+        return $this->hasMany(Pedidos::class, 'id_menu');
     }
 }

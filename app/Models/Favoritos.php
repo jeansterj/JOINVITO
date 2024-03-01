@@ -43,7 +43,8 @@ class Favoritos extends Model
      */
     public function noti()
     {
-        return $this->hasOne(NotisUsuario::class);
+        return $this->hasOne(NotisUsuario::class, 'id_fav');
     }
 
+    
 }
