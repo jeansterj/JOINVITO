@@ -146,7 +146,7 @@ primary key(id_fav)
 insert into favoritos values(1,1,2);
 insert into favoritos values(2,1,2);
 
-create table notis_usuario(
+create table notis(
 id_noti int auto_increment unique,
 mensaje varchar(250) not null,
 id_fav int not null,
