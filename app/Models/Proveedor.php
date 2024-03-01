@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proveedores extends Model
+class Proveedor extends Model
 {
     use HasFactory;
 
@@ -17,19 +17,19 @@ class Proveedores extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuarios::class, 'id_prov');
+        return $this->belongsTo(Usuario::class, 'id_prov');
     }
 
 
     public function menus()
     {
-        return $this->hasMany(Menus::class, 'id_prov');
+        return $this->hasMany(Menu::class, 'id_prov');
     }
 
 
     public function favoritos()
     {
-        return $this->hasMany(Favoritos::class, 'id_proveedor');
+        return $this->hasMany(Favorito::class, 'id_proveedor');
     }
 
 }

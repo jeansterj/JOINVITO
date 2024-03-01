@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuarios extends Model
+class Usuario extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,7 @@ class Usuarios extends Model
 
     public function riders()
     {
-        return $this->hasMany(Riders::class, 'id_rider');
+        return $this->hasMany(Rider::class, 'id_rider');
     }
 
 
@@ -35,12 +35,12 @@ class Usuarios extends Model
 
     public function puntos()
     {
-        return $this->hasMany(Puntos::class, 'id_punto');
+        return $this->hasMany(Punto::class, 'id_punto');
     }
 
     
     public function usuario()
     {
-        return $this->belongsTo(Roles::class, 'id_rol');
+        return $this->belongsTo(Rol::class, 'id_rol');
     }
 }

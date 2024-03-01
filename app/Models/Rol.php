@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model
+class Rol extends Model
 {
     use HasFactory;
 
@@ -17,6 +17,6 @@ class Roles extends Model
 
     public function usuarios()
     {
-        return $this->hasMany(Usuarios::class, 'id_rol');
+        return $this->hasMany(Usuario::class, 'id_rol');
     }
 }

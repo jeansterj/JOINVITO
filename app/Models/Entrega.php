@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entregas extends Model
+class Entrega extends Model
 {
     use HasFactory;
 
@@ -17,12 +17,12 @@ class Entregas extends Model
 
     public function punto()
     {
-        return $this->belongsTo(Puntos::class, 'id_punto');
+        return $this->belongsTo(Punto::class, 'id_punto');
     }
 
 
     public function pedido()
     {
-        return $this->belongsTo(Pedidos::class, 'id_pedido');
+        return $this->belongsTo(Pedido::class, 'id_pedido');
     }
 }

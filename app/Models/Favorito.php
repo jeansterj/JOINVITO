@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Favoritos extends Model
+class Favorito extends Model
 {
     use HasFactory;
 
@@ -18,20 +18,20 @@ class Favoritos extends Model
 
     public function rider()
     {
-        return $this->belongsTo(Riders::class, 'id_rider');
+        return $this->belongsTo(Rider::class, 'id_rider');
     }
 
 
 
     public function proveedor(): BelongsTo
     {
-        return $this->belongsTo(Proveedores::class, 'id_proveedor');
+        return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 
 
     public function noti()
     {
-        return $this->hasOne(NotisUsuario::class, 'id_fav');
+        return $this->hasOne(Noti::class, 'id_fav');
     }
 
 

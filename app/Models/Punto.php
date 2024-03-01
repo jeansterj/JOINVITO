@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Puntos extends Model
+class Punto extends Model
 {
     use HasFactory;
 
@@ -17,12 +17,12 @@ class Puntos extends Model
 
     public function entregas()
     {
-        return $this->hasMany(Entregas::class, 'id_punto');
+        return $this->hasMany(Entrega::class, 'id_punto');
     }
 
 
     public function usuario()
     {
-        return $this->belongsTo(Usuarios::class, 'id_punto');
+        return $this->belongsTo(Usuario::class, 'id_punto');
     }
 }

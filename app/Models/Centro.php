@@ -21,6 +21,6 @@ class Centros extends Model
      */
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id_centro');
+        return $this->belongsTo(Usuario::class, 'id_centro');
     }
 }
