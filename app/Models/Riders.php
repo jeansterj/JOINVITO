@@ -16,42 +16,23 @@ class Riders extends Model
     public $timestamps = false;
 
 
-    /**
-     * Get the user that owns the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function usuario()
     {
         return $this->belongsTo(User::class, 'id_rider');
     }
 
 
-    /**
-     * Get all of the comments for the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function favoritos(): HasMany
     {
         return $this->hasMany(Favoritos::class, 'id_rider');
     }
 
-    /**
-     * The roles that belong to the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function menus()
     {
         return $this->belongsToMany(Menus::class, 'pedidos', 'id_rider', 'id_menu')->withPivot('cantidad_packs', 'fecha','entregado_a_rider');
     }
 
-    /**
-     * Get all of the comments for the Riders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
     public function pedidos()
     {
         return $this->hasMany(Pedidos::class, 'id_rider');

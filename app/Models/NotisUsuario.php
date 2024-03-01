@@ -14,11 +14,7 @@ class NotisUsuario extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    /**
-     * Get the user that owns the NotisUsuario
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+
     public function favorito()
     {
         return $this->belongsTo(Favoritos::class, 'id_fav');

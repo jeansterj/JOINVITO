@@ -14,21 +14,13 @@ class Puntos extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    /**
-     * Get all of the comments for the Puntos
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
     public function entregas()
     {
         return $this->hasMany(Entregas::class, 'id_punto');
     }
 
-    /**
-     * Get the user that owns the Puntos
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+
     public function usuario()
     {
         return $this->belongsTo(Usuarios::class, 'id_punto');
