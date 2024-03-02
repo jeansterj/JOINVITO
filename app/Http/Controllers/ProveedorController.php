@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Riders;
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
-class RidersController extends Controller
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RidersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Riders $riders)
+    public function show(Proveedor $proveedor)
     {
         //
     }
@@ -42,7 +42,7 @@ class RidersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Riders $riders)
+    public function edit(Proveedor $proveedor)
     {
         //
     }
@@ -50,7 +50,7 @@ class RidersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Riders $riders)
+    public function update(Request $request, Proveedor $proveedor)
     {
         //
     }
@@ -58,17 +58,8 @@ class RidersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Riders $riders)
+    public function destroy(Proveedor $proveedor)
     {
         //
-    }
-
-    public function showFavorites(){
-
-        $datos = Riders::find(1)->with(['favoritos.proveedor.menus'])->get()->first();
-
-        $datos = $datos->favoritos;
-
-        return view('rider.menu_selection',compact('datos'));
     }
 }

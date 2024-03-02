@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HistoricoEntregas;
+use App\Models\Riders;
+use App\Models\Favoritos;
 use Illuminate\Http\Request;
 
-class HistoricoEntregasController extends Controller
+class FavoritoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HistoricoEntregas $historicoEntregas)
+    public function show(Favorito $favorito)
     {
         //
     }
@@ -42,7 +43,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HistoricoEntregas $historicoEntregas)
+    public function edit(Favorito $favorito)
     {
         //
     }
@@ -50,7 +51,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HistoricoEntregas $historicoEntregas)
+    public function update(Request $request, Favoritos $favoritos)
     {
         //
     }
@@ -58,8 +59,9 @@ class HistoricoEntregasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HistoricoEntregas $historicoEntregas)
+    public function destroy(Favoritos $favoritos)
     {
         //
     }
+
 }

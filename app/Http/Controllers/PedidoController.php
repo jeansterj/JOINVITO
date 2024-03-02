@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pedidos;
 use Illuminate\Http\Request;
 
-class PedidosController extends Controller
+class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PedidosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pedidos $pedidos)
+    public function show(Pedido $pedido)
     {
         //
     }
@@ -42,7 +42,7 @@ class PedidosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pedidos $pedidos)
+    public function edit(Pedido $pedido)
     {
         //
     }
@@ -50,7 +50,7 @@ class PedidosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pedidos $pedidos)
+    public function update(Request $request, Pedido $pedido)
     {
         //
     }
@@ -58,7 +58,7 @@ class PedidosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pedidos $pedidos)
+    public function destroy(Pedido $pedido)
     {
         //
     }

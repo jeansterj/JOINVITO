@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Favorito extends Model
@@ -11,7 +10,7 @@ class Favorito extends Model
     use HasFactory;
 
     protected $table = 'favoritos';
-    protected $primaryKey = 'id_fav';
+    protected $primaryKey = ['id_rider', 'id_proveedor'];
     public $incrementing = false;
     public $timestamps = false;
 
@@ -23,7 +22,7 @@ class Favorito extends Model
 
 
 
-    public function proveedor(): BelongsTo
+    public function proveedor()
     {
         return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }

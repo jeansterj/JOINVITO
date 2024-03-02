@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Centros;
+use App\Models\menus;
 use Illuminate\Http\Request;
 
-class CentrosController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class CentrosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CentrosSociales $centrosSociales)
+    public function show(Menus $menu)
     {
         //
     }
@@ -42,7 +42,7 @@ class CentrosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CentrosSociales $centrosSociales)
+    public function edit(Menu $menu)
     {
         //
     }
@@ -50,7 +50,7 @@ class CentrosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CentrosSociales $centrosSociales)
+    public function update(Request $request, Menus $menu)
     {
         //
     }
@@ -58,7 +58,7 @@ class CentrosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CentrosSociales $centrosSociales)
+    public function destroy(Menus $menu)
     {
         //
     }

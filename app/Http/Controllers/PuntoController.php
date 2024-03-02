@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuarios;
+use App\Models\Punto;
 use Illuminate\Http\Request;
 
-class UsuariosController extends Controller
+class PuntoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $puntos = Punto::all();
+
+        return $puntos;
     }
 
     /**
@@ -34,7 +36,7 @@ class UsuariosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Usuarios $usuarios)
+    public function show(Punto $punto)
     {
         //
     }
@@ -42,7 +44,7 @@ class UsuariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuarios $usuarios)
+    public function edit(Punto $punto)
     {
         //
     }
@@ -50,7 +52,7 @@ class UsuariosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuarios $usuarios)
+    public function update(Request $request, Punto $punto)
     {
         //
     }
@@ -58,7 +60,7 @@ class UsuariosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuarios $usuarios)
+    public function destroy(Punto $punto)
     {
         //
     }

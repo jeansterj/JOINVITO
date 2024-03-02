@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Roles;
+use App\Models\Rider;
 use Illuminate\Http\Request;
 
-class RolesController extends Controller
+class RiderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RolesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Roles $roles)
+    public function show(Rider $rider)
     {
         //
     }
@@ -42,7 +42,7 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Roles $roles)
+    public function edit(Rider $rider)
     {
         //
     }
@@ -50,7 +50,7 @@ class RolesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Roles $roles)
+    public function update(Request $request, Rider $rider)
     {
         //
     }
@@ -58,8 +58,17 @@ class RolesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Roles $roles)
+    public function destroy(Rider $rider)
     {
         //
+    }
+
+    public function showFavorites(){
+
+        $datos = Rider::find(1)->with(['favoritos.proveedor.menus'])->get()->first();
+
+        $datos = $datos->favoritos;
+
+        return view('rider.menu_selection',compact('datos'));
     }
 }

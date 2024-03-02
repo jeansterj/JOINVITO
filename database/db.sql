@@ -5,7 +5,7 @@ create database joinvito;
 use joinvito;
 
 create table roles(
-id_rol int auto_increment, 
+id_rol int auto_increment,
 nombre varchar(15) not null,
 primary key(id_rol)
 );
@@ -77,8 +77,8 @@ FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov),
 primary key(id_menu)
 );
 
-insert into menus values(1,'Agua','Ensalada','Jamon',1,1,'2024-02-28');
-insert into menus values(2,'Cola','Pasta','Yogurt',1,1,'2024-02-28');
+insert into menus values(1,'Agua','Ensalada','Jamon',1,2,'2024-02-28');
+insert into menus values(2,'Cola','Pasta','Yogurt',1,2,'2024-02-28');
 
 create table puntos(
 id_punto int auto_increment,
@@ -135,15 +135,15 @@ primary key(id_entrega)
 );
 
 create table favoritos(
-id_fav int auto_increment,
+id_fav int not null unique,
 id_rider int not null,
 id_proveedor int not null,
 FOREIGN KEY (id_rider) REFERENCES riders(id_rider),
 FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_prov),
-primary key(id_fav)
+primary key(id_rider,id_proveedor)
 );
 
-insert into favoritos values(1,1,2);
+insert into favoritos values(1,1,1);
 insert into favoritos values(2,1,2);
 
 create table notis(
@@ -155,5 +155,5 @@ FOREIGN KEY (id_fav) REFERENCES favoritos(id_fav),
 primary key(id_fav)
 );
 
-insert into notis_usuario values (1, 'prueba', 1, false);
-insert into notis_usuario values (2, 'prueba2', 2, true);
+insert into notis values (1, 'prueba', 1, false);
+insert into notis values (2, 'prueba2', 2, true);
