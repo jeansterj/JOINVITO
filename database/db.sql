@@ -26,6 +26,7 @@ primary key(id_usu)
 
 insert into usuarios values(1,'jean@prueba.com','prueba',2);
 insert into usuarios values(2,'aleix@prueba.com','prueba',4);
+insert into usuarios values(3,'aleix@prueba.com','prueba',4);
 
 create table riders(
 id_rider int auto_increment,
@@ -52,6 +53,7 @@ primary key(id_prov)
 
 insert into proveedores values(1,'Pepe','Sanchez','Panaderia Pepe','Calle 1',null,'Barcelona','08830');
 insert into proveedores values(2,'Antonio','Recio','Mariscos Recio','Calle 2',null,'Barcelona','08831');
+insert into proveedores values(3,'Pepe','Gotera','Pepe Gotera S.A.','Calle 3',null,'Barcelona','08831');
 
 create table centros(
 id_centro int auto_increment,
@@ -78,7 +80,8 @@ primary key(id_menu)
 );
 
 insert into menus values(1,'Agua','Ensalada','Jamon',1,2,'2024-02-28');
-insert into menus values(2,'Cola','Pasta','Yogurt',1,2,'2024-02-28');
+insert into menus values(2,'Cola','Pasta','Yogurt',1,3,'2024-02-28');
+insert into menus values(3,'Vino','Flan','Yogurt',1,3,'2024-02-28');
 
 create table puntos(
 id_punto int auto_increment,
@@ -143,8 +146,8 @@ FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_prov),
 primary key(id_rider,id_proveedor)
 );
 
-insert into favoritos values(1,1,1);
-insert into favoritos values(2,1,2);
+insert into favoritos values(1,1,2);
+insert into favoritos values(2,1,3);
 
 create table notis(
 id_noti int auto_increment unique,
