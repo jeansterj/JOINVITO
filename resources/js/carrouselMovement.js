@@ -12,7 +12,6 @@ document.addEventListener('click', function (Event) {
 })
 function activeForm(carrouselActive) {
     for (const icons of carrouselActive) {
-        // const algo = icons.id === 'riderIcon'
         if (icons.id === 'riderIcon') 
         {
             riderDiv.style.display = 'block';

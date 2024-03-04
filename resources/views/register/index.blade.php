@@ -90,7 +90,8 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                </button>
             </div>
             <div class="container-form" id="supplierDiv">
-               <form class="registerForm">
+               <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
+                  @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
                      <div class="col-3 col-md-7">
@@ -141,14 +142,15 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="postalCode" maxlength="5"
                               placeholder="09989" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="supplierFrom" value="supplierForm">Sign Up</button>
                      </div>
                   </div>
                </form>
             </div>
             {{-- RIDER --}}
             <div class="container-form" id="riderDiv">
-               <form class="registerForm">
+               <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
+                  @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
                      <div class="col-3 col-md-7">
@@ -167,14 +169,15 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="nameRider" maxlength="50"
                               placeholder="Jon" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="riderFrom" value="riderForm">Sign Up</button>
                      </div>
                   </div>
                </form>
             </div>
             {{-- S.CENTER --}}
             <div class="container-form" id="sCenterDiv">
-               <form class="registerForm">
+               <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
+                  @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
                      <div class="col-3 col-md-7">
@@ -193,7 +196,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="nameCenter" maxlength="50"
                               placeholder="Jon" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="sCenterFrom" value="sCenterForm">Sign Up</button>
                      </div>
                   </div>
                </form>
