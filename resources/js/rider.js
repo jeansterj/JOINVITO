@@ -159,6 +159,29 @@ document.addEventListener('DOMContentLoaded',function(){
       getLocation(printLocation);
 
 
+      let decrement = document.querySelectorAll('.decrement');
+      let increment = document.querySelectorAll('.increment');
 
+      decrement.forEach((item) => {
+
+        item.addEventListener('click',() => {
+
+            let cantidad = parseInt(item.parentNode.nextElementSibling.querySelector('.quantity').innerHTML);
+            cantidad--;
+            item.parentNode.nextElementSibling.querySelector('#cantidad').value = cantidad;
+            item.parentNode.nextElementSibling.querySelector('.quantity').innerHTML = cantidad;
+        });
+      })
+
+      increment.forEach((item) => {
+
+        item.addEventListener('click',() => {
+
+            let cantidad = parseInt(item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML);
+            cantidad++;
+            item.parentNode.previousElementSibling.querySelector('#cantidad').value = cantidad;
+            item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML = cantidad;
+        });
+      })
 });
 

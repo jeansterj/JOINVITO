@@ -59,6 +59,13 @@
     color: #07203C;
 }
 
+.carousel-item .card .decrement,
+.carousel-item .card .increment{
+    cursor: pointer;
+    font-size: 45px;
+    color: #07203C;
+}
+
 .carousel-item .card button{
     border: none;
     background-color: #07203C;
