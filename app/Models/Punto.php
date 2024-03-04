@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Puntos extends Model
+class Punto extends Model
 {
     use HasFactory;
 
@@ -14,13 +14,15 @@ class Puntos extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    /**
-     * Get all of the comments for the Puntos
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
     public function entregas()
     {
-        return $this->hasMany(Entregas::class, 'id_punto');
+        return $this->hasMany(Entrega::class, 'id_punto');
+    }
+
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'id_usu');
     }
 }

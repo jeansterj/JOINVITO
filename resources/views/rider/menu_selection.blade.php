@@ -23,7 +23,7 @@
   @endsection
 
 @section('content')
-  <div class="container">    
+  <div class="container">
     <h3>MENU</h3>
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -37,31 +37,38 @@
       <div class="card-body">
         <div id="carouselRestaurants" class="carousel slide">
           <div class="carousel-inner">
-            @foreach ($favoritos as $item)
-              <div class="carousel-item @if ($loop->first) active @endif">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title"><span>{{ $item->cantidad_packs }}</span> PACKS LEFT</h5>
-                    <p class="card-text">{{ $item->bebida }}</p>
-                    <p class="card-text">{{ $item->plato1 }}</p>
-                    <p class="card-text">{{ $item->plato2 }}</p>
-                    <div class="container text-center">
-                      <div class="row align-items-start">
-                        <div class="col">
-                          <span class="quantity">-</span>
+            @php $active = "active" @endphp
+            @foreach ($cercanosMenus as $dato)
+                @foreach ($dato->usuario->proveedores as $proveedor)
+                    @php $nombre = $proveedor->nombre_negocio @endphp
+                    @foreach ($proveedor->menus as $menu)
+                        <div class="carousel-item {{ $active }}">
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                                <p class="card-text">{{ $menu->bebida }}</p>
+                                <p class="card-text">{{ $menu->plato1 }}</p>
+                                <p class="card-text">{{ $menu->plato2 }}</p>
+                                <div class="container text-center">
+                                <div class="row align-items-start">
+                                    <div class="col">
+                                    <span class="quantity">-</span>
+                                    </div>
+                                    <div class="col">
+                                    <span class="quantity">{{ $menu->cantidad_packs }}</span>
+                                    </div>
+                                    <div class="col">
+                                    <span class="quantity">+</span>
+                                    </div>
+                                </div>
+                                </div>
+                                <button type="button" class="btn btn-primary">GET</button>
+                            </div>
+                            </div>
                         </div>
-                        <div class="col">
-                          <span class="quantity">{{ $item->cantidad_packs }}</span>
-                        </div>
-                        <div class="col">
-                          <span class="quantity">+</span>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-primary">GET</button>
-                  </div>
-                </div>
-              </div>
+                        @php $active = "" @endphp
+                    @endforeach
+                @endforeach
             @endforeach
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselRestaurants" data-bs-slide="prev">
@@ -79,31 +86,36 @@
       <div class="card-body">
         <div id="carouselFavorites" class="carousel slide">
           <div class="carousel-inner">
-            @foreach ($favoritos as $item)
-              <div class="carousel-item @if ($loop->first) active @endif">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title"><span>{{ $item->cantidad_packs }}</span> PACKS LEFT</h5>
-                    <p class="card-text">{{ $item->bebida }}</p>
-                    <p class="card-text">{{ $item->plato1 }}</p>
-                    <p class="card-text">{{ $item->plato2 }}</p>
-                    <div class="container text-center">
-                      <div class="row align-items-start">
-                        <div class="col">
-                          <span class="quantity">-</span>
+            @php $active = "active" @endphp
+            @foreach ($favoritosMenus as $dato)
+                @php $nombre = $dato->proveedor->nombre_negocio @endphp
+                @foreach ($dato->proveedor->menus as $menu)
+                <div class="carousel-item {{ $active }}">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                            <p class="card-text">{{ $menu->bebida }}</p>
+                            <p class="card-text">{{ $menu->plato1 }}</p>
+                            <p class="card-text">{{ $menu->plato2 }}</p>
+                            <div class="container text-center">
+                              <div class="row align-items-start">
+                                <div class="col">
+                                  <span class="quantity">-</span>
+                                </div>
+                                <div class="col">
+                                  <span class="quantity">{{ $menu->cantidad_packs }}</span>
+                                </div>
+                                <div class="col">
+                                  <span class="quantity">+</span>
+                                </div>
+                              </div>
+                            </div>
+                            <button type="button" class="btn btn-primary">GET</button>
+                          </div>
                         </div>
-                        <div class="col">
-                          <span class="quantity">{{ $item->cantidad_packs }}</span>
-                        </div>
-                        <div class="col">
-                          <span class="quantity">+</span>
-                        </div>
-                      </div>
                     </div>
-                    <button type="button" class="btn btn-primary">GET</button>
-                  </div>
-                </div>
-              </div>
+                    @php $active = "" @endphp
+                @endforeach
             @endforeach
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselFavorites" data-bs-slide="prev">

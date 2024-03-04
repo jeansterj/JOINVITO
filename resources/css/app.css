@@ -174,12 +174,11 @@ display: none;
   background-color: #FFCA10;
   margin-top: 10px;
   width: 100%;
-}
-
-.flotante {
+  z-index: 1000;
   position: fixed;
   bottom: 0;
 }
+
 
 .flotante .col{
   text-align: center;

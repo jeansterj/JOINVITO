@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NotisUsuario;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
-class NotisUsuarioController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class NotisUsuarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NotisUsuario $notisUsuario)
+    public function show(Rol $rol)
     {
         //
     }
@@ -42,7 +42,7 @@ class NotisUsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(NotisUsuario $notisUsuario)
+    public function edit(Rol $roles)
     {
         //
     }
@@ -50,7 +50,7 @@ class NotisUsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NotisUsuario $notisUsuario)
+    public function update(Request $request, Rol $rol)
     {
         //
     }
@@ -58,7 +58,7 @@ class NotisUsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NotisUsuario $notisUsuario)
+    public function destroy(Roles $rol)
     {
         //
     }

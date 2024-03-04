@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PuntosController;
-use App\Http\Controllers\RidersController;
+use App\Http\Controllers\PuntoController;
+use App\Http\Controllers\RiderController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,13 @@ Route::get('rider', function () {
     return view('rider.index');
 });
 
-Route::resource('puntos', PuntosController::class);
+Route::resource('puntos', PuntoController::class);
 
-Route::get('rider-menu-selection', [RidersController::class,'showFavorites']);
+
+
+Route::resource('usuario', UsuarioController::class);
+
+Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
+
+Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 

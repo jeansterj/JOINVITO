@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entregas;
+use App\Models\Entrega;
 use Illuminate\Http\Request;
 
-class EntregasController extends Controller
+class EntregaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class EntregasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Entregas $entregas)
+    public function show(Entrega $entrega)
     {
         //
     }
@@ -42,7 +42,7 @@ class EntregasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Entregas $entregas)
+    public function edit(Entrega $entrega)
     {
         //
     }
@@ -50,7 +50,7 @@ class EntregasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Entregas $entregas)
+    public function update(Request $request, Entrega $entrega)
     {
         //
     }
@@ -58,7 +58,7 @@ class EntregasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Entregas $entregas)
+    public function destroy(Entrega $entrega)
     {
         //
     }

@@ -78,8 +78,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
         async function fetchPuntos() {
 
-            let puntosData;
-
             fetch('puntos')
                 .then(function(response){
                     response.json()
@@ -118,7 +116,7 @@ document.addEventListener('DOMContentLoaded',function(){
                         const map = new mapboxgl.Map({
                             container: 'map', // container ID
                             center: [lng, lat], // starting position [lng, lat]
-                            zoom: 14 // starting zoom
+                            zoom: 10 // starting zoom
                         });
 
 

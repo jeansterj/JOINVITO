@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Roles;
+use App\Models\Noti;
 use Illuminate\Http\Request;
 
-class RolesController extends Controller
+class NotiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RolesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Roles $roles)
+    public function show(Noti $noti)
     {
         //
     }
@@ -42,7 +42,7 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Roles $roles)
+    public function edit(Noti $noti)
     {
         //
     }
@@ -50,7 +50,7 @@ class RolesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Roles $roles)
+    public function update(Request $request, Noti $noti)
     {
         //
     }
@@ -58,7 +58,7 @@ class RolesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Roles $roles)
+    public function destroy(Noti $noti)
     {
         //
     }

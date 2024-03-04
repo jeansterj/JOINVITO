@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\menus;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
-class MenusController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MenusController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(menus $menus)
+    public function show(Usuario $usuario)
     {
         //
     }
@@ -42,7 +42,7 @@ class MenusController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(menus $menus)
+    public function edit(Usuario $usuario)
     {
         //
     }
@@ -50,7 +50,7 @@ class MenusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, menus $menus)
+    public function update(Request $request, Usuario $usuario)
     {
         //
     }
@@ -58,7 +58,7 @@ class MenusController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(menus $menus)
+    public function destroy(Usuario $usuario)
     {
         //
     }

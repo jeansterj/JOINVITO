@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Puntos;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
-class PuntosController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $puntos = Puntos::all();
-
-        return $puntos;
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class PuntosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PuntosEntrega $puntosEntrega)
+    public function show(Menus $menu)
     {
         //
     }
@@ -44,7 +42,7 @@ class PuntosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PuntosEntrega $puntosEntrega)
+    public function edit(Menu $menu)
     {
         //
     }
@@ -52,7 +50,7 @@ class PuntosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PuntosEntrega $puntosEntrega)
+    public function update(Request $request, Menus $menu)
     {
         //
     }
@@ -60,7 +58,7 @@ class PuntosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PuntosEntrega $puntosEntrega)
+    public function destroy(Menus $menu)
     {
         //
     }

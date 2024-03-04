@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HistoricoEntregas;
+use App\Models\Centro;
 use Illuminate\Http\Request;
 
-class HistoricoEntregasController extends Controller
+class CentroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HistoricoEntregas $historicoEntregas)
+    public function show(Centros $centro)
     {
         //
     }
@@ -42,7 +42,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HistoricoEntregas $historicoEntregas)
+    public function edit(Centros $centro)
     {
         //
     }
@@ -50,7 +50,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HistoricoEntregas $historicoEntregas)
+    public function update(Request $request, Centro $centro)
     {
         //
     }
@@ -58,7 +58,7 @@ class HistoricoEntregasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HistoricoEntregas $historicoEntregas)
+    public function destroy(Centro $centro)
     {
         //
     }

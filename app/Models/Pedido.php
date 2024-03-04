@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedidos extends Model
+class Pedido extends Model
 {
     use HasFactory;
 
@@ -14,13 +14,20 @@ class Pedidos extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    /**
-     * Get all of the comments for the Pedidos
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function entregas()
     {
-        return $this->hasMany(Entregas::class, 'id_pedido');
+        return $this->hasMany(Entrega::class, 'id_pedido');
+    }
+
+
+    public function rider()
+    {
+        return $this->belongsTo(Rider::class, 'id_rider');
+    }
+
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'id_menu');
     }
 }
