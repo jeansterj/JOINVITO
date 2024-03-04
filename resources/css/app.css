@@ -184,3 +184,10 @@ display: none;
   text-align: center;
 }
 
+.flotante img {
+  margin-top: 20%;
+}
+
+.flotante.container.text-center {
+  border-radius: 25px 25px 0 0;
+}
