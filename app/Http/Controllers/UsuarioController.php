@@ -28,7 +28,20 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $supplierForm = $request->supplierForm;
+
+        $riderForm = $request->riderForm;
+
+        $sCenterUser = $request->sCenterFrom;
+
+        $user = new Usuario();
+
+
+        $user->nom = $request->input('nom');
+        $user->edat = $request->input('edat');
+
+
+        $user->save();
     }
 
     /**
