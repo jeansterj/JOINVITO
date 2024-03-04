@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HistoricoEntregas;
+use App\Models\HistoricoEntrega;
 use Illuminate\Http\Request;
 
 class HistoricoEntregaController extends Controller

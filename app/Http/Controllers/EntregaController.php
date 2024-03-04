@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entregas;
+use App\Models\Entrega;
 use Illuminate\Http\Request;
 
 class EntregaController extends Controller

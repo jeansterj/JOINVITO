@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Punto;
 use App\Models\Rider;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class RiderController extends Controller
@@ -63,12 +65,37 @@ class RiderController extends Controller
         //
     }
 
-    public function showFavorites(){
+    public function showFavoritesNearBy(){
 
-        $datos = Rider::find(1)->with(['favoritos.proveedor.menus'])->get()->first();
+        $favoritosMenus = Rider::find(1)
+        ->with(['favoritos.proveedor.menus'])
+        ->get()
+        ->first();
 
-        $datos = $datos->favoritos;
+        $favoritosMenus = $favoritosMenus->favoritos;
 
-        return view('rider.menu_selection',compact('datos'));
+        $latIni = 41.3888845 - 0.01;
+        $latFin = 41.3888845 + 0.01;
+        $longIni = 2.1706315 - 0.01;
+        $longFin = 2.1706315 + 0.01;
+
+        $cercanosMenus = Punto::with('usuario.proveedores.menus')
+        ->whereBetween('latitud', [$latIni, $latFin])
+        ->whereBetween('longitud', [$longIni, $longFin])
+        ->where('tipo','=','Proveedor')
+        ->get();
+
+
+        return view('rider.menu_selection',compact('favoritosMenus','cercanosMenus'));
+    }
+
+    public function updateLocation(Rider $rider){
+
+        var_dump($rider);
+        die();
+
+        // $flight->name = 'Paris to London';
+
+        // $flight->save();
     }
 }

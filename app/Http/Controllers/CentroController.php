@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Centros;
+use App\Models\Centro;
 use Illuminate\Http\Request;
 
 class CentroController extends Controller

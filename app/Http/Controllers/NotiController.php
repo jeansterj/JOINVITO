@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NotisUsuario;
+use App\Models\Noti;
 use Illuminate\Http\Request;
 
 class NotiController extends Controller

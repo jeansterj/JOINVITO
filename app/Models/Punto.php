@@ -23,6 +23,6 @@ class Punto extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_punto');
+        return $this->belongsTo(Usuario::class, 'id_usu');
     }
 }

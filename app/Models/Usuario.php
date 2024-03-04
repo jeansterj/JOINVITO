@@ -17,7 +17,7 @@ class Usuario extends Model
 
     public function riders()
     {
-        return $this->hasMany(Rider::class, 'id_rider');
+        return $this->hasMany(Rider::class, 'id_usu');
     }
 
 
@@ -29,7 +29,7 @@ class Usuario extends Model
 
     public function proveedores()
     {
-        return $this->hasMany(Proveedores::class, 'id_prov');
+        return $this->hasMany(Proveedor::class, 'id_prov');
     }
 
 
@@ -38,7 +38,7 @@ class Usuario extends Model
         return $this->hasMany(Punto::class, 'id_punto');
     }
 
-    
+
     public function usuario()
     {
         return $this->belongsTo(Rol::class, 'id_rol');

@@ -12,7 +12,7 @@ class PuntoController extends Controller
      */
     public function index()
     {
-        $puntos = Punto::all();
+        $puntos = Punto::all()->where('fecha_baja','=',null);
 
         return $puntos;
     }

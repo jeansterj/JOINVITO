@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Riders;
-use App\Models\Favoritos;
+use App\Models\Rider;
+use App\Models\Favorito;
 use Illuminate\Http\Request;
 
 class FavoritoController extends Controller
