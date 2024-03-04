@@ -108,3 +108,20 @@
 .mapboxgl-popup-close-button{
     font-size: 27px;
 }
+
+.buttonOrder{
+    color: #07203C;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.imgRiderMot{
+
+    width: 30%;
+}
+
+.chartRiderMap{
+
+    border-radius: 20px;
+
+}
