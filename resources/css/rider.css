@@ -182,3 +182,8 @@
 .margin-top{
     margin-top: 25px!important;
 }
+
+img.rider-logo{
+    width: 150px;
+    margin: auto;
+}
