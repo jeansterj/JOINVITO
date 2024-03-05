@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,18 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pedido = new Pedido();
+
+
+        $pedido->id_rider = 1;
+        $pedido->id_menu = $request->id_menu;
+        $pedido->cantidad_packs = $request->cantidad;
+        $pedido->fecha = date('y-m-d');
+        $pedido->entregado_a_rider = false;
+
+        $pedido->save();
+
+        return redirect('rider-menu-selection');
     }
 
     /**

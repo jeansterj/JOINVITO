@@ -45,28 +45,32 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                     @php $nombre = $proveedor->nombre_negocio @endphp
                     @foreach ($proveedor->menus as $menu)
                         <div class="carousel-item {{ $active }}">
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><span>{{ $nombre }}</span></h5>
-                                <p class="card-text">{{ $menu->bebida }}</p>
-                                <p class="card-text">{{ $menu->plato1 }}</p>
-                                <p class="card-text">{{ $menu->plato2 }}</p>
-                                <div class="container text-center">
-                                <div class="row align-items-start">
-                                    <div class="col">
-                                    <span class="quantity">-</span>
-                                    </div>
-                                    <div class="col">
-                                    <span class="quantity">{{ $menu->cantidad_packs }}</span>
-                                    </div>
-                                    <div class="col">
-                                    <span class="quantity">+</span>
+                            <form action="{{ action([App\Http\Controllers\PedidoController::class,'store']) }}" method="POST">
+                                @csrf
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                                        <p class="card-text">{{ $menu->bebida }}</p>
+                                        <p class="card-text">{{ $menu->plato1 }}</p>
+                                        <p class="card-text">{{ $menu->plato2 }}</p>
+                                        <div class="container text-center">
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <span class="decrement">-</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="quantity">{{ $menu->cantidad_packs }}</span>
+                                                    <input type="hidden" id="cantidad" name="cantidad" value="{{ $menu->cantidad_packs }}"></input>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="increment">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary">GET</button>
                                     </div>
                                 </div>
-                                </div>
-                                <button type="button" class="btn btn-primary">GET</button>
-                            </div>
-                            </div>
+                            </form>
                         </div>
                         @php $active = "" @endphp
                     @endforeach
@@ -92,29 +96,37 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
             @foreach ($favoritosMenus as $dato)
                 @php $nombre = $dato->proveedor->nombre_negocio @endphp
                 @foreach ($dato->proveedor->menus as $menu)
-                <div class="carousel-item {{ $active }}">
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title"><span>{{ $nombre }}</span></h5>
-                            <p class="card-text">{{ $menu->bebida }}</p>
-                            <p class="card-text">{{ $menu->plato1 }}</p>
-                            <p class="card-text">{{ $menu->plato2 }}</p>
-                            <div class="container text-center">
-                              <div class="row align-items-start">
-                                <div class="col">
-                                  <span class="quantity">-</span>
+                    <div class="carousel-item {{ $active }}">
+                        <form action="{{ action([App\Http\Controllers\PedidoController::class,'store']) }}" method="POST">
+                            @csrf
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                                    <input type="hidden" name="id_menu" value="{{ $menu->id_menu }}"></input>
+                                    <p class="card-text">{{ $menu->bebida }}</p>
+                                    <input type="hidden" name="bebida" value="{{ $menu->bebida }}"></input>
+                                    <p class="card-text">{{ $menu->plato1 }}</p>
+                                    <input type="hidden" name="plato1" value="{{ $menu->plato1 }}"></input>
+                                    <p class="card-text">{{ $menu->plato2 }}</p>
+                                    <input type="hidden" name="plato2" value="{{ $menu->plato2 }}"></input>
+                                    <div class="container text-center">
+                                        <div class="row align-items-start">
+                                            <div class="col">
+                                                <span class="decrement">-</span>
+                                            </div>
+                                            <div class="col">
+                                                <span class="quantity">{{ $menu->cantidad_packs }}</span>
+                                                <input type="hidden" id="cantidad" name="cantidad" value="{{ $menu->cantidad_packs }}"></input>
+                                            </div>
+                                            <div class="col">
+                                                <span class="increment">+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submnit" class="btn btn-primary">GET</button>
                                 </div>
-                                <div class="col">
-                                  <span class="quantity">{{ $menu->cantidad_packs }}</span>
-                                </div>
-                                <div class="col">
-                                  <span class="quantity">+</span>
-                                </div>
-                              </div>
                             </div>
-                            <button type="button" class="btn btn-primary">GET</button>
-                          </div>
-                        </div>
+                        </form>
                     </div>
                     @php $active = "" @endphp
                 @endforeach

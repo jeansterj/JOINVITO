@@ -22,9 +22,11 @@
 {{-- <body class="bg-secondary"> --}}
   <nav class="navbar navbar-expand-lg bg-light" >
     <div class="container-fluid">
-      <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
-      </button>
+      <a href="{{url('login')}}">
+        <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{{ url('login')}}">
+          <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
+        </button>
+      </a>
     <div class="logo">
               <img src="{{ asset('img/JoInvitoLogo.svg') }}" alt="">
               </div>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Centro;
+use App\Models\Rider;
+use App\Models\Proveedor;
+
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -29,19 +33,38 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $supplierForm = $request->supplierForm;
-
         $riderForm = $request->riderForm;
-
-        $sCenterUser = $request->sCenterFrom;
-
+        $sCenterForm = $request->sCenterForm;
+        $choosedUser;
         $user = new Usuario();
+        if ($riderForm) {
+            $choosedUser = new Rider();
+        } else if ($supplierForm) {
+            $choosedUser = new Proveedor();
+            $choosedUser->surname = $request->surname;
+            $choosedUser->company = $request->company;
+            $choosedUser->direction = $request->direction;
+            $choosedUser->floor = $request->input('floor', null);
+            $choosedUser->city = $request->city;
+            $choosedUser->postalCode = $request->postalCode;
+        } else {
+            $choosedUser = new Centro();
+        }
+        $choosedUser->email = $request->email;
+        $choosedUser->password = bcrypt($request->password);
+        $choosedUser->name = $request->name;
 
 
-        $user->nom = $request->input('nom');
-        $user->edat = $request->input('edat');
+        $user->name = $request->name;
+        $user->password = $request->password;
+        
+        // try {
+            $choosedUser->save();
+            $user->save();
+        // } catch (\Throwable $th) {
+        //     //throw $th;
+        // }
 
-
-        $user->save();
     }
 
     /**
