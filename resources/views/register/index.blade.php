@@ -98,49 +98,49 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                         <div class="form-group gird-placeContent">
                            <label for="email">Email</label>
                            <input class="form-control" type="email" id="email" maxlength="50"
-                              placeholder="jondoe@gmail.com" required>
+                              placeholder="jondoe@gmail.com"  name = "email" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="password">Password</label>
                            <input class="form-control" type="text" maxlength="50" id="password"
-                              placeholder="1234A*" required>
+                              placeholder="1234A*"  name = "password" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="name">Name</label>
                            <input class="form-control" type="text" id="name" maxlength="50"
-                              placeholder="Jon" required>
+                              placeholder="Jon"  name = "name" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="lastName">Surname</label>
                            <input class="form-control" type="text" id="lastName" maxlength="100"
-                              placeholder="Doe" required>
+                              placeholder="Doe"  name = "surname" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="localName">Company</label>
                            <input class="form-control" type="text" id="localName" maxlength="250"
-                              placeholder="joinvito"required>
+                              placeholder="joinvito" name = "company" required>
                         </div>
                      </div>
                      <div class="col-3">
                         <div class="form-group gird-placeContent">
                            <label for="address">Direction</label>
                            <input class="form-control" type="text" id="address" maxlength="250"
-                              placeholder="Barcelona"required>
+                              placeholder="Barcelona"  name = "direction" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="floor">Floor (Opcional)</label>
                            <input class="form-control" type="text" id="floor" maxlength="30"
-                              placeholder="Street 24 G">
+                              placeholder="Street 24 G"  name = "floor" value="floor">
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="city">City</label>
                            <input class="form-control" type="text" id="city" maxlength="250"
-                              placeholder="25"required>
+                              placeholder="25"required  name = "city">
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="postalCode">Postal Code</label>
                            <input class="form-control" type="text" id="postalCode" maxlength="5"
-                              placeholder="09989" required>
+                              placeholder="09989" required  name = "postalCode">
                         </div>
                         <button type="submit" class="btn btn-light btn_login" name="supplierFrom" value="supplierForm">Sign Up</button>
                      </div>
@@ -157,17 +157,17 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                         <div class="form-group gird-placeContent">
                            <label for="emailRider">Email</label>
                            <input class="form-control" type="email" id="emailRider" maxlength="50"
-                              placeholder="jondoe@gmail.com" required>
+                              placeholder="jondoe@gmail.com" name = "email" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="passwordRider">Password</label>
                            <input class="form-control" type="text" maxlength="50" id="passwordRider"
-                              placeholder="1234A*" required>
+                              placeholder="1234A*" name = "password" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="nameRider">Name</label>
                            <input class="form-control" type="text" id="nameRider" maxlength="50"
-                              placeholder="Jon" required>
+                              placeholder="Jon" name = "name" required>
                         </div>
                         <button type="submit" class="btn btn-light btn_login" name="riderFrom" value="riderForm">Sign Up</button>
                      </div>
@@ -184,17 +184,17 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                         <div class="form-group gird-placeContent">
                            <label for="emailCenter">Email</label>
                            <input class="form-control" type="email" id="emailCenter" maxlength="50"
-                              placeholder="jondoe@gmail.com" required>
+                              placeholder="jondoe@gmail.com" name = "email" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="passwordCenter">Password</label>
                            <input class="form-control" type="text" maxlength="50" id="passwordCenter"
-                              placeholder="1234A*" required>
+                              placeholder="1234A*"  name = "password" required>
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="nameCenter">Name</label>
                            <input class="form-control" type="text" id="nameCenter" maxlength="50"
-                              placeholder="Jon" required>
+                              placeholder="Jon"  name = "name" required>
                         </div>
                         <button type="submit" class="btn btn-light btn_login" name="sCenterFrom" value="sCenterForm">Sign Up</button>
                      </div>

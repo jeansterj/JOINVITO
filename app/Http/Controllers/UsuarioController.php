@@ -30,18 +30,27 @@ class UsuarioController extends Controller
     {
         $supplierForm = $request->supplierForm;
 
-        $riderForm = $request->riderForm;
-
-        $sCenterUser = $request->sCenterFrom;
-
         $user = new Usuario();
 
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->name = $request->name;
 
-        $user->nom = $request->input('nom');
-        $user->edat = $request->input('edat');
+        if ($supplierForm) {
+            $user->surname = $request->surname;
+            $user->company = $request->company;
+            $user->direction = $request->direction;
+            $user->floor = $request->input('floor', null);
+            $user->city = $request->city;
+            $user->postalCode = $request->postalCode;
+        }
+        
+        // try {
+            $user->save();
+        // } catch (\Throwable $th) {
+        //     //throw $th;
+        // }
 
-
-        $user->save();
     }
 
     /**
