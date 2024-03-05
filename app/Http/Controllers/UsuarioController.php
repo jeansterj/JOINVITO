@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Centro;
+use App\Models\Rider;
+use App\Models\Proveedor;
+
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -44,7 +48,7 @@ class UsuarioController extends Controller
             $choosedUser->city = $request->city;
             $choosedUser->postalCode = $request->postalCode;
         } else {
-            $choosedUser = new Center();
+            $choosedUser = new Centro();
         }
         $choosedUser->email = $request->email;
         $choosedUser->password = bcrypt($request->password);
