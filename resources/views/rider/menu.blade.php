@@ -30,21 +30,21 @@
     <div class="row margin-top">
         <h2>RIDER PROFILE</h2>
     </div>   
-    <img src="" alt="">
+    <img src="{{ asset('img/riderIcono.svg') }}" alt="">
         <div class="row">
             <div class="col">
                 <h3>RIDER INFO</h3>
-                <img src="" alt="">
+                <img src="{{ asset('img/riderInfo.svg') }}" alt="">
             </div>
                 <div class="col">
                 <h3>RIDER STATS</h3>
-                <img src="" alt="">
+                <img src="{{ asset('img/riderStasImg.svg') }}" alt="">
             </div>    
         </div>  
         <div class="row">
             <div class="col">
                 <h3>HOW TO USE?</h3>
-                <img src="" alt="">
+                <img src="{{ asset('img/useImg.svg') }}" alt="">
             </div>
             <div class="col">
             
