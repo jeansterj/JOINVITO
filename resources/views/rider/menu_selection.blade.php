@@ -55,15 +55,16 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                                         <p class="card-text">{{ $menu->plato2 }}</p>
                                         <div class="container text-center">
                                             <div class="row align-items-start">
-                                                <div class="col">
-                                                    <span class="decrement">-</span>
+                                                <div class="col simbol decrement">
+                                                    <span>-</span>
                                                 </div>
                                                 <div class="col">
-                                                    <span class="quantity">{{ $menu->cantidad_packs }}</span>
-                                                    <input type="hidden" id="cantidad" name="cantidad" value="{{ $menu->cantidad_packs }}"></input>
+                                                    <span class="quantity">0</span>
+                                                    <input type="hidden" id="cantidad" name="cantidad" value=""></input>
+                                                    <input type="hidden" id="total" value="{{ $menu->cantidad_packs }}"></input>
                                                 </div>
-                                                <div class="col">
-                                                    <span class="increment">+</span>
+                                                <div class="col simbol increment">
+                                                    <span>+</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,15 +112,16 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                                     <input type="hidden" name="plato2" value="{{ $menu->plato2 }}"></input>
                                     <div class="container text-center">
                                         <div class="row align-items-start">
-                                            <div class="col">
-                                                <span class="decrement">-</span>
+                                            <div class="col simbol decrement">
+                                                <span>-</span>
                                             </div>
                                             <div class="col">
-                                                <span class="quantity">{{ $menu->cantidad_packs }}</span>
-                                                <input type="hidden" id="cantidad" name="cantidad" value="{{ $menu->cantidad_packs }}"></input>
+                                                <span class="quantity">0</span>
+                                                <input type="hidden" id="cantidad" name="cantidad" value=""></input>
+                                                <input type="hidden" id="total" value="{{ $menu->cantidad_packs }}"></input>
                                             </div>
-                                            <div class="col">
-                                                <span class="increment">+</span>
+                                            <div class="col simbol increment">
+                                                <span>+</span>
                                             </div>
                                         </div>
                                     </div>
