@@ -41,3 +41,15 @@ Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocat
 Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 
 Route::resource('pedido', PedidoController::class);
+
+Route::get('rider-menu', function () {
+    return view('rider.menu');
+});
+
+Route::get('stats', function () {
+    return view('rider.stats');
+});
+
+Route::get('edit-rider', function () {
+    return view('rider.edit-rider');
+});
