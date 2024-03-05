@@ -69,7 +69,7 @@
            
             <div class="container-fluid my-3">
                 <div class="container chartRiderMap bg-light d-tc mx-2">
-                    <h4>RIDER CODE</h4>
+                    <h4 class="text-primary">RIDER CODE</h4>
                     <p class="container text-white bg-primary chartRiderMap">#17454586J</p>
                 </div>
     
