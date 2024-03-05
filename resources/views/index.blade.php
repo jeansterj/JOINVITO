@@ -21,8 +21,12 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
         <a class="nav-link" href="#">CONTACT</a>
     </li>
     <div>
-        <button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button>
-        <button type="button" class="btn btn-signup">Sign up</button>
+        <a href="{{ url('login')}}">
+            <button  class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button>
+        </a>
+        <a href="{{ url('register')}}">
+            <button type="button" class="btn btn-signup">Sign up</button>
+        </a>
     </div>
 </ul>
 </div>
