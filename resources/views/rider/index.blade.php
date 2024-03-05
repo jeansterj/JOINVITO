@@ -31,22 +31,21 @@
         <div class=" buttonOrder bg-light ">
             <h1>GET ORDER NOW</h1>
         </div>
-        <div class=" buttonOrder bg-light d-flex">
-            <img class="rounded mx-auto d-flex imgRiderMot" src="{{ asset('img/rider-unscreen.gif') }}" alt="riderMot">
-
-            <h1>THERE ARE NO ORDERS </h1>
-        </div>
-
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
+       
+        <div class=" buttonOrder">
+        <div class="accordion " id="accordionExample">
+            <div class="accordion-item ">
                 <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    <button class="accordion-button bg-light " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                         aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                       
+                            <img class="rounded mx-auto d-flex imgRiderMot" src="{{ asset('img/rider-unscreen.gif') }}" alt="riderMot">
+                
+                            <h1>THERE ARE NO ORDERS </h1>
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+                    <div class="accordion-body bg-light">
                       <ul class="">
                         <li class=""><a href="">PROV2 - 1 PACK TO COLLECT</a></li>
                         <li class=""><a href="">PROV3 - 1 PACK TO COLLECT</a></li>
@@ -55,23 +54,33 @@
                 </div>
             </div>
         </div>
+    </div>
+
 
         <div>
-            <div class="container df">
-                <p>PROV1</p>
-                <p>CHEESE BURGUER</p>
-                <p>FISH</p>
-                <p>COCA-COLA</p>
+            <div class="container chartRiderMap bg-light py-2 px-2 my-3">
+                <div class="chartRiderOrder">
+                    <p>PROV1</p>
+                    <p>CHEESE BURGUER</p>
+                    <p>FISH</p>
+                    <p>COCA-COLA</p>
+                </div>
+            </div>
+           
+            <div class="container-fluid my-3">
+                <div class="container chartRiderMap bg-light d-tc mx-2">
+                    <h4 class="text-primary">RIDER CODE</h4>
+                    <p class="container text-white bg-primary chartRiderMap">#17454586J</p>
+                </div>
+    
+                <div class="chartRiderMap bg-light">
+                    <a href=""><img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR"></a>
+                </div>
+
+
             </div>
 
-            <div>
-                <p>RIDER CODE</p>
-                <p>#17454586J</p>
-            </div>
-
-            <div>
-                <button><img src="" alt="QR"></button>
-            </div>
+           
 
         </div>
     @endsection
