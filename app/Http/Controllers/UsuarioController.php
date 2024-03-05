@@ -30,33 +30,48 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-        $supplierForm = $request->supplierForm;
-        $riderForm = $request->riderForm;
-        $sCenterForm = $request->sCenterForm;
+        // $supplierForm = $request->supplierForm;
+        // $riderForm = $request->riderForm;
+        // $sCenterForm = $request->sCenterForm;
         $choosedUser;
         $user = new Usuario();
-        if ($riderForm) {
+
+        $user->email = $request->email;
+        $user->pass_usu = $request->passwd;
+        // IdRol falla si o si
+        if ($request->filled('riderForm')) {
             $choosedUser = new Rider();
-        } else if ($supplierForm) {
+
+            $choosedUser->primer_apellido = $request->lastName;
+            // $choosedUser->latitud = $request->latitude;
+            // $choosedUser->longitud = $request->longitude;
+            // $user->id_rol = $request->id_rol;
+        } else if ($request->filled('supplierForm')) {
+
             $choosedUser = new Proveedor();
-            $choosedUser->surname = $request->surname;
-            $choosedUser->company = $request->company;
-            $choosedUser->direction = $request->direction;
-            $choosedUser->floor = $request->input('floor', null);
-            $choosedUser->city = $request->city;
-            $choosedUser->postalCode = $request->postalCode;
+
+            $choosedUser->primer_apellido = $request->lastName;
+            $choosedUser->nombre_negocio = $request->surname;
+            $choosedUser->direccion = $request->address;
+            $choosedUser->piso = $request->input('floor', null);
+            $choosedUser->ciudad = $request->city;
+            $choosedUser->cp = $request->cp;
         } else {
+
             $choosedUser = new Centro();
+            $choosedUser->direccion = $request->address;
+            $choosedUser->piso = $request->input('floor', null);
+            $choosedUser->ciudad = $request->city;
+            $choosedUser->cp = $request->cp;
         }
-        $choosedUser->email = $request->email;
-        $choosedUser->password = bcrypt($request->password);
-        $choosedUser->name = $request->name;
+        
+        $choosedUser->nombre = $request->name;
 
 
-        $user->name = $request->name;
-        $user->password = $request->password;
+
         
         // try {
             $choosedUser->save();
