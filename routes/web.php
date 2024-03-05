@@ -24,14 +24,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register.index');
 });
-Route::get('/register2', function () {
-    return view('registerSupplier');
 
-});
-
-Route::get('rider-home', function () {
-    return view('rider.rider_home');
-});
 Route::get('login', function () {
     return view('login.index');
 });
@@ -41,13 +34,10 @@ Route::get('rider', function () {
 
 Route::resource('puntos', PuntoController::class);
 
-
-
 Route::resource('usuario', UsuarioController::class);
 
 Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
 
 Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
-
 
 Route::resource('pedido', PedidoController::class);
