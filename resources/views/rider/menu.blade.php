@@ -38,11 +38,13 @@
             </div>
                 <div class="col">
                 <h3>RIDER STATS</h3>
+                <img src="" alt="">
             </div>    
         </div>  
         <div class="row">
             <div class="col">
                 <h3>HOW TO USE?</h3>
+                <img src="" alt="">
             </div>
             <div class="col">
             
