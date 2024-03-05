@@ -31,26 +31,31 @@ class UsuarioController extends Controller
         $supplierForm = $request->supplierForm;
         $riderForm = $request->riderForm;
         $sCenterForm = $request->sCenterForm;
-        $user;
+        $choosedUser;
+        $user = new Usuario();
         if ($riderForm) {
-            $user = new Rider();
+            $choosedUser = new Rider();
         } else if ($supplierForm) {
-            $user = new Proveedor();
-            $user->surname = $request->surname;
-            $user->company = $request->company;
-            $user->direction = $request->direction;
-            $user->floor = $request->input('floor', null);
-            $user->city = $request->city;
-            $user->postalCode = $request->postalCode;
+            $choosedUser = new Proveedor();
+            $choosedUser->surname = $request->surname;
+            $choosedUser->company = $request->company;
+            $choosedUser->direction = $request->direction;
+            $choosedUser->floor = $request->input('floor', null);
+            $choosedUser->city = $request->city;
+            $choosedUser->postalCode = $request->postalCode;
         } else {
-            $user = new Center();
+            $choosedUser = new Center();
         }
-        // $user = new Usuario();
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->name = $request->name;
+        $choosedUser->email = $request->email;
+        $choosedUser->password = bcrypt($request->password);
+        $choosedUser->name = $request->name;
 
+
+        $user->name = $request->name;
+        $user->password = $request->password;
+        
         // try {
+            $choosedUser->save();
             $user->save();
         // } catch (\Throwable $th) {
         //     //throw $th;
