@@ -29,22 +29,27 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $supplierForm = $request->supplierForm;
-
-        $user = new Usuario();
-
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->name = $request->name;
-
-        if ($supplierForm) {
+        $riderForm = $request->riderForm;
+        $sCenterForm = $request->sCenterForm;
+        $user;
+        if ($riderForm) {
+            $user = new Rider();
+        } else if ($supplierForm) {
+            $user = new Proveedor();
             $user->surname = $request->surname;
             $user->company = $request->company;
             $user->direction = $request->direction;
             $user->floor = $request->input('floor', null);
             $user->city = $request->city;
             $user->postalCode = $request->postalCode;
+        } else {
+            $user = new Center();
         }
-        
+        // $user = new Usuario();
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->name = $request->name;
+
         // try {
             $user->save();
         // } catch (\Throwable $th) {
