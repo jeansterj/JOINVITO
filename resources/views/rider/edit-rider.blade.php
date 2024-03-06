@@ -27,11 +27,37 @@
 
 @section('content')
     <div class="container">
-    <div class="row margin-top">
-        <h2>RIDER STATS</h2>
-        <img src="" alt="">
+    <div class="row margin-top text-center">
+        <h2>CHANGE INFO RIDER</h2>
+        <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
+    <div class="bg-secondary">
+        <form class="registerForm" action="" method="POST">
+            @csrf
+            <input id="" name="" type="hidden" value="" />
+            <div class="container-fluid" id="medForm">
+               <div class="col-3 col-md-7">
+                  <div class="form-group gird-placeContent">
+                     <label for="emailRider">Email</label>
+                     <input class="form-control" type="email" id="emailRider" maxlength="50"
+                        placeholder="jondoe@gmail.com" name = "email" required>
+                  </div>
+                  <div class="form-group gird-placeContent">
+                     <label for="passwordRider">Password</label>
+                     <input class="form-control" type="text" maxlength="50" id="passwordRider"
+                        placeholder="1234A*" name = "password" required>
+                  </div>
+                  <div class="form-group gird-placeContent">
+                     <label for="nameRider">Name</label>
+                     <input class="form-control" type="text" id="nameRider" maxlength="50"
+                        placeholder="Jon" name = "name" required>
+                  </div>
+                  <button type="submit" class="btn btn-light btn_login" name="riderFrom" value="riderForm">Save</button>
+               </div>
+            </div>
+         </form>
+    </div>
     </div>   
-    <img src="" alt="">
+    
         
     </div>
     @endsection

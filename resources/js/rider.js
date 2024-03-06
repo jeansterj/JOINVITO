@@ -162,26 +162,45 @@ document.addEventListener('DOMContentLoaded',function(){
       let decrement = document.querySelectorAll('.decrement');
       let increment = document.querySelectorAll('.increment');
 
-      decrement.forEach((item) => {
+      let cards = document.querySelectorAll('.card .carousel-item');
 
-        item.addEventListener('click',() => {
+      cards.forEach((card) => {
 
-            let cantidad = parseInt(item.parentNode.nextElementSibling.querySelector('.quantity').innerHTML);
-            cantidad--;
-            item.parentNode.nextElementSibling.querySelector('#cantidad').value = cantidad;
-            item.parentNode.nextElementSibling.querySelector('.quantity').innerHTML = cantidad;
-        });
-      })
+            let total = parseInt(card.querySelector('#total').value); 
 
-      increment.forEach((item) => {
+            card.querySelector('.decrement').addEventListener('click',() => {
 
-        item.addEventListener('click',() => {
+                let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
+            
+                (cantidad > 0) ? cantidad-- : cantidad = 0;
+                
+                card.querySelector('#cantidad').value = cantidad;
+                card.querySelector('.quantity').innerHTML = cantidad;
+            })
 
-            let cantidad = parseInt(item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML);
-            cantidad++;
-            item.parentNode.previousElementSibling.querySelector('#cantidad').value = cantidad;
-            item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML = cantidad;
-        });
-      })
+            card.querySelector('.increment').addEventListener('click',() => {
+
+                let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
+
+                (cantidad < total) ? cantidad++ : total;
+
+                card.querySelector('#cantidad').value = cantidad;
+                card.querySelector('.quantity').innerHTML = cantidad;
+            })
+      });
+
+    //   increment.forEach((item) => {
+
+    //     item.parentNode.addEventListener('click',() => {
+
+    //         let cantidad = parseInt(item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML);
+    //         // let total = parseInt(item.parentNode.previousElementSibling.querySelector('.total').value);
+
+    //         (cantidad < 5) ? cantidad++ : 5;
+
+    //         item.parentNode.previousElementSibling.querySelector('#cantidad').value = cantidad;
+    //         item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML = cantidad;
+    //     });
+    //   })
 });
 

@@ -29,7 +29,7 @@
     <div class="container">
     <div class="row margin-top">
         <h2>RIDER STATS</h2>
-        <img src="" alt="">
+        <img src="{{ asset('img/riderIcono.svg') }}" alt="">
     </div>   
     <img src="" alt="">
         

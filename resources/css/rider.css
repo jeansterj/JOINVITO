@@ -59,9 +59,16 @@
     color: #07203C;
 }
 
+.carousel-item .card .simbol{
+    border: 1px solid #07203C;
+    border-radius: 11px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+
 .carousel-item .card .decrement,
 .carousel-item .card .increment{
-    cursor: pointer;
     font-size: 45px;
     color: #07203C;
 }
@@ -181,4 +188,9 @@
 
 .margin-top{
     margin-top: 25px!important;
+}
+
+img.rider-logo{
+    width: 150px;
+    margin: auto;
 }
