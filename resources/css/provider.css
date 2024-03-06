@@ -3,3 +3,7 @@
     display: grid;
     place-items: center;
 }
+
+.df{
+    border-radius: 20px !important;
+}
