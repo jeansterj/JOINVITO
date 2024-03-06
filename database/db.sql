@@ -18,7 +18,7 @@ insert into roles values(4,'proveedor');
 create table usuarios(
 id_usu int auto_increment,
 email varchar(50) not null,
-pass_usu varchar(50) not null,
+pass_usu varchar(255) not null,
 id_rol int not null,
 FOREIGN KEY (id_rol) REFERENCES roles(id_rol),
 primary key(id_usu)
