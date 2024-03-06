@@ -60,7 +60,9 @@ Route::get('addLocation', function () {
 
 /* SUPPLIER routes */
 
-
+Route::get('provider-menu', function () {
+    return view('provider.menuProvider');
+});
 
 /* Social Center routes */
 
