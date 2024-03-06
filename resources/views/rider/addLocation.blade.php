@@ -25,34 +25,33 @@
     </div>
 @endsection
 
-@section('content')
-    <div class="container">
-    <div class="row margin-top">
-        <h2>RIDER PROFILE</h2>
-    </div>   
-    <img src="{{ asset('img/riderIcono.svg') }}" alt="">
-        <div class="row">
-            <div class="col">
-                <h3>RIDER INFO</h3>
-                <a href="{{ url('edit-rider')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
-                
-            </div>
-                <div class="col">
-                <h3>RIDER STATS</h3>
-                <a href="{{ url('stastRider')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
-               
-            </div>    
-        </div>  
-        <div class="row">
-            <div class="col">
-                <h3>HOW TO USE?</h3>
-                <a href="{{ url('instructions')}}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
-                
-            </div>
-            <div class="col">
-            
-            </div>    
-        </div>  
-    </div>
-    @endsection
+@section('map')
 
+<h1 class="text-center text-white py-4"> ADD LOCATION </h1>
+
+<div class="bg-light chartRiderMap my-3">
+
+    <p class="text-center text-white text-break py-3 px-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+
+    <div class="bg-secondary chartRiderMap">
+        <h1 class="text-white text-center my-4 py-3"> MAP </h1>
+    
+    
+        <div class="container">
+            <div id="map"></div>
+        </div>
+
+        <div class="py-3 d-grid">
+           <button class="buttonOrder bg-light text-primary text-center py-1 px-2"><h1 > ADD LOCATION </h1></button>
+
+        </div>
+    
+    </div>
+
+</div>
+
+
+
+@endsection

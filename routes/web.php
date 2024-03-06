@@ -17,8 +17,15 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
+/* main routes */
+
+
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('instructions', function () {
+    return view('instructions');
 });
 
 Route::get('/register', function () {
@@ -28,19 +35,12 @@ Route::get('/register', function () {
 Route::get('login', function () {
     return view('login.index');
 });
+
+/* rider routes */
+
 Route::get('rider', function () {
     return view('rider.index');
 });
-
-Route::resource('puntos', PuntoController::class);
-
-Route::resource('usuario', UsuarioController::class);
-
-Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
-
-Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
-
-Route::resource('pedido', PedidoController::class);
 
 Route::get('rider-menu', function () {
     return view('rider.menu');
@@ -53,3 +53,28 @@ Route::get('stats', function () {
 Route::get('edit-rider', function () {
     return view('rider.edit-rider');
 });
+
+Route::get('addLocation', function () {
+    return view('rider.addLocation');
+});
+
+/* SUPPLIER routes */
+
+Route::get('provider-menu', function () {
+    return view('provider.menuProvider');
+});
+
+/* Social Center routes */
+
+
+
+Route::resource('puntos', PuntoController::class);
+
+Route::resource('usuario', UsuarioController::class);
+
+Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
+
+Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
+
+Route::resource('pedido', PedidoController::class);
+
