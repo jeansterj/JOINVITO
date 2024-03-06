@@ -34,11 +34,13 @@
         <div class="row">
             <div class="col">
                 <h3>RIDER INFO</h3>
-                <img src="{{ asset('img/riderInfo.svg') }}" alt="">
+                <a href="{{ url('edit-rider')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                
             </div>
                 <div class="col">
                 <h3>RIDER STATS</h3>
-                <img src="{{ asset('img/riderStasImg.svg') }}" alt="">
+                <a href="{{ url('stastRider')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+               
             </div>    
         </div>  
         <div class="row">
