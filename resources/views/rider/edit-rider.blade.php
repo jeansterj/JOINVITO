@@ -30,12 +30,12 @@
     <div class="row margin-top text-center">
         <h2>CHANGE INFO RIDER</h2>
         <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
-    <div class="bg-secondary">
+    <div class="bg-secondary section-form">
         <form class="registerForm" action="" method="POST">
             @csrf
             <input id="" name="" type="hidden" value="" />
             <div class="container-fluid" id="medForm">
-               <div class="col-3 col-md-7">
+               <div class="col">
                   <div class="form-group gird-placeContent">
                      <label for="emailRider">Email</label>
                      <input class="form-control" type="email" id="emailRider" maxlength="50"
