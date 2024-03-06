@@ -46,8 +46,8 @@ Route::get('rider-menu', function () {
     return view('rider.menu');
 });
 
-Route::get('stats', function () {
-    return view('rider.stats');
+Route::get('statsRider', function () {
+    return view('rider.statsRider');
 });
 
 Route::get('edit-rider', function () {
