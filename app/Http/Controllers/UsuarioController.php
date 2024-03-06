@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
-use App\Models\Centro;
 use App\Models\Rider;
+use App\Models\Centro;
+use App\Models\Usuario;
 use App\Models\Proveedor;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -112,5 +114,46 @@ class UsuarioController extends Controller
     public function destroy(Usuario $usuario)
     {
         //
+    }
+
+
+    public function login(Request $request){
+
+        $username = $request->email;
+        $password = $request->pass;
+
+        $user = Usuario::where('email',$username)->first();
+
+        if($user != null && Hash::check($password,$user->pass_usu)){
+            Auth::login($user);
+            $response = redirect('/');
+
+        }else{
+            $request->session()->flash('error','Usuari o password incorrecte');
+            $response = redirect('/login')->withInput();
+        }
+
+        return $response;
+
+    }
+
+    public function showLogin(){
+
+
+        $user = new Usuario;
+
+        $user->id_rol = 2;
+        $user->email = 'pepe';
+        $user->pass_usu = bcrypt('pepe');
+
+        $user->save();
+
+        return view('login.index');
+    }
+
+    public function logout(){
+
+        Auth::logout();
+        return redirect('/login');
     }
 }
