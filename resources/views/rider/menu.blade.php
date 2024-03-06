@@ -44,7 +44,8 @@
         <div class="row">
             <div class="col">
                 <h3>HOW TO USE?</h3>
-                <img src="{{ asset('img/useImg.svg') }}" alt="">
+                <a href="{{ url('instructions')}}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
+                
             </div>
             <div class="col">
             
