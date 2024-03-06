@@ -31,6 +31,9 @@ Route::get('instructions', function () {
 Route::get('/register', function () {
     return view('register.index');
 });
+Route::get('/camera', function () {
+    return view('register.cameraPage');
+});
 
 Route::get('login', function () {
     return view('login.index');
@@ -66,7 +69,10 @@ Route::get('provider-menu', function () {
 
 /* Social Center routes */
 
+Route::get('/camera', 'WebcamController@index');
 
+// Route::get('webcam', [WebcamController::class, 'index']);
+// Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
 
 Route::resource('puntos', PuntoController::class);
 
