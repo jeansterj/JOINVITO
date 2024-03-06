@@ -64,6 +64,10 @@ Route::get('provider-menu', function () {
     return view('provider.menuProvider');
 });
 
+Route::get('orderList', function () {
+    return view('provider.orderList');
+});
+
 /* Social Center routes */
 
 
