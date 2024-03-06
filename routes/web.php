@@ -64,6 +64,10 @@ Route::get('provider-menu', function () {
     return view('provider.menuProvider');
 });
 
+Route::get('edit-provider', function () {
+    return view('provider.editProvider');
+});
+
 /* Social Center routes */
 
 
