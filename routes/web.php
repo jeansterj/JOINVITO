@@ -64,6 +64,9 @@ Route::get('provider-menu', function () {
     return view('provider.menuProvider');
 });
 
+Route::get('edit-provider', function () {
+    return view('provider.editProvider');
+});
 Route::get('orderList', function () {
     return view('provider.orderList');
 });
