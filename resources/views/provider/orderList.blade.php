@@ -47,10 +47,11 @@
                         <h3 class="text-start">CHEESE BURGUER
                             FISH, COCA-COLA</h3>
                     </div>
-                   
 
-                    <div class="col py-1">
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <img src="{{ asset('img/deleteIcon.svg')}}" alt="">
+                      </button>
+                        
                     </div>
                 </div>
 
@@ -62,4 +63,26 @@
 
 
     </div>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-secondary text-white">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer justify-content-around">
+          <button type="button" class="btn btn-light text-secondary df" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-light text-secondary df">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
