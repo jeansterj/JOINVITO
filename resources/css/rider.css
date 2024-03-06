@@ -1,0 +1,197 @@
+/* *{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+} */
+
+.nav.nav-tabs{
+    border: none;
+}
+
+.nav.nav-tabs .nav-item{
+    background-color:#243E57;
+    width: 50%;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.nav.nav-tabs .nav-item .nav-link{
+    border: none;
+    color: white;
+    font-size: 15px;
+
+}
+
+.nav.nav-tabs .nav-item .nav-link.active{
+    background-color:#FFCA10;
+    color: #07203C !important;
+    border-radius: 25px 25px 0px 0px;
+}
+
+#restaurants,#favorites{
+    /* position: absolute; */
+    height: 380px;
+    background-color:#FFCA10;
+    border-radius: 0px 0px 1px 1px;
+    border: none;
+    /* width: 95%; */
+    width: 100%;
+}
+
+#carouselExampleIndicators{
+    top: 15px;
+}
+
+.carousel-item{
+    width: 445px;
+}
+
+.carousel-item .card{
+    margin: auto;
+    width: 240px;
+    height: 314px;
+    background-color: #ebdddda3;
+    border-radius: 10px;
+}
+
+.carousel-item .card .quantity{
+    font-size: 45px;
+    color: #07203C;
+}
+
+.carousel-item .card .simbol{
+    border: 1px solid #07203C;
+    border-radius: 11px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+
+.carousel-item .card .decrement,
+.carousel-item .card .increment{
+    font-size: 45px;
+    color: #07203C;
+}
+
+.carousel-item .card button{
+    border: none;
+    background-color: #07203C;
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 25px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+#map{
+    height: 310px;
+    margin-bottom: 80px;
+    margin-top: 50px;
+}
+
+
+.marker {
+    background-image: url('../../public/img/pua.png');
+    width: 28px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 50px 15px;
+    color: black;
+}
+
+.mapboxgl-popup-content h3{
+    font-size: 22px;
+}
+
+.mapboxgl-popup-content span{
+    font-size: 14px;
+}
+
+.mapboxgl-popup-close-button{
+    font-size: 27px;
+}
+
+.buttonOrder{
+    color: #07203C;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: none;
+}
+
+.imgRiderMot{
+
+    width: 30%;
+}
+
+.chartRiderMap{
+
+    border-radius: 20px;
+
+}
+
+.chartRiderOrder{
+    background-color: rgba(235, 221, 221, 0.67);
+    border-radius: 20px;
+    color: #07203C;
+    padding: 10px;
+}
+
+
+.d-tc{
+
+    display: table-caption;
+}
+
+.accordion{
+
+    --bs-accordion-border-color: none !important;
+    --bs-accordion-btn-focus-box-shadow : none !important;
+}
+
+
+.accordion-item {
+    border-bottom-right-radius:20px !important;
+    border-bottom-left-radius: 20px !important;
+    background-color: #FFCA10 !important;
+}
+
+.accordion-item:first-of-type {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.accordion-body {
+    border-bottom-right-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.margin-top{
+    margin-top: 25px!important;
+}
+
+img.rider-logo{
+    width: 150px;
+    margin: auto;
+}
+

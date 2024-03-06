@@ -5,45 +5,105 @@
 @endsection
 
 @section('navbar')
-
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<img src="{{ asset('img/menuCorto.svg') }}" alt="">
+</button>
+<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">HOME</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">ABOUT US</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">CONTACT</a>
+    </li>
+    <div>
+        <button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button>
+        <button type="button" class="btn btn-signup">Sign up</button>
+    </div>
+</ul>
+</div>
 
 @endsection
 
 @section('content')
 
+<div>
+
+    <h1>Register</h1>
+
+<h4>SUPPLIER REGISTER</h4>
+
 <form action="">
 
 <input id="" name="" type="hidden" value="" />
 
-<label for="">Nombre Usuario</label>
-<input type="text">
+<label for="email">Email</label>
+<input class="form-control" type="email" id="email" maxlength="50" placeholder="jondoe@gmail.com" required>
 
-<label for="">Email</label>
-<input type="email">
+<label for="password">Password</label>
+<input class="form-control" type="text" maxlength="50" id="password" placeholder="1234A*" required>
 
-<label for="">Contraseña</label>
-<input type="text" maxlength="50">
+<label for="name">Name</label>
+<input class="form-control" type="text" id="name" maxlength="50" placeholder="Jon" required>
 
-<label for="">Nombre</label>
-<input type="text">
+<label for="lastName">Surname</label>
+<input class="form-control" type="text" id="lastName" maxlength="100" placeholder="Doe" required>
 
-<label for="">Apellido</label>
-<input type="text">
+<label for="localName">Company</label>
+<input class="form-control" type="text" id="localName" maxlength="250" placeholder="joinvito"required>
 
-<label for="">Nombre Establecimiento</label>
-<input type="text">
+<label for="address">Direction</label>
+<input class="form-control" type="text" id="address" maxlength="250" placeholder="Barcelona"required>
 
-<label for="">Dirección</label>
-<input type="text">
+<label for="floor">Floor (Opcional)</label>
+<input class="form-control" type="text" id="floor" maxlength="30" placeholder="Street 24 G">
 
-<label for="">Piso</label>
-<input type="number">
+<label for="city">City</label>
+<input class="form-control" type="text" id="city" maxlength="250" placeholder="25"required>
 
-<label for="">Ciudad</label>
-<input type="text">
+<label for="postalCode">Postal Code</label>
+<input class="form-control" type="text" id="postalCode" maxlength="5" placeholder="09989" required>
 
-<label for="">Código Postal</label>
-<input type="number">
+<button type="submit">Sing Up</button>
+</div>
+
+<div>
+
+    <h1>Register</h1>
+
+<h4>S.CENTER REGISTER</h4>
+
+<form action="">
+
+<input id="" name="" type="hidden" value="" />
+
+<label for="email">Email</label>
+<input class="form-control" type="email" id="email" maxlength="50" placeholder="jondoe@gmail.com" required>
+
+<label for="password">Password</label>
+<input class="form-control" type="text" maxlength="50" id="password" placeholder="1234A*" required>
+
+<label for="name">Name</label>
+<input class="form-control" type="text" id="name" maxlength="50" placeholder="Jon" required>
+
+<label for="address">Direction</label>
+<input class="form-control" type="text" id="address" maxlength="250" placeholder="Barcelona"required>
+
+<label for="floor">Floor (Opcional)</label>
+<input class="form-control" type="text" id="floor" maxlength="30" placeholder="Street 24 G">
+
+<label for="city">City</label>
+<input class="form-control" type="text" id="city" maxlength="250" placeholder="25"required>
+
+<label for="postalCode">Postal Code</label>
+<input class="form-control" type="text" id="postalCode" maxlength="5" placeholder="09989" required>
+
+<button type="submit">Sing Up</button>
+</div>
 
 
 </form>
