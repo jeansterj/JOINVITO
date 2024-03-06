@@ -14,17 +14,19 @@ function activeForm(carrouselActive) {
     for (const icons of carrouselActive) {
         if (icons.id === 'riderIcon') 
         {
-            riderDiv.style.display = 'block';
+            riderDiv.style.display = 'grid';
             supplierDiv.style.display = sCenterDiv.style.display = 'none';
 
         } else if (icons.id === 'supplierIcon') 
         {
-            supplierDiv.style.display = 'block';
+            supplierDiv.style.display = 'grid';
             riderDiv.style.display = sCenterDiv.style.display = 'none';
         } else {
-            sCenterDiv.style.display = 'block';
+            sCenterDiv.style.display = 'grid';
             supplierDiv.style.display = riderDiv.style.display = 'none';
         }
 
     }
 }
+
+// carrousel

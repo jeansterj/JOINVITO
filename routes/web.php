@@ -46,8 +46,8 @@ Route::get('rider-menu', function () {
     return view('rider.menu');
 });
 
-Route::get('stats', function () {
-    return view('rider.stats');
+Route::get('statsRider', function () {
+    return view('rider.statsRider');
 });
 
 Route::get('edit-rider', function () {
@@ -66,6 +66,9 @@ Route::get('provider-menu', function () {
 
 Route::get('edit-provider', function () {
     return view('provider.editProvider');
+});
+Route::get('orderList', function () {
+    return view('provider.orderList');
 });
 
 /* Social Center routes */

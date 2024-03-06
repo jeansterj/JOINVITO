@@ -50,9 +50,9 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
       </div>
       <div class="col-9 bg-secondary" id="register">
          <div class="container">
-            <h1>REGISTER</h1>
+            <h1 class="registerForm">REGISTER</h1>
             <h2>CHOOSE USER TYPE</h2>
-            <div id="carouselExampleIndicators" class="carousel slide">
+            <div id="carouselExampleIndicators" class="carousel slide carrouselIcons">
                <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
                   </button>
@@ -94,7 +94,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                   @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
-                     <div class="col-3 col-md-7">
+                     <div class="col">
                      <div class="form-group gird-placeContent">
                            <label for="emailS">Email</label>
                            <input class="form-control" type="text" id="emailS" maxlength="50"
@@ -121,7 +121,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                               placeholder="Doe"  name = "surname" required>
                         </div>
                      </div>
-                     <div class="col-3">
+                     <div class="col">
                         <div class="form-group gird-placeContent">
                            <label for="address">Direction</label>
                            <input class="form-control" type="text" id="address" maxlength="250"
@@ -142,7 +142,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="cpSupplier" maxlength="5"
                               placeholder="09989" required  name = "cp">
                         </div>
-                        <button type="submit" class="btn btn-light btn_login" name="supplierFrom" >Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="supplierFrom" value="supplierForm" >Sign Up</button>
                      </div>
                   </div>
                </form>
@@ -153,7 +153,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                   @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
-                     <div class="col-3 col-md-7">
+                     <div class="col">
                      <div class="form-group gird-placeContent">
                            <label for="emailR">Email</label>
                            <input class="form-control" type="text" id="emailR" maxlength="50"
@@ -184,7 +184,8 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="longitude" maxlength="50"
                               placeholder="" name = "longitude" required>
                         </div> -->
-                        <button type="submit" class="btn btn-light btn_login" name="riderFrom" >Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="riderForm" value="riderForm">Sign Up</button>
+                        {{-- <button type="submit" class="btn btn-light btn_login" name="supplierFrom" >Sign Up</button> --}}
                      </div>
                   </div>
                </form>
@@ -195,7 +196,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                   @csrf
                   <input id="" name="" type="hidden" value="" />
                   <div class="container-fluid" id="medForm">
-                     <div class="col-3 col-md-7">
+                     <div class="col">
                         <div class="form-group gird-placeContent">
                            <label for="emailC">Email</label>
                            <input class="form-control" type="text" id="emailC" maxlength="50"
@@ -211,7 +212,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                            <input class="form-control" type="text" id="nameCenter" maxlength="50"
                               placeholder="Jon"  name = "name" required>
                         </div>
-                        <div class="col-3">
+                        <div class="col">
                         <div class="form-group gird-placeContent">
                            <label for="addressC">Direction</label>
                            <input class="form-control" type="text" id="addressC" maxlength="250"
@@ -220,7 +221,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                         <div class="form-group gird-placeContent">
                            <label for="floorC">Floor (Opcional)</label>
                            <input class="form-control" type="text" id="floorC" maxlength="30"
-                              placeholder="Street 24 G"  name = "floor" value="floor">
+                              placeholder="Street 24 G"  name = "floor" >
                         </div>
                         <div class="form-group gird-placeContent">
                            <label for="cityC">City</label>
@@ -233,7 +234,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                               placeholder="09989" required  name = "cp">
                         </div>
                         
-                        <button type="submit" class="btn btn-light btn_login" name="sCenterFrom" >Sign Up</button>
+                        <button type="submit" class="btn btn-light btn_login" name="sCenterForm" value="sCenterForm">Sign Up</button>
                      </div>
                   </div>
                </form>
