@@ -67,6 +67,13 @@ Route::get('provider-menu', function () {
     return view('provider.menuProvider');
 });
 
+Route::get('edit-provider', function () {
+    return view('provider.editProvider');
+});
+Route::get('orderList', function () {
+    return view('provider.orderList');
+});
+
 /* Social Center routes */
 
 Route::get('/camera', 'WebcamController@index');
@@ -78,9 +85,36 @@ Route::resource('puntos', PuntoController::class);
 
 Route::resource('usuario', UsuarioController::class);
 
-Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
-
 Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 
 Route::resource('pedido', PedidoController::class);
 
+Route::get('rider-menu', function () {
+    return view('rider.menu');
+});
+
+Route::get('stats', function () {
+    return view('rider.stats');
+});
+
+Route::get('edit-rider', function () {
+    return view('rider.edit-rider');
+});
+
+Route::get('addLocation', function () {
+    return view('rider.addLocation');
+});
+
+
+Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
+Route::post('/login', [UsuarioController::class,'login']);
+Route::get('/logout', [UsuarioController::class,'logout']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function(){
+
+        $user = Auth::user();
+
+        return view('home',compact('user'));
+    });
+});
