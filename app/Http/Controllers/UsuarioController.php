@@ -142,13 +142,13 @@ class UsuarioController extends Controller
     public function showLogin(){
 
 
-        $user = new Usuario;
+        // $user = new Usuario;
 
-        $user->id_rol = 2;
-        $user->email = 'pepe';
-        $user->pass_usu = bcrypt('pepe');
+        // $user->id_rol = 2;
+        // $user->email = 'pepe';
+        // $user->pass_usu = bcrypt('pepe');
 
-        $user->save();
+        // $user->save();
 
         return view('login.index');
     }

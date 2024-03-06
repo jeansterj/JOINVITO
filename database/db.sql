@@ -25,9 +25,9 @@ primary key(id_usu)
 );
 
 insert into usuarios values(1,'jean@prueba.com','prueba',2);
-insert into usuarios values(2,'aleix@prueba.com','prueba',4);
-insert into usuarios values(3,'aleix@prueba.com','prueba',4);
-insert into usuarios values(4,'aleix@prueba.com','prueba',4);
+insert into usuarios values(2,'aleix2@prueba.com','prueba',4);
+insert into usuarios values(3,'aleix3@prueba.com','prueba',4);
+insert into usuarios values(4,'aleix4@prueba.com','prueba',4);
 
 create table riders(
 id_rider int auto_increment,

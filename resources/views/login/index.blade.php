@@ -36,14 +36,15 @@
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
 
             <div class="container-form">
-                <form class="registerForm">
+                <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class,'login']) }}" method="POST">
+                    @csrf
                     <div class="form-group gird-placeContent">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email">
                     </div>
                     <div class="form-group gird-placeContent">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-light btn_login">Sign Up</button>
                 </form>
@@ -97,76 +98,73 @@
                     </button>
                   </div>
             <div class="container-form">
-                <form class="registerForm">
-                    <form action="">
-                        <input id="" name="" type="hidden" value="" />
-                        <div class="container-fluid" id="medForm">
-                            <div class="col-3 col-md-7">
-                                <div class="form-group gird-placeContent">
-                                    <label for="email">Email</label>
-                                    <input class="form-control" type="email" id="email" maxlength="50"
-                                        placeholder="jondoe@gmail.com" required>
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="password">Password</label>
-                                    <input class="form-control" type="text" maxlength="50" id="password"
-                                        placeholder="1234A*" required>
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="name">Name</label>
-                                    <input class="form-control" type="text" id="name" maxlength="50"
-                                        placeholder="Jon" required>
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="lastName">Surname</label>
-                                    <input class="form-control" type="text" id="lastName" maxlength="100"
-                                        placeholder="Doe" required>
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="localName">Company</label>
-                                    <input class="form-control" type="text" id="localName" maxlength="250"
-                                        placeholder="joinvito"required>
-                                </div>
+                <form class="registerForm" action="">
+                    @csrf
+                    <input id="" name="" type="hidden" value="" />
+                    <div class="container-fluid" id="medForm">
+                        <div class="col-3 col-md-7">
+                            <div class="form-group gird-placeContent">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" id="email" maxlength="50"
+                                    placeholder="jondoe@gmail.com" required>
                             </div>
-                            <div class="col-3">
-                                <div class="form-group gird-placeContent">
-                                    <label for="address">Direction</label>
-                                    <input class="form-control" type="text" id="address" maxlength="250"
-                                        placeholder="Barcelona"required>
-                                </div>
 
-                                <div class="form-group gird-placeContent">
-                                    <label for="floor">Floor (Opcional)</label>
-                                    <input class="form-control" type="text" id="floor" maxlength="30"
-                                        placeholder="Street 24 G">
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="city">City</label>
-                                    <input class="form-control" type="text" id="city" maxlength="250"
-                                        placeholder="25"required>
-                                </div>
-
-                                <div class="form-group gird-placeContent">
-                                    <label for="postalCode">Postal Code</label>
-                                    <input class="form-control" type="text" id="postalCode" maxlength="5"
-                                        placeholder="09989" required>
-                                </div>
-
-                                <button type="submit" class="btn btn-light btn_login">Sign Up</button>
-
-
+                            <div class="form-group gird-placeContent">
+                                <label for="password">Password</label>
+                                <input class="form-control" type="text" maxlength="50" id="password"
+                                    placeholder="1234A*" required>
                             </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="name">Name</label>
+                                <input class="form-control" type="text" id="name" maxlength="50"
+                                    placeholder="Jon" required>
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="lastName">Surname</label>
+                                <input class="form-control" type="text" id="lastName" maxlength="100"
+                                    placeholder="Doe" required>
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="localName">Company</label>
+                                <input class="form-control" type="text" id="localName" maxlength="250"
+                                    placeholder="joinvito"required>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group gird-placeContent">
+                                <label for="address">Direction</label>
+                                <input class="form-control" type="text" id="address" maxlength="250"
+                                    placeholder="Barcelona"required>
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="floor">Floor (Opcional)</label>
+                                <input class="form-control" type="text" id="floor" maxlength="30"
+                                    placeholder="Street 24 G">
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="city">City</label>
+                                <input class="form-control" type="text" id="city" maxlength="250"
+                                    placeholder="25"required>
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="postalCode">Postal Code</label>
+                                <input class="form-control" type="text" id="postalCode" maxlength="5"
+                                    placeholder="09989" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-light btn_login">Sign Up</button>
+
 
                         </div>
 
-
-
-                    </form>
+                    </div>
+                </form>
             </div>
 
         </div>

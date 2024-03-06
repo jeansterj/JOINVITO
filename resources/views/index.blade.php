@@ -21,12 +21,12 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
         <a class="nav-link" href="#">CONTACT</a>
     </li>
     <div>
-        <a href="{{ url('login')}}">
-            <button  class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button>
-        </a>
-        <a href="{{ url('register')}}">
-            <button type="button" class="btn btn-signup">Sign up</button>
-        </a>
+        @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro'))
+            <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
+        @else
+            <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
+        @endif
+        <button type="button" class="btn btn-signup">Sign up</button>
     </div>
 </ul>
 </div>
