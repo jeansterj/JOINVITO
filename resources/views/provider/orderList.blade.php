@@ -26,33 +26,40 @@
 @endsection
 
 @section('content')
-    <div class="container">
-    <div class="row margin-top">
-        <h2>RIDER PROFILE</h2>
-    </div>   
-    <img src="{{ asset('img/riderIcono.svg') }}" alt="">
-        <div class="row">
-            <div class="col">
-                <h3>RIDER INFO</h3>
-                <a href="{{ url('edit-rider')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
-                
-            </div>
-                <div class="col">
-                <h3>RIDER STATS</h3>
-                <a href="{{ url('statsRider')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
-               
-            </div>    
-        </div>  
-        <div class="row">
-            <div class="col">
-                <h3>HOW TO USE?</h3>
-                <a href="{{ url('instructions')}}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
-                
-            </div>
-            <div class="col">
-            
-            </div>    
-        </div>  
-    </div>
-    @endsection
+    <div class="bg-light chartRiderOrder de my-3">
 
+        <div class="chartRiderOrder row container ">
+            <div class="d-flex">
+
+                <div class="col-8"> 
+                    <h2 class="text-start">Order 1 </h2>
+
+                </div>
+                <div class="col">
+    
+                    <img src="{{ asset('img/editIcon.svg')}}" alt="">
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="row">
+                    <div class="col-8">
+                        <h3 class="text-start">CHEESE BURGUER
+                            FISH, COCA-COLA</h3>
+                    </div>
+                   
+
+                    <div class="col py-1">
+                        <img src="{{ asset('img/deleteIcon.svg')}}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            
+          
+
+        </div>
+
+
+    </div>
+@endsection

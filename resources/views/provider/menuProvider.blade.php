@@ -28,31 +28,36 @@
 @section('content')
     <div class="container">
     <div class="row margin-top">
-        <h2>RIDER PROFILE</h2>
-    </div>   
-    <img src="{{ asset('img/riderIcono.svg') }}" alt="">
+        <h2>SUPPLIER</h2>
+    </div>  
         <div class="row">
             <div class="col">
-                <h3>RIDER INFO</h3>
-                <a href="{{ url('edit-rider')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
-                
+                <h3>PROFILE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
                 <div class="col">
-                <h3>RIDER STATS</h3>
-                <a href="{{ url('statsRider')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
-               
+                <h3>USE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
             </div>    
-        </div>  
+        </div>
+        <h2>PROVIDER PROFILE</h2>
         <div class="row">
             <div class="col">
-                <h3>HOW TO USE?</h3>
-                <a href="{{ url('instructions')}}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
-                
+                <h3>CREATE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
             <div class="col">
-            
+                <h3>ORDER</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
             </div>    
-        </div>  
+        </div> 
+        <div class="row">
+            <div class="col">
+                <h3>STATISTICS</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+            </div>
+            <div class="col"></div>
+        </div> 
     </div>
     @endsection
 

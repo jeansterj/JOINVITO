@@ -193,5 +193,10 @@
 img.rider-logo{
     width: 150px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
+.section-form{
+    padding: 10px 0 35px 0;
+    border-radius: 25px;
+}

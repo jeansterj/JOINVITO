@@ -35,23 +35,34 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        // $supplierForm = $request->supplierForm;
-        // $riderForm = $request->riderForm;
-        // $sCenterForm = $request->sCenterForm;
+        // Value of bd.
+        $riderRol = 2;
+        $centerRol = 3;
+        $supplierRol = 4;
         $choosedUser;
         $user = new Usuario();
-
+        
         $user->email = $request->email;
-        $user->pass_usu = $request->passwd;
-        // IdRol falla si o si
-        if ($request->filled('riderForm')) {
+        $passs = $request->passwd;
+        $user->pass_usu = bcrypt($passs);
+
+        if (isset($request->sCenterForm)) {
+            $choosedUser = new Centro();
+
+            $choosedUser->direccion = $request->address;
+            $choosedUser->piso = $request->input('floor', null);
+            $choosedUser->ciudad = $request->city;
+            $choosedUser->cp = $request->cp;
+
+            $user->id_rol = $centerRol;
+
+        } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
             $choosedUser->primer_apellido = $request->lastName;
-            // $choosedUser->latitud = $request->latitude;
-            // $choosedUser->longitud = $request->longitude;
-            // $user->id_rol = $request->id_rol;
-        } else if ($request->filled('supplierForm')) {
+
+            $user->id_rol = $riderRol;
+        } else  {
 
             $choosedUser = new Proveedor();
 
@@ -61,27 +72,18 @@ class UsuarioController extends Controller
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
-        } else {
 
-            $choosedUser = new Centro();
-            $choosedUser->direccion = $request->address;
-            $choosedUser->piso = $request->input('floor', null);
-            $choosedUser->ciudad = $request->city;
-            $choosedUser->cp = $request->cp;
-        }
+            $user->id_rol = $supplierRol;
+
+        } 
         
         $choosedUser->nombre = $request->name;
-
-
-
-        
         // try {
             $choosedUser->save();
             $user->save();
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
-
     }
 
     /**
