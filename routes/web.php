@@ -53,3 +53,7 @@ Route::get('stats', function () {
 Route::get('edit-rider', function () {
     return view('rider.edit-rider');
 });
+
+Route::get('addLocation', function () {
+    return view('rider.addLocation');
+});

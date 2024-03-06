@@ -86,14 +86,19 @@
     @endsection
 
     @section('map')
-        <div class="bg-secondary chartRiderMap">
-            <h1> MAP </h1>
-
-
-            <div class="container">
-                <div id="map"></div>
-            </div>
-            <h1 class="buttonOrder bg-light"> ADD LOCATION </h1>
+    <div class="bg-secondary chartRiderMap">
+        <h1 class="text-white text-center my-4 py-3"> MAP </h1>
+    
+    
+        <div class="container">
+            <div id="map"></div>
+        </div>
+        
+        <div class="py-3 d-grid">
+            <a href="{{ url('addLocation')}}"><h1 class="buttonOrder bg-light text-primary text-center py-1 px-2"> ADD LOCATION </h1></a>
+           
 
         </div>
+    
+    </div>
     @endsection
