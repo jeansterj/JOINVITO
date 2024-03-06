@@ -41,7 +41,8 @@ class UsuarioController extends Controller
         $user = new Usuario();
         
         $user->email = $request->email;
-        $user->pass_usu = $request->passwd;
+        $passs = $request->passwd;
+        $user->pass_usu = bcrypt($passs);
 
         if (isset($request->sCenterForm)) {
             $choosedUser = new Centro();
