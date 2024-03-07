@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PuntoController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -76,7 +77,7 @@ Route::get('orderList', function () {
 
 /* Social Center routes */
 
-Route::get('/camera', 'WebcamController@index');
+Route::get('/camera', [WebcamController::class, 'index']);
 
 // Route::get('webcam', [WebcamController::class, 'index']);
 // Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');

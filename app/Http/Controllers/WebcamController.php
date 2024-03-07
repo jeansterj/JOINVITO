@@ -7,7 +7,7 @@ class WebcamController extends Controller
 {
     public function index()
     {
-        return view('qr-scanner');
+        return view('cameraPage');
     }
 
     public function scan(Request $request)
