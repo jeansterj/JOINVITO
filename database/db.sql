@@ -1,8 +1,8 @@
-drop database if exists joinvito;
+drop database if exists daw01;
 
-create database joinvito;
+create database daw01;
 
-use joinvito;
+use daw01;
 
 create table roles(
 id_rol int auto_increment,
