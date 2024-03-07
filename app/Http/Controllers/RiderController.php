@@ -6,6 +6,7 @@ use App\Models\Punto;
 use App\Models\Rider;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RiderController extends Controller
 {
@@ -65,12 +66,12 @@ class RiderController extends Controller
         //
     }
 
-    public function showFavoritesNearBy(){
+    public function showFavoritesNearBy(Rider $rider){
 
-        $favoritosMenus = Rider::find(1)
-        ->with(['favoritos.proveedor.menus'])
-        ->get()
-        ->first();
+        $riderId = Auth::user()->id_usu;
+
+        $favoritosMenus = Rider::with(['favoritos.proveedor.menus'])->find($riderId);
+        // $favoritosMenus = Favorito::with('proveedor.menus')->where('id_rider','=',$riderId)->get();
 
         $favoritosMenus = $favoritosMenus->favoritos;
 

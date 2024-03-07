@@ -2,7 +2,7 @@
 @section('title')
 Register Supplier - JoInvito
 @endsection
-@section('navbar')
+{{-- @section('navbar')
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <img src="{{ asset('img/menuCorto.svg') }}" alt="">
@@ -24,7 +24,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
     </div>
 </ul>
 </div>
-   @endsection
+   @endsection --}}
    @section('content')
    <div class="container-fluid">
       <div class="col-12" id="loginDiv">

@@ -4,7 +4,7 @@
     Home - JoInvito
 @endsection
 
-@section('navbar')
+{{-- @section('navbar')
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <img src="{{ asset('img/menuCorto.svg') }}" alt="">
@@ -25,12 +25,13 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
             <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
         @else
             <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
+            <button type="button" class="btn btn-signup">Sign up</button>
         @endif
-        <button type="button" class="btn btn-signup">Sign up</button>
+        
     </div>
 </ul>
 </div>
-@endsection
+@endsection --}}
 
 @section('content')
     

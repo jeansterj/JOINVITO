@@ -4,7 +4,7 @@
     Login - JoInvito
 @endsection
 
-@section('navbar')
+{{-- @section('navbar')
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('img/menuCorto.svg') }}" alt="">
@@ -26,7 +26,7 @@
             </div>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section('content')
     <div class="container-fluid">
