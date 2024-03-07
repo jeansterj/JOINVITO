@@ -76,6 +76,14 @@ Route::get('orderList', function () {
 
 /* Social Center routes */
 
+Route::get('socialcenter', function () {
+    return view('SCenter.index');
+});
+
+Route::get('socialcenterMenu', function () {
+    return view('SCenter.menuSCenter');
+});
+
 Route::get('/camera', 'WebcamController@index');
 
 // Route::get('webcam', [WebcamController::class, 'index']);

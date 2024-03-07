@@ -1,9 +1,26 @@
-.de{
+.centerSpace{
 
     display: grid;
     place-items: center;
 }
 
-.df{
+.btnOrdes{
     border-radius: 20px !important;
+}
+
+.modal-header{
+
+
+    border-bottom: none !important;
+
+}
+
+.modal-footer{
+
+    border-top: none !important;
+}
+
+.btnDelete{
+    width: 30% !important;
+    border: none !important;
 }
