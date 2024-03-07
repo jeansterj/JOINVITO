@@ -40,7 +40,9 @@ nav.navbar.navbar-expand-lg {
   .cuadroTitulo.logo {
     margin-bottom: auto; 
   }
-  
+  .carousel-indicators {
+    bottom: -36px !important;
+  }
   .logo img {
     display: block; 
     margin: 0 auto; 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PuntoController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -73,10 +74,13 @@ Route::get('edit-provider', function () {
 Route::get('orderList', function () {
     return view('provider.orderList');
 });
+Route::get('create-menu', function () {
+    return view('provider.createMenu');
+});
 
 /* Social Center routes */
 
-Route::get('/camera', 'WebcamController@index');
+Route::get('/camera', [WebcamController::class, 'index']);
 
 // Route::get('webcam', [WebcamController::class, 'index']);
 // Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
@@ -113,7 +117,7 @@ Route::get('/logout', [UsuarioController::class,'logout']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function(){
 
-        $user = Auth::user();
+        //$user = Auth::user();
 
         return view('home',compact('user'));
     });

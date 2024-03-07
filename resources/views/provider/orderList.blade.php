@@ -26,7 +26,7 @@
 @endsection --}}
 
 @section('content')
-    <div class="bg-light chartRiderOrder de my-3">
+    <div class="bg-light chartRiderOrder centerSpace my-3">
 
         <div class="chartRiderOrder row container ">
             <div class="d-flex">
@@ -48,7 +48,7 @@
                             FISH, COCA-COLA</h3>
                     </div>
 
-                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btnDelete" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <img src="{{ asset('img/deleteIcon.svg')}}" alt="">
                       </button>
                         
@@ -72,15 +72,12 @@
     <div class="modal-dialog">
       <div class="modal-content bg-secondary text-white">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
+          <h1 class="modal-title fs-5 text-break mx-4" id="exampleModalLabel">ARE YOU SURE TO DELETE ORDER 1?</h1>
         </div>
         <div class="modal-footer justify-content-around">
-          <button type="button" class="btn btn-light text-secondary df" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-light text-secondary df">Save changes</button>
+            <button type="button" class="btn btn-light text-secondary btnOrdes px-5">YES</button>
+
+          <button type="button" class="btn btn-light text-secondary btnOrdes px-5" data-bs-dismiss="modal">NO</button>
         </div>
       </div>
     </div>
