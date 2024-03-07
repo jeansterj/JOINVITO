@@ -74,6 +74,9 @@ Route::get('edit-provider', function () {
 Route::get('orderList', function () {
     return view('provider.orderList');
 });
+Route::get('create-menu', function () {
+    return view('provider.createMenu');
+});
 
 /* Social Center routes */
 
@@ -114,7 +117,7 @@ Route::get('/logout', [UsuarioController::class,'logout']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function(){
 
-        $user = Auth::user();
+        //$user = Auth::user();
 
         return view('home',compact('user'));
     });
