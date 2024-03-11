@@ -65,6 +65,10 @@ Route::get('addLocation', function () {
 
 /* SUPPLIER routes */
 
+Route::get('provider', function () {
+    return view('provider.index');
+});
+
 Route::get('provider-menu', function () {
     return view('provider.menuProvider');
 });
@@ -96,20 +100,24 @@ Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy'
 
 Route::resource('pedido', PedidoController::class);
 
-Route::get('rider-menu', function () {
-    return view('rider.menu');
+Route::get('scenter-menu', function () {
+    return view('SCenter.menuSCenter');
 });
 
 Route::get('stats', function () {
-    return view('rider.stats');
+    return view('SCenter.stats');
 });
 
 Route::get('edit-rider', function () {
-    return view('rider.edit-rider');
+    return view('SCenter.edit-rider');
 });
 
 Route::get('addLocation', function () {
     return view('rider.addLocation');
+});
+
+Route::get('social-center', function () {
+    return view('SCenter.index');
 });
 
 
