@@ -39,7 +39,6 @@ class UsuarioController extends Controller
         $riderRol = 2;
         $centerRol = 3;
         $supplierRol = 4;
-        $choosedUser;
         $user = new Usuario();
         
         $user->email = $request->email;
@@ -128,7 +127,22 @@ class UsuarioController extends Controller
 
         if($user != null && Hash::check($password,$user->pass_usu)){
             Auth::login($user);
-            $response = redirect('/');
+
+            switch(Auth::user()->rol->nombre){
+              
+                case 'admin':
+                            $response = redirect('/rider-menu-selection');
+                            break;
+
+                case 'centro':
+                            $response = redirect('/rider-menu-selection');
+                            break;
+
+                case 'rider':
+                            $response = redirect('/rider-menu-selection');
+                            break;
+            }
+            
 
         }else{
             $request->session()->flash('error','Usuari o password incorrecte');
