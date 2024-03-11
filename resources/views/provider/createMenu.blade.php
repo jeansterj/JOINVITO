@@ -1,6 +1,6 @@
-html@extends('layouts.main')
+@extends('layouts.main')
 
-@section('navbar')
+{{-- @section('navbar')
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('img/menuCorto.svg') }}" alt="">
@@ -23,12 +23,12 @@ html@extends('layouts.main')
             </div>
         </ul>
     </div>
-@endsection
+@endsection --}}
 
 @section('content')
     <div class="container">
     <div class="row margin-top text-center">
-        <h2>CHANGE INFO</h2>
+        <h2>CREATE MENU</h2>
         <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
     <div class="bg-secondary section-form">
         <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
@@ -50,6 +50,11 @@ html@extends('layouts.main')
                     <label for="drink">Drink</label>
                     <input class="form-control" type="text" id="drink" maxlength="50"
                     placeholder="Cocacola"  name = "drink" required>
+                  </div>
+                  <div class="form-group gird-placeContent">
+                    <label for="amount">Amount</label>
+                    <input class="form-control" type="number" id="amount" maxlength="2"
+                    value="0"  name = "amount" required>
                   </div>
                   <button type="submit" class="btn btn-light btn_login" name="supplierFrom" >TO REGISTER MENU</button>
                </div>

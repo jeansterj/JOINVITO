@@ -27,12 +27,12 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
    @endsection --}}
    @section('content')
    {{--  Section --}}
-   <h1>Escáner QR</h1>
+   <h1 id="titleScan">Escáner QR</h1>
     @if(isset($text))
         <p>Texto del código QR: {{ $text }}</p>
     @endif
     <video id="qr-video" width="100%" height="auto" autoplay></video>
-    <button id="scan-button">Escanear</button>
+    <button id="scan-button" class="btn btn-light">Pulsar para escanear qr</button>
 
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script>
