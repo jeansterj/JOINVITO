@@ -3,7 +3,9 @@
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
 }
-
+body {
+  text-align: center !important;
+}
 .gird-placeContent{
   padding: 10px;
   display: grid;
@@ -29,6 +31,7 @@
     margin-right: 20px;
 }
 nav.navbar.navbar-expand-lg {
+    margin-bottom: 30px;
     border-radius: 0 0 35px 35px;
 }
 .container-fluid {
@@ -51,7 +54,7 @@ nav.navbar.navbar-expand-lg {
   margin-bottom: 29px;
 }
 .registerForm {
-  margin: 32px 0px 18px 0px;
+  /* margin: 32px 0px 18px 0px; */
 }
   .container-form {
     place-content: center;
@@ -213,4 +216,8 @@ display: none;
 
 width: 70%;
 
+}
+/** QR CSS **/
+#titleScan {
+  color: white;
 }
