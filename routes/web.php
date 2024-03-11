@@ -82,6 +82,9 @@ Route::get('orderList', function () {
 Route::get('create-menu', function () {
     return view('provider.createMenu');
 });
+Route::get('modify-menu', function () {
+    return view('provider.modifyMenu');
+});
 
 /* Social Center routes */
 
