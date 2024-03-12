@@ -37,6 +37,7 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
+<<<<<<< Updated upstream
 Route::get('login', function () {
     return view('login.index');
 });
@@ -138,3 +139,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 });
+=======
+Route::get('/rider-home', function () {
+    return view('rider.rider_home');
+});
+Route::get('/login', function () {
+    return view('login.index');
+});
+>>>>>>> Stashed changes
