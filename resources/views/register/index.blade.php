@@ -43,19 +43,19 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" id="riderIcon">
-                            <div class="box">
+                            <div class="py-2">
                                 <img src="../public/img/rider_icon.png" alt="rider_icon.png" width="132px">
                                 <figcaption>RIDER</figcaption>
                             </div>
                         </div>
                         <div class="carousel-item" id="supplierIcon">
-                            <div class="box">
+                            <div class="py-2">
                                 <img src="../public/img/supplier_icon.png" alt="supplier_icon.png">
                                 <figcaption>SUPPLIER</figcaption>
                             </div>
                         </div>
                         <div class="carousel-item" id="sCenterIcon">
-                            <div class="box">
+                            <div class="py-2">
                                 <img src="../public/img/sCenter_icon.png" alt="sCenter_icon.png" width="111px">
                                 <figcaption>S.CENTER</figcaption>
                             </div>
@@ -160,19 +160,8 @@
                                     <input class="form-control" type="text" id="lastName" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
-                                <!-- <div class="form-group gird-placeContent">
-                                      <label for="latitude">Latitude</label>
-                                      <input class="form-control" type="text" id="latitude" maxlength="50"
-                                         placeholder="" name = "latitude" required>
-                                   </div>
-                                   <div class="form-group gird-placeContent">
-                                      <label for="longitude">Long</label>
-                                      <input class="form-control" type="text" id="longitude" maxlength="50"
-                                         placeholder="" name = "longitude" required>
-                                   </div> -->
                                 <button type="submit" class="btn btn-light btn_login" name="riderForm"
                                     value="riderForm">Sign Up</button>
-                                {{-- <button type="submit" class="btn btn-light btn_login" name="supplierFrom" >Sign Up</button> --}}
                             </div>
                         </div>
                     </form>

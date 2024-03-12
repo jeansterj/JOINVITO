@@ -65,14 +65,14 @@ nav.navbar.navbar-expand-lg {
     border-radius: 51px !important;
     width: 281px !important;
 }
-.box {
+/* .box {
   margin: 10px 0px 20px 101px;
   transform: scale(1.1);
   padding: 12px 8px 12px 9px;
   border-radius: 29px;
   width: 144px;
   border: 3px solid #243E57;
-}
+} */
 #supplierDiv {
   display: none;
 }
