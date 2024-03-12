@@ -49,10 +49,13 @@ class UsuarioController extends Controller
 
         $user->save();
 
+        $userData = Usuario::where('email','=',$request->email)->first();
+
+
         if (isset($request->sCenterForm)) {
             $choosedUser = new Centro();
 
-            $choosedUser->id_centro = $user->id_usu;
+            $choosedUser->id_centro = $userData->id_usu;
             $choosedUser->direccion = $request->address;
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
@@ -62,7 +65,7 @@ class UsuarioController extends Controller
         } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
-            $choosedUser->id_rider = $user->id_usu;
+            $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
 
             
@@ -70,7 +73,7 @@ class UsuarioController extends Controller
 
             $choosedUser = new Proveedor();
 
-            $choosedUser->id_prov = $user->id_usu;
+            $choosedUser->id_prov = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
             $choosedUser->nombre_negocio = $request->surname;
             $choosedUser->direccion = $request->address;
@@ -86,6 +89,8 @@ class UsuarioController extends Controller
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
+
+        return redirect('/');
     }
 
     /**
@@ -131,8 +136,6 @@ class UsuarioController extends Controller
         if($user != null && Hash::check($password,$user->pass_usu)){
             Auth::login($user);
 
-            userRedirect();
-
             switch(Auth::user()->rol->nombre){
               
                 case 'admin':
@@ -173,7 +176,7 @@ class UsuarioController extends Controller
 
         // $user->save();
 
-        return view('login.index');
+        return view('auth.login');
     }
 
     public function logout(){

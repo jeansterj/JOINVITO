@@ -33,9 +33,9 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
-Route::get('login', function () {
-    return view('login.index');
-});
+// Route::get('login', function () {
+//     return view('login.index');
+// });
 
 /* rider routes */
 

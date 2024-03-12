@@ -24,7 +24,7 @@
         </button>
       </a>
       <div class="logo">
-          <img src="{{ asset('img/JoInvitoLogo.svg') }}" alt="">
+          <a href="{{url('/')}}"><img src="{{ asset('img/JoInvitoLogo.svg') }}" alt=""></a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <img src="{{ asset('img/menuCorto.svg') }}" alt=""></button>
@@ -41,7 +41,7 @@
                       <a class="nav-link" href="#">CONTACT</a>
                   </li>
                   <div>
-                      @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro'))
+                      @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
                           <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
                       @else
                           <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
@@ -63,6 +63,7 @@
     </div>
   </div>
   @yield('map')
+</div>
   <footer >
     <p class="footerTitle">JOINVITO</p>
     <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
