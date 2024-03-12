@@ -26,10 +26,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('instructions', function () {
-    return view('instructions');
-});
-
 Route::get('/register', function () {
     return view('register.index');
 });
@@ -37,9 +33,9 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
-Route::get('login', function () {
-    return view('login.index');
-});
+// Route::get('login', function () {
+//     return view('login.index');
+// });
 
 /* rider routes */
 
@@ -134,5 +130,11 @@ Route::middleware(['auth'])->group(function () {
         //$user = Auth::user();
 
         return view('home',compact('user'));
+
+
+    });
+
+    Route::get('instructions', function () {
+        return view('instructions');
     });
 });
