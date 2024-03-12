@@ -143,7 +143,7 @@ class UsuarioController extends Controller
                             break;
                 
                 case 'proveedor':
-                            $response = redirect('/provider');
+                            $response = redirect('provider');
                             break;
 
                 case 'centro':

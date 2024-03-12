@@ -26,60 +26,38 @@
 @endsection --}}
 
 @section('content')
-    <div class="text-center text-white my-2">Write the rider’s code or scan it.</div>
-
-    <div class="d-flex justify-content-around">
-        <div class="bg-light btnOrdes d-flex text-center my-auto justify-content-center mx-4 px-5">
-            <form action="">
-                <label for="rider-Code" class="text-secondary">WRITE CODE</label>
-                <div class="row">
-                    <input type="text" name="rider-Code" id="rider-Code"
-                        class="btnOrdes bg-primary text-white py-1 my-1 codBorder">
-
-                </div>
-            </form>
-        </div>
-
-        <div class="bg-light btnOrdes px-2 "><a href=""><img src="{{ asset('img/QRImg.svg') }}" alt="QR-Img"></a>
-        </div>
-    </div>
-
-
-    <div class="text-white py-2 text-center">ORDERS</div>
-
-    <div class="bg-light chartRiderOrder centerSpace my-3">
-
-        <div class="chartRiderOrder row container my-5 ">
-            <div class="d-flex justify-content-center">
-
-                <div class="text-center">
-                    <h2 class="text-center">Order 1 </h2>
-
-                </div>
+    <div class="container">
+    <div class="row margin-top">
+        <h2>SUPPLIER</h2>
+    </div>  
+        <div class="row">
+            <div class="col">
+                <h3>PROFILE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
-
-            <div class="d-flex">
-                <div class="row">
-                    <h3 class="text-center">CHEESE BURGUER
-                        FISH, COCA-COLA</h3>
-
-                </div>
-            </div>
-
-            <div>
-                <img class="rounded mx-auto d-flex imgRiderMot" src="{{ asset('img/rider-unscreen.gif') }}" alt="riderMot">
-            </div>
-
-            <div class="btnOrdes bg-primary mx-2">.</div>
-
-            <div>20 minuts left</div>
-
+                <div class="col">
+                <h3>USE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+            </div>    
         </div>
-
-
-
+        <h2>PROVIDER PROFILE</h2>
+        <div class="row">
+            <div class="col">
+                <h3>CREATE</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+            </div>
+            <div class="col">
+                <h3>ORDER</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+            </div>    
+        </div> 
+        <div class="row">
+            <div class="col">
+                <h3>STATISTICS</h3>
+                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+            </div>
+            <div class="col"></div>
+        </div> 
     </div>
+    @endsection
 
-
-    </div>
-@endsection

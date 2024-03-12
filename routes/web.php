@@ -26,6 +26,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('/register', function () {
     return view('register.index');
 });
@@ -33,9 +34,6 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
-// Route::get('login', function () {
-//     return view('login.index');
-// });
 
 /* rider routes */
 
@@ -88,9 +86,6 @@ Route::get('/camera', [WebcamController::class, 'index']);
 
 Route::get('/qr', [QrCodeController::class, 'show']);
 
-// Route::get('webcam', [WebcamController::class, 'index']);
-// Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
-
 Route::resource('puntos', PuntoController::class);
 
 Route::resource('usuario', UsuarioController::class);
@@ -127,7 +122,7 @@ Route::get('/logout', [UsuarioController::class,'logout']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function(){
 
-        //$user = Auth::user();
+        //$user = Auth::user(); 
 
         return view('home',compact('user'));
 
