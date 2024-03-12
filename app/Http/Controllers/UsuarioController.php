@@ -36,50 +36,53 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         // Value of bd.
-        $riderRol = 2;
-        $centerRol = 3;
-        $supplierRol = 4;
+        // $riderRol = 2;
+        // $centerRol = 3;
+        // $supplierRol = 4;
+        
+        // try {
         $user = new Usuario();
         
         $user->email = $request->email;
-        $passs = $request->passwd;
-        $user->pass_usu = bcrypt($passs);
+        $user->pass_usu = bcrypt($request->passwd);
+        $user->id_rol = $request->rol;
+
+        $user->save();
 
         if (isset($request->sCenterForm)) {
             $choosedUser = new Centro();
 
+            $choosedUser->id_centro = $user->id_usu;
             $choosedUser->direccion = $request->address;
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
-            $user->id_rol = $centerRol;
-
+            
         } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
+            $choosedUser->id_rider = $user->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
 
-            $user->id_rol = $riderRol;
+            
         } else  {
 
             $choosedUser = new Proveedor();
 
+            $choosedUser->id_prov = $user->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
             $choosedUser->nombre_negocio = $request->surname;
             $choosedUser->direccion = $request->address;
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
-
-            $user->id_rol = $supplierRol;
-
         } 
         
-        $choosedUser->nombre = $request->name;
-        // try {
+            $choosedUser->nombre = $request->name;
+        
+            
             $choosedUser->save();
-            $user->save();
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
@@ -128,6 +131,8 @@ class UsuarioController extends Controller
         if($user != null && Hash::check($password,$user->pass_usu)){
             Auth::login($user);
 
+            userRedirect();
+
             switch(Auth::user()->rol->nombre){
               
                 case 'admin':
@@ -135,7 +140,7 @@ class UsuarioController extends Controller
                             break;
                 
                 case 'proveedor':
-                            $response = redirect('/rider-menu-selection');
+                            $response = redirect('/provider');
                             break;
 
                 case 'centro':
@@ -175,5 +180,9 @@ class UsuarioController extends Controller
 
         Auth::logout();
         return redirect('/');
+    }
+
+    private function userRedirect(){
+        
     }
 }
