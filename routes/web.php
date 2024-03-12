@@ -135,4 +135,6 @@ Route::middleware(['auth'])->group(function () {
 
         return view('home',compact('user'));
     });
+
+    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 });

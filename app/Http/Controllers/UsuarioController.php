@@ -133,6 +133,10 @@ class UsuarioController extends Controller
                 case 'admin':
                             $response = redirect('/rider-menu-selection');
                             break;
+                
+                case 'proveedor':
+                            $response = redirect('/rider-menu-selection');
+                            break;
 
                 case 'centro':
                             $response = redirect('/rider-menu-selection');
