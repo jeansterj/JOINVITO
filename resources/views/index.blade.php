@@ -34,5 +34,4 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 @endsection --}}
 
 @section('content')
-    
 @endsection

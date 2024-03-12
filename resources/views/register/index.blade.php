@@ -2,29 +2,7 @@
 @section('title')
     Register Supplier - JoInvito
 @endsection
-{{-- @section('navbar')
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<img src="{{ asset('img/menuCorto.svg') }}" alt="">
-</button>
-<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">HOME</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">ABOUT US</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">CONTACT</a>
-    </li>
-    <div>
-        <button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button>
-        <button type="button" class="btn btn-signup">Sign up</button>
-    </div>
-</ul>
-</div>
-   @endsection --}}
+
 @section('content')
     <div class="container-fluid my-2">
         <div class="col-12" id="loginDiv">
@@ -183,15 +161,15 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
                                 <!-- <div class="form-group gird-placeContent">
-                                  <label for="latitude">Latitude</label>
-                                  <input class="form-control" type="text" id="latitude" maxlength="50"
-                                     placeholder="" name = "latitude" required>
-                               </div>
-                               <div class="form-group gird-placeContent">
-                                  <label for="longitude">Long</label>
-                                  <input class="form-control" type="text" id="longitude" maxlength="50"
-                                     placeholder="" name = "longitude" required>
-                               </div> -->
+                                      <label for="latitude">Latitude</label>
+                                      <input class="form-control" type="text" id="latitude" maxlength="50"
+                                         placeholder="" name = "latitude" required>
+                                   </div>
+                                   <div class="form-group gird-placeContent">
+                                      <label for="longitude">Long</label>
+                                      <input class="form-control" type="text" id="longitude" maxlength="50"
+                                         placeholder="" name = "longitude" required>
+                                   </div> -->
                                 <button type="submit" class="btn btn-light btn_login" name="riderForm"
                                     value="riderForm">Sign Up</button>
                                 {{-- <button type="submit" class="btn btn-light btn_login" name="supplierFrom" >Sign Up</button> --}}
@@ -253,7 +231,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
             </div>
         </div>
     </div>
-</div>
+    </div>
 
     <script src="../resources/js/carrouselMovement.js"></script>
 @endsection
