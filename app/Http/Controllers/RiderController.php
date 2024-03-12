@@ -71,7 +71,6 @@ class RiderController extends Controller
         $riderId = Auth::user()->id_usu;
 
         $favoritosMenus = Rider::with(['favoritos.proveedor.menus'])->find($riderId);
-        // $favoritosMenus = Favorito::with('proveedor.menus')->where('id_rider','=',$riderId)->get();
 
         $favoritosMenus = $favoritosMenus->favoritos;
 
@@ -92,11 +91,6 @@ class RiderController extends Controller
 
     public function updateLocation(Rider $rider){
 
-        var_dump($rider);
-        die();
-
-        // $flight->name = 'Paris to London';
-
-        // $flight->save();
+        
     }
 }
