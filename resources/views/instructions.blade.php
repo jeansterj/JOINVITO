@@ -41,25 +41,27 @@
     </div>
 
 
-    @switch(Auth::check() && Auth::user()->rol)
-        @case(2)
+    {{ $rolActivo = Auth::user()->rol->nombre }}
+
+
+    @switch($rolActivo)
+        @case('rider')
             <h1 class="text-white">rider</h1>
             <img src="" alt="videoInstructionsRider">
-
         @break
 
-        @case(3)
+        @case('centro')
             <img src="" alt="videoInstructionsCenter">
             <h1>centro</h1>
         @break
 
-        @case(4)
+        @case('proveedor')
             <img src="" alt="videoInstructionsProvider">
-            <h1>provider</h1>
+            <h1 class="text-white">provider</h1>
         @break
 
         @default
-            <h1>admin</h1>
+            <h1 class="text-white">Admin</h1>
     @endswitch
 
 

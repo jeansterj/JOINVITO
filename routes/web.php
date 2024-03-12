@@ -26,10 +26,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('instructions', function () {
-    return view('instructions');
-});
-
 Route::get('/register', function () {
     return view('register.index');
 });
@@ -37,7 +33,6 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
-<<<<<<< Updated upstream
 Route::get('login', function () {
     return view('login.index');
 });
@@ -135,15 +130,11 @@ Route::middleware(['auth'])->group(function () {
         //$user = Auth::user();
 
         return view('home',compact('user'));
+
+
     });
 
-    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
+    Route::get('instructions', function () {
+        return view('instructions');
+    });
 });
-=======
-Route::get('/rider-home', function () {
-    return view('rider.rider_home');
-});
-Route::get('/login', function () {
-    return view('login.index');
-});
->>>>>>> Stashed changes
