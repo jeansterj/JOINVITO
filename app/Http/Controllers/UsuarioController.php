@@ -23,6 +23,7 @@ class UsuarioController extends Controller
         $riderRol = 2;
         $centerRol = 3;
         $supplierRol = 4;
+
         switch($rol){
             case $riderRol:
                         return view('register.index');
@@ -108,7 +109,9 @@ class UsuarioController extends Controller
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
-        return redirect()->action([UsuarioController::class, 'index'], ['rol', $rol]);
+        // var_dump($rol);
+        // die();
+        return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
         // return redirect('/');
     }
 
