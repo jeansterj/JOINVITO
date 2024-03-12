@@ -26,7 +26,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 </div>
    @endsection --}}
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid my-2">
         <div class="col-12" id="loginDiv">
             <h1>LOGIN</h1>
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
@@ -253,5 +253,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
             </div>
         </div>
     </div>
+</div>
+
     <script src="../resources/js/carrouselMovement.js"></script>
 @endsection
