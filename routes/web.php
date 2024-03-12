@@ -90,7 +90,7 @@ Route::get('modify-menu', function () {
 
 Route::get('/camera', [WebcamController::class, 'index']);
 
-Route::get('/qr', [QrCodeController::class, 'show']);
+// Route::get('/qr', [QrCodeController::class, 'show']);
 
 // Route::get('webcam', [WebcamController::class, 'index']);
 // Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');

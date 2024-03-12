@@ -159,14 +159,10 @@
                             </div>
 
                             <button type="submit" class="btn btn-light btn_login">Sign Up</button>
-
-
                         </div>
-
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 @endsection

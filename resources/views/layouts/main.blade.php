@@ -25,7 +25,7 @@
       </a>
     <div class="logo">
         <img src="{{ asset('img/JoInvitoLogo.svg') }}" alt="">
-        </div>
+    </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('img/menuCorto.svg') }}" alt=""></button>
         
@@ -62,7 +62,7 @@
     </div>
   </div>
   @yield('map')
-<footer >
+<footer>
   <p class="footerTitle">JOINVITO</p>
   <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
   </br> © 2024 JOINVITO Technologies Inc.</p>
