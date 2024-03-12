@@ -27,21 +27,21 @@
 
 @section('content')
     <div class="container">
-    <div class="row margin-top">
-        <h2>Social Center</h2>
-    </div>   
-    <img src="{{ asset('img/riderIcono.svg') }}" alt="">
+        <div class="row margin-top">
+            <h2>Social Center</h2>
+        </div>
+        <img src="{{ asset('img/riderIcono.svg') }}" alt="">
         <div class="row">
             <div class="col">
                 <h3>PROFILE</h3>
-                <a href="{{ url('')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
-                
+                <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+
             </div>
-                <div class="col">
+            <div class="col">
                 <h3>USE</h3>
-                <a href="{{ url('instructions')}}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
-               
-            </div>    
-        </div>  
+                <a href="{{ url('instructions') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+
+            </div>
+        </div>
     </div>
-    @endsection
+@endsection

@@ -84,7 +84,7 @@ Route::get('modify-menu', function () {
 
 Route::get('/camera', [WebcamController::class, 'index']);
 
-Route::get('/qr', [QrCodeController::class, 'show']);
+// Route::get('/qr', [QrCodeController::class, 'show']);
 
 Route::resource('puntos', PuntoController::class);
 

@@ -16,9 +16,28 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $rol = $request->input('rol');
         //
+        $riderRol = 2;
+        $centerRol = 3;
+        $supplierRol = 4;
+
+        switch($rol){
+            case $riderRol:
+                        return view('register.index');
+                        break;
+
+            case $centerRol:
+                        return view('register.index');
+                        break;
+
+            case $supplierRol:
+                        return view('register.index');
+                        break;
+        }
+        // return view('register.index');
     }
 
     /**
@@ -86,11 +105,14 @@ class UsuarioController extends Controller
         
             
             $choosedUser->save();
+            $rol = $userData->id_rol;
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
-
-        return redirect('/');
+        // var_dump($rol);
+        // die();
+        return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+        // return redirect('/');
     }
 
     /**

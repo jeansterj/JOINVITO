@@ -53,9 +53,7 @@ nav.navbar.navbar-expand-lg {
 .carrouselIcons {
   margin-bottom: 29px;
 }
-.registerForm {
-  /* margin: 32px 0px 18px 0px; */
-}
+
   .container-form {
     place-content: center;
     display: grid;
