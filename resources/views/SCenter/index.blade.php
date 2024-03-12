@@ -26,32 +26,29 @@
 @endsection
 
 @section('content')
-
-
-@section('map')
-    <div class="bg-secondary chartRiderMap">
-
-        <h2 class="text-white text-break text-center py-3 px-4">Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry.
-
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-
-        <h1 class="text-white text-center my-4 py-3"> MAP </h1>
-
-
-        <div class="container">
-            <div id="map"></div>
+    <div class="container">
+        <div class="row margin-top">
+            <h2>Social Center</h2>
         </div>
+        <img src="{{ asset('img/riderIcono.svg') }}" alt="">
+        <div class="row">
+            <div class="col">
+                <h3>PROFILE</h3>
+                <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
 
-        <div class="py-3 d-grid">
-            <a href="{{ url('addLocation') }}">
-                <h1 class="buttonOrder bg-light text-primary text-center py-1 px-2"> ADD LOCATION </h1>
-            </a>
+            </div>
+            <div class="col">
+                <h3>USE</h3>
+                <a href="{{ url('instructions') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
 
-
+            </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h3>HOW TO USE?</h3>
+                <a href="{{ url('prin') }}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
 
+            </div>
+        </div>
     </div>
-@endsection
-
 @endsection

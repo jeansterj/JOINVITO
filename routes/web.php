@@ -41,8 +41,8 @@ Route::get('rider', function () {
     return view('rider.index');
 });
 
-Route::get('rider-menu', function () {
-    return view('rider.menu');
+Route::get('ordersRider', function () {
+    return view('rider.ordersRider');
 });
 
 Route::get('statsRider', function () {
@@ -63,24 +63,47 @@ Route::get('provider', function () {
     return view('provider.index');
 });
 
-Route::get('provider-menu', function () {
-    return view('provider.menuProvider');
+Route::get('orders', function () {
+    return view('provider.orders');
 });
 
-Route::get('edit-provider', function () {
+Route::get('editProvider', function () {
     return view('provider.editProvider');
 });
-Route::get('orderList', function () {
-    return view('provider.orderList');
+Route::get('menusList', function () {
+    return view('provider.menusList');
 });
-Route::get('create-menu', function () {
+Route::get('createMenu', function () {
     return view('provider.createMenu');
 });
-Route::get('modify-menu', function () {
+Route::get('modifyMenu', function () {
     return view('provider.modifyMenu');
 });
 
 /* Social Center routes */
+
+Route::get('socialcenter', function () {
+    return view('SCenter.index');
+});
+
+Route::get('prin', function () {
+    return view('SCenter.prin');
+});
+
+Route::get('stats', function () {
+    return view('SCenter.stats');
+});
+
+Route::get('edit-SCenter', function () {
+    return view('SCenter.edit-SCenter');
+});
+
+Route::get('addLocation', function () {
+    return view('rider.addLocation');
+});
+
+
+
 
 Route::get('/camera', [WebcamController::class, 'index']);
 
@@ -93,26 +116,6 @@ Route::resource('usuario', UsuarioController::class);
 Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 
 Route::resource('pedido', PedidoController::class);
-
-Route::get('scenter-menu', function () {
-    return view('SCenter.menuSCenter');
-});
-
-Route::get('stats', function () {
-    return view('SCenter.stats');
-});
-
-Route::get('edit-rider', function () {
-    return view('SCenter.edit-rider');
-});
-
-Route::get('addLocation', function () {
-    return view('rider.addLocation');
-});
-
-Route::get('social-center', function () {
-    return view('SCenter.index');
-});
 
 
 Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');

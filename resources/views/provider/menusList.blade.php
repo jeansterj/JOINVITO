@@ -13,7 +13,7 @@
                 </div>
                 <div class="col">
 
-                    <img src="{{ asset('img/editIcon.svg') }}" alt="">
+                    <a href="{{ url('modifyMenu')}}"><img src="{{ asset('img/editIcon.svg') }}" alt=""></a>
                 </div>
             </div>
 
