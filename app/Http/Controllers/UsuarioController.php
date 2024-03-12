@@ -104,10 +104,11 @@ class UsuarioController extends Controller
         
             
             $choosedUser->save();
+            $rol = $userData->id_rol;
         // } catch (\Throwable $th) {
         //     //throw $th;
         // }
-        return redirect()->action([UsuarioController::class, 'index']);
+        return redirect()->action([UsuarioController::class, 'index'], ['rol', $rol]);
         // return redirect('/');
     }
 
