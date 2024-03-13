@@ -31,31 +31,39 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleResize() {
         let screenWidth = window.innerWidth;
 
-        if (screenWidth < 960) {
-            accountQuestion.classList.add("d-block");
-
-            if (divRegister.style.display === "block") {
-
-                loginDiv.classList.add("d-none");
-                divRegister.classList.remove("bg-secondary");
-                divRegister.classList.remove("col-9");
-                divRegister.classList.add("col-12");
-                medForm.classList.add("medFormClass")
+        if (screenWidth < 992) {
+            if (accountQuestion != null) {
+                accountQuestion.classList.add("d-block");
             }
+
+            if (divRegister != null) {
+                if (divRegister.style.display === "block") {
+
+                    loginDiv.classList.add("d-none");
+                    divRegister.classList.remove("bg-secondary");
+                    divRegister.classList.remove("col-9");
+                    divRegister.classList.add("col-12");
+                    medForm.classList.add("medFormClass")
+                }
+            }
+            loginRegistroNavbar.classList.add('ocultar')
         } else if (screenWidth >= 992) {
-            if (divRegister.style.display === "block") {
+            if (divRegister != null) {
+                if (divRegister.style.display === "block") {
 
-                col3Container.classList.remove("col-12");
-                col3Container.classList.add("col-3");
-                loginDiv.classList.add("d-block");
-                medForm.classList.add("d-flex");
-                divRegister.classList.remove("col-12");
-                divRegister.classList.add("col-9");
-                divRegister.classList.add("bg-secondary");
-                accountQuestion.classList.add("d-none");
+                    col3Container.classList.remove("col-12");
+                    col3Container.classList.add("col-3");
+                    loginDiv.classList.add("d-block");
+                    medForm.classList.add("d-flex");
+                    divRegister.classList.remove("col-12");
+                    divRegister.classList.add("col-9");
+                    divRegister.classList.add("bg-secondary");
+                    accountQuestion.classList.add("d-none");
+                }
             }
+            
 
-             
+            loginRegistroNavbar.classList.remove('ocultar')
         }
     }
 
