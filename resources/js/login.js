@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+    }
+
     function handleResize() {
         let screenWidth = window.innerWidth;
 
@@ -65,6 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     handleResize();
    
    
-    }
+    
 
 });
