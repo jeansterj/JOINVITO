@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             divRegister.style.display = "block";
 
             if (document.documentElement.clientWidth < 1200) {
-                loginDiv.style.display = "none";
+                loginDiv.classList.add("d-none");
 
                 divRegister.classList.remove("bg-secondary");
                 divRegister.classList.remove("col-9");
@@ -25,34 +25,34 @@ document.addEventListener("DOMContentLoaded", function () {
                 col3Container.classList.add("col-3");
             }
         });
+    }
+
 
     function handleResize() {
         let screenWidth = window.innerWidth;
 
         if (screenWidth < 960) {
-            accountQuestion.style.display = "block";
-            divRegister.style.display = "block";
+            accountQuestion.classList.add("d-block");
 
             if (divRegister.style.display === "block") {
 
-                loginDiv.style.display = "none";
+                loginDiv.classList.add("d-none");
                 divRegister.classList.remove("bg-secondary");
                 divRegister.classList.remove("col-9");
                 divRegister.classList.add("col-12");
-                medForm.style.display = "grid";
-                medForm.style.placeContent = "center";
+                medForm.classList.add("medFormClass")
             }
         } else if (screenWidth >= 960) {
             if (divRegister.style.display === "block") {
 
                 col3Container.classList.remove("col-12");
                 col3Container.classList.add("col-3");
-                loginDiv.style.display = "block";
-                medForm.style.display = "flex";
+                loginDiv.classList.add("d-block");
+                medForm.classList.add("d-flex");
                 divRegister.classList.remove("col-12");
                 divRegister.classList.add("col-9");
                 divRegister.classList.add("bg-secondary");
-                accountQuestion.style.display = "none";
+                accountQuestion.classList.add("d-none");
             }
 
              
@@ -64,6 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
     handleResize();
    
    
-    }
 
 });
