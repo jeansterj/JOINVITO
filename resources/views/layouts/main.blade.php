@@ -48,7 +48,7 @@
                 <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
             @else
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
-                <a class="nav-link" href="{{ url('/register') }}" aria-expanded="false"><button type="button" class="btn btn-signup">Sign up</button></a>
+                {{-- <a class="nav-link" href="{{ url('/register') }}" aria-expanded="false"><button type="button" class="btn btn-signup">Sign up</button></a> --}}
             @endif
         </div>
       </div>

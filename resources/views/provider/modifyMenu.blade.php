@@ -33,7 +33,7 @@
                                 <input class="form-control" type="number" id="amount" maxlength="2" value="0"
                                     name = "amount" required>
                             </div>
-                            <button type="submit" class="btn btn-light btn_login" name="supplierFrom">TO REGISTER
+                            <button type="submit" class="btn btn-light btn_login" name="supplierFrom">CHANGE
                                 MENU</button>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-12" id="loginDiv">
+        <div class="col-3" id="loginDiv">
             <h1>LOGIN</h1>
 
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
@@ -20,7 +20,7 @@
                     </div>
                     <button type="submit" class="btn btn-light btn_login">Login</button>
                 </form>
-                <div class="accountQuestion">
+                <div class="accountQuestion d-none" id="divAccountQuestion">
                     <p class="p text-break">Don't have an account</p>
                     <button class="dontHaveAccount text-break">Create account</button>
                 </div>

@@ -94,9 +94,7 @@ nav.navbar.navbar-expand-lg {
   border-radius: 51px !important;
   width: 281px !important;
 }
-.accountQuestion {
-  margin-top: 20px;
-}
+
 .dontHaveAccount {
   color: #FFCA10;
 }
@@ -145,10 +143,8 @@ button.btn.btn-signup {
   background-color: #07203C;
   border-radius: 25px;
   color: #fff;
-  height: 55px;
   font-size: 24px;
   width: 150px;
-  /* font-family: ; */
 }
 
 .btn-login img{
@@ -182,9 +178,8 @@ footer p{
 
 /* Registro web*/
 
-#divAccountQuestion{
-
-display: none;
+.accountQuestion {
+  margin-top: 20px;
 }
 
 .medFormClass{
