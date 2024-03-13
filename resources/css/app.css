@@ -6,6 +6,10 @@
 body {
   text-align: center !important;
 }
+.content {
+  display: grid;
+  place-items: center;
+}
 .gird-placeContent{
   padding: 10px;
   display: grid;
@@ -219,4 +223,15 @@ width: 70%;
 /** QR CSS **/
 #titleScan {
   color: white;
+}
+/** CONTACT **/
+.formContact {
+  color: white;
+  font-size: 28px;
+}
+.group {
+  padding: 10px;
+}
+.text-area {
+  height: 122px;
 }

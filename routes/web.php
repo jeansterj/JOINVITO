@@ -103,11 +103,17 @@ Route::get('addLocation', function () {
 });
 
 
-
+/** QR VIEWS */
 
 Route::get('/camera', [WebcamController::class, 'index']);
 
 Route::get('/qr', [QrCodeController::class, 'show']);
+
+/** CONTACT VIEW */
+Route::get('/contact', function () {
+    return view('contact.index');
+});
+
 
 Route::resource('usuario', UsuarioController::class);
 
