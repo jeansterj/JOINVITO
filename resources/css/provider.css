@@ -1,6 +1,12 @@
 .centerSpace{
 
-    display: grid;
+    display: inline-flex;
+    place-items: center;
+}
+
+.centerSpaceBlock{
+
+    display: inline-grid;
     place-items: center;
 }
 
@@ -28,4 +34,9 @@
 .codBorder{
     
 border: none !important;
+}
+
+.de{
+    --bs-card-bg : none !important;
+    --bs-card-border-color: none !important;
 }

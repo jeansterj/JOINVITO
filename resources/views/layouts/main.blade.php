@@ -12,7 +12,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
-    'resources/js/login.js'])
+    'resources/js/login.js','resources/js/provider.js'])
 </head>
 
 <body class="bg-primary">
