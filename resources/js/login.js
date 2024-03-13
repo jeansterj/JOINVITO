@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const divRegister = document.getElementById("register");
     let loginDiv = document.getElementById("loginDiv");
     const medForm = document.getElementById("medForm");
+    const accountQuestion = document.getElementById("divAccountQuestion");
+
 
     if (dontHaveAccount != null) {
         dontHaveAccount.addEventListener("click", function (event) {
@@ -45,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 divRegister.classList.remove("col-12");
                 divRegister.classList.add("col-9");
                 divRegister.classList.add("bg-secondary");
-            }
+                accountQuestion.style.display = "none";
+
+             }
         }
     }
 
