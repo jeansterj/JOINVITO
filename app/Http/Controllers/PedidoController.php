@@ -32,7 +32,7 @@ class PedidoController extends Controller
         $pedido = new Pedido();
 
 
-        $pedido->id_rider = 1;
+        $pedido->id_rider = $request->id_rider;
         $pedido->id_menu = $request->id_menu;
         $pedido->cantidad_packs = $request->cantidad;
         $pedido->fecha = date('y-m-d');

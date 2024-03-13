@@ -45,14 +45,14 @@ nav.navbar.navbar-expand-lg {
   }
 
   .cuadroTitulo.logo {
-    margin-bottom: auto; 
+    margin-bottom: auto;
   }
   .carousel-indicators {
     bottom: -36px !important;
   }
   .logo img {
-    display: block; 
-    margin: 0 auto; 
+    display: block;
+    margin: 0 auto;
   }
 .carrouselIcons {
   margin-bottom: 29px;
@@ -113,12 +113,30 @@ a.nav-link{
 }
 
 div#navbarSupportedContent{
-  padding-top: 20px;
+    padding-top: 15px;
+}
+
+div#navbarSupportedContent .navbar-nav{
+  margin: auto;
+}
+
+div#navbarSupportedContent .navbar-nav li:hover{
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #07203C;
+}
+
+#loginRegistroNavbar{
+    padding-top: 15px;
 }
 
 #loginRegistroNavbar .nav-link{
   display: inline;
 }
+
+#loginRegistroNavbar .nav-link:hover{
+    color: #07203C
+  }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color: #07203C!important;
@@ -149,7 +167,7 @@ button.btn.btn-signup {
 
 .btn-login img{
   padding-right: 10px;
-  width: 40px 
+  width: 40px
 }
 
 .navbar-toggler{
@@ -241,4 +259,4 @@ width: 70%;
 }
 .text-area {
   height: 122px;
-} 
+}

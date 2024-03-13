@@ -25,6 +25,7 @@
                                             method="POST">
                                             @csrf
                                             <div class="card">
+                                                <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
                                                 <div class="card-body">
                                                     <h5 class="card-title"><span>{{ $nombre }}</span></h5>
                                                     <p class="card-text">{{ $menu->bebida }}</p>
@@ -76,7 +77,6 @@
                     <div class="carousel-inner">
                         @php $active = "active" @endphp
                         @foreach ($favoritosMenus as $dato)
-                            {{-- @foreach ($favoritosMenus as $dato) --}}
                             @php $nombre = $dato->proveedor->nombre_negocio @endphp
                             @foreach ($dato->proveedor->menus as $menu)
                                 <div class="carousel-item {{ $active }}">
@@ -84,6 +84,7 @@
                                         method="POST">
                                         @csrf
                                         <div class="card">
+                                            <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
                                             <div class="card-body">
                                                 <h5 class="card-title"><span>{{ $nombre }}</span></h5>
                                                 <input type="hidden" name="id_menu" value="{{ $menu->id_menu }}"></input>
