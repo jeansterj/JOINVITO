@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dontHaveAccount = document.querySelector(".dontHaveAccount");
-    const col3Container = document.querySelector(".col-12");
+    const col3Container = document.querySelector(".col-3");
     const divRegister = document.getElementById("register");
     let loginDiv = document.getElementById("loginDiv");
     const medForm = document.getElementById("medForm");
     const accountQuestion = document.getElementById("divAccountQuestion");
-    const loginRegisterButtons = document.getElementById('loginRegistroNavbar');
+    const loginRegistroNavbar = document.getElementById('loginRegistroNavbar');
 
 
     if (dontHaveAccount != null) {
@@ -30,8 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleResize() {
         let screenWidth = window.innerWidth;
 
-        if (screenWidth < 992) {
+        if (screenWidth < 960) {
+            accountQuestion.style.display = "block";
+            divRegister.style.display = "block";
+
             if (divRegister.style.display === "block") {
+
                 loginDiv.style.display = "none";
                 divRegister.classList.remove("bg-secondary");
                 divRegister.classList.remove("col-9");
@@ -42,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else if (screenWidth >= 992) {
             if (divRegister.style.display === "block") {
+
                 col3Container.classList.remove("col-12");
                 col3Container.classList.add("col-3");
                 loginDiv.style.display = "block";
@@ -61,4 +66,5 @@ document.addEventListener("DOMContentLoaded", function () {
    
    
     }
+
 });

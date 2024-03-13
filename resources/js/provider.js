@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleResize() {
         let screenWidth = window.innerWidth;
 
+        if (divMenuList != null) {
+
+
         if (screenWidth < 960) {
 
             divMenuList.classList.remove("centerSpace");
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             divMenuList.classList.add("centerSpace");
 
         }
+    }
     }
     
 
