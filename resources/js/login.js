@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const medForm = document.getElementById("medForm");
     const accountQuestion = document.getElementById("divAccountQuestion");
     const loginRegistroNavbar = document.getElementById('loginRegistroNavbar');
+    const btnLoginMobile = document.getElementById('login');
+    const btnLogoutMobile = document.getElementById('logout');
 
 
     if (dontHaveAccount != null) {
@@ -47,6 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             loginRegistroNavbar.classList.add('ocultar')
+            
+            if(btnLoginMobile != null){
+                btnLoginMobile.classList.remove('ocultar')
+            }
+            
+            if(btnLogoutMobile != null){
+                btnLogoutMobile.classList.remove('ocultar')
+            }
+            
         } else if (screenWidth >= 992) {
             if (divRegister != null) {
                 if (divRegister.style.display === "block") {
@@ -64,6 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
             
 
             loginRegistroNavbar.classList.remove('ocultar')
+
+            if(btnLoginMobile != null){
+                btnLoginMobile.classList.add('ocultar')
+            }
+            
+            if(btnLogoutMobile != null){
+                btnLogoutMobile.classList.add('ocultar')
+            }
+            
         }
     }
 

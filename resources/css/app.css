@@ -114,9 +114,9 @@ a.nav-link{
   font-weight: 600;
 }
 
-/* div#navbarSupportedContent{
+div#navbarSupportedContent{
   padding-top: 20px;
-} */
+}
 
 #loginRegistroNavbar .nav-link{
   display: inline;
@@ -196,7 +196,7 @@ display: none;
 }
 
 .logo {
-  margin-bottom: -25px;
+  margin-bottom: -9px;
 }
 
 .flotante{

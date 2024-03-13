@@ -17,7 +17,7 @@
 
 <body class="bg-primary">
   <nav class="navbar navbar-expand-lg bg-light" >
-    <div class="container-fluid">
+    <div class="container">
       <a href="{{url('login')}}">
         <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{{ url('login')}}">
           <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
@@ -31,16 +31,59 @@
 
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">ABOUT US</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">CONTACT</a>
-                  </li>
-                  
+                  @if (Auth::check())
+                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">USE</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">CREATE PIC</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">ORDERS</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">STATS</a>
+                    </li>
+                    @endif
+                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'proveedor')
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">USE</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">CREATE MENU</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">ORDERS</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">STATS</a>
+                    </li>
+                    @endif
+                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'centro')
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">USE</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">CREATE PIC</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">ORDERS</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">STATS</a>
+                    </li>
+                    @endif  
+                  @endif
+                  @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
+                    <li class="nav-item" id="logout">
+                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
+                    </li>
+                    @else
+                    <li class="nav-item" id="login">
+                      <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
+                    </li>
+                  @endif
               </ul>
           </div>
           <div id="loginRegistroNavbar">
@@ -48,7 +91,6 @@
                 <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
             @else
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
-                {{-- <a class="nav-link" href="{{ url('/register') }}" aria-expanded="false"><button type="button" class="btn btn-signup">Sign up</button></a> --}}
             @endif
         </div>
       </div>
