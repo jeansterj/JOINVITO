@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dontHaveAccount != null) {
         dontHaveAccount.addEventListener("click", function (event) {
             event.preventDefault();
-            divRegister.style.display = "block";
+            divRegister.classList.add("d-block");
 
             if (document.documentElement.clientWidth < 1200) {
                 loginDiv.classList.add("d-none");
@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleResize() {
         let screenWidth = window.innerWidth;
 
-        if (screenWidth < 960) {
+        if (screenWidth < 992) {
             accountQuestion.classList.add("d-block");
 
-            if (divRegister.style.display === "block") {
+            if (divRegister.classList.contains("d-block")) {
 
                 loginDiv.classList.add("d-none");
                 divRegister.classList.remove("bg-secondary");
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 medForm.classList.add("medFormClass")
             }
         } else if (screenWidth >= 992) {
-            if (divRegister.style.display === "block") {
+            if (divRegister.classList.contains("d-block")) {
 
                 col3Container.classList.remove("col-12");
                 col3Container.classList.add("col-3");
