@@ -54,7 +54,9 @@
       </div>
     </div>
   </nav>
-  @yield('content')
+  <div class="content">
+    @yield('content')
+  </div>
   <div class="flotante container text-center">
     <div class="row">
       <div class="col"><img src="{{ asset('img/puaMap.svg') }}" alt=""></div>
