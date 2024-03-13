@@ -187,6 +187,12 @@ footer p{
 display: none;
 }
 
+.medFormClass{
+  display: grid;
+  place-content: center;
+}
+
+
 .footerTitle{
   font-size: 15px;
 }
