@@ -173,10 +173,11 @@ footer p{
 
 /* Registro web*/
 
-#register{
+#divAccountQuestion{
 
 display: none;
 }
+
 .footerTitle{
   font-size: 15px;
 }
