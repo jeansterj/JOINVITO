@@ -107,7 +107,7 @@ Route::get('addLocation', function () {
 
 Route::get('/camera', [WebcamController::class, 'index']);
 
-// Route::get('/qr', [QrCodeController::class, 'show']);
+Route::get('/qr', [QrCodeController::class, 'show']);
 
 Route::resource('usuario', UsuarioController::class);
 
