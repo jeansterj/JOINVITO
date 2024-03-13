@@ -94,9 +94,7 @@ nav.navbar.navbar-expand-lg {
   border-radius: 51px !important;
   width: 281px !important;
 }
-.accountQuestion {
-  margin-top: 20px;
-}
+
 .dontHaveAccount {
   color: #FFCA10;
 }
@@ -180,9 +178,8 @@ footer p{
 
 /* Registro web*/
 
-#divAccountQuestion{
-
-display: none;
+.accountQuestion {
+  margin-top: 20px;
 }
 
 .medFormClass{
@@ -203,7 +200,7 @@ display: none;
   height: 85px;
   background-color: #FFCA10;
   margin-top: 10px;
-  width: 100%;
+  width: 100% !important;
   z-index: 1000;
   position: fixed;
   bottom: 0;

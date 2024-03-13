@@ -12,7 +12,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
-    'resources/js/login.js','resources/js/provider.js'])
+    'resources/js/login.js','resources/js/provider.js', 'resources/js/footerAndMenuCollision.js'])
 </head>
 
 <body class="bg-primary">
@@ -99,7 +99,7 @@
   <div class="content">
     @yield('content')
   </div>
-  <div class="flotante container text-center">
+  <div class="flotante container text-center" id="floatingMenu">
     <div class="row">
       <div class="col"><img src="{{ asset('img/puaMap.svg') }}" alt=""></div>
       <div class="col"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></div>
@@ -108,7 +108,7 @@
     </div>
   </div>
   @yield('map')
-  <footer class="py-2">
+  <footer class="py-2" id="footer">
     <p class="footerTitle">JOINVITO</p>
     <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
     </br> © 2024 JOINVITO Technologies Inc.</p>
