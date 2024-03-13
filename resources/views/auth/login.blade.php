@@ -20,7 +20,7 @@
                     </div>
                     <button type="submit" class="btn btn-light btn_login">Login</button>
                 </form>
-                <div class="accountQuestion">
+                <div class="accountQuestion" id="divAccountQuestion">
                     <p class="p text-break">Don't have an account</p>
                     <button class="dontHaveAccount text-break">Create account</button>
                 </div>

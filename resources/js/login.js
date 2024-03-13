@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dontHaveAccount != null) {
         dontHaveAccount.addEventListener("click", function (event) {
             event.preventDefault();
-            divRegister.style.display = "block";
+            divRegister.classList.add("d-block");
 
             if (document.documentElement.clientWidth < 1200) {
                 loginDiv.classList.add("d-none");
