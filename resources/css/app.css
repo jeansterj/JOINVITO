@@ -167,11 +167,14 @@ button.btn.btn-signup {
 /* Footer */
 
 footer{
+  bottom: 0;
+  position: absolute;
+  width: 100%;
   background-color:#07203C;
   font-size: 15px;
   color: #fff;
   text-align: center;
-  margin: 10%;
+  /* margin: 10%; */
 }
 footer p{
   font-size: 13px;
@@ -243,4 +246,4 @@ width: 70%;
 }
 .text-area {
   height: 122px;
-}
+} 
