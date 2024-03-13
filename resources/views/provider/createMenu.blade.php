@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row margin-top text-center">
             <h2>CREATE MENU</h2>
-            <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
+            <img class="rider-logo" src="{{ asset('img/createMenuIcon.svg') }}" alt="">
             <div class="bg-secondary section-form">
                 <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}"
                     method="POST">
