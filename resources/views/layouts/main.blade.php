@@ -66,7 +66,7 @@
     </div>
   </div>
   @yield('map')
-  <footer class="py-5">
+  <footer class="py-2">
     <p class="footerTitle">JOINVITO</p>
     <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
     </br> © 2024 JOINVITO Technologies Inc.</p>
