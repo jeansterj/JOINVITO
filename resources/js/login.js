@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let loginDiv = document.getElementById("loginDiv");
     const medForm = document.getElementById("medForm");
     const accountQuestion = document.getElementById("divAccountQuestion");
+    const loginRegistroNavbar = document.getElementById('loginRegistroNavbar');
 
 
     if (dontHaveAccount != null) {
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 divRegister.classList.add("col-12");
                 medForm.classList.add("medFormClass")
             }
-        } else if (screenWidth >= 960) {
+        } else if (screenWidth >= 992) {
             if (divRegister.style.display === "block") {
 
                 col3Container.classList.remove("col-12");

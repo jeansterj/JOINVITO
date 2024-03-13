@@ -40,20 +40,23 @@
                   <li class="nav-item">
                       <a class="nav-link" href="#">CONTACT</a>
                   </li>
-                  <div>
-                      @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
-                          <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
-                      @else
-                          <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
-                          <a class="nav-link" href="{{ url('/register') }}" aria-expanded="false"><button type="button" class="btn btn-signup">Sign up</button></a>
-                      @endif
-                  </div>
+                  
               </ul>
           </div>
+          <div id="loginRegistroNavbar">
+            @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
+                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
+            @else
+                <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
+                <a class="nav-link" href="{{ url('/register') }}" aria-expanded="false"><button type="button" class="btn btn-signup">Sign up</button></a>
+            @endif
+        </div>
       </div>
     </div>
   </nav>
-  @yield('content')
+  <div class="content">
+    @yield('content')
+  </div>
   <div class="flotante container text-center">
     <div class="row">
       <div class="col"><img src="{{ asset('img/puaMap.svg') }}" alt=""></div>
