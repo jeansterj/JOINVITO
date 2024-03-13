@@ -105,32 +105,34 @@ nav.navbar.navbar-expand-lg {
 a.nav-link{
   font-family: Montserrat, Helvetica, sans-serif;
   color: #07203C;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 3px;
   font-weight: 600;
 }
 
-div#navbarSupportedContent{
+/* div#navbarSupportedContent{
   padding-top: 20px;
+} */
+
+#loginRegistroNavbar .nav-link{
+  display: inline;
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color: #07203C!important;
 }
 
-/* div#navbarSupportedContent {
-  height: 220px;
-} */
+.ocultar {
+  display: none;
+}
 
 button.btn.btn-login {
   margin-right: 7px;
-  width: 130px; 
-  background-color: #fff;
-  border-radius: 25px;
-  height: 55px;
-  font-size: 24px;
-  width: 150px;
-  /* font-family: ; */
+    width: 130px;
+    background-color: #fff;
+    border-radius: 25px;
+    font-size: 24px;
+    width: 150px;
 }
 
 button.btn.btn-signup {

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let loginDiv = document.getElementById("loginDiv");
     const medForm = document.getElementById("medForm");
     const accountQuestion = document.getElementById("divAccountQuestion");
+    const loginRegisterButtons = document.getElementById('loginRegistroNavbar');
 
 
     if (dontHaveAccount != null) {
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleResize() {
         let screenWidth = window.innerWidth;
 
-        if (screenWidth < 960) {
+        if (screenWidth < 992) {
             if (divRegister.style.display === "block") {
                 loginDiv.style.display = "none";
                 divRegister.classList.remove("bg-secondary");
@@ -37,8 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 divRegister.classList.add("col-12");
                 medForm.style.display = "grid";
                 medForm.style.placeContent = "center";
+                loginRegistroNavbar.classList.add('ocultar')
             }
-        } else if (screenWidth >= 960) {
+        } else if (screenWidth >= 992) {
             if (divRegister.style.display === "block") {
                 col3Container.classList.remove("col-12");
                 col3Container.classList.add("col-3");
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 divRegister.classList.add("col-9");
                 divRegister.classList.add("bg-secondary");
                 accountQuestion.style.display = "none";
-
+                loginRegistroNavbar.classList.remove('ocultar')
              }
         }
     }
