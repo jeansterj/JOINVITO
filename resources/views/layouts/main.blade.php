@@ -28,7 +28,7 @@
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <img src="{{ asset('img/menuCorto.svg') }}" alt=""></button>
-          
+
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
@@ -55,11 +55,11 @@
   </nav>
   @yield('content')
   <div class="flotante container text-center">
-    <div class="row align-items-end">
+    <div class="row">
       <div class="col"><img src="{{ asset('img/puaMap.svg') }}" alt=""></div>
       <div class="col"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></div>
       <div class="col"><img src="{{ asset('img/user.png') }}" alt=""></div>
-      <div class="col"><img src="{{ asset('img/menuBajo.svg') }}" alt=""></div>
+      {{-- <div class="col"><img src="{{ asset('img/menuBajo.svg') }}" alt=""></div> --}}
     </div>
   </div>
   @yield('map')

@@ -193,6 +193,7 @@ display: none;
   z-index: 1000;
   position: fixed;
   bottom: 0;
+  max-width: 100% !important;
 }
 
 
@@ -201,7 +202,7 @@ display: none;
 }
 
 .flotante img {
-  margin-top: 20%;
+  margin-top: 20px;
 }
 
 .flotante.container.text-center {
