@@ -109,8 +109,6 @@ Route::get('/camera', [WebcamController::class, 'index']);
 
 // Route::get('/qr', [QrCodeController::class, 'show']);
 
-Route::resource('puntos', PuntoController::class);
-
 Route::resource('usuario', UsuarioController::class);
 
 Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
@@ -123,14 +121,6 @@ Route::post('/login', [UsuarioController::class,'login']);
 Route::get('/logout', [UsuarioController::class,'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', function(){
-
-        //$user = Auth::user(); 
-
-        return view('home',compact('user'));
-
-
-    });
 
     Route::get('instructions', function () {
         return view('instructions');

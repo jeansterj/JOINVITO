@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PuntoController;
 use App\Http\Controllers\Api\RiderController;
 
 
@@ -21,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('riders', RiderController::class);
+
+Route::apiResource('puntos', PuntoController::class);
 

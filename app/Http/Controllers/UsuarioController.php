@@ -169,7 +169,7 @@ class UsuarioController extends Controller
                             break;
 
                 case 'centro':
-                            $response = redirect('/rider-menu-selection');
+                            $response = redirect('/provider');
                             break;
 
                 case 'rider':

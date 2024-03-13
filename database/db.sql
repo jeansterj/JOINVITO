@@ -24,10 +24,7 @@ FOREIGN KEY (id_rol) REFERENCES roles(id_rol),
 primary key(id_usu)
 );
 
--- insert into usuarios values(1,'jean@prueba.com','prueba',2);
--- insert into usuarios values(2,'aleix2@prueba.com','prueba',4);
--- insert into usuarios values(3,'aleix3@prueba.com','prueba',4);
--- insert into usuarios values(4,'aleix4@prueba.com','prueba',4);
+
 
 create table riders(
 id_rider int,
@@ -39,7 +36,7 @@ FOREIGN KEY (id_rider) REFERENCES usuarios(id_usu),
 primary key(id_rider)
 );
 
--- insert into riders values(1,'Jean','Pol',null,null);
+
 
 create table proveedores(
 id_prov int,
@@ -54,10 +51,7 @@ FOREIGN KEY proveedores(id_prov) REFERENCES usuarios(id_usu),
 primary key(id_prov)
 );
 
--- insert into proveedores values(1,'Pepe','Sanchez','Panaderia Pepe','Calle 1',null,'Barcelona','08830');
--- insert into proveedores values(2,'Antonio','Recio','Mariscos Recio','Calle 2',null,'Barcelona','08831');
--- insert into proveedores values(3,'Pepe','Gotera','Pepe Gotera S.A.','Calle 3',null,'Barcelona','08831');
--- insert into proveedores values(4,'Ofelia','Secre','Ofelia Secre S.A.','Calle 3',null,'Barcelona','08831');
+
 
 create table centros(
 id_centro int,
@@ -83,9 +77,9 @@ FOREIGN KEY (id_prov) REFERENCES proveedores(id_prov),
 primary key(id_menu)
 );
 
--- insert into menus values(1,'Agua','Ensalada','Jamon',1,2,'2024-02-28');
--- insert into menus values(2,'Cola','Pasta','Yogurt',1,3,'2024-02-28');
--- insert into menus values(3,'Vino','Flan','Yogurt',1,4,'2024-02-28');
+insert into menus values(1,'Agua','Ensalada','Jamon',1,15,'2024-02-28');
+insert into menus values(2,'Cola','Pasta','Yogurt',1,15,'2024-02-28');
+insert into menus values(3,'Vino','Flan','Yogurt',1,26,'2024-02-28');
 
 create table puntos(
 id_punto int auto_increment,
@@ -104,10 +98,10 @@ FOREIGN KEY (id_usu) REFERENCES usuarios(id_usu),
 primary key(id_punto)
 );
 
--- insert into puntos values(1,'Punto 1','Calle 1',41.3888845,2.1706315,1,null,'2024-02-27',null,10,'Proveedor',2);
--- insert into puntos values(2,'Punto 2','Calle 2',41.389289,2.1709058,1,null,'2024-02-27',null,10,'Proveedor',3);
--- insert into puntos values(3,'Punto 3','Calle 3',41.3558608,2.02883,1,null,'2024-02-27',null,10,'Proveedor',3);
--- insert into puntos values(4,'Punto 4','Calle 4',41.3758608,2.03883,1,null,'2024-02-27',null,10,'Proveedor',4);
+insert into puntos values(1,'Punto 1','Calle 1',41.3888845,2.1706315,1,null,'2024-02-27',null,10,'Proveedor',15);
+insert into puntos values(2,'Punto 2','Calle 2',41.389289,2.1709058,1,null,'2024-02-27',null,10,'Proveedor',25);
+insert into puntos values(3,'Punto 3','Calle 3',41.3558608,2.02883,1,null,'2024-02-27',null,10,'Proveedor',25);
+insert into puntos values(4,'Punto 4','Calle 4',41.3758608,2.03883,1,null,'2024-02-27',null,10,'Proveedor',26);
 
 create table pedidos(
 id_pedido int auto_increment,
@@ -152,9 +146,9 @@ FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_prov),
 primary key(id_rider,id_proveedor)
 );
 
--- insert into favoritos values(1,1,2);
--- insert into favoritos values(2,1,3);
--- insert into favoritos values(3,1,4);
+insert into favoritos values(1,24,15);
+insert into favoritos values(2,24,26);
+insert into favoritos values(3,27,26);
 
 create table notis(
 id_noti int auto_increment unique,
@@ -165,5 +159,5 @@ FOREIGN KEY (id_fav) REFERENCES favoritos(id_fav),
 primary key(id_fav)
 );
 
--- insert into notis values (1, 'prueba', 1, false);
--- insert into notis values (2, 'prueba2', 2, true);
+insert into notis values (1, 'prueba', 1, false);
+insert into notis values (2, 'prueba2', 2, true);
