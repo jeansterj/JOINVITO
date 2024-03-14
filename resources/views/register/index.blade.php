@@ -2,6 +2,9 @@
 @section('title')
     Register Supplier - JoInvito
 @endsection
+@section('prueba')
+'resources/js/login.js'
+@endsection
 
 @section('content')
     <div class="container-fluid my-2">

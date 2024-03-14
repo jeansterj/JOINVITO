@@ -33,7 +33,7 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   @if (Auth::check())
                     @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="#">USE</a>
                       </li>
                       <li class="nav-item">
@@ -44,10 +44,10 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">STATS</a>
-                    </li>
+                      </li> --}}
                     @endif
                     @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'proveedor')
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="#">USE</a>
                       </li>
                       <li class="nav-item">
@@ -58,10 +58,10 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">STATS</a>
-                    </li>
+                      </li> --}}
                     @endif
                     @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'centro')
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="#">USE</a>
                       </li>
                       <li class="nav-item">
@@ -72,12 +72,16 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">STATS</a>
-                    </li>
+                      </li> --}}
                     @endif  
                   @endif
+                  
                   @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
+                    @php
+                        $userName = Auth::user()->rol->nombre
+                    @endphp
                     <li class="nav-item" id="logout">
-                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
+                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout {{ Auth::user()->$userName->nombre }}</button></a>
                     </li>
                     @else
                     <li class="nav-item" id="login">
@@ -88,7 +92,10 @@
           </div>
           <div id="loginRegistroNavbar">
             @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
-                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false">Logout</a>
+            @php
+                $userName = Auth::user()->rol->nombre
+            @endphp
+                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout  {{ Auth::user()->$userName->nombre }}</button></a>
             @else
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
             @endif
@@ -99,14 +106,35 @@
   <div class="content">
     @yield('content')
   </div>
-  <div class="flotante container text-center" id="floatingMenu">
-    <div class="row">
-      <div class="col"><img src="{{ asset('img/puaMap.svg') }}" alt=""></div>
-      <div class="col"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></div>
-      <div class="col"><img src="{{ asset('img/user.png') }}" alt=""></div>
-      {{-- <div class="col"><img src="{{ asset('img/menuBajo.svg') }}" alt=""></div> --}}
-    </div>
-  </div>
+  @if (Auth::check())
+    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
+    <div class="flotante container text-center" id="floatingMenu">
+        <div class="row">
+          <div class="col"><a class="nav-link" href="{{ url('/') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/edit-rider') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+        </div>
+      </div>
+    @endif
+    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'proveedor')
+    <div class="flotante container text-center" id="floatingMenu">
+        <div class="row">
+          <div class="col"><a class="nav-link" href="{{ url('/') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/provider') }}" aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('edit-provider') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+        </div>
+      </div>
+    @endif
+    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'centro')
+    <div class="flotante container text-center" id="floatingMenu">
+        <div class="row">
+          <div class="col"><a class="nav-link" href="{{ url('/') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/edit-provider') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+        </div>
+      </div>
+    @endif  
+  @endif   
   @yield('map')
   <footer class="py-2" id="footer">
     <p class="footerTitle">JOINVITO</p>

@@ -2,9 +2,9 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container provider-home">
         <div class="row margin-top">
-            <h2>SUPPLIER</h2>
+            <h2>PROVIDER</h2>
         </div>
         <div class="row">
             <div class="col">
@@ -16,7 +16,7 @@
                 <a href="{{ url('instructions') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
             </div>
         </div>
-        <h2>PROVIDER PROFILE</h2>
+        <h2>MENU</h2>
         <div class="row">
             <div class="col">
                 <h3>CREATE</h3>
@@ -36,7 +36,6 @@
                 <h3>STATISTICS</h3>
                 <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
-            <div class="col"></div>
         </div>
     </div>
 @endsection

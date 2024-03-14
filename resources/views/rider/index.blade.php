@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container rider-home">
         <div class="row margin-top">
             <h2>RIDER PROFILE</h2>
         </div>

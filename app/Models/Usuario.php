@@ -23,21 +23,21 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Rol::class, 'id_rol');
     }
 
-    public function riders()
+    public function rider()
     {
-        return $this->hasMany(Rider::class, 'id_usu');
+        return $this->hasOne(Rider::class, 'id_rider');
     }
 
 
-    public function centros()
+    public function centro()
     {
-        return $this->hasMany(Centros::class, 'id_centro');
+        return $this->hasOne(Centros::class, 'id_centro');
     }
 
 
-    public function proveedores()
+    public function proveedor()
     {
-        return $this->hasMany(Proveedor::class, 'id_prov');
+        return $this->hasOne(Proveedor::class, 'id_prov');
     }
 
 

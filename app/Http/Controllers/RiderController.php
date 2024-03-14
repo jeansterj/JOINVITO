@@ -79,11 +79,15 @@ class RiderController extends Controller
         $longIni = 2.1706315 - 0.01;
         $longFin = 2.1706315 + 0.01;
 
-        $cercanosMenus = Punto::with('usuario.proveedores.menus')
-        ->whereBetween('latitud', [$latIni, $latFin])
-        ->whereBetween('longitud', [$longIni, $longFin])
-        ->where('tipo','=','Proveedor')
-        ->get();
+        $data = Usuario::where('id_rol',4)->get();
+
+        $usuarios = array();
+
+        foreach ($data as $userId) {
+            array_push($usuarios,$userId->id_usu);
+        }
+
+        $cercanosMenus = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
 
 
         return view('rider.menu_selection',compact('favoritosMenus','cercanosMenus'));

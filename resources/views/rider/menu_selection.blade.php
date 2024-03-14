@@ -17,6 +17,9 @@
                     <div class="carousel-inner">
                         @php $active = "active" @endphp
                         @foreach ($cercanosMenus as $dato)
+                        @php
+                            var_dump($dato);die()
+                        @endphp
                             @foreach ($dato->usuario->proveedores as $proveedor)
                                 @php $nombre = $proveedor->nombre_negocio @endphp
                                 @foreach ($proveedor->menus as $menu)

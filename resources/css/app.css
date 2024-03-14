@@ -155,6 +155,16 @@ button.btn.btn-login {
     width: 150px;
 }
 
+button.btn.btn-logout {
+  margin-right: 7px;
+    width: 130px;
+    background-color: #07203C;
+    border-radius: 25px;
+    font-size: 24px;
+    color: #fff;
+    width: auto;
+}
+
 button.btn.btn-signup {
   margin-left: 7px;
   width: 130px;
@@ -182,7 +192,7 @@ button.btn.btn-signup {
 
 footer{
   bottom: 0;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   background-color:#07203C;
   font-size: 15px;
@@ -259,4 +269,11 @@ width: 70%;
 }
 .text-area {
   height: 122px;
+}
+
+.loading {
+  opacity: .5;
+}
+.loading span {
+  display: none;
 }
