@@ -4,8 +4,8 @@
 @section('content')
     <div class="container">
 
-        <div class=" buttonOrder bg-light ">
-            <h1>GET ORDER NOW</h1>
+        <div id="ordernow" class="buttonOrder bg-light ">
+            <a href=""><h1>GET ORDER NOW</h1></a>
         </div>
 
         <div class=" buttonOrder">

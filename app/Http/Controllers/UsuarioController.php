@@ -58,10 +58,10 @@ class UsuarioController extends Controller
         // $riderRol = 2;
         // $centerRol = 3;
         // $supplierRol = 4;
-        
+
         // try {
         $user = new Usuario();
-        
+
         $user->email = $request->email;
         $user->pass_usu = bcrypt($request->passwd);
         $user->id_rol = $request->rol;
@@ -80,14 +80,14 @@ class UsuarioController extends Controller
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
-            
+
         } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
             $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
 
-            
+
         } else  {
 
             $choosedUser = new Proveedor();
@@ -99,11 +99,11 @@ class UsuarioController extends Controller
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
-        } 
-        
+        }
+
             $choosedUser->nombre = $request->name;
-        
-            
+
+
             $choosedUser->save();
             $rol = $userData->id_rol;
         // } catch (\Throwable $th) {
@@ -159,11 +159,11 @@ class UsuarioController extends Controller
             Auth::login($user);
 
             switch(Auth::user()->rol->nombre){
-              
+
                 case 'admin':
                             $response = redirect('/rider-menu-selection');
                             break;
-                
+
                 case 'proveedor':
                             $response = redirect('provider');
                             break;
@@ -173,10 +173,10 @@ class UsuarioController extends Controller
                             break;
 
                 case 'rider':
-                            $response = redirect('/rider-menu-selection');
+                            $response = redirect('/rider');
                             break;
             }
-            
+
 
         }else{
             $request->session()->flash('error','Usuari o password incorrecte');
@@ -208,6 +208,6 @@ class UsuarioController extends Controller
     }
 
     private function userRedirect(){
-        
+
     }
 }

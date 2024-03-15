@@ -63,13 +63,14 @@ document.addEventListener('DOMContentLoaded',function(){
             navigator.geolocation.getCurrentPosition((position) => {
                 lat  = position.coords.latitude;
                 lng  = position.coords.longitude;
+
                 callback();
             })
         }
     }
 
 
-      function printLocation() {
+    function printLocation() {
 
         //lng - 2.1745089
         //lat - 41.3907285
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
         async function fetchPuntos() {
 
-            fetch('api/puntos')
+            fetch('../../api/puntos')
                 .then(function(response){
                     response.json()
                     .then(function(response) {
@@ -166,14 +167,14 @@ document.addEventListener('DOMContentLoaded',function(){
 
       cards.forEach((card) => {
 
-            let total = parseInt(card.querySelector('#total').value); 
+            let total = parseInt(card.querySelector('#total').value);
 
             card.querySelector('.decrement').addEventListener('click',() => {
 
                 let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
-            
+
                 (cantidad > 0) ? cantidad-- : cantidad = 0;
-                
+
                 card.querySelector('#cantidad').value = cantidad;
                 card.querySelector('.quantity').innerHTML = cantidad;
             })
@@ -189,18 +190,15 @@ document.addEventListener('DOMContentLoaded',function(){
             })
       });
 
-    //   increment.forEach((item) => {
-
-    //     item.parentNode.addEventListener('click',() => {
-
-    //         let cantidad = parseInt(item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML);
-    //         // let total = parseInt(item.parentNode.previousElementSibling.querySelector('.total').value);
-
-    //         (cantidad < 5) ? cantidad++ : 5;
-
-    //         item.parentNode.previousElementSibling.querySelector('#cantidad').value = cantidad;
-    //         item.parentNode.previousElementSibling.querySelector('.quantity').innerHTML = cantidad;
-    //     });
-    //   })
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            lat  = position.coords.latitude;
+            lng  = position.coords.longitude;
+            const ordenarAhora = document.querySelector('#ordernow > a');
+            if(ordenarAhora != null){
+                ordenarAhora.setAttribute('href',`rider-menu-selection/${lat}/${lng}`);
+            }
+        })
+    }
 });
 

@@ -38,40 +38,40 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/camera', function () {
         return view('register.cameraPage');
     });
-    
-    
+
+
     /* rider routes */
-    
+
     Route::get('rider', function () {
         return view('rider.index');
     });
-    
+
     Route::get('ordersRider', function () {
         return view('rider.ordersRider');
     });
-    
+
     Route::get('statsRider', function () {
         return view('rider.statsRider');
     });
-    
+
     Route::get('edit-rider', function () {
         return view('rider.edit-rider');
     });
-    
+
     Route::get('addLocation', function () {
         return view('rider.addLocation');
     });
-    
+
     /* SUPPLIER routes */
-    
+
     Route::get('provider', function () {
         return view('provider.index');
     });
-    
+
     Route::get('orders', function () {
         return view('provider.orders');
     });
-    
+
     Route::get('edit-provider', function () {
         return view('provider.edit-provider');
     });
@@ -84,50 +84,48 @@ Route::middleware(['auth'])->group(function () {
     Route::get('modifyMenu', function () {
         return view('provider.modifyMenu');
     });
-    
+
     /* Social Center routes */
-    
+
     Route::get('socialcenter', function () {
         return view('SCenter.index');
     });
-    
+
     Route::get('prin', function () {
         return view('SCenter.prin');
     });
-    
+
     Route::get('stats', function () {
         return view('SCenter.stats');
     });
-    
+
     Route::get('edit-SCenter', function () {
         return view('SCenter.edit-SCenter');
     });
-    
+
     Route::get('addLocation', function () {
         return view('rider.addLocation');
     });
-    
-    
+
+
     /** QR VIEWS */
-    
+
     Route::get('/camera', [WebcamController::class, 'index']);
-    
+
     Route::get('/qr', [QrCodeController::class, 'show']);
-    
+
     /** CONTACT VIEW */
     Route::get('/contact', function () {
         return view('contact.index');
     });
-    
-    
+
+
     Route::resource('usuario', UsuarioController::class);
-    
-    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
-    
+
+    Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
+
     Route::resource('pedido', PedidoController::class);
-    
-    
-    
+
     Route::get('/logout', [UsuarioController::class,'logout']);
 
     Route::get('instructions', function () {

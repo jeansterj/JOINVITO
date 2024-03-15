@@ -66,7 +66,7 @@ class RiderController extends Controller
         //
     }
 
-    public function showFavoritesNearBy(Rider $rider){
+    public function showFavoritesNearBy(Rider $rider, $lat, $long){
 
         $riderId = Auth::user()->id_usu;
 
@@ -74,10 +74,11 @@ class RiderController extends Controller
 
         $favoritosMenus = $favoritosMenus->favoritos;
 
-        $latIni = 41.3888845 - 0.01;
-        $latFin = 41.3888845 + 0.01;
-        $longIni = 2.1706315 - 0.01;
-        $longFin = 2.1706315 + 0.01;
+        $latIni = $lat - 0.01;
+        $latFin = $lat + 0.01;
+        $longIni = $long - 0.01;
+        $longFin = $long + 0.01;
+
 
         $data = Usuario::where('id_rol',4)->get();
 
@@ -87,14 +88,14 @@ class RiderController extends Controller
             array_push($usuarios,$userId->id_usu);
         }
 
-        $cercanosMenus = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
+        $puntosCercanos = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
 
 
-        return view('rider.menu_selection',compact('favoritosMenus','cercanosMenus'));
+        return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));
     }
 
     public function updateLocation(Rider $rider){
 
-        
+
     }
 }

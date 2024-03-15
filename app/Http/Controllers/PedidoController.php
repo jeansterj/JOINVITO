@@ -40,7 +40,7 @@ class PedidoController extends Controller
 
         $pedido->save();
 
-        return redirect('rider-menu-selection');
+        return redirect('ordersRider');
     }
 
     /**

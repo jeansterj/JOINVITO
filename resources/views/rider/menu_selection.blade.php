@@ -5,10 +5,10 @@
         <h3>MENU</h3>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" data-type="restaurant" aria-current="page" href="#">RESTAURANTS</a>
+                <div class="nav-link" data-type="restaurant" aria-current="page">RESTAURANTS</div>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" data-type="favorites" href="#">FAVORITES</a>
+                <div class="nav-link active" data-type="favorites">FAVORITES</div>
             </li>
         </ul>
         <div class="card" id="restaurants">
@@ -16,48 +16,43 @@
                 <div id="carouselRestaurants" class="carousel slide">
                     <div class="carousel-inner">
                         @php $active = "active" @endphp
-                        @foreach ($cercanosMenus as $dato)
-                        @php
-                            var_dump($dato);die()
-                        @endphp
-                            @foreach ($dato->usuario->proveedores as $proveedor)
-                                @php $nombre = $proveedor->nombre_negocio @endphp
-                                @foreach ($proveedor->menus as $menu)
-                                    <div class="carousel-item {{ $active }}">
-                                        <form action="{{ action([App\Http\Controllers\PedidoController::class, 'store']) }}"
-                                            method="POST">
-                                            @csrf
-                                            <div class="card">
-                                                <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><span>{{ $nombre }}</span></h5>
-                                                    <p class="card-text">{{ $menu->bebida }}</p>
-                                                    <p class="card-text">{{ $menu->plato1 }}</p>
-                                                    <p class="card-text">{{ $menu->plato2 }}</p>
-                                                    <div class="container text-center">
-                                                        <div class="row align-items-start">
-                                                            <div class="col simbol decrement">
-                                                                <span>-</span>
-                                                            </div>
-                                                            <div class="col">
-                                                                <span class="quantity">0</span>
-                                                                <input type="hidden" id="cantidad" name="cantidad"
-                                                                    value=""></input>
-                                                                <input type="hidden" id="total"
-                                                                    value="{{ $menu->cantidad_packs }}"></input>
-                                                            </div>
-                                                            <div class="col simbol increment">
-                                                                <span>+</span>
-                                                            </div>
+                        @foreach ($puntosCercanos as $puntoCercano)
+                            @php $nombre = $puntoCercano->usuario->proveedor->nombre_negocio @endphp
+                            @foreach ($puntoCercano->usuario->proveedor->menus as $menu)
+                                <div class="carousel-item {{ $active }}">
+                                    <form action="{{ action([App\Http\Controllers\PedidoController::class, 'store']) }}"
+                                        method="POST">
+                                        @csrf
+                                        <div class="card">
+                                            <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
+                                            <div class="card-body">
+                                                <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                                                <p class="card-text">{{ $menu->bebida }}</p>
+                                                <p class="card-text">{{ $menu->plato1 }}</p>
+                                                <p class="card-text">{{ $menu->plato2 }}</p>
+                                                <div class="container text-center">
+                                                    <div class="row align-items-start">
+                                                        <div class="col simbol decrement">
+                                                            <span>-</span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="quantity">0</span>
+                                                            <input type="hidden" id="cantidad" name="cantidad"
+                                                                value=""></input>
+                                                            <input type="hidden" id="total"
+                                                                value="{{ $menu->cantidad_packs }}"></input>
+                                                        </div>
+                                                        <div class="col simbol increment">
+                                                            <span>+</span>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn btn-primary">GET</button>
                                                 </div>
+                                                <button type="button" class="btn btn-primary">GET</button>
                                             </div>
-                                        </form>
-                                    </div>
-                                    @php $active = "" @endphp
-                                @endforeach
+                                        </div>
+                                    </form>
+                                </div>
+                                @php $active = "" @endphp
                             @endforeach
                         @endforeach
                     </div>
