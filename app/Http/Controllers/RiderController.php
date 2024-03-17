@@ -94,8 +94,5 @@ class RiderController extends Controller
         return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));
     }
 
-    public function updateLocation(Rider $rider){
 
-
-    }
 }

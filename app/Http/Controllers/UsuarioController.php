@@ -10,6 +10,7 @@ use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class UsuarioController extends Controller
 {
@@ -179,8 +180,9 @@ class UsuarioController extends Controller
 
 
         }else{
-            $request->session()->flash('error','Usuari o password incorrecte');
-            $response = redirect('/login')->withInput();
+            return response(Response::HTTP_UNAUTHORIZED);
+            // $request->session()->flash('error','Usuari o password incorrecte');
+            // $response = redirect('/login')->withInput();
         }
 
         return $response;

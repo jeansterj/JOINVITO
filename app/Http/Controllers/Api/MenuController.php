@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Rider;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RiderResource;
+use App\Http\Resources\MenuResource;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
-class RiderController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $riders = Rider::with(['favoritos.proveedor.menus'])->get();
+        //
 
-
-        return RiderResource::collection($riders);
     }
 
     /**
@@ -31,15 +31,16 @@ class RiderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Rider $rider)
+    public function show(Menu $menu)
     {
-        //
+        // $menus = Menu::where('id_usu', $ownerId);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rider $rider)
+    public function update(Request $request, Menu $menu)
     {
         //
     }
@@ -47,13 +48,18 @@ class RiderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rider $rider)
+    public function destroy(Menu $menu)
     {
         //
     }
 
-    public function cercanos($lat, $long)
+    public function getMenusProvider($provId)
     {
-        
+
+        $menus = Menu::where('id_prov',$provId)->get();
+
+        return MenuResource::collection($menus);
+
     }
+
 }

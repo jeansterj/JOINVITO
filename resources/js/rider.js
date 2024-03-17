@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
         async function fetchPuntos() {
 
-            fetch('../../api/puntos')
+            fetch('./api/puntos')
                 .then(function(response){
                     response.json()
                     .then(function(response) {

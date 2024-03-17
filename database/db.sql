@@ -67,6 +67,7 @@ primary key(id_centro)
 
 create table menus(
 id_menu int auto_increment,
+nombre_menu varchar(25),
 bebida varchar(250),
 plato1 varchar(250),
 plato2 varchar(250),

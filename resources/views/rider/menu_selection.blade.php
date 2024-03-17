@@ -132,6 +132,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('map')
@@ -145,3 +146,5 @@
 
     </div>
 @endsection
+
+

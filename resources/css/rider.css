@@ -149,8 +149,22 @@
     border-radius: 20px;
     color: #07203C;
     padding: 10px;
+    width: 90%;
+    margin-bottom: 15px;
 }
 
+.chartRiderOrder .card{
+    width: 100%;
+}
+
+.riderOrderCard{
+    background-color: rgba(235, 221, 221, 0.67);
+    border-radius: 20px;
+    color: #07203C;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
 
 .d-tc{
 

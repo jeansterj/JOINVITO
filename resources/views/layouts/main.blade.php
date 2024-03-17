@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +17,13 @@
 <body class="bg-primary">
   <nav class="navbar navbar-expand-lg bg-light" >
     <div class="container">
-      <a href="{{url('login')}}">
-        <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{{ url('login')}}">
-          <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
-        </button>
-      </a>
+        @if (Auth::check())
+        {{-- <a href="{{url('login')}}"> --}}
+            <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{{ url('login')}}">
+            <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
+            </button>
+        {{-- </a> --}}
+        @endif
       <div class="logo">
           <a href="{{url('/')}}"><img src="{{ asset('img/JoInvitoLogo.svg') }}" alt=""></a>
           </div>
@@ -31,51 +32,6 @@
 
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  @if (Auth::check())
-                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
-                      {{-- <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">USE</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">CREATE PIC</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">ORDERS</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">STATS</a>
-                      </li> --}}
-                    @endif
-                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'proveedor')
-                      {{-- <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">USE</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">CREATE MENU</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">ORDERS</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">STATS</a>
-                      </li> --}}
-                    @endif
-                    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'centro')
-                      {{-- <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">USE</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">CREATE PIC</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">ORDERS</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">STATS</a>
-                      </li> --}}
-                    @endif  
-                  @endif
-                  
                   @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
                     @php
                         $userName = Auth::user()->rol->nombre
@@ -133,8 +89,8 @@
           <div class="col"><a class="nav-link" href="{{ url('/edit-provider') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
         </div>
       </div>
-    @endif  
-  @endif   
+    @endif
+  @endif
   @yield('map')
   <footer class="py-2" id="footer">
     <p class="footerTitle">JOINVITO</p>
