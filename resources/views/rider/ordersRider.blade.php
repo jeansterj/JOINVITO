@@ -2,14 +2,14 @@
 
 
 @section('content')
+    <meta name="userId" content="{{ Auth::user()->id_usu }}">
     <div class="container">
-
         <div id="ordernow" class="buttonOrder bg-light ">
             <a href=""><h1>GET ORDER NOW</h1></a>
         </div>
+        <div id="ordersRider" class="buttonOrder">
 
-        <div class=" buttonOrder">
-            <div class="accordion " id="accordionExample">
+            {{-- <div class="accordion " id="accordionExample">
                 <div class="accordion-item ">
                     <h2 class="accordion-header">
                         <button class="accordion-button bg-light " type="button" data-bs-toggle="collapse"
@@ -30,13 +30,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
 
         <div>
             <div class="container chartRiderMap bg-light py-2 px-2 my-3">
-                <div class="chartRiderOrder">
+                <div class="riderOrderCard">
                     <p>PROV1</p>
                     <p>CHEESE BURGUER</p>
                     <p>FISH</p>
@@ -63,7 +63,7 @@
     @endsection
 
     @section('map')
-        <div class="bg-secondary chartRiderMap">
+        <div class="bg-secondary container chartRiderMap">
             <h1 class="text-white text-center my-4 py-3"> MAP </h1>
 
 

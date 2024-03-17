@@ -4,7 +4,7 @@
                 <div class="loading" v-if="loading">
                     Loading data....
                 </div>
-                <div v-else v-for="menu in menus" class="riderOrderCard">
+                <div v-else v-for="menu in menus" class="providerMenusCard">
                     <div class="row">
                         <div class="d-flex">
                             <div class="col-10">
