@@ -1,7 +1,10 @@
 <template>
     <div class="card de">
             <div class="card-body">
-                <div v-for="menu in menus" class="riderOrderCard">
+                <div class="loading" v-if="loading">
+                    Loading data....
+                </div>
+                <div v-else v-for="menu in menus" class="riderOrderCard">
                     <div class="row">
                         <div class="d-flex">
                             <div class="col-10">
@@ -36,18 +39,32 @@ export default {
     data(){
         return {
             menus: [],
+            loading: false,
         }
     },
     created(){
-        const me = this
-        const provId = document.querySelector('meta[name="userId"]').content
-        axios
-            .get(`api/menus/provider/${provId}`)
-            .then(response => {
-                console.log(provId);
-                me.menus = response.data;
-            })
+        this.fetchEventsList();
+        this.timer = setInterval(this.fetchEventsList, 60000);
     },
+    methods:{
+        fetchEventsList () {
+            //Show Loader
+            this.loading = true;
+
+            //Waste 5 seconds
+            setTimeout(() => {
+                this.loading = false;
+            }, 5000)
+
+            const me = this
+            const provId = document.querySelector('meta[name="userId"]').content
+            axios
+                .get(`api/menus/provider/${provId}`)
+                .then(response => {
+                    me.menus = response.data;
+                })
+        }
+    }
 };
 </script>
 <style>
