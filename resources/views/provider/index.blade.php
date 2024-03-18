@@ -23,13 +23,13 @@
                 <a href="{{ url('createMenu') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
             <div class="col">
-                <h3>ORDER</h3>
+                <h3>LIST</h3>
                 <a href="{{ url('menusList') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <h3>ORDER</h3>
+                <h3>ORDERS</h3>
                 <a href="{{ url('orders') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
             </div>
             <div class="col">
