@@ -5,7 +5,7 @@
                 <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 
-                    <img class="rounded mx-auto d-flex imgRiderMot" src="img/rider-unscreen.gif"
+                    <img class="rounded mx-auto d-flex imgRiderMot" src="../../../public/img/rider-unscreen.gif"
                         alt="riderMot">
 
                     <h1 v-if="!empty">SHOW ORDERS LIST</h1>
@@ -41,8 +41,8 @@ export default {
 
             //Waste 5 seconds
             setTimeout(() => {
-                this.loading = false;
-            }, 5000)
+                
+            }, 1000)
 
             const me = this
             const riderId = document.querySelector('meta[name="userId"]').content

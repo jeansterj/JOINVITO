@@ -11,7 +11,7 @@
                                 <h2 class="text-start">{{ menu.nombre_menu }}</h2>
                             </div>
                             <button type="button" class="btn btnDelete"><a href="modifyMenu">
-                                <img src="img/editIcon.svg" alt=""></a>
+                                <img src="../../../public/img/editIcon.svg" alt=""></a>
                             </button>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                             </div>
                             <button type="button" class="btn btnDelete" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
-                                <img src="img/deleteIcon.svg" alt="">
+                                <img src="../../../public/img/deleteIcon.svg" alt="">
                             </button>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ export default {
             //Waste 5 seconds
             setTimeout(() => {
                 this.loading = false;
-            }, 5000)
+            }, 2000)
 
             const me = this
             const provId = document.querySelector('meta[name="userId"]').content
