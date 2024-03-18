@@ -7,25 +7,47 @@ let height = menu.offsetHeight
 let fwidth = footer.offsetWidth
 let fheight = footer.offsetHeight
 let fx = footer.offsetLeft
-let fy = footer.offsetTop
-function draw() {
-    x = menu.offsetLeft
-    y = menu.offsetTop
-}
+let footerY = footer.offsetTop
+let windowHeight = window.innerHeight
+let windowNoFooter = windowHeight - fheight
+let tocado = false
+// function draw() {
+//     x = menu.offsetLeft
+//     y = menu.offsetTop
+// }
 document.onscroll = function () {
-    menu.style.bottom = 0
-}
-// object_1.left < object_2.left + object_2.width  && object_1.left + object_1.width  > object_2.left &&
-// 		object_1.top < object_2.top + object_2.height && object_1.top + object_1.height > object_2.top
-function update() {
-    draw()
-    if (x < fx + fwidth
-        && x + width > fx
-        && y < fy + fheight 
-        && y + height > fy) 
-    {
-        // console.log('hola');
+    menu.style.bottom = document.height
+    menu.style.top = window.height
+    if (tocado) {
+        menu.style.bottom = document.height
+    } else {
+        update()
     }
+}
+function update() {
+    let windowBottom = (document.body.scrollTop + window.innerHeight) + (height)
+
+    // draw()
+    // console.log(document.body.scrollTop +        
+        // window.innerHeight)
+    // console.log(footerY)
+    // console.log(windowBottom + height);
+    // console.log(footerY);
+    if (windowBottom >= footerY) {
+        console.log('holi que tal');
+        menu.style.bottom = fheight
+        tocado = true
+    } else {
+        tocado = false
+    }
+    // if (windowNoFooter >= menu) {
+        
+    // }
+    // if (y < footerY + fheight 
+    //     && y + height > footerY) 
+    // {
+    //     console.log('hola');
+    // }
 
     // if (y + height <= fy
     //     && y >= fy + fheight
@@ -35,9 +57,9 @@ function update() {
     // }
 }
 
-function animate() {
-    update()
-    requestAnimationFrame(animate)
-}
+// function animate() {
+//     update()
+//     requestAnimationFrame(animate)
+// }
 
-animate()
+// animate()
