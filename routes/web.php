@@ -62,6 +62,10 @@ Route::middleware(['auth'])->group(function () {
         return view('rider.addLocation');
     });
 
+    Route::get('getOrders', function () {
+        return view('rider.menu_selection');
+    });
+
     /* SUPPLIER routes */
 
     Route::get('provider', function () {

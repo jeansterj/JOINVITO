@@ -31,7 +31,7 @@ class Usuario extends Authenticatable
 
     public function centro()
     {
-        return $this->hasOne(Centros::class, 'id_centro');
+        return $this->hasOne(Centro::class, 'id_centro');
     }
 
 
