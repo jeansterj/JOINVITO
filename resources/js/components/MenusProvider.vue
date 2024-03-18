@@ -24,7 +24,7 @@
                             </div>
                             <button type="button" class="btn btnDelete" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
-                                <img src="/../../../public/img/deleteIcon.svg" alt="">
+                                <img src="../../../public/img/deleteIcon.svg" alt="">
                             </button>
                         </div>
                     </div>
