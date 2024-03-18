@@ -12,6 +12,9 @@ function draw() {
     x = menu.offsetLeft
     y = menu.offsetTop
 }
+document.onscroll = function () {
+    menu.style.bottom = 0
+}
 // object_1.left < object_2.left + object_2.width  && object_1.left + object_1.width  > object_2.left &&
 // 		object_1.top < object_2.top + object_2.height && object_1.top + object_1.height > object_2.top
 function update() {
