@@ -42,7 +42,7 @@ export default {
             //Waste 5 seconds
             setTimeout(() => {
                 this.loading = false;
-            }, 5000)
+            }, 1000)
 
             const me = this
             const riderId = document.querySelector('meta[name="userId"]').content
@@ -51,7 +51,7 @@ export default {
                 .get(`api/orders/rider/${riderId}`)
                 .then(response => {
                     me.orders = response.data;
-                    response.data.length > 0 ? me.empty = false : me.empty = true;
+                    me.orders.length > 0 ? me.empty = false : me.empty = true;
                 })
         }
     }
