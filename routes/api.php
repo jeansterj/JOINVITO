@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('menus/provider/{provId}', [MenuController::class,'getMenusProvider']);
+Route::get('orders/provider/{provId}', [PedidoController::class,'getOrdersProvider']);
 Route::get('orders/rider/{riderId}', [PedidoController::class,'getOrdersRider']);
 
 Route::apiResource('puntos', PuntoController::class);

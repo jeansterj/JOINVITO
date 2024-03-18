@@ -54,7 +54,7 @@ export default {
             //Waste 5 seconds
             setTimeout(() => {
                 this.loading = false;
-            }, 5000)
+            }, 2000)
 
             const me = this
             const provId = document.querySelector('meta[name="userId"]').content

@@ -40,3 +40,16 @@ border: none !important;
     --bs-card-bg : none !important;
     --bs-card-border-color: none !important;
 }
+
+.chartProviderOrder{
+    background-color: rgba(235, 221, 221, 0.67);
+    border-radius: 20px;
+    color: #07203C;
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.chartProviderOrder .card{
+    width: 100%;
+}
