@@ -1,37 +1,4 @@
 <template>
-    <!-- <div class="card de">
-            <div class="card-body">
-                <div class="loading" v-if="loading">
-                    Loading data....
-                </div>
-                <div v-else v-for="menu in menus" class="providerMenusCard">
-                    <div class="row">
-                        <div class="d-flex">
-                            <div class="col-10">
-                                <h2 class="text-start">{{ menu.nombre_menu }}</h2>
-                            </div>
-                            <button type="button" class="btn btnDelete"><a href="modifyMenu">
-                                <img src="img/editIcon.svg" alt=""></a>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex">
-                            <div class="col-10">
-                                <p class="text-start">{{ menu.bebida }}</p>
-                                <p class="text-start">{{ menu.plato1 }}</p>
-                                <p class="text-start">{{ menu.plato2 }}</p>
-                            </div>
-                            <button type="button" class="btn btnDelete" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/deleteIcon.svg" alt="">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         <div class="loading" v-if="loading">
             Loading data....
         </div>
@@ -53,7 +20,7 @@
                     </div>
 
                     <div>
-                        <img class="rounded mx-auto d-flex imgRiderMot" src="img/rider-unscreen.gif" alt="riderMot">
+                        <img class="rounded mx-auto d-flex imgRiderMot" src="../../../public/img/rider-unscreen.gif" alt="riderMot">
                     </div>
                 </div>
             </div>
