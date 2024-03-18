@@ -3,7 +3,13 @@
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
 }
-
+body {
+  text-align: center !important;
+}
+.content {
+  display: grid;
+  place-items: center;
+}
 .gird-placeContent{
   padding: 10px;
   display: grid;
@@ -29,6 +35,7 @@
     margin-right: 20px;
 }
 nav.navbar.navbar-expand-lg {
+    margin-bottom: 30px;
     border-radius: 0 0 35px 35px;
 }
 .container-fluid {
@@ -38,15 +45,22 @@ nav.navbar.navbar-expand-lg {
   }
 
   .cuadroTitulo.logo {
-    margin-bottom: auto; 
+    margin-bottom: auto;
   }
-  
+  .carousel-indicators {
+    bottom: -36px !important;
+  }
   .logo img {
-    display: block; 
-    margin: 0 auto; 
+    display: block;
+    margin: 0 auto;
   }
+.carrouselIcons {
+  margin-bottom: 29px;
+}
 
   .container-form {
+    place-content: center;
+    display: grid;
     font-size: 23px;
   }
   .form-control {
@@ -55,14 +69,14 @@ nav.navbar.navbar-expand-lg {
     border-radius: 51px !important;
     width: 281px !important;
 }
-.box {
-  margin: 10px 0px 20px 109px;
+/* .box {
+  margin: 10px 0px 20px 101px;
   transform: scale(1.1);
   padding: 12px 8px 12px 9px;
   border-radius: 29px;
   width: 144px;
   border: 3px solid #243E57;
-}
+} */
 #supplierDiv {
   display: none;
 }
@@ -80,9 +94,7 @@ nav.navbar.navbar-expand-lg {
   border-radius: 51px !important;
   width: 281px !important;
 }
-.accountQuestion {
-  margin-top: 20px;
-}
+
 .dontHaveAccount {
   color: #FFCA10;
 }
@@ -95,32 +107,62 @@ nav.navbar.navbar-expand-lg {
 a.nav-link{
   font-family: Montserrat, Helvetica, sans-serif;
   color: #07203C;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 3px;
   font-weight: 600;
 }
 
 div#navbarSupportedContent{
-  padding-top: 20px;
+    padding-top: 15px;
 }
+
+div#navbarSupportedContent .navbar-nav{
+  margin: auto;
+}
+
+div#navbarSupportedContent .navbar-nav li:hover{
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #07203C;
+}
+
+#loginRegistroNavbar{
+    padding-top: 15px;
+}
+
+#loginRegistroNavbar .nav-link{
+  display: inline;
+}
+
+#loginRegistroNavbar .nav-link:hover{
+    color: #07203C
+  }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color: #07203C!important;
 }
 
-/* div#navbarSupportedContent {
-  height: 220px;
-} */
+.ocultar {
+  display: none;
+}
 
 button.btn.btn-login {
   margin-right: 7px;
-  width: 130px; 
-  background-color: #fff;
-  border-radius: 25px;
-  height: 55px;
-  font-size: 24px;
-  width: 150px;
-  /* font-family: ; */
+    width: 130px;
+    background-color: #fff;
+    border-radius: 25px;
+    font-size: 24px;
+    width: 150px;
+}
+
+button.btn.btn-logout {
+  margin-right: 7px;
+    width: 130px;
+    background-color: #07203C;
+    border-radius: 25px;
+    font-size: 24px;
+    color: #fff;
+    width: auto;
 }
 
 button.btn.btn-signup {
@@ -129,15 +171,13 @@ button.btn.btn-signup {
   background-color: #07203C;
   border-radius: 25px;
   color: #fff;
-  height: 55px;
   font-size: 24px;
   width: 150px;
-  /* font-family: ; */
 }
 
 .btn-login img{
   padding-right: 10px;
-  width: 40px 
+  width: 40px
 }
 
 .navbar-toggler{
@@ -151,11 +191,14 @@ button.btn.btn-signup {
 /* Footer */
 
 footer{
+  bottom: 0;
+  /* position: absolute; */
+  width: 100%;
   background-color:#07203C;
   font-size: 15px;
   color: #fff;
   text-align: center;
-  margin: 10%;
+  /* margin: 10%; */
 }
 footer p{
   font-size: 13px;
@@ -163,26 +206,33 @@ footer p{
 
 /* Registro web*/
 
-#register{
-
-display: none;
+.accountQuestion {
+  margin-top: 20px;
 }
+
+.medFormClass{
+  display: grid;
+  place-content: center;
+}
+
+
 .footerTitle{
   font-size: 15px;
 }
 
 .logo {
-  margin-bottom: -25px;
+  margin-bottom: -9px;
 }
 
 .flotante{
   height: 85px;
   background-color: #FFCA10;
   margin-top: 10px;
-  width: 100%;
+  width: 100% !important;
   z-index: 1000;
   position: fixed;
   bottom: 0;
+  max-width: 100% !important;
 }
 
 
@@ -191,9 +241,39 @@ display: none;
 }
 
 .flotante img {
-  margin-top: 20%;
+  margin-top: 20px;
 }
 
 .flotante.container.text-center {
   border-radius: 25px 25px 0 0;
+}
+
+/* Instructions*/
+
+.widthOptions{
+
+width: 70%;
+
+}
+/** QR CSS **/
+#titleScan {
+  color: white;
+}
+/** CONTACT **/
+.formContact {
+  color: white;
+  font-size: 28px;
+}
+.group {
+  padding: 10px;
+}
+.text-area {
+  height: 122px;
+}
+
+.loading {
+  opacity: .5;
+}
+.loading span {
+  display: none;
 }

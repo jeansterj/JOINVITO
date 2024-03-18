@@ -6,6 +6,7 @@ use App\Models\Punto;
 use App\Models\Rider;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RiderController extends Controller
 {
@@ -65,37 +66,33 @@ class RiderController extends Controller
         //
     }
 
-    public function showFavoritesNearBy(){
+    public function showFavoritesNearBy(Rider $rider, $lat, $long){
 
-        $favoritosMenus = Rider::find(1)
-        ->with(['favoritos.proveedor.menus'])
-        ->get()
-        ->first();
+        $riderId = Auth::user()->id_usu;
+
+        $favoritosMenus = Rider::with(['favoritos.proveedor.menus'])->find($riderId);
 
         $favoritosMenus = $favoritosMenus->favoritos;
 
-        $latIni = 41.3888845 - 0.01;
-        $latFin = 41.3888845 + 0.01;
-        $longIni = 2.1706315 - 0.01;
-        $longFin = 2.1706315 + 0.01;
-
-        $cercanosMenus = Punto::with('usuario.proveedores.menus')
-        ->whereBetween('latitud', [$latIni, $latFin])
-        ->whereBetween('longitud', [$longIni, $longFin])
-        ->where('tipo','=','Proveedor')
-        ->get();
+        $latIni = $lat - 0.01;
+        $latFin = $lat + 0.01;
+        $longIni = $long - 0.01;
+        $longFin = $long + 0.01;
 
 
-        return view('rider.menu_selection',compact('favoritosMenus','cercanosMenus'));
+        $data = Usuario::where('id_rol',4)->get();
+
+        $usuarios = array();
+
+        foreach ($data as $userId) {
+            array_push($usuarios,$userId->id_usu);
+        }
+
+        $puntosCercanos = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
+
+
+        return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));
     }
 
-    public function updateLocation(Rider $rider){
 
-        var_dump($rider);
-        die();
-
-        // $flight->name = 'Paris to London';
-
-        // $flight->save();
-    }
 }

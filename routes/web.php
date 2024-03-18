@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PuntoController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -17,43 +19,117 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
+/* main routes */
+
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/register', function () {
-    return view('register.index');
+Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
+Route::post('/login', [UsuarioController::class,'login']);
+
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/register', function () {
+        return view('register.index');
+    });
+    Route::get('/camera', function () {
+        return view('register.cameraPage');
+    });
+
+
+    /* rider routes */
+
+    Route::get('rider', function () {
+        return view('rider.index');
+    });
+
+    Route::get('ordersRider', function () {
+        return view('rider.ordersRider');
+    });
+
+    Route::get('statsRider', function () {
+        return view('rider.statsRider');
+    });
+
+    Route::get('edit-rider', function () {
+        return view('rider.edit-rider');
+    });
+
+    Route::get('addLocation', function () {
+        return view('rider.addLocation');
+    });
+
+    /* SUPPLIER routes */
+
+    Route::get('provider', function () {
+        return view('provider.index');
+    });
+
+    Route::get('orders', function () {
+        return view('provider.orders');
+    });
+
+    Route::get('edit-provider', function () {
+        return view('provider.edit-provider');
+    });
+    Route::get('menusList', function () {
+        return view('provider.menusList');
+    });
+    Route::get('createMenu', function () {
+        return view('provider.createMenu');
+    });
+    Route::get('modifyMenu', function () {
+        return view('provider.modifyMenu');
+    });
+
+    /* Social Center routes */
+
+    Route::get('socialcenter', function () {
+        return view('SCenter.index');
+    });
+
+    Route::get('prin', function () {
+        return view('SCenter.prin');
+    });
+
+    Route::get('stats', function () {
+        return view('SCenter.stats');
+    });
+
+    Route::get('edit-SCenter', function () {
+        return view('SCenter.edit-SCenter');
+    });
+
+    Route::get('addLocation', function () {
+        return view('rider.addLocation');
+    });
+
+
+    /** QR VIEWS */
+
+    Route::get('/camera', [WebcamController::class, 'index']);
+
+    Route::get('/qr', [QrCodeController::class, 'show']);
+
+    /** CONTACT VIEW */
+    Route::get('/contact', function () {
+        return view('contact.index');
+    });
+
+
+    Route::resource('usuario', UsuarioController::class);
+
+    Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
+
+    Route::resource('pedido', PedidoController::class);
+
+    Route::get('/logout', [UsuarioController::class,'logout']);
+
+    Route::get('instructions', function () {
+        return view('instructions');
+    });
 });
 
-Route::get('login', function () {
-    return view('login.index');
-});
-Route::get('rider', function () {
-    return view('rider.index');
-});
-
-Route::resource('puntos', PuntoController::class);
-
-Route::resource('usuario', UsuarioController::class);
-
-Route::get('rider/1/{lat?}/{long?}/update', [RiderController::class,'updateLocation'])->name('rider.updateLocation');
-
-Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
-
-Route::resource('pedido', PedidoController::class);
-
-Route::get('rider-menu', function () {
-    return view('rider.menu');
-});
-
-Route::get('stats', function () {
-    return view('rider.stats');
-});
-
-Route::get('edit-rider', function () {
-    return view('rider.edit-rider');
-});
-
-Route::get('addLocation', function () {
-    return view('rider.addLocation');
-});

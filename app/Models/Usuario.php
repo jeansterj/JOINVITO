@@ -4,32 +4,40 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens, Notifiable;
 
     protected $table = 'usuarios';
     protected $primaryKey = 'id_usu';
     public $incrementing = false;
     public $timestamps = false;
 
-
-    public function riders()
+    
+    public function rol()
     {
-        return $this->hasMany(Rider::class, 'id_usu');
+        return $this->belongsTo(Rol::class, 'id_rol');
+    }
+
+    public function rider()
+    {
+        return $this->hasOne(Rider::class, 'id_rider');
     }
 
 
-    public function centros()
+    public function centro()
     {
-        return $this->hasMany(Centros::class, 'id_centro');
+        return $this->hasOne(Centros::class, 'id_centro');
     }
 
 
-    public function proveedores()
+    public function proveedor()
     {
-        return $this->hasMany(Proveedor::class, 'id_prov');
+        return $this->hasOne(Proveedor::class, 'id_prov');
     }
 
 

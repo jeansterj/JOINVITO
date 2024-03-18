@@ -19,7 +19,10 @@
     border: none;
     color: white;
     font-size: 15px;
-
+    font-family: Montserrat, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .nav.nav-tabs .nav-item .nav-link.active{
@@ -130,6 +133,10 @@
     border: none;
 }
 
+.buttonOrder > a{
+    text-align: center;
+}
+
 .imgRiderMot{
 
     width: 30%;
@@ -141,13 +148,37 @@
 
 }
 
+#ordersRider ul{
+    list-style: none;
+}
+
+
 .chartRiderOrder{
     background-color: rgba(235, 221, 221, 0.67);
     border-radius: 20px;
     color: #07203C;
     padding: 10px;
+    width: 90%;
+    margin-bottom: 15px;
 }
 
+.chartRiderOrder .card{
+    width: 100%;
+}
+
+.providerMenusCard,
+.riderOrderCard{
+    background-color: rgba(235, 221, 221, 0.67);
+    border-radius: 20px;
+    color: #07203C;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.riderOrderCard > a{
+    font-weight: 700;
+}
 
 .d-tc{
 
@@ -193,5 +224,18 @@
 img.rider-logo{
     width: 150px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
+.section-form{
+    padding: 10px 0 35px 0;
+    border-radius: 25px;
+}
+
+.rider-home{
+
+}
+
+.rider-home .row{
+    padding-bottom: 30px;
+}

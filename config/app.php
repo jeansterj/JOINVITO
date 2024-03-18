@@ -184,5 +184,12 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
+    // 'providers' => [
+    //     // Otros proveedores de servicios
+    //     SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+    // ],
+    // 'aliases' => [
+    //     // Otros alias de clases
+    //     'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    // ],
 ];

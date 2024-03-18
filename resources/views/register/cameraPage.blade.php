@@ -1,0 +1,91 @@
+@extends('layouts.main')
+@section('title')
+    Register Supplier - JoInvito
+@endsection
+
+@section('content')
+    {{--  Section --}}
+    <h1 id="titleScan">Escáner QR</h1>
+    @if (isset($text))
+        <p>Texto del código QR: {{ $text }}</p>
+    @endif
+    <video id="qr-video" width="100%" height="auto" autoplay></video>
+    <button id="scan-button" class="btn btn-light">Pulsar para escanear qr</button>
+
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let scanner = new Instascan.Scanner({
+                video: document.getElementById('qr-video')
+            });
+
+            scanner.addListener('scan', function(content) {
+                // Envía el contenido al servidor para procesarlo (puedes usar AJAX).
+                // Aquí se asume que el servidor está esperando una ruta POST '/camera'.
+                // fetch('/JOINVITO/public/camera', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                //     },
+                //     body: JSON.stringify({ content: content }) 
+                // })
+                console.log(content);
+                then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network error');
+                        }
+                        return response.json()
+                    })
+                    // .then(data => {
+                    //     // Puedes manejar la respuesta del servidor según tus necesidades.
+                    //     console.log(data);
+                    //     if (data.success) {
+                    //     console.log('Escaneo exitoso. Contenido del código QR:', data.content);
+                    // }
+                    // })
+                    .catch(error => console.error('Error:', error));
+            });
+
+            document.getElementById('scan-button').addEventListener('click', function() {
+                Instascan.Camera.getCameras().then(function(cameras) {
+                    if (cameras.length > 0) {
+                        scanner.start(cameras[0]);
+                        // console.log('scan2');
+                    } else {
+                        console.error('No se encontraron cámaras.');
+                    }
+                }).catch(function(e) {
+                    console.error(e);
+                });
+            });
+        });
+    </script>
+    {{-- <div class="container">
+            <h1 class="text-center">Laravel webcam capture image and save from camera - ItSolutionStuff.com</h1>
+            
+            <form method="POST" action="{{ route('webcam.capture') }}">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="my_camera"></div>
+                        <br/>
+                        <input type=button value="Take Snapshot" class="webTakeShot">
+                        <input type="hidden" name="image" class="image-tag">
+                    </div>
+                    <div class="col-md-6">
+                        <div id="results">Your captured image will appear here...</div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <br/>
+                        <button class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <script src="../resources\js\webcamControl.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script> --}}
+    {{-- <script type="text/javascript" src="instascan.min.js"></script> --}}
+@endsection

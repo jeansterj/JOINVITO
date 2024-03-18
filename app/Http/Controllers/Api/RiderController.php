@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Rider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RidersResource;
+use App\Http\Resources\RiderResource;
 
 class RiderController extends Controller
 {
@@ -17,7 +17,7 @@ class RiderController extends Controller
         $riders = Rider::with(['favoritos.proveedor.menus'])->get();
 
 
-        return RidersResource::collection($riders);
+        return RiderResource::collection($riders);
     }
 
     /**
@@ -50,5 +50,10 @@ class RiderController extends Controller
     public function destroy(Rider $rider)
     {
         //
+    }
+
+    public function cercanos($lat, $long)
+    {
+        
     }
 }
