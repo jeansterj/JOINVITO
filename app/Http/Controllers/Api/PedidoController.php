@@ -58,20 +58,4 @@ class PedidoController extends Controller
 
     }
 
-    public function getOrdersProvider($provId)
-    {
-
-        $data = Menu::all();
-
-        $menus = array();
-
-        foreach ($data as $menuId) {
-            array_push($menus,$menuId->id_menu);
-        }
-
-        $pedidos = Pedido::with('menus')->whereIn('id_menu',$menus)->where('id_prov',$provId)->get();
-
-        return PedidoResource::collection($pedidos);
-
-    }
 }
