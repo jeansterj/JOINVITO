@@ -76,14 +76,19 @@ export default {
 }
 
 img.imageMenus {
-    width: 40px !important;
+    width: 35px !important;
 }
 
 button.btnDelete {
-    border: 1px #a01010 solid;
+    border: 1px #a01010 solid !important;
+    background-color: #a01010;
 }
 
 button.btnEdit {
     border: 1px #07df19 solid;
+}
+
+button.btn {
+    width: 90% !important;
 }
 </style>
