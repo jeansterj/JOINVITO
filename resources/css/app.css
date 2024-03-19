@@ -187,12 +187,11 @@ button.btn.btn-logout {
 
 button.btn.btn-signup {
   margin-left: 7px;
-  width: 130px;
   background-color: #07203C;
   border-radius: 25px;
   color: #fff;
   font-size: 24px;
-  width: 150px;
+  width: 150px !important;
 }
 
 .btn-login img{
