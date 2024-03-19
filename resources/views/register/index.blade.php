@@ -226,7 +226,6 @@
 
     </div>
     </div>
-    <p style="color: white; font-size: 40px;">                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis pariatur reiciendis nemo eos, dolorem porro optio iusto distinctio debitis magnam enim nisi ut corrupti, maiores, quidem corporis sit quos earum!
-    </p>
+    
     <script src="../resources/js/carrouselMovement.js"></script>
 @endsection
