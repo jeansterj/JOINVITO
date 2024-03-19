@@ -106,7 +106,7 @@ nav.navbar.navbar-expand-lg {
 #sCenterDiv {
   display: none;
 }
-.btn_login {
+button.btn.btn_login {
   margin-left: 10px !important;
   padding: 0 !important;
   height: 39px;
@@ -116,11 +116,6 @@ nav.navbar.navbar-expand-lg {
   width: 281px !important;
 }
 
-#reBtn_Login{
-
-  width: 281px !important;
-
-}
 
 .dontHaveAccount {
   color: #FFCA10;

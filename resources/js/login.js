@@ -1,6 +1,6 @@
 document.addEventListener ('DOMContentLoaded', function () {
   const dontHaveAccount = document.querySelector ('.dontHaveAccount');
-  const col3Container = document.querySelector ('.col-3');
+  const col3Container = document.querySelector ('.col-4');
   const divRegister = document.getElementById ('register');
   let loginDiv = document.getElementById ('loginDiv');
   const medForm = document.getElementById ('medForm');
@@ -22,12 +22,15 @@ document.addEventListener ('DOMContentLoaded', function () {
         loginDiv.classList.add ('d-none');
 
         divRegister.classList.remove ('bg-secondary');
-        divRegister.classList.remove ('col-9');
+        divRegister.classList.remove ('col-8');
         divRegister.classList.add ('col-12');
         medForm.classList.add ('medFormClass','py-4');
       } else {
         col3Container.classList.remove ('col-12');
-        col3Container.classList.add ('col-3');
+        col3Container.classList.add ('col-4');
+
+        handleResize ();
+
       }
     });
   }
@@ -45,7 +48,7 @@ document.addEventListener ('DOMContentLoaded', function () {
         if (divRegister != null) {
           divRegister.classList.remove ('d-block');
           divRegister.classList.add ('d-none');
-          col3Container.classList.remove ('col-3');
+          col3Container.classList.remove ('col-4');
           col3Container.classList.add ('col-12');
         }
     }   
@@ -54,7 +57,7 @@ document.addEventListener ('DOMContentLoaded', function () {
       if (divRegister.classList.contains ('d-block')) {
         loginDiv.classList.add ('d-none');
         divRegister.classList.remove ('bg-secondary');
-        divRegister.classList.remove ('col-9');
+        divRegister.classList.remove ('col-8');
         divRegister.classList.add ('col-12');
         medForm.classList.remove ('d-flex');
 
@@ -92,10 +95,10 @@ document.addEventListener ('DOMContentLoaded', function () {
           loginDiv.classList.remove ('d-none');
           loginDiv.classList.add ('d-block');
           col3Container.classList.remove ('col-12');
-          col3Container.classList.add ('col-3');
+          col3Container.classList.add ('col-4');
           medForm.classList.add ('d-flex');
           divRegister.classList.remove ('col-12');
-          divRegister.classList.add ('col-9');
+          divRegister.classList.add ('col-8');
           divRegister.classList.add ('bg-secondary');
         }
       }
