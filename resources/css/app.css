@@ -3,14 +3,10 @@
     margin-bottom: 0;
   }
   100% {
-    margin-bottom: 110px;
+    margin-bottom: 128px;
   }
 }
 @keyframes menuDontTouchFooter {
-  0% {
-    /* margin-bottom: 110px; */
-    /* margin-bottom: 30px; */
-  }
   50% {
     margin-bottom: 30px;
   }
@@ -106,7 +102,7 @@ nav.navbar.navbar-expand-lg {
 #sCenterDiv {
   display: none;
 }
-.btn_login {
+button.btn.btn_login {
   margin-left: 10px !important;
   padding: 0 !important;
   height: 39px;
@@ -116,11 +112,6 @@ nav.navbar.navbar-expand-lg {
   width: 281px !important;
 }
 
-#reBtn_Login{
-
-  width: 281px !important;
-
-}
 
 .dontHaveAccount {
   color: #FFCA10;

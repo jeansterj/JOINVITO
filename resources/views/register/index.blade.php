@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container-fluid my-2">
-        <div class="col-3" id="loginDiv">
+        <div class="col-4" id="loginDiv">
             <h1>LOGIN</h1>
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
             <div class="container-form">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-9 bg-secondary" id="register">
+        <div class="col-8 bg-secondary" id="register">
             <div class="container">
                 <h1 class="registerForm">REGISTER</h1>
                 <h2>CHOOSE USER TYPE</h2>
