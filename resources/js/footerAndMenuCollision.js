@@ -17,9 +17,11 @@ document.onscroll = function () {
     update()
 }
 function update() {
-    let windowBottom = (document.body.scrollTop + window.innerHeight) + (height)
-    if (windowBottom > (footerY + fheight)) {
-        console.log('holi que tal');
+    // window.innerHeight
+    let windowBottom = document.body.scrollTop + height 
+    console.log('window : ' + windowBottom)
+    console.log('footer: ' + (footerY))
+    if (windowBottom >= (footerY)) {
         menu.style.animation = 'menuTouchFooter 0.5s'
         menu.onanimationend = function () {
             menu.style.bottom = fheight
