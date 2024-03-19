@@ -8,31 +8,7 @@
             <a href=""><h1>GET ORDER NOW</h1></a>
         </div>
         <div id="ordersRider" class="buttonOrder">
-
-            {{-- <div class="accordion " id="accordionExample">
-                <div class="accordion-item ">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button bg-light " type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-
-                            <img class="rounded mx-auto d-flex imgRiderMot" src="{{ asset('img/rider-unscreen.gif') }}"
-                                alt="riderMot">
-
-                            <h1>THERE ARE NO ORDERS </h1>
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="">
-                                <li class=""><a href="">PROV2 - 1 PACK TO COLLECT</a></li>
-                                <li class=""><a href="">PROV3 - 1 PACK TO COLLECT</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         </div>
-
 
         <div>
             <div class="container chartRiderMap bg-light py-2 px-2 my-3">
@@ -64,7 +40,7 @@
 
     @section('map')
         <div class="bg-secondary container chartRiderMap">
-            <h1 class="text-white text-center my-4 py-3"> MAP </h1>
+            <h1 class="text-white text-center mt-4"> MAP </h1>
 
 
             <div class="container">

@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
       // Call the getLocation() function with printLocation() as a callback
-      getLocation(printLocation);
+    //   getLocation(printLocation);
 
 
       let decrement = document.querySelectorAll('.decrement');
