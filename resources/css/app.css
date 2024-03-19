@@ -3,14 +3,10 @@
     margin-bottom: 0;
   }
   100% {
-    margin-bottom: 110px;
+    margin-bottom: 128px;
   }
 }
 @keyframes menuDontTouchFooter {
-  0% {
-    /* margin-bottom: 110px; */
-    /* margin-bottom: 30px; */
-  }
   50% {
     margin-bottom: 30px;
   }

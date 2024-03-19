@@ -14,7 +14,7 @@ function update() {
             menu.style.bottom = fheight
         }
     } else {
-        menu.style.animation = 'menuDontTouchFooter 0.3s'
+        menu.style.animation = 'menuDontTouchFooter 0.3s ease-in-out'
         menu.onanimationend = function () {
             menu.style.bottom = 0
         }
