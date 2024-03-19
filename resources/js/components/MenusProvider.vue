@@ -49,13 +49,13 @@
                                 <div class="flex">
                                     <div class="col">
                                         <button type="button" class="btn btnEdit"><a href="modifyMenu">
-                                            <img src="img/editIcon.svg" class="imageMenus" alt=""></a>
+                                            <img src="../../../img/editIcon.svg" class="imageMenus" alt=""></a>
                                         </button>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btn btnDelete" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
-                                            <img src="img/deleteIcon.svg" class="imageMenus" alt="">
+                                            <img src="../../../img/deleteIcon.svg" class="imageMenus" alt="">
                                         </button>
                                     </div>
                                 </div>
