@@ -80,7 +80,7 @@
                         action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
                         @csrf
                         <input id="" name="rol" type="hidden" value="4" />
-                        <div class="container-fluid" id="medForm">
+                        <div class="container-fluid " id="medForm">
                             <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="emailS">Email</label>
@@ -141,7 +141,7 @@
                         action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
                         @csrf
                         <input id="" name="rol" type="hidden" value="2" />
-                        <div class="container-fluid" id="medForm">
+                        <div class="container-fluid " id="medForm">
                             <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="emailR">Email</label>
@@ -163,7 +163,7 @@
                                     <input class="form-control" type="text" id="lastName" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
-                                <button type="submit" class="btn btn-light btn_login" name="riderForm"
+                                <button type="submit" class=" btn-light btn_login" name="riderForm"
                                     value="riderForm">Sign Up</button>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                         action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
                         @csrf
                         <input id="" name="rol" type="hidden" value="3" />
-                        <div class="container-fluid" id="medForm">
+                        <div class="container-fluid " id="medForm">
                             <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="emailC">Email</label>
