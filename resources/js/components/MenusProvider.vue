@@ -1,5 +1,5 @@
 <template>
-    <div class="card de">
+    <!-- <div class="card de">
             <div class="card-body">
                 <div class="loading" v-if="loading">
                     Loading data....
@@ -31,6 +31,38 @@
                         </div>
                     </div>
                 </template>
+            </div>
+        </div> -->
+        <div class="card de">
+            <div class="card-body">
+                <div class="loading" v-if="loading">
+                    Loading data....
+                </div>
+                <div v-else v-for="menu in menus" class="providerMenusCard">
+                    <div class="row">
+                        <div class="d-flex">
+                            <div class="col">
+                                <h2 class="text-start">{{ menu.nombre_menu }}</h2>
+                                    <p class="text-start">{{ menu.bebida }}</p>
+                                    <p class="text-start">{{ menu.plato1 }}</p>
+                                    <p class="text-start">{{ menu.plato2 }}</p>
+                                <div class="flex">
+                                    <div class="col">
+                                        <button type="button" class="btn btnEdit"><a href="modifyMenu">
+                                            <img src="img/editIcon.svg" class="imageMenus" alt=""></a>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btnDelete" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                            <img src="img/deleteIcon.svg" class="imageMenus" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 </template>
@@ -70,5 +102,22 @@ export default {
 };
 </script>
 <style>
+.flex{
+    display: flex;
+}
+.btnmenus{
+    border: 1px;
+}
 
+img.imageMenus {
+    width: 40px !important;
+}
+
+button.btnDelete {
+    border: 1px #a01010 solid;
+}
+
+button.btnEdit {
+    border: 1px #07df19 solid;
+}
 </style>
