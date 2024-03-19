@@ -78,6 +78,16 @@ export default {
                             zoom: 10 // starting zoom
                         });
 
+                        var marker = new mapboxgl.Marker();
+
+                        function add_marker (event) {
+                        var coordinates = event.lngLat;
+                        console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+                        marker.setLngLat(coordinates).addTo(map);
+                        }
+
+                        map.on('click', add_marker);
+
 
                         // add markers to map
                         for (const feature of geojson.features) {

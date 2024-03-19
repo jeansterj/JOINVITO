@@ -55,104 +55,112 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     }
 
+    // const map = new mapboxgl.Map();
+
+    // map.on('click', function (e) {
+    //     // When the map is clicked, add a new drop off point
+    //     // and update the `dropoffs-symbol` layer
+    //         alert('prueba');
+    //     });
+
     var lat;
     var lng;
 
-    function getLocation(callback) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                lat  = position.coords.latitude;
-                lng  = position.coords.longitude;
+    // function getLocation(callback) {
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition((position) => {
+    //             lat  = position.coords.latitude;
+    //             lng  = position.coords.longitude;
 
-                callback();
-            })
-        }
-    }
-
-
-    function printLocation() {
-
-        //lng - 2.1745089
-        //lat - 41.3907285
-        // 'coordinates': [2.1745089, 41.3907285]
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmdhYXIiLCJhIjoiY2x0M2o1bG51MXl1djJycGxoOTMxOWM2cyJ9.OvUbOSJo5uD6WNRmhBcujQ';
-
-        async function fetchPuntos() {
-
-            fetch('./api/puntos')
-                .then(function(response){
-                    response.json()
-                    .then(function(response) {
-
-                        let arrayPuntos = new Array();
-                        response.forEach((item) => {
-
-                            let jsonDataPunto = {
-                                'type': 'Feature',
-                                'geometry': {
-                                'type': 'Point',
-                                'coordinates': [item.longitud,item.latitud]
-                                },
-                                'properties': {
-                                'title': item.nombre,
-                                'description': [
-                                    `<span>Agua</span>
-                                    <span>Ensalada</span>
-                                    <span>Jamon</span>`
-                                ]
-                                }
-                            }
-
-                            arrayPuntos.push(jsonDataPunto);
-
-                        });
-
-                        const geojson = {
-                            'type': 'FeatureCollection',
-                            'features': arrayPuntos
-                        };
+    //             callback();
+    //         })
+    //     }
+    // }
 
 
+    // function printLocation() {
 
-                        const map = new mapboxgl.Map({
-                            container: 'map', // container ID
-                            center: [lng, lat], // starting position [lng, lat]
-                            zoom: 10 // starting zoom
-                        });
+    //     //lng - 2.1745089
+    //     //lat - 41.3907285
+    //     // 'coordinates': [2.1745089, 41.3907285]
+    //     mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmdhYXIiLCJhIjoiY2x0M2o1bG51MXl1djJycGxoOTMxOWM2cyJ9.OvUbOSJo5uD6WNRmhBcujQ';
+
+    //     async function fetchPuntos() {
+
+    //         fetch('./api/puntos')
+    //             .then(function(response){
+    //                 response.json()
+    //                 .then(function(response) {
+
+    //                     let arrayPuntos = new Array();
+    //                     response.forEach((item) => {
+
+    //                         let jsonDataPunto = {
+    //                             'type': 'Feature',
+    //                             'geometry': {
+    //                             'type': 'Point',
+    //                             'coordinates': [item.longitud,item.latitud]
+    //                             },
+    //                             'properties': {
+    //                             'title': item.nombre,
+    //                             'description': [
+    //                                 `<span>Agua</span>
+    //                                 <span>Ensalada</span>
+    //                                 <span>Jamon</span>`
+    //                             ]
+    //                             }
+    //                         }
+
+    //                         arrayPuntos.push(jsonDataPunto);
+
+    //                     });
+
+    //                     const geojson = {
+    //                         'type': 'FeatureCollection',
+    //                         'features': arrayPuntos
+    //                     };
 
 
-                        // add markers to map
-                        for (const feature of geojson.features) {
-                            // create a HTML element for each feature
-                            const el = document.createElement('div');
-                            el.className = 'marker';
 
-                            // make a marker for each feature and add it to the map
-                            new mapboxgl.Marker(el)
-                            .setLngLat(feature.geometry.coordinates)
-                            .setPopup(
-                            new mapboxgl.Popup({ offset: 25 }) // add popups
-                            .setHTML(
-                            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-                            )
-                            )
-                            .addTo(map);
-                            }
-                    })
-                    .catch(function(e){
-                        console.log(e);
-                    });
-                })
-                .catch(function(e){
-                    console.log(e);
-                });
-
-        }
-
-        fetchPuntos()
+    //                     const map = new mapboxgl.Map({
+    //                         container: 'map', // container ID
+    //                         center: [lng, lat], // starting position [lng, lat]
+    //                         zoom: 10 // starting zoom
+    //                     });
 
 
-      }
+    //                     // add markers to map
+    //                     for (const feature of geojson.features) {
+    //                         // create a HTML element for each feature
+    //                         const el = document.createElement('div');
+    //                         el.className = 'marker';
+
+    //                         // make a marker for each feature and add it to the map
+    //                         new mapboxgl.Marker(el)
+    //                         .setLngLat(feature.geometry.coordinates)
+    //                         .setPopup(
+    //                         new mapboxgl.Popup({ offset: 25 }) // add popups
+    //                         .setHTML(
+    //                         `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+    //                         )
+    //                         )
+    //                         .addTo(map);
+    //                         }
+    //                 })
+    //                 .catch(function(e){
+    //                     console.log(e);
+    //                 });
+    //             })
+    //             .catch(function(e){
+    //                 console.log(e);
+    //             });
+
+    //     }
+
+    //     fetchPuntos()
+
+
+    //   }
 
 
 
