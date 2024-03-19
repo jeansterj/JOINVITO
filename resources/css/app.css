@@ -107,12 +107,19 @@ nav.navbar.navbar-expand-lg {
   display: none;
 }
 .btn_login {
+  margin-left: 10px !important;
   padding: 0 !important;
   height: 39px;
   font-size: 24px !important;
   margin-top: 20px;
   border-radius: 51px !important;
   width: 281px !important;
+}
+
+#reBtn_Login{
+
+  width: 281px !important;
+
 }
 
 .dontHaveAccount {
@@ -232,7 +239,7 @@ footer p{
 }
 
 .medFormClass{
-  display: grid;
+  display: inline-block;
   place-content: center;
 }
 
