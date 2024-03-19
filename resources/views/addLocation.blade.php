@@ -51,14 +51,34 @@
                 <div id="map"></div>
             </div>
 
-            <div class="py-3 d-grid">
-                <button class="buttonOrder bg-light text-primary text-center py-1 px-2">
-                    <h1> ADD LOCATION </h1>
-                </button>
-
-            </div>
-
         </div>
+
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-secondary text-white">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-break mx-4" id="exampleModalLabel">Are you sure to add a new
+                            address with the following information?</h1>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer justify-content-evenly">
+                        <button type="button" class="btn btn-light text-secondary btnOrdes px-5">Add</button>
+                        <button type="button" class="btn btn-light text-secondary btnOrdes px-5"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 @endsection

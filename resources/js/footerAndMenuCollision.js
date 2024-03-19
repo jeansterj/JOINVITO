@@ -18,11 +18,13 @@ let tocado = false
 document.onscroll = function () {
     menu.style.bottom = document.height
     menu.style.top = window.height
-    if (tocado) {
-        menu.style.bottom = document.height
-    } else {
-        update()
-    }
+    // if (tocado) {
+    //     // document.height
+    //     menu.style.bottom = 0
+    // } else {
+    //     update()
+    // }
+    update()
 }
 function update() {
     let windowBottom = (document.body.scrollTop + window.innerHeight) + (height)
@@ -33,13 +35,21 @@ function update() {
     // console.log(footerY)
     // console.log(windowBottom + height);
     // console.log(footerY);
-    if (windowBottom >= footerY) {
+    if (windowBottom > (footerY + fheight)) {
         console.log('holi que tal');
-        menu.style.bottom = fheight
-        tocado = true
+        menu.style.animation = 'menuTouchFooter 0.5s'
+        menu.onanimationend = function () {
+            menu.style.bottom = fheight
+            tocado = true
+        }
     } else {
-        tocado = false
+        menu.style.animation = 'menuDontTouchFooter 0.3s'
+        menu.onanimationend = function () {
+            tocado = false
+            menu.style.bottom = 0
+        }
     }
+    // menu.style.animation = ''
     // if (windowNoFooter >= menu) {
 
     // }

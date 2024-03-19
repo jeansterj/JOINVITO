@@ -26,24 +26,17 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row margin-top">
+    <div class="container my-1 py-1">
+        <div class="row margin-top my-3">
             <h2>Social Center</h2>
         </div>
-        <img src="{{ asset('img/riderIcono.svg') }}" alt="">
-        <div class="row">
+        <img src="{{ asset('img/riderIcono.svg') }}" alt="" class="py-2">
+        <div class="row py-5 my-5">
             <div class="col">
                 <h3>PROFILE</h3>
                 <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
 
             </div>
-            <div class="col">
-                <h3>USE</h3>
-                <a href="{{ url('instructions') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
-
-            </div>
-        </div>
-        <div class="row">
             <div class="col">
                 <h3>HOW TO USE?</h3>
                 <a href="{{ url('prin') }}"><img src="{{ asset('img/useImg.svg') }}" alt=""></a>
