@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-3" id="loginDiv">
+        <div class="col-4" id="loginDiv">
             <h1>LOGIN</h1>
 
             <img src="{{ asset('img/loginLogo.svg') }}" alt="">
@@ -28,7 +28,7 @@
         </div>
 
 
-        <div class="col-9 bg-secondary" id="register">
+        <div class="col-8 bg-secondary" id="register">
             <div class="container">
                 <h1>REGISTER</h1>
                 <h2>CHOOSE USER TYPE</h2>
@@ -74,7 +74,7 @@
                     @csrf
                     <input id="" name="" type="hidden" value="" />
                     <div class="container-fluid" id="medForm">
-                        <div class="col-3 col-md-7">
+                        <div class="col-4 col-md-7">
                             <div class="form-group gird-placeContent">
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" id="email" maxlength="50"
@@ -105,7 +105,7 @@
                                     placeholder="joinvito"required>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group gird-placeContent">
                                 <label for="address">Direction</label>
                                 <input class="form-control" type="text" id="address" maxlength="250"

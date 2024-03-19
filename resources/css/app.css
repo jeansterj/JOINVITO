@@ -102,7 +102,8 @@ nav.navbar.navbar-expand-lg {
 #sCenterDiv {
   display: none;
 }
-.btn_login {
+button.btn.btn_login {
+  margin-left: 10px !important;
   padding: 0 !important;
   height: 39px;
   font-size: 24px !important;
@@ -110,6 +111,7 @@ nav.navbar.navbar-expand-lg {
   border-radius: 51px !important;
   width: 281px !important;
 }
+
 
 .dontHaveAccount {
   color: #FFCA10;
@@ -164,16 +166,14 @@ div#navbarSupportedContent .navbar-nav li:hover{
 
 button.btn.btn-login {
   margin-right: 7px;
-    width: 130px;
     background-color: #fff;
     border-radius: 25px;
     font-size: 24px;
-    width: 150px;
+    width: 150px !important;
 }
 
 button.btn.btn-logout {
   margin-right: 7px;
-    width: 130px;
     background-color: #07203C;
     border-radius: 25px;
     font-size: 24px;
@@ -227,7 +227,7 @@ footer p{
 }
 
 .medFormClass{
-  display: grid;
+  display: inline-block;
   place-content: center;
 }
 
