@@ -62,4 +62,13 @@ class MenuController extends Controller
 
     }
 
+    public function getOrdersProvider($provId)
+    {
+
+        $pedidos = Menu::has('pedidos')->with('pedidos')->where('id_prov',$provId)->get();
+
+        return MenuResource::collection($pedidos);
+
+    }
+
 }

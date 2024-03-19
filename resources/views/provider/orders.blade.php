@@ -18,7 +18,10 @@
         </div>
     </div>
 
-    <div id="ordersProvider">
+    <div class="text-white py-2 text-center">ORDERS
+        <div class="bg-light chartProviderOrder centerSpace my-3" id="ordersProvider">
+
+        </div>
     </div>
-    
+
 @endsection

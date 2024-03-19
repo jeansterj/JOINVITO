@@ -58,13 +58,4 @@ class PedidoController extends Controller
 
     }
 
-    public function getOrdersProvider($provId)
-    {
-
-        $pedidos = Pedido::where('id_pedido',$provId)->get();
-
-        return PedidoResource::collection($pedidos);
-
-    }
-    
 }
