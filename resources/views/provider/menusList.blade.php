@@ -4,55 +4,8 @@
 @section('content')
     <meta name="userId" content="{{ Auth::user()->id_usu }}">
     <div class="bg-light chartRiderOrder centerSpace my-3" id="divMenuList">
-        {{-- <div class="card de">
-            <div class="card-body">
-                <div class="chartRiderOrder container ">
-                    <div class="row">
-
-                        <div class="d-flex">
-
-                            <div class="col-8">
-                                <h2 class="text-start">Order 1 </h2>
-
-                            </div>
-                            <button type="button" class="btn btnDelete"><a href="{{ url('modifyMenu') }}">
-                                <img src="{{ asset('img/editIcon.svg') }}" alt=""></a>
-                            </button>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="d-flex">
-                            <div class="col-8">
-                                <h3 class="text-start">CHEESE BURGUER
-                                    FISH, COCA-COLA</h3>
-                            </div>
-
-                            <button type="button" class="btn btnDelete" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="{{ asset('img/deleteIcon.svg') }}" alt="">
-                            </button>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div> --}}
-
     </div>
 
-
-    </div>
-
-    <!-- Button trigger modal -->
-
-    <div id="prueba">
-    </div>
-    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary text-white">
