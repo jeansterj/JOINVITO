@@ -61,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('addLocation', function () {
-        return view('rider.addLocation');
+        return view('addLocation');
     });
 
     Route::get('getOrders', function () {
