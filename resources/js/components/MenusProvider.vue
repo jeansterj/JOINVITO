@@ -85,7 +85,14 @@ button.btnDelete {
 }
 
 button.btnEdit {
-    border: 1px #07df19 solid;
+    background-color: #07203C;
+}
+
+button.btnEdit:hover{
+    background-color: #07203C;
+}
+button.btnDelete:hover {
+    background-color: #a01010;
 }
 
 button.btn {
