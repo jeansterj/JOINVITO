@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
         return view('register.cameraPage');
     });
 
+    Route::get('addLocation', function () {
+        return view('addLocation');
+    });
 
     /* rider routes */
 
@@ -95,21 +98,15 @@ Route::middleware(['auth'])->group(function () {
         return view('SCenter.index');
     });
 
-    Route::get('prin', function () {
-        return view('SCenter.prin');
-    });
-
     Route::get('stats', function () {
         return view('SCenter.stats');
     });
 
-    Route::get('edit-SCenter', function () {
-        return view('SCenter.edit-SCenter');
+    Route::get('edit-center', function () {
+        return view('SCenter.edit-center');
     });
 
-    Route::get('addLocation', function () {
-        return view('rider.addLocation');
-    });
+
 
 
     /** QR VIEWS */
