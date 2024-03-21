@@ -1,5 +1,15 @@
 <template>
-        
+        <!-- Modal -->
+        <div id="form-container">
+            <h2>Introduce tus datos:</h2>
+            <form id="dataForm">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
 </template>
 
 <script>
@@ -18,6 +28,10 @@ export default {
         this.timer = setInterval(this.getLocation(),60000);
     },
     methods:{
+            showModalForm() {
+                var formContainer = document.getElementById('form-container');
+                formContainer.style.display = 'block';
+        },
         getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -39,7 +53,7 @@ export default {
 
             const me = this
             axios
-                .get('./api/puntos')
+                .get('puntos')
                 .then(response => {
                         
                         let arrayPuntos = new Array();
@@ -71,23 +85,28 @@ export default {
                         };
 
 
-
                         const map = new mapboxgl.Map({
                             container: 'map', // container ID
                             center: [this.lng, this.lat], // starting position [lng, lat]
-                            zoom: 10 // starting zoom
+                            zoom: 10, // starting zoom
+                            doubleClickZoom: false
                         });
 
-                        var marker = new mapboxgl.Marker();
 
-                        function add_marker (event) {
-                        var coordinates = event.lngLat;
-                        console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
-                        marker.setLngLat(coordinates).addTo(map);
-                        }
+                        map.on('touchstart', function(event) {
+                            var coordinates = event.lngLat;
+                            setTimeout(me.showModalForm, 2000);
+                        });
+                        map.on('dblclick', function(event) {
+                            var coordinates = event.lngLat;
+                            // console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+                            console.log(event)
+                            me.showModalForm();
+                        })
+                        
 
-                        map.on('click', add_marker);
 
+                        
 
                         // add markers to map
                         for (const feature of geojson.features) {
@@ -96,7 +115,7 @@ export default {
                             el.className = 'marker';
 
                             // make a marker for each feature and add it to the map
-                            new mapboxgl.Marker(el)
+                            let marker = new mapboxgl.Marker(el)
                             .setLngLat(feature.geometry.coordinates)
                             .setPopup(
                             new mapboxgl.Popup({ offset: 25 }) // add popups
@@ -105,7 +124,11 @@ export default {
                             )
                             )
                             .addTo(map);
-                            }
+                            
+                            marker.getElement().addEventListener('click', function (e) { 
+                                console.log("marker clicked"); 
+                            });
+                        }
                     })
 
             }

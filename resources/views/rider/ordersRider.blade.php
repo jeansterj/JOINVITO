@@ -45,10 +45,10 @@
                 <div id="map"></div>
             </div>
 
-            <div class="py-3 d-grid">
+            {{-- <div class="py-3 d-grid">
                 <a href="{{ url('addLocation') }}">
                     <h1 class="buttonOrder bg-light text-primary text-center py-1 px-2"> ADD LOCATION </h1>
                 </a>
-            </div>
+            </div> --}}
         </div>
     @endsection
