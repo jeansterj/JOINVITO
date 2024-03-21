@@ -136,8 +136,12 @@
 @endsection
 
 @section('map')
-    <div class="container">
-        <div id="map"></div>
+    <div class="bg-secondary container-fluid chartRiderMap my-4">        
+        <div class="container">
+            <div class="row py-5">
+                <div id="map"></div>
+            </div>
+        </div>
     </div>
 @endsection
 

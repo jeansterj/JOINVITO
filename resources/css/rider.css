@@ -90,8 +90,8 @@
 
 #map{
     height: 310px;
-    margin-bottom: 80px;
-    margin-top: 50px;
+    /* margin-bottom: 80px;
+    margin-top: 50px; */
 }
 
 
@@ -239,4 +239,14 @@ img.rider-logo{
 
 .rider-home .row{
     padding-bottom: 30px;
+}
+
+#form-container {
+     display: none; 
+     position: absolute; 
+     top: 10px; left: 10px; 
+     background-color: white; 
+     padding: 10px; 
+     border: 1px solid #ccc; 
+     z-index: 1000;
 }
