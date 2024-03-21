@@ -222,6 +222,16 @@ footer p{
 
 /* Registro web*/
 
+.spaceSign{
+  margin-top: 45px !important;
+}
+
+.container-Register{
+  margin: auto;
+  margin-top: -55px;
+  margin-right: -12px;
+}
+
 .accountQuestion {
   margin-top: 20px;
 }
