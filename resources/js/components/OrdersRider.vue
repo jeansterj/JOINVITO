@@ -48,7 +48,7 @@ export default {
             const riderId = document.querySelector('meta[name="userId"]').content
 
             axios
-                .get(`api/orders/rider/${riderId}`)
+                .get(`orders/rider/${riderId}`)
                 .then(response => {
                     me.orders = response.data;
                     me.orders.length > 0 ? me.empty = false : me.empty = true;

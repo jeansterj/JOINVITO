@@ -58,7 +58,7 @@ export default {
             const me = this
             const provId = document.querySelector('meta[name="userId"]').content
             axios
-                .get(`api/orders/provider/${provId}`)
+                .get(`orders/provider/${provId}`)
                 .then(response => {
                     me.orders = response.data;
                 })

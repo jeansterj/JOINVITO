@@ -59,7 +59,7 @@ export default {
             const me = this
             const provId = document.querySelector('meta[name="userId"]').content
             axios
-                .get(`api/menus/provider/${provId}`)
+                .get(`menus/provider/${provId}`)
                 .then(response => {
                     me.menus = response.data;
                 })
