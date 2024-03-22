@@ -29,9 +29,10 @@ document.addEventListener ('DOMContentLoaded', function () {
         col3Container.classList.remove ('col-12');
         col3Container.classList.add ('col-4');
 
-        handleResize ();
 
       }
+      handleResize ();
+
     });
   }
 

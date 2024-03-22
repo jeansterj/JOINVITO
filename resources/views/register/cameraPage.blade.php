@@ -11,7 +11,9 @@
     @endif
     <video id="qr-video" width="100%" height="auto" autoplay></video>
     <button id="scan-button" class="btn btn-light">Pulsar para escanear qr</button>
-
+    
+    <button id="btnStart">Start</button>
+    <button id="btnStop">Stop</button>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

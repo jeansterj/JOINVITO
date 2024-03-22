@@ -30,13 +30,13 @@ Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
 Route::post('/login', [UsuarioController::class,'login']);
 Route::get('/register', function () { return view('register.index'); });
 
-
+Route::get('/camera', function () {
+    return view('register.cameraPage');
+});
 Route::middleware(['auth'])->group(function () {
 
     
-    Route::get('/camera', function () {
-        return view('register.cameraPage');
-    });
+
 
     Route::get('addLocation', function () {
         return view('addLocation');
