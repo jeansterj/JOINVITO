@@ -24,7 +24,22 @@ class PuntoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $punto = new Punto();
+
+
+        $punto->direccion = $request->direccion;
+        $punto->latitud = $request->latitud;
+        $punto->longitud = $request->longitud;
+        $punto->cantidad_personas = $request->cantidad_personas;
+        $punto->fecha_inactivo = $request->fecha_inactivo;
+        $punto->fecha_alta = $request->fecha_alta;
+        $punto->fecha_baja = $request->fecha_baja;
+        $punto->puntos = $request->puntos;
+        $punto->tipo = $request->tipo;
+        $punto->id_usu = $request->id_usu;
+
+        $punto->save();
     }
 
     /**

@@ -1,21 +1,16 @@
 <template>
         <!-- Modal -->
         <div id="form-container" class="bg-secondary">
-            <div id="close">x</div>
             <form id="dataForm">
                     <div class="input-group mb-3">
-                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion">
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion">
                     </div>
-                    <input type="hidden" id="lat" name="lat">
-                    <input type="hidden" id="long" name="long">
                     <div class="input-group mb-3">
-                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas">
+                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas">
                     </div>
-                    <input type="hidden" id="rol" name="rol">
-                    <input type="hidden" id="id_usu" name="id_usu">
-                    <input type="hidden" id="homeless" name="homeless" value="homeless">
-                    <input type="hidden" id="homeless" name="homeless" value="homeless">
-                    <button type="submit" class="btn bg-light buttonOrder addPua">Enviar</button>
+                    <button type="button" class="btn bg-light buttonOrder addPua" @click="insertPunto()">Guardar</button>
+                    <input type="button" id="close" class="btn bg-light buttonOrder addPua" value="Cancelar"></input>
+                    <span v-if="isError">{{ messageError }}</span>
             </form>
         </div>
 </template>
@@ -26,8 +21,7 @@ export default {
     data(){
         return {
             puntos: [],
-            lat: 0,
-            lng: 0,
+            punto: {}
         }
     },
     created(){
@@ -36,16 +30,31 @@ export default {
         this.timer = setInterval(this.getLocation(),60000);
     },
     methods:{
-            showModalForm() {
-                let close = document.getElementById('close');
-
-                close.addEventListener('click', () => {
+        insertPunto(){
+            const me = this
+            axios
+                .post('puntos',me.punto)
+                .then(response => {
+                    let formContainer = document.getElementById('form-container');
                     formContainer.style.display = 'none';
+                    this.getLocation();
                 })
+                .catch(error=>{
+                    this.isError = true;
+                    me.messageError = error.response.data.error;
+                })
+        },
+        showModalForm() {
+            this.isError = false;
+            let close = document.getElementById('close');
 
-                let formContainer = document.getElementById('form-container');
-                formContainer.style.display = 'block';
-                
+            close.addEventListener('click', () => {
+                formContainer.style.display = 'none';
+            })
+
+            let formContainer = document.getElementById('form-container');
+            formContainer.style.display = 'block';
+
         },
         getLocation() {
             if (navigator.geolocation) {
@@ -70,7 +79,7 @@ export default {
             axios
                 .get('puntos')
                 .then(response => {
-                        
+
                     let arrayPuntos = new Array();
                     response.data.forEach((item) => {
 
@@ -109,18 +118,34 @@ export default {
 
 
                     map.on('touchstart', function(event) {
-                        var coordinates = event.lngLat;
+                        let coordinates = event.lngLat;
+                        me.punto.latitud = coordinates.lat;
+                        me.punto.longitud = coordinates.lng;
+                        me.punto.fecha_inactivo = null;
+                        me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+                        me.punto.fecha_baja = null;
+                        me.punto.puntos = 10;
+                        me.punto.tipo = "Homeless";
+                        me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+
                         setTimeout(me.showModalForm, 2000);
                     });
                     map.on('dblclick', function(event) {
-                        var coordinates = event.lngLat;
-                        // console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+                        let coordinates = event.lngLat;
+                        me.punto.latitud = coordinates.lat;
+                        me.punto.longitud = coordinates.lng;
+                        me.punto.fecha_inactivo = null;
+                        me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+                        me.punto.fecha_baja = null;
+                        me.punto.puntos = 10;
+                        me.punto.tipo = "Homeless";
+                        me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
                         me.showModalForm();
                     })
-                    
 
 
-                    
+
+
 
                     // add markers to map
                     for (const feature of geojson.features) {
@@ -138,7 +163,7 @@ export default {
                         )
                         )
                         .addTo(map);
-                        
+
                     }
                 })
             }
@@ -147,25 +172,14 @@ export default {
 </script>
 <style>
 
-    #close{
-        position: absolute;
-        color: black;
-        text-align: center;
-        cursor: pointer;
-        width: 10px;
-        font-size: 16px;
-        right: 10px;
-        top: 5px;
-    }
-
     #form-container {
         position: relative;
-        display: none; 
-        position: absolute; 
-        top: 10px; left: 10px; 
-        background-color: white; 
-        padding: 10px; 
-        border: 1px solid #ccc; 
+        display: none;
+        position: absolute;
+        top: 10px; left: 10px;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
         z-index: 1000;
         border-radius: 15px;
     }
@@ -175,8 +189,15 @@ export default {
         font-size: 13px;
     }
 
-    .addPua{
+    button.addPua,input.addPua{
         width: 100px !important;
+        margin-right: 10px;
+        margin-left: 10px;
     }
-    
+
+    /* #dataForm button{
+        width: 100px !important;
+    } */
+
+
 </style>
