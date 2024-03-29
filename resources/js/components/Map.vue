@@ -27,7 +27,7 @@ export default {
     created(){
         this.getLocation();
         // Call the getLocation() function with printLocation() as a callback
-        this.timer = setInterval(this.getLocation(),60000);
+        this.timer = setInterval(this.getLocation(),120000);
     },
     methods:{
         insertPunto(){
@@ -131,16 +131,20 @@ export default {
                         setTimeout(me.showModalForm, 2000);
                     });
                     map.on('dblclick', function(event) {
-                        let coordinates = event.lngLat;
-                        me.punto.latitud = coordinates.lat;
-                        me.punto.longitud = coordinates.lng;
-                        me.punto.fecha_inactivo = null;
-                        me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
-                        me.punto.fecha_baja = null;
-                        me.punto.puntos = 10;
-                        me.punto.tipo = "Homeless";
-                        me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
-                        me.showModalForm();
+                        let item = event.originalEvent.srcElement;
+
+                        if(item.classList[0].search("marker") == -1){
+                            let coordinates = event.lngLat;
+                            me.punto.latitud = coordinates.lat;
+                            me.punto.longitud = coordinates.lng;
+                            me.punto.fecha_inactivo = null;
+                            me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+                            me.punto.fecha_baja = null;
+                            me.punto.puntos = 10;
+                            me.punto.tipo = "Homeless";
+                            me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+                            me.showModalForm();
+                        }
                     })
 
 
@@ -171,6 +175,19 @@ export default {
 };
 </script>
 <style>
+
+    .chartRiderMap{
+        margin-top: 50px;
+        border-radius: 20px;
+        padding: 0px;
+    }
+
+    #map{
+        width: 100%;
+        height: 310px;
+        /* margin-bottom: 80px;
+        margin-top: 50px; */
+    }
 
     #form-container {
         position: relative;

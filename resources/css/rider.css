@@ -88,11 +88,7 @@
     display: none !important;
 }
 
-#map{
-    height: 310px;
-    /* margin-bottom: 80px;
-    margin-top: 50px; */
-}
+
 
 
 .marker {
@@ -142,11 +138,7 @@
     width: 30%;
 }
 
-.chartRiderMap{
 
-    border-radius: 20px;
-
-}
 
 #ordersRider ul{
     list-style: none;
