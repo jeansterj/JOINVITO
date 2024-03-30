@@ -91,13 +91,21 @@
 
 
 
-.marker {
+.marker-homeless {
     background-image: url('../../public/img/pua.png');
-    width: 28px;
-    height: 40px;
+    width: 27px;
+    height: 35px;
     border-radius: 50%;
     cursor: pointer;
-  }
+}
+
+.marker-provider {
+    background-image: url('../../public/img/provider.png');
+    width: 27px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
 .mapboxgl-popup {
     max-width: 200px;

@@ -83,21 +83,22 @@ export default {
                     let arrayPuntos = new Array();
                     response.data.forEach((item) => {
 
-                        let jsonDataPunto = {
-                            'type': 'Feature',
-                            'geometry': {
-                            'type': 'Point',
-                            'coordinates': [item.longitud,item.latitud]
-                            },
-                            'properties': {
-                            'title': item.nombre,
-                            'description': [
-                                `<span>Agua</span>
-                                <span>Ensalada</span>
-                                <span>Jamon</span>`
-                            ]
+                        let jsonDataPunto =
+                            {
+                                'type': item.tipo,
+                                'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [item.longitud,item.latitud]
+                                    },
+                                'properties': {
+                                    'title': item.nombre,
+                                    'description': [
+                                            `<span>Agua</span>
+                                            <span>Ensalada</span>
+                                            <span>Jamon</span>`
+                                        ]
+                                    }
                             }
-                        }
 
                         arrayPuntos.push(jsonDataPunto);
 
@@ -147,27 +148,34 @@ export default {
                         }
                     })
 
-
-
-
-
                     // add markers to map
                     for (const feature of geojson.features) {
+
+                        console.log(feature);
                         // create a HTML element for each feature
                         const el = document.createElement('div');
-                        el.className = 'marker';
+
+                        switch(feature.type){
+
+                            case "Proveedor":
+
+                                el.className = 'marker-provider';
+                                break;
+
+                            case "Homeless":
+
+                                el.className = 'marker-homeless';
+                                break;
+                        }
+
+
 
                         // make a marker for each feature and add it to the map
                         let marker = new mapboxgl.Marker(el)
                         .setLngLat(feature.geometry.coordinates)
-                        .setPopup(
-                        new mapboxgl.Popup({ offset: 25 }) // add popups
-                        .setHTML(
-                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-                        )
-                        )
+                         // add popups
+                        .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`))
                         .addTo(map);
-
                     }
                 })
             }
