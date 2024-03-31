@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <meta name="userId" content="{{ Auth::user()->id_usu }}">
+    {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="bg-light chartRiderOrder centerSpace my-3" id="divMenuList">
     </div>
 

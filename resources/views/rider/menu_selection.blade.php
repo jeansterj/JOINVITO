@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <meta name="userId" content="{{ Auth::user()->id_usu }}">
+    {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="container">
         <h3>MENU</h3>
         <ul class="nav nav-tabs">

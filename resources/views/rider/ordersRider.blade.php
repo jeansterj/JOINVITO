@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <meta name="userId" content="{{ Auth::user()->id_usu }}">
+    {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="container">
         <div id="ordernow" class="buttonOrder bg-light ">
             <a href=""><h1>GET ORDER NOW</h1></a>

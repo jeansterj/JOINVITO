@@ -15,6 +15,7 @@
 </head>
 
 <body class="bg-primary">
+    <meta name="userId" content="{{ Auth::user()->id_usu }}">
   <nav class="navbar navbar-expand-lg bg-light" >
     <div class="container">
         @if (Auth::check())

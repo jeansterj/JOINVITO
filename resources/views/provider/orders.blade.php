@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <meta name="userId" content="{{ Auth::user()->id_usu }}">
+    {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="text-center text-white my-2">Write the rider’s code or scan it.</div>
     <div class="d-flex justify-content-around">
         <div class="bg-light btnOrdes d-flex text-center my-auto justify-content-center mx-4 px-5">

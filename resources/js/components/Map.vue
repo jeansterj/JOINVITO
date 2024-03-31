@@ -30,8 +30,12 @@ export default {
         this.timer = setInterval(this.getLocation(),300000);
     },
     methods:{
-        prueba(){
-            alert('prueba');
+        entregar(){
+            let totalOrdersAvailable = sessionStorage.getItem('totalOrdersAvailable');
+            totalOrdersAvailable--;
+            sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable);
+            alert(sessionStorage.getItem('seleccionadosParaEntrega'));
+            this.getLocation();
         },
         insertPunto(){
             const me = this
@@ -51,7 +55,7 @@ export default {
             // this.isError = false;
             let close = document.getElementById('close');
 
-            close.addEventListener('click', () => {
+            close.addEventListener('click', (event) => {
                 formContainer.style.display = 'none';
             })
 
@@ -79,6 +83,7 @@ export default {
 
 
             const me = this
+
             axios
                 .get('puntos')
                 .then(response => {
@@ -197,55 +202,33 @@ export default {
                         }
                     })
 
+                    map.on('click',function(event){
+
+                        setTimeout(function(){
+                            let resetPopups = document.querySelectorAll('.mapboxgl-popup-content');
+                            resetPopups.forEach(popup => {
+                                let cantidad = popup.querySelector('.quantity').innerHTML;
+                                console.log(cantidad);
+                                cantidad = 0;
+                                popup.querySelector('.quantity').innerHTML = cantidad;
+                            });
+                        },1)
+
+                    })
+
                     // add markers to map
                     for (const feature of geojson.features) {
 
                         let content = document.createElement('div')
                         let title = document.createElement('h3');
-                        let body = document.createElement('div');
+                        let body = this.createButtons();
                         let entregar = document.createElement('input');
-
-                        body.setAttribute('class','container text-center deliverQuantity');
-                        body.innerHTML = `<div class="row align-items-start">
-                                            <div class="col simbol decrement">
-                                                <span>-</span>
-                                            </div>
-                                            <div class="col total">
-                                                <span class="quantity">0</span>
-                                            </div>
-                                            <div class="col simbol increment">
-                                                <span>+</span>
-                                            </div>
-                                        </div>`
-
 
                         entregar.setAttribute('type','button');
                         entregar.setAttribute('class','btn bg-light');
                         entregar.setAttribute('value',"Entregar");
-                        entregar.addEventListener('click', this.prueba);
+                        entregar.addEventListener('click', this.entregar);
 
-
-                        let total = parseInt(card.querySelector('#total').value);
-
-                        card.querySelector('.decrement').addEventListener('click',() => {
-
-                            let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
-
-                            (cantidad > 0) ? cantidad-- : cantidad = 0;
-
-                            card.querySelector('#cantidad').value = cantidad;
-                            card.querySelector('.quantity').innerHTML = cantidad;
-                        })
-
-                        card.querySelector('.increment').addEventListener('click',() => {
-
-                            let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
-
-                            (cantidad < total) ? cantidad++ : total;
-
-                            card.querySelector('#cantidad').value = cantidad;
-                            card.querySelector('.quantity').innerHTML = cantidad;
-                        })
 
                         title.innerText = feature.properties.title;
                         title.setAttribute('class','title')
@@ -276,6 +259,7 @@ export default {
                                 el.className = 'marker-provider';
                                 content.removeChild(body);
                                 content.removeChild(entregar);
+
                                 break;
 
                             case "Centro":
@@ -304,18 +288,57 @@ export default {
                 })
         },
         createButtons(){
-            body.setAttribute('class','container text-center deliverQuantity');
-            body.innerHTML = `<div class="row align-items-start">
-                                <div class="col simbol decrement">
-                                    <span>-</span>
-                                </div>
-                                <div class="col total">
-                                    <span class="quantity">0</span>
-                                </div>
-                                <div class="col simbol increment">
-                                    <span>+</span>
-                                </div>
-                            </div>`
+
+            let buttons = document.createElement('div');
+            buttons.setAttribute('class','container text-center deliverQuantity');
+
+            let nivel2 = document.createElement('div');
+            nivel2.setAttribute('class','row align-items-start');
+
+            let menos = document.createElement('div');
+            menos.setAttribute('class','col simbol decrement')
+            menos.innerHTML = `<span>-</span>`;
+
+            let mas = document.createElement('div');
+            mas.setAttribute('class','col simbol increment')
+            mas.innerHTML = `<span>+</span>`;
+
+            let valor = document.createElement('span');
+            valor.setAttribute('class','quantity');
+            valor.innerText = 0;
+
+            let cantidad = document.createElement('div');
+            cantidad.setAttribute('class','col total');
+            cantidad.appendChild(valor);
+
+            nivel2.appendChild(menos);
+            nivel2.appendChild(cantidad);
+            nivel2.appendChild(mas);
+            buttons.appendChild(nivel2);
+
+            let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
+
+            menos.addEventListener('click',() => {
+
+                let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
+                let seleccionados = parseInt(valor.innerText);
+
+                (seleccionados > 0) ? seleccionados-- : seleccionados = 0;
+                valor.innerText = seleccionados;
+                sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
+            })
+
+            mas.addEventListener('click',() => {
+
+                let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
+                let seleccionados = parseInt(valor.innerText);
+
+                (seleccionados < totalOrdersAvailable) ? seleccionados++ : seleccionados = totalOrdersAvailable;
+                valor.innerText = seleccionados;
+                sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
+            })
+
+            return buttons;
         }
     }
 };
