@@ -29,12 +29,7 @@
                 <div class="chartRiderMap bg-light">
                     <a href=""><img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR"></a>
                 </div>
-
-
             </div>
-
-
-
         </div>
     @endsection
 

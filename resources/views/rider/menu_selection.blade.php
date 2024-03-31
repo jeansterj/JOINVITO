@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    <meta name="userId" content="{{ Auth::user()->id_usu }}">
     <div class="container">
         <h3>MENU</h3>
         <ul class="nav nav-tabs">
@@ -136,12 +137,8 @@
 @endsection
 
 @section('map')
-    <div class="bg-secondary container-fluid chartRiderMap my-4">        
-        <div class="container">
-            <div class="row py-5">
-                <div id="map"></div>
-            </div>
-        </div>
+    <div class="container-fluid chartRiderMap">
+        <div id="map"></div>
     </div>
 @endsection
 

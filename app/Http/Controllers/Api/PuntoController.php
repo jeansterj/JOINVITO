@@ -14,7 +14,8 @@ class PuntoController extends Controller
      */
     public function index()
     {
-        $puntos = Punto::all()->where('fecha_baja','=',null);
+        // $puntos = Punto::all()->where('fecha_baja','=',null);
+        $puntos = Punto::with('usuario.proveedor.menus')->with('usuario.centro')->where('fecha_baja','=',null)->get();
 
         return PuntoResource::collection($puntos);
     }

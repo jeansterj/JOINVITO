@@ -88,48 +88,6 @@
     display: none !important;
 }
 
-
-
-
-.marker-homeless {
-    background-image: url('../../public/img/pua.png');
-    width: 27px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.marker-provider {
-    background-image: url('../../public/img/provider.png');
-    width: 27px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.mapboxgl-popup {
-    max-width: 200px;
-}
-
-.mapboxgl-popup-content {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    padding: 20px 50px 15px;
-    color: black;
-}
-
-.mapboxgl-popup-content h3{
-    font-size: 22px;
-}
-
-.mapboxgl-popup-content span{
-    font-size: 14px;
-}
-
-.mapboxgl-popup-close-button{
-    font-size: 27px;
-}
-
 .buttonOrder{
     color: #07203C;
     border-radius: 20px;
