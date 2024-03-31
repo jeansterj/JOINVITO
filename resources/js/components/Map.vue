@@ -208,7 +208,6 @@ export default {
                             let resetPopups = document.querySelectorAll('.mapboxgl-popup-content');
                             resetPopups.forEach(popup => {
                                 let cantidad = popup.querySelector('.quantity').innerHTML;
-                                console.log(cantidad);
                                 cantidad = 0;
                                 popup.querySelector('.quantity').innerHTML = cantidad;
                             });
