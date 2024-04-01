@@ -40,7 +40,7 @@ export default {
             this.fetchOrdersList();
             let pedidos = JSON.parse(sessionStorage.getItem('pedidos'));
             this.selectPedido(pedidos,seleccionados);
-            for (let index = 0; index < seleccionados; index++) {
+            for (let index = 0; index < this.pedidosSeleccionados.length; index++) {
                 this.updatePedidosEntregas(this.pedidosSeleccionados[index],idPunto);
             }
 
@@ -70,38 +70,19 @@ export default {
             let index = 0;
             let index2 = 0;
             let rellenado = 0;
-            let existe = false;
-            let salir = false;
+            this.pedidosSeleccionados = [];
 
             while(rellenado < seleccionados){
-                if(pedidos[index].cantidad_packs > 0){
-                    if(this.pedidosSeleccionados.length > 0){
-                        while(salir && index2 < this.pedidosSeleccionados){
-                            if(this.pedidosSeleccionados[index2].id_pedido == pedidos[index].id_pedido){
-                                this.pedidosSeleccionados[index2].cantidad_packs--;
-                                existe = true;
-                                salir = true;
-                                rellenado++;
-                            }
-                            index2++;
-                        }
 
-                        if(!existe){
-                            pedido = pedidos[index];
-                            pedido.cantidad_packs--;
-                            // pedido.entregado_a_rider = true;
-                            this.pedidosSeleccionados.push(pedido);
-                            rellenado++;
-                        }
+                while(pedidos[index].cantidad_packs > 0 && rellenado < seleccionados){
+                    pedido = pedidos[index];
+                    pedido.cantidad_packs--;
+                    // pedido.entregado_a_rider = true;
 
-                    }else{
-                        pedido = pedidos[index];
-                        pedido.cantidad_packs--;
-                        // pedido.entregado_a_rider = true;
-                        this.pedidosSeleccionados.push(pedido);
-                        rellenado++;
-                    }
+                    rellenado++;
                 }
+
+                this.pedidosSeleccionados.push(pedido);
                 index++;
             }
         },
@@ -117,7 +98,7 @@ export default {
             };
 
             axios
-                .post('pedidos', pedido)
+                .put(`pedidos/${pedido.id_pedido}`, pedido)
                 .then(response => {
                     console.log(response)
                 })

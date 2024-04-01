@@ -60,7 +60,7 @@ class PedidoController extends Controller
     public function getOrdersRider($riderId)
     {
 
-        $pedidos = Pedido::where('id_rider',$riderId)->get();
+        $pedidos = Pedido::where('id_rider',$riderId)->where('cantidad_packs','>',0)->get();
 
         return PedidoResource::collection($pedidos);
 
