@@ -38,7 +38,15 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
-        //
+        $pedido->id_pedido = $request->id_pedido;
+        $pedido->id_rider = $request->id_rider;
+        $pedido->id_menu = $request->id_menu;
+        $pedido->cantidad_packs = $request->cantidad_packs;
+        $pedido->fecha = $request->fecha;
+        $pedido->entregado_a_rider = $request->entregado_a_rider;
+
+        $pedido->save();
+
     }
 
     /**
@@ -46,7 +54,7 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
     }
 
     public function getOrdersRider($riderId)

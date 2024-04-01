@@ -15,11 +15,12 @@
 </head>
 
 <body class="bg-primary">
-    <meta name="userId" content="{{ Auth::user()->id_usu }}">
+
   <nav class="navbar navbar-expand-lg bg-light" >
     <div class="container">
         @if (Auth::check())
         {{-- <a href="{{url('login')}}"> --}}
+            <meta name="userId" content="{{ Auth::user()->id_usu }}">
             <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{{ url('login')}}">
             <img src="{{ asset('img/logoUsuario.svg') }}" alt="">
             </button>

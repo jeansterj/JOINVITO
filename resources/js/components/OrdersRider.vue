@@ -33,11 +33,11 @@ export default {
         }
     },
     created(){
-        this.fetchEventsList();
-        this.timer = setInterval(this.fetchEventsList, 60000);
+        this.fetchOrdersList();
+        this.timer = setInterval(this.fetchOrdersList, 60000);
     },
     methods:{
-        fetchEventsList () {
+        fetchOrdersList () {
 
             //Waste 5 seconds
             setTimeout(() => {
@@ -51,11 +51,11 @@ export default {
                 .get(`orders/rider/${riderId}`)
                 .then(response => {
 
-                    let totalOrdersAvailable = 0;
-                    response.data.forEach(element => {
-                        totalOrdersAvailable += element.cantidad_packs
-                        sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
-                    });
+                    // let totalOrdersAvailable = 0;
+                    // response.data.forEach(element => {
+                    //     totalOrdersAvailable += element.cantidad_packs
+                    //     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
+                    // });
 
 
                     me.orders = response.data;

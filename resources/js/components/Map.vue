@@ -21,21 +21,109 @@ export default {
     data(){
         return {
             puntos: [],
-            punto: {}
+            punto: {},
+            pedidosSeleccionados: []
         }
     },
     created(){
         this.getLocation();
         // Call the getLocation() function with printLocation() as a callback
         this.timer = setInterval(this.getLocation(),300000);
+        setInterval(this.fetchOrdersList(),290000);
     },
     methods:{
         entregar(){
-            let totalOrdersAvailable = sessionStorage.getItem('totalOrdersAvailable');
-            totalOrdersAvailable--;
-            sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable);
-            alert(sessionStorage.getItem('seleccionadosParaEntrega'));
+
+            let seleccionados = parseInt(sessionStorage.getItem('seleccionadosParaEntrega'));
+            let idPunto = document.getElementById('idPunto').getAttribute('data-id');
+
+            this.fetchOrdersList();
+            let pedidos = JSON.parse(sessionStorage.getItem('pedidos'));
+            this.selectPedido(pedidos,seleccionados);
+            for (let index = 0; index < seleccionados; index++) {
+                this.updatePedidosEntregas(this.pedidosSeleccionados[index],idPunto);
+            }
+
+
             this.getLocation();
+        },
+        fetchOrdersList () {
+
+            const riderId = document.querySelector('meta[name="userId"]').content
+
+            axios
+                .get(`orders/rider/${riderId}`)
+                .then(response => {
+
+                    sessionStorage.setItem('pedidos',JSON.stringify(response.data));
+
+                    let totalOrdersAvailable = 0;
+                    response.data.forEach(element => {
+                        totalOrdersAvailable += element.cantidad_packs
+                        sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
+                    });
+                })
+        },
+        selectPedido(pedidos,seleccionados){
+
+            let pedido = {};
+            let index = 0;
+            let index2 = 0;
+            let rellenado = 0;
+            let existe = false;
+            let salir = false;
+
+            while(rellenado < seleccionados){
+                if(pedidos[index].cantidad_packs > 0){
+                    if(this.pedidosSeleccionados.length > 0){
+                        while(salir && index2 < this.pedidosSeleccionados){
+                            if(this.pedidosSeleccionados[index2].id_pedido == pedidos[index].id_pedido){
+                                this.pedidosSeleccionados[index2].cantidad_packs--;
+                                existe = true;
+                                salir = true;
+                                rellenado++;
+                            }
+                            index2++;
+                        }
+
+                        if(!existe){
+                            pedido = pedidos[index];
+                            pedido.cantidad_packs--;
+                            // pedido.entregado_a_rider = true;
+                            this.pedidosSeleccionados.push(pedido);
+                            rellenado++;
+                        }
+
+                    }else{
+                        pedido = pedidos[index];
+                        pedido.cantidad_packs--;
+                        // pedido.entregado_a_rider = true;
+                        this.pedidosSeleccionados.push(pedido);
+                        rellenado++;
+                    }
+                }
+                index++;
+            }
+        },
+        updatePedidosEntregas(data){
+
+            let pedido = {
+                "id_pedido": data.id_pedido,
+                "id_rider": data.id_rider,
+                "id_menu": data.id_menu,
+                "cantidad_packs": data.cantidad_packs,
+                "fecha": data.fecha,
+                "entregado_a_rider": data.entregado_a_rider
+            };
+
+            axios
+                .post('pedidos', pedido)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+
+                })
         },
         insertPunto(){
             const me = this
@@ -142,7 +230,8 @@ export default {
                                     },
                                 'properties': {
                                 'title': item.tipo,
-                                }
+                                },
+                                'id': item.id_punto
                             }
                         }
 
@@ -221,6 +310,12 @@ export default {
                         let content = document.createElement('div')
                         let title = document.createElement('h3');
                         let body = this.createButtons();
+                        let idPunto = document.createElement('input');
+
+                        idPunto.setAttribute('type','hidden');
+                        idPunto.setAttribute('id','idPunto')
+                        idPunto.setAttribute('data-id',feature.id)
+
                         let entregar = document.createElement('input');
 
                         entregar.setAttribute('type','button');
@@ -245,6 +340,7 @@ export default {
                         }
 
                         content.appendChild(body);
+                        content.appendChild(idPunto);
 
                         content.appendChild(entregar)
 
@@ -271,8 +367,6 @@ export default {
                                 el.className = 'marker-homeless';
                                 break;
                         }
-
-
 
 
                         // make a marker for each feature and add it to the map
@@ -315,11 +409,10 @@ export default {
             nivel2.appendChild(mas);
             buttons.appendChild(nivel2);
 
-            let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
+            sessionStorage.setItem('seleccionadosParaEntrega',0);
 
             menos.addEventListener('click',() => {
 
-                let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
                 let seleccionados = parseInt(valor.innerText);
 
                 (seleccionados > 0) ? seleccionados-- : seleccionados = 0;
