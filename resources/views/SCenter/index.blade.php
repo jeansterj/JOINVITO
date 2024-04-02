@@ -34,7 +34,7 @@
         <div class="row py-5 my-5">
             <div class="col">
                 <h3>PROFILE</h3>
-                <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ url('edit-center') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
 
             </div>
             <div class="col">
