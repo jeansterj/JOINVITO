@@ -223,8 +223,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
     </div>
     
     <script src="../resources/js/carrouselMovement.js"></script>

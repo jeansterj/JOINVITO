@@ -28,16 +28,13 @@ export default {
     },
     created(){
         this.getLocation();
-        this.fetchOrdersList()
+        this.fetchOrdersList();
         // Call the getLocation() function with printLocation() as a callback
         setInterval(this.fetchOrdersList,5000);
         this.timer = setInterval(this.getLocation,300000);
     },
     methods:{
-        entregar(event){
-
-            // let close = document.getElementById('form-container');
-            
+        entregar(){   
 
             let seleccionados = parseInt(sessionStorage.getItem('seleccionadosParaEntrega'));
             let idPunto = document.getElementById('idPunto').getAttribute('data-id');
@@ -124,7 +121,8 @@ export default {
                 .then(response => {
                     
                     formContainer.classList.remove('mostrar');
-                    this.getLocation();
+                    //this.getLocation();
+
                 })
                 .catch(error=>{
                     // this.isError = true;
@@ -301,79 +299,82 @@ export default {
                     // add markers to map
                     for (const feature of geojson.features) {
 
-                        let content = document.createElement('div')
-                        let title = document.createElement('h3');
-                        let body = this.createButtons();
-                        let idPunto = document.createElement('input');
-
-                        idPunto.setAttribute('type','hidden');
-                        idPunto.setAttribute('id','idPunto')
-                        idPunto.setAttribute('data-id',feature.id)
-
-                        let entregar = document.createElement('input');
-
-                        entregar.setAttribute('type','button');
-                        entregar.setAttribute('class','btn bg-light');
-                        entregar.setAttribute('value',"Entregar");
-                        entregar.addEventListener('click', this.entregar);
-
-
-                        title.innerText = feature.properties.title;
-                        title.setAttribute('class','title')
-
-                        content.appendChild(title)
-
-                        if(feature.properties.description != undefined){
-
-                            for (let index = 0; index < feature.properties.description.length; index++) {
-                                const menu = feature.properties.description[index];
-                                let menus = document.createElement('p');
-                                menus.innerHTML = menu;
-                                content.appendChild(menus);
-                            }
-                        }
-
-                        content.appendChild(body);
-                        content.appendChild(idPunto);
-
-                        content.appendChild(entregar)
-
-                        // create a HTML element for each feature
-                        const el = document.createElement('div');
-
-                        switch(feature.type){
-
-                            case "Proveedor":
-
-                                el.className = 'marker-provider';
-                                content.removeChild(body);
-                                content.removeChild(entregar);
-
-                                break;
-
-                            case "Centro":
-
-                                el.className = 'marker-centro';
-                                break;
-
-                            case "Homeless":
-
-                                el.className = 'marker-homeless';
-                                break;
-                        }
-
-
-                        // make a marker for each feature and add it to the map
-                        let popup = new mapboxgl.Popup({ offset: 25 })
-                        let marker = new mapboxgl.Marker(el)
-                        .setLngLat(feature.geometry.coordinates)
-                         // add popups
-                        .setPopup(popup
-                        .setDOMContent(content))
-                        .addTo(map);
+                        this.setPuntos(feature);
 
                     }
                 })
+        },
+        setPuntos(feature){
+            let content = document.createElement('div')
+            let title = document.createElement('h3');
+            let body = this.createButtons();
+            let idPunto = document.createElement('input');
+
+            idPunto.setAttribute('type','hidden');
+            idPunto.setAttribute('id','idPunto')
+            idPunto.setAttribute('data-id',feature.id)
+
+            let entregar = document.createElement('input');
+
+            entregar.setAttribute('type','button');
+            entregar.setAttribute('class','btn bg-light');
+            entregar.setAttribute('value',"Entregar");
+            entregar.addEventListener('click', this.entregar);
+
+
+            title.innerText = feature.properties.title;
+            title.setAttribute('class','title')
+
+            content.appendChild(title)
+
+            if(feature.properties.description != undefined){
+
+                for (let index = 0; index < feature.properties.description.length; index++) {
+                    const menu = feature.properties.description[index];
+                    let menus = document.createElement('p');
+                    menus.innerHTML = menu;
+                    content.appendChild(menus);
+                }
+            }
+
+            content.appendChild(body);
+            content.appendChild(idPunto);
+
+            content.appendChild(entregar)
+
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+
+            switch(feature.type){
+
+                case "Proveedor":
+
+                    el.className = 'marker-provider';
+                    content.removeChild(body);
+                    content.removeChild(entregar);
+
+                    break;
+
+                case "Centro":
+
+                    el.className = 'marker-centro';
+                    break;
+
+                case "Homeless":
+
+                    el.className = 'marker-homeless';
+                    break;
+            }
+
+
+            // make a marker for each feature and add it to the map
+            let popup = new mapboxgl.Popup({ offset: 25 })
+            let marker = new mapboxgl.Marker(el)
+            .setLngLat(feature.geometry.coordinates)
+                // add popups
+            .setPopup(popup
+            .setDOMContent(content))
+            .addTo(map);
         },
         createButtons(){
 
