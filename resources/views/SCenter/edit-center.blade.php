@@ -43,33 +43,38 @@
                     <div class="container-fluid" id="medForm">
                         <div class="col">
                             <div class="form-group gird-placeContent">
-                                <label for="emailRider">Email</label>
+                                <label for="email">Email</label>
                                 <input class="form-control" type="email" id="emailRider" maxlength="50"
                                     placeholder="jondoe@gmail.com" name = "email" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="passwordRider">Password</label>
+                                <label for="password">Password</label>
                                 <input class="form-control" type="text" maxlength="50" id="passwordRider"
                                     placeholder="1234A*" name = "password" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="nameRider">Name</label>
-                                <input class="form-control" type="text" id="nameRider" maxlength="50" placeholder="Jon"
+                                <label for="nombre">Name</label>
+                                <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"
                                     name = "name" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="nameRider">Direccion</label>
-                                <input class="form-control" type="text" id="nameRider" maxlength="50" placeholder="Jon"
+                                <label for="direccion">Direccion</label>
+                                <input class="form-control" type="text" id="direccion" maxlength="50" placeholder="Jon"
                                     name = "name" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="nameRider">floor</label>
-                                <input class="form-control" type="number" id="nameRider" maxlength="50" placeholder="Jon"
+                                <label for="ciudad">Ciudad</label>
+                                <input class="form-control" type="text" id="ciudad" maxlength="50" placeholder="Jon"
                                     name = "name" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="nameRider">Postal Code</label>
-                                <input class="form-control" type="number" id="nameRider" maxlength="50" placeholder="Jon"
+                                <label for="piso">floor</label>
+                                <input class="form-control" type="number" id="piso" maxlength="50" placeholder="Jon"
+                                    name = "name" required>
+                            </div>
+                            <div class="form-group gird-placeContent">
+                                <label for="cp">Postal Code</label>
+                                <input class="form-control" type="number" id="cp" maxlength="50" placeholder="Jon"
                                     name = "name" required>
                             </div>
                             <button type="submit" class="btn btn-light btn_login" name="riderFrom"

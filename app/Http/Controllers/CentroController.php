@@ -52,7 +52,18 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
-        //
+        // $centro->email=$request->input('email')
+        // $centro->password=$request->input('password')
+        // $centro->nombre=$request->input('nombre')
+        // $centro->direccion=$request->input('direccion')
+        // $centro->ciudad=$request->input('ciudad')
+        // $centro->piso=$request->input('piso')
+        // $centro->cp=$request->input('cp')
+
+
+
+        // // $centro->save();
+        // return redirect()->action([CentroController::class,'index'])
     }
 
     /**
