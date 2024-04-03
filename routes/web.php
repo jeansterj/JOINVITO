@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PuntoController;
 use App\Http\Controllers\RiderController;
+use App\Http\Controllers\CentroController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\WebcamController;
@@ -101,12 +102,8 @@ Route::middleware(['auth'])->group(function () {
         return view('SCenter.stats');
     });
 
-    Route::get('edit-center', function () {
-        return view('SCenter.edit-center');
-    });
 
-
-
+    Route::get('edit-center', [CentroController::class,'showCenter']);
 
     /** QR VIEWS */
 

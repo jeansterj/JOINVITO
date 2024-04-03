@@ -39,48 +39,45 @@
             <div class="bg-secondary section-form">
                 <form class="registerForm" action="" method="POST">
                     @csrf
-                    <input id="" name="" type="hidden" value="" />
+                    @foreach ($centros as $centro)
+
+
+                    
+
+                        
+                    <input id="id_center" name="" type="hidden" value="{{ $centro->id_centro}}" />
                     <div class="container-fluid" id="medForm">
                         <div class="col">
                             <div class="form-group gird-placeContent">
-                                <label for="email">Email</label>
-                                <input class="form-control" type="email" id="emailRider" maxlength="50"
-                                    placeholder="jondoe@gmail.com" name = "email" required>
-                            </div>
-                            <div class="form-group gird-placeContent">
-                                <label for="password">Password</label>
-                                <input class="form-control" type="text" maxlength="50" id="passwordRider"
-                                    placeholder="1234A*" name = "password" required>
-                            </div>
-                            <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
-                                <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"
-                                    name = "name" required>
+                                <input class="form-control" type="text" id="nombre" maxlength="50" 
+                                    name = "name" required  value="{{ $centro->nombre}}"> 
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="direccion">Direccion</label>
-                                <input class="form-control" type="text" id="direccion" maxlength="50" placeholder="Jon"
-                                    name = "name" required>
+                                <input class="form-control" type="text" id="direccion" maxlength="50" 
+                                    name = "direccion" required value="{{ $centro->direccion}}">
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="ciudad">Ciudad</label>
-                                <input class="form-control" type="text" id="ciudad" maxlength="50" placeholder="Jon"
-                                    name = "name" required>
+                                <input class="form-control" type="text" id="ciudad" maxlength="50" 
+                                    name = "ciudad" required value="{{ $centro->ciudad}}">
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="piso">floor</label>
-                                <input class="form-control" type="number" id="piso" maxlength="50" placeholder="Jon"
-                                    name = "name" required>
+                                <input class="form-control" type="number" id="piso" maxlength="50" 
+                                    name = "piso" required value="{{ $centro->piso}}">
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="cp">Postal Code</label>
-                                <input class="form-control" type="number" id="cp" maxlength="50" placeholder="Jon"
-                                    name = "name" required>
+                                <input class="form-control" type="number" id="cp" maxlength="50" 
+                                    name = "cp" required value="{{ $centro->cp}}">
                             </div>
                             <button type="submit" class="btn btn-light btn_login" name="riderFrom"
                                 value="riderForm">Save</button>
                         </div>
                     </div>
+                    @endforeach
                 </form>
             </div>
         </div>

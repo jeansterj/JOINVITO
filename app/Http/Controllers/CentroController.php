@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Centro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CentroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function showCenter(Request $request)
+    
     {
-        //
+        $id_user = Auth::user()->id_usu;
+        
+        $centros = Centro::where('id_centro', '=' , $id_user)->get() ;
+
+        return view('SCenter.edit-center', compact('centros'));
     }
 
     /**
