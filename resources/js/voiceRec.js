@@ -20,22 +20,14 @@ document.onclick = function (event){
 
 document.addEventListener('mouseenter', function (event) {
     let target = event.target
-    if (target.id === 'scan-button') {
-        readText('hola')
-    }
+    // if (target.id === 'scan-button') {
+        readText(target.value)
+    // }
 }, true)
-// document.onclick = function (event) {
-//     let target = event.target
-//     if (target.id === 'scan-button') {
-//         readText('hola')
-//     }
-
-// }
 
 recognition.onresult = (event) => {
     text = event.results[event.results.length - 1][0].transcript
     console.log(text)
-    // console.log(event);
     readText(text)
     if (text === 'pedidos') {
         // console.log('has dicho color');
