@@ -112,23 +112,6 @@ export default {
 
                 })
         },
-        insertPunto(){
-            let formContainer = document.getElementById('form-container');
-            formContainer.classList.remove('mostrar');
-            const me = this
-            axios
-                .post('puntos',me.punto)
-                .then(response => {
-                    
-                    formContainer.classList.remove('mostrar');
-                    //this.getLocation();
-
-                })
-                .catch(error=>{
-                    // this.isError = true;
-                    me.messageError = error.response.data.error;
-                })
-        },
         showModalForm() {
             // this.isError = false;
             let close = document.getElementById('close');
@@ -151,7 +134,23 @@ export default {
                 })
             }
         },
+        dobleClick(event){
+            const me = this;
+            let item = event.originalEvent.srcElement;
 
+            if(item.classList[0].search("marker") == -1){
+                let coordinates = event.lngLat;
+                me.punto.latitud = coordinates.lat;
+                me.punto.longitud = coordinates.lng;
+                me.punto.fecha_inactivo = null;
+                me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+                me.punto.fecha_baja = null;
+                me.punto.puntos = 10;
+                me.punto.tipo = "Homeless";
+                me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+                me.showModalForm();
+            }
+        },
         printLocation() {
 
             //lng - 2.1745089
@@ -264,21 +263,10 @@ export default {
 
                         clearTimeout(touchActionId);
                     });
-                    map.on('dblclick', function(event) {
-                        let item = event.originalEvent.srcElement;
 
-                        if(item.classList[0].search("marker") == -1){
-                            let coordinates = event.lngLat;
-                            me.punto.latitud = coordinates.lat;
-                            me.punto.longitud = coordinates.lng;
-                            me.punto.fecha_inactivo = null;
-                            me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
-                            me.punto.fecha_baja = null;
-                            me.punto.puntos = 10;
-                            me.punto.tipo = "Homeless";
-                            me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
-                            me.showModalForm();
-                        }
+                    
+                    map.on('dblclick', function(event) {
+                        me.dobleClick(event);
                     })
 
                     map.on('click',function(){
@@ -299,12 +287,48 @@ export default {
                     // add markers to map
                     for (const feature of geojson.features) {
 
-                        this.setPuntos(feature);
+                        this.setPuntos(feature,map);
 
                     }
                 })
         },
-        setPuntos(feature){
+        insertPunto(){
+            let formContainer = document.getElementById('form-container');
+            formContainer.classList.remove('mostrar');
+            const me = this
+            axios
+                .post('puntos',me.punto)
+                .then(response => {
+                    
+                    formContainer.classList.remove('mostrar');
+                    let jsonDataPunto;
+
+                    jsonDataPunto = {
+                        'type': me.punto.tipo,
+                        'geometry': {
+                                'type': 'Point',
+                                'coordinates': [me.punto.longitud,me.punto.latitud]
+                            },
+                        'properties': {
+                        'title': me.punto.tipo,
+                        },
+                        'id': me.punto.id_punto
+                    }
+
+                    const geojson = {
+                        'type': 'FeatureCollection',
+                        'features': jsonDataPunto
+                    };
+
+                    this.setPuntos(feature,map);
+
+                })
+                .catch(error=>{
+                    // this.isError = true;
+                    me.messageError = error.response.data.error;
+                })
+        },
+        setPuntos(feature,map){
             let content = document.createElement('div')
             let title = document.createElement('h3');
             let body = this.createButtons();
