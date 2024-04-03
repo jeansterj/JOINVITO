@@ -24,7 +24,7 @@ document.addEventListener ('DOMContentLoaded', function () {
         divRegister.classList.remove ('bg-secondary');
         divRegister.classList.remove ('col-8');
         divRegister.classList.add ('col-12');
-        medForm.classList.add ('medFormClass','py-4');
+        // medForm.classList.add ('medFormClass','py-4');
       } else {
         col3Container.classList.remove ('col-12');
         col3Container.classList.add ('col-4');

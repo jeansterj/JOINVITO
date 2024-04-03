@@ -31,11 +31,11 @@
         </div>
 
 
-        <div class="col-8 bg-secondary container-Register" id="register">
-            <div class="container my-4">
-                <h1>REGISTER</h1>
+        <div class="col-8 bg-secondary" id="register">
+            <div class="container">
+                <h1 class="registerForm">REGISTER</h1>
                 <h2>CHOOSE USER TYPE</h2>
-                <div id="carouselExampleIndicators" class="carousel slide">
+                <div id="carouselExampleIndicators" class="carousel slide carrouselIcons">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1">
@@ -47,20 +47,20 @@
                             aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="box">
+                        <div class="carousel-item active" id="riderIcon">
+                            <div class="py-2">
                                 <img src="../public/img/rider_icon.png" alt="rider_icon.png" width="132px">
                                 <figcaption>RIDER</figcaption>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="box">
+                        <div class="carousel-item" id="supplierIcon">
+                            <div class="py-2">
                                 <img src="../public/img/supplier_icon.png" alt="supplier_icon.png">
                                 <figcaption>SUPPLIER</figcaption>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="box">
+                        <div class="carousel-item" id="sCenterIcon">
+                            <div class="py-2">
                                 <img src="../public/img/sCenter_icon.png" alt="sCenter_icon.png" width="111px">
                                 <figcaption>S.CENTER</figcaption>
                             </div>
@@ -77,76 +77,67 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <div class="container-form">
-                    <form class="registerForm" action="">
+                <div class="container-form" id="supplierDiv">
+                    <form class="registerForm"
+                        action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
                         @csrf
-                        <input id="" name="" type="hidden" value="" />
+                        <input id="" name="rol" type="hidden" value="4" />
                         <div class="container-fluid" id="medForm">
-                            <div class="col-4 col-md-7">
+                            <div class="col">
                                 <div class="form-group gird-placeContent">
-                                    <label for="email">Email</label>
-                                    <input class="form-control" type="email" id="email" maxlength="50"
-                                        placeholder="jondoe@gmail.com" required>
+                                    <label for="emailS">Email</label>
+                                    <input class="form-control" type="text" id="emailS" maxlength="50"
+                                        placeholder="Jon@gmail.com" name = "email" required>
                                 </div>
-
                                 <div class="form-group gird-placeContent">
-                                    <label for="password">Password</label>
-                                    <input class="form-control" type="text" maxlength="50" id="password"
-                                        placeholder="1234A*" required>
+                                    <label for="passwdS">Password</label>
+                                    <input class="form-control" type="text" id="passwdS" maxlength="50"
+                                        placeholder="*****" name = "passwd" required>
                                 </div>
-
                                 <div class="form-group gird-placeContent">
                                     <label for="name">Name</label>
                                     <input class="form-control" type="text" id="name" maxlength="50"
-                                        placeholder="Jon" required>
+                                        placeholder="Jon" name = "name" required>
                                 </div>
-
                                 <div class="form-group gird-placeContent">
-                                    <label for="lastName">Surname</label>
-                                    <input class="form-control" type="text" id="lastName" maxlength="100"
-                                        placeholder="Doe" required>
+                                    <label for="lastName">Last Name</label>
+                                    <input class="form-control" type="text" id="lastName" maxlength="50"
+                                        placeholder="Doe" name = "lastName" required>
                                 </div>
-
                                 <div class="form-group gird-placeContent">
-                                    <label for="localName">Company</label>
-                                    <input class="form-control" type="text" id="localName" maxlength="250"
-                                        placeholder="joinvito"required>
+                                    <label for="surname">Surname</label>
+                                    <input class="form-control" type="text" id="surname" maxlength="100"
+                                        placeholder="Doe" name = "surname" required>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="address">Direction</label>
                                     <input class="form-control" type="text" id="address" maxlength="250"
-                                        placeholder="Barcelona"required>
+                                        placeholder="Barcelona" name = "address" required>
                                 </div>
-
                                 <div class="form-group gird-placeContent">
                                     <label for="floor">Floor (Opcional)</label>
                                     <input class="form-control" type="text" id="floor" maxlength="30"
-                                        placeholder="Street 24 G">
+                                        placeholder="Street 24 G" name = "floor" value="floor">
                                 </div>
-
                                 <div class="form-group gird-placeContent">
                                     <label for="city">City</label>
                                     <input class="form-control" type="text" id="city" maxlength="250"
-                                        placeholder="25"required>
+                                        placeholder="25"required name = "city">
                                 </div>
-
                                 <div class="form-group gird-placeContent">
-                                    <label for="postalCode">Postal Code</label>
-                                    <input class="form-control" type="text" id="postalCode" maxlength="5"
-                                        placeholder="09989" required>
+                                    <label for="cpSupplier">Postal Code</label>
+                                    <input class="form-control" type="text" id="cpSupplier" maxlength="5"
+                                        placeholder="09989" required name = "cp">
                                 </div>
-
-                                <button type="submit" class="btn btn-light btn_login spaceSign">Sign Up</button>
-
-
+                                <button type="submit" class="btn btn-light btn_login" name="supplierFrom"
+                                    value="supplierForm">Sign Up</button>
                             </div>
-
                         </div>
                     </form>
                 </div>
-                {{-- RIDER
+                {{-- RIDER --}}
                 <div class="container-form" id="riderDiv">
                     <form class="registerForm"
                         action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
@@ -174,16 +165,14 @@
                                     <input class="form-control" type="text" id="lastName" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
-                                <button type="submit" class=" btn-light btn_login spaceSign" name="riderForm"
+                                <button type="submit" class="btn btn-light btn_login" name="riderForm"
                                     value="riderForm">Sign Up</button>
                             </div>
                         </div>
                     </form>
-                </div> --}}
-
-
+                </div>
                 {{-- S.CENTER --}}
-                {{-- <div class="container-form" id="sCenterDiv">
+                <div class="container-form" id="sCenterDiv">
                     <form class="registerForm"
                         action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}" method="POST">
                         @csrf
@@ -227,14 +216,15 @@
                                             placeholder="09989" required name = "cp">
                                     </div>
 
-                                    <button type="submit" class="btn btn-light btn_login spaceSign" name="sCenterForm"
+                                    <button type="submit" class="btn btn-light btn_login" name="sCenterForm"
                                         value="sCenterForm">Sign Up</button>
                                 </div>
                             </div>
-                    </form> --}}
+                    </form>
 
                 </div>
-
             </div>
         </div>
+    </div>
+        <script src="../resources/js/carrouselMovement.js"></script>
     @endsection

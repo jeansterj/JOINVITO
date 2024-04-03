@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
 
     data(){
@@ -27,12 +28,13 @@ export default {
     },
     created(){
         this.getLocation();
+        this.fetchOrdersList();
         // Call the getLocation() function with printLocation() as a callback
-        this.timer = setInterval(this.getLocation(),300000);
-        setInterval(this.fetchOrdersList(),290000);
+        setInterval(this.fetchOrdersList,5000);
+        this.timer = setInterval(this.getLocation,300000);
     },
     methods:{
-        entregar(){
+        entregar(){   
 
             let seleccionados = parseInt(sessionStorage.getItem('seleccionadosParaEntrega'));
             let idPunto = document.getElementById('idPunto').getAttribute('data-id');
@@ -45,7 +47,7 @@ export default {
             }
 
 
-            this.getLocation();
+            // this.getLocation();
         },
         fetchOrdersList () {
 
@@ -60,16 +62,16 @@ export default {
                     let totalOrdersAvailable = 0;
                     response.data.forEach(element => {
                         totalOrdersAvailable += element.cantidad_packs
-                        sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
                     });
+                    sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
                 })
         },
         selectPedido(pedidos,seleccionados){
 
             let pedido = {};
             let index = 0;
-            let index2 = 0;
             let rellenado = 0;
+            let packsPorPedido = 0;
             this.pedidosSeleccionados = [];
 
             while(rellenado < seleccionados){
@@ -78,15 +80,17 @@ export default {
                     pedido = pedidos[index];
                     pedido.cantidad_packs--;
                     // pedido.entregado_a_rider = true;
-
                     rellenado++;
+                    packsPorPedido++;
+                    pedido.entregados = packsPorPedido;
                 }
 
                 this.pedidosSeleccionados.push(pedido);
+                packsPorPedido = 0;
                 index++;
             }
         },
-        updatePedidosEntregas(data){
+        updatePedidosEntregas(data,idPunto){
 
             let pedido = {
                 "id_pedido": data.id_pedido,
@@ -94,26 +98,31 @@ export default {
                 "id_menu": data.id_menu,
                 "cantidad_packs": data.cantidad_packs,
                 "fecha": data.fecha,
-                "entregado_a_rider": data.entregado_a_rider
+                "entregado_a_rider": data.entregado_a_rider,
+                "id_punto": idPunto,
+                "entregados": data.entregados
             };
 
             axios
                 .put(`pedidos/${pedido.id_pedido}`, pedido)
                 .then(response => {
-                    console.log(response)
+                    
                 })
                 .catch(error => {
 
                 })
         },
         insertPunto(){
+            let formContainer = document.getElementById('form-container');
+            formContainer.classList.remove('mostrar');
             const me = this
             axios
                 .post('puntos',me.punto)
                 .then(response => {
-                    let formContainer = document.getElementById('form-container');
-                    formContainer.style.display = 'none';
-                    this.getLocation();
+                    
+                    formContainer.classList.remove('mostrar');
+                    //this.getLocation();
+
                 })
                 .catch(error=>{
                     // this.isError = true;
@@ -125,11 +134,11 @@ export default {
             let close = document.getElementById('close');
 
             close.addEventListener('click', (event) => {
-                formContainer.style.display = 'none';
+                formContainer.classList.remove('mostrar');
             })
 
             let formContainer = document.getElementById('form-container');
-            formContainer.style.display = 'block';
+            formContainer.classList.add('mostrar');
 
         },
         getLocation() {
@@ -251,7 +260,7 @@ export default {
 
                         touchActionId = setTimeout(me.showModalForm, 2000);
                     });
-                    map.on('touchend', function(event) {
+                    map.on('touchend', function() {
 
                         clearTimeout(touchActionId);
                     });
@@ -272,14 +281,16 @@ export default {
                         }
                     })
 
-                    map.on('click',function(event){
+                    map.on('click',function(){
 
                         setTimeout(function(){
                             let resetPopups = document.querySelectorAll('.mapboxgl-popup-content');
                             resetPopups.forEach(popup => {
-                                let cantidad = popup.querySelector('.quantity').innerHTML;
-                                cantidad = 0;
-                                popup.querySelector('.quantity').innerHTML = cantidad;
+                                if(popup.querySelector('.quantity') != null){
+                                    let cantidad = popup.querySelector('.quantity').innerHTML;
+                                    cantidad = 0;
+                                    popup.querySelector('.quantity').innerHTML = cantidad;
+                                }                                
                             });
                         },1)
 
@@ -288,78 +299,82 @@ export default {
                     // add markers to map
                     for (const feature of geojson.features) {
 
-                        let content = document.createElement('div')
-                        let title = document.createElement('h3');
-                        let body = this.createButtons();
-                        let idPunto = document.createElement('input');
-
-                        idPunto.setAttribute('type','hidden');
-                        idPunto.setAttribute('id','idPunto')
-                        idPunto.setAttribute('data-id',feature.id)
-
-                        let entregar = document.createElement('input');
-
-                        entregar.setAttribute('type','button');
-                        entregar.setAttribute('class','btn bg-light');
-                        entregar.setAttribute('value',"Entregar");
-                        entregar.addEventListener('click', this.entregar);
-
-
-                        title.innerText = feature.properties.title;
-                        title.setAttribute('class','title')
-
-                        content.appendChild(title)
-
-                        if(feature.properties.description != undefined){
-
-                            for (let index = 0; index < feature.properties.description.length; index++) {
-                                const menu = feature.properties.description[index];
-                                let menus = document.createElement('p');
-                                menus.innerHTML = menu;
-                                content.appendChild(menus);
-                            }
-                        }
-
-                        content.appendChild(body);
-                        content.appendChild(idPunto);
-
-                        content.appendChild(entregar)
-
-                        // create a HTML element for each feature
-                        const el = document.createElement('div');
-
-                        switch(feature.type){
-
-                            case "Proveedor":
-
-                                el.className = 'marker-provider';
-                                content.removeChild(body);
-                                content.removeChild(entregar);
-
-                                break;
-
-                            case "Centro":
-
-                                el.className = 'marker-centro';
-                                break;
-
-                            case "Homeless":
-
-                                el.className = 'marker-homeless';
-                                break;
-                        }
-
-
-                        // make a marker for each feature and add it to the map
-                        let marker = new mapboxgl.Marker(el)
-                        .setLngLat(feature.geometry.coordinates)
-                         // add popups
-                        .setPopup(new mapboxgl.Popup({ offset: 25 })
-                        .setDOMContent(content))
-                        .addTo(map);
+                        this.setPuntos(feature);
 
                     }
                 })
+        },
+        setPuntos(feature){
+            let content = document.createElement('div')
+            let title = document.createElement('h3');
+            let body = this.createButtons();
+            let idPunto = document.createElement('input');
+
+            idPunto.setAttribute('type','hidden');
+            idPunto.setAttribute('id','idPunto')
+            idPunto.setAttribute('data-id',feature.id)
+
+            let entregar = document.createElement('input');
+
+            entregar.setAttribute('type','button');
+            entregar.setAttribute('class','btn bg-light');
+            entregar.setAttribute('value',"Entregar");
+            entregar.addEventListener('click', this.entregar);
+
+
+            title.innerText = feature.properties.title;
+            title.setAttribute('class','title')
+
+            content.appendChild(title)
+
+            if(feature.properties.description != undefined){
+
+                for (let index = 0; index < feature.properties.description.length; index++) {
+                    const menu = feature.properties.description[index];
+                    let menus = document.createElement('p');
+                    menus.innerHTML = menu;
+                    content.appendChild(menus);
+                }
+            }
+
+            content.appendChild(body);
+            content.appendChild(idPunto);
+
+            content.appendChild(entregar)
+
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+
+            switch(feature.type){
+
+                case "Proveedor":
+
+                    el.className = 'marker-provider';
+                    content.removeChild(body);
+                    content.removeChild(entregar);
+
+                    break;
+
+                case "Centro":
+
+                    el.className = 'marker-centro';
+                    break;
+
+                case "Homeless":
+
+                    el.className = 'marker-homeless';
+                    break;
+            }
+
+
+            // make a marker for each feature and add it to the map
+            let popup = new mapboxgl.Popup({ offset: 25 })
+            let marker = new mapboxgl.Marker(el)
+            .setLngLat(feature.geometry.coordinates)
+                // add popups
+            .setPopup(popup
+            .setDOMContent(content))
+            .addTo(map);
         },
         createButtons(){
 
@@ -551,6 +566,10 @@ cursor: pointer;
 
 .deliverQuantity .total{
     padding-top: 4px;
+}
+
+.mostrar{
+    display: block !important;
 }
 
 </style>

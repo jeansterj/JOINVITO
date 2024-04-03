@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Pedido;
+use App\Models\Entrega;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PedidoResource;
@@ -46,6 +47,16 @@ class PedidoController extends Controller
         $pedido->entregado_a_rider = $request->entregado_a_rider;
 
         $pedido->save();
+
+        $entrega = new Entrega();
+
+        $entrega->id_pedido = $request->id_pedido;
+        $entrega->id_punto = $request->id_punto;
+        $entrega->cantidad_packs = $request->entregados;
+        $entrega->fecha = $request->fecha;
+        $entrega->entregado = true;
+
+        $entrega->save();
 
     }
 

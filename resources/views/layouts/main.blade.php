@@ -11,7 +11,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
-    'resources/js/login.js','resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js'])
+    'resources/js/login.js','resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js'])
 </head>
 
 <body class="bg-primary">
@@ -68,7 +68,7 @@
     @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
     <div class="flotante container text-center" id="floatingMenu">
         <div class="row">
-          <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt="" ></a></div>
           <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
           <div class="col"><a class="nav-link" href="{{ url('/edit-rider') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
         </div>

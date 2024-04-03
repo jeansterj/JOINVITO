@@ -5,15 +5,18 @@
 
 @section('content')
     {{--  Section --}}
+    {{-- <div class="entranceAnimation">
+        <h1 class="jo">JO <h1 class="invito">INVITO</h1></h1>
+    </div> --}}
     <h1 id="titleScan">Escáner QR</h1>
     @if (isset($text))
         <p>Texto del código QR: {{ $text }}</p>
     @endif
     <video id="qr-video" width="100%" height="auto" autoplay></video>
-    <button id="scan-button" class="btn btn-light">Pulsar para escanear qr</button>
+    <button id="scan-button" class="btn btn-light" value="Pulsar para escanear qr">Pulsar para escanear qr</button>
     
-    <button id="btnStart">Start</button>
-    <button id="btnStop">Stop</button>
+    <button id="btnStart" value="Pulsar para abrir camara">Start</button>
+    <button id="btnStop" value="Pulsar para cerrar camara">Stop</button>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -63,31 +66,4 @@
             });
         });
     </script>
-    {{-- <div class="container">
-            <h1 class="text-center">Laravel webcam capture image and save from camera - ItSolutionStuff.com</h1>
-            
-            <form method="POST" action="{{ route('webcam.capture') }}">
-                @csrf
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="my_camera"></div>
-                        <br/>
-                        <input type=button value="Take Snapshot" class="webTakeShot">
-                        <input type="hidden" name="image" class="image-tag">
-                    </div>
-                    <div class="col-md-6">
-                        <div id="results">Your captured image will appear here...</div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <br/>
-                        <button class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        
-        <script src="../resources\js\webcamControl.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script> --}}
-    {{-- <script type="text/javascript" src="instascan.min.js"></script> --}}
 @endsection

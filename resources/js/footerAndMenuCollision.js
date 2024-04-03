@@ -4,7 +4,9 @@ let menu = document.getElementById('floatingMenu')
 let fheight = footer.offsetHeight
 
 window.onscroll = function() {
-   update()
+    if(menu != null){
+        update()
+    }
 };
 
 function update() {
