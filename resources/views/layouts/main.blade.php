@@ -39,7 +39,13 @@
                         $userName = Auth::user()->rol->nombre
                     @endphp
                     <li class="nav-item" id="logout">
-                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout {{ Auth::user()->$userName->nombre }}</button></a>
+                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout 
+                        @if (Auth::user()->rol->nombre == 'admin')
+                          {{ $userName }}    
+                        @else
+                          {{ Auth::user()->$userName->nombre }}    
+                        @endif 
+                      </button></a>
                     </li>
                     @else
                     <li class="nav-item" id="login">
@@ -53,7 +59,13 @@
             @php
                 $userName = Auth::user()->rol->nombre
             @endphp
-                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout  {{ Auth::user()->$userName->nombre }}</button></a>
+                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout  
+                  @if (Auth::user()->rol->nombre == 'admin')
+                    {{ $userName }}    
+                  @else
+                    {{ Auth::user()->$userName->nombre }}    
+                  @endif 
+                </button></a>
             @else
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
             @endif

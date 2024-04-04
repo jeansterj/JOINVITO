@@ -162,7 +162,7 @@ class UsuarioController extends Controller
             switch(Auth::user()->rol->nombre){
 
                 case 'admin':
-                            $response = redirect('/rider-menu-selection');
+                            $response = redirect('/admin');
                             break;
 
                 case 'proveedor':

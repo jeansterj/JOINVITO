@@ -36,7 +36,9 @@ Route::get('/camera', function () {
 });
 Route::middleware(['auth'])->group(function () {
 
-    
+    Route::get('admin', function () {
+        return view('admin.index');
+    });
 
 
     Route::get('addLocation', function () {
