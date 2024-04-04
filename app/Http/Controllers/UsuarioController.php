@@ -121,7 +121,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        //
+       //
     }
 
     /**
@@ -211,5 +211,13 @@ class UsuarioController extends Controller
 
     private function userRedirect(){
 
+    }
+
+    public function showUsers(){
+
+        $usuarios = Usuario::all();
+
+        return view('admin.users', compact('usuarios'));
+        
     }
 }

@@ -15,7 +15,9 @@ class RiderController extends Controller
      */
     public function index()
     {
-        //
+        $riders = Rider::with('usuario.rol')->get();
+
+        return view('admin.users',compact('riders'));
     }
 
     /**
