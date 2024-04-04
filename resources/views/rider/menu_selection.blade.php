@@ -6,7 +6,7 @@
         <h3>MENU</h3>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <div class="nav-link" data-type="restaurant" aria-current="page">RESTAURANTS</div>
+                <div class="nav-link" data-type="restaurant" aria-current="page">ALL RESTAURANTS</div>
             </li>
             <li class="nav-item">
                 <div class="nav-link active" data-type="favorites">FAVORITES</div>
