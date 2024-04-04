@@ -27,7 +27,7 @@ document.addEventListener('mouseenter', function (event) {
 
 recognition.onresult = (event) => {
     text = event.results[event.results.length - 1][0].transcript
-    console.log(text)
+    // console.log(text)
     readText(text)
     if (text === 'pedidos') {
         // console.log('has dicho color');
@@ -42,6 +42,6 @@ function readText(t) {
     speech.pitch = 0.4
     speech.lang = 'es-ES'
 
-    console.log(speech);
+    // console.log(speech);
     window.speechSynthesis.speak(speech)
 }

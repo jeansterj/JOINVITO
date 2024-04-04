@@ -27,7 +27,7 @@ class PuntoController extends Controller
     {
 
         $punto = new Punto();
-
+        
 
         $punto->direccion = $request->direccion;
         $punto->latitud = $request->latitud;

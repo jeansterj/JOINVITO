@@ -88,7 +88,8 @@ class RiderController extends Controller
             array_push($usuarios,$userId->id_usu);
         }
 
-        $puntosCercanos = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
+        // $puntosCercanos = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->whereBetween('latitud', [$latIni, $latFin])->whereBetween('longitud', [$longIni, $longFin])->get();
+        $puntosCercanos = Punto::whereIn('id_usu',$usuarios)->with('usuario.proveedor.menus')->get();
 
 
         return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));

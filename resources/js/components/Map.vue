@@ -23,31 +23,30 @@ export default {
         return {
             puntos: [],
             punto: {},
-            pedidosSeleccionados: []
+            pedidosSeleccionados: [],
+            map: {}
         }
     },
     created(){
         this.getLocation();
         this.fetchOrdersList();
-        // Call the getLocation() function with printLocation() as a callback
-        setInterval(this.fetchOrdersList,5000);
-        this.timer = setInterval(this.getLocation,300000);
+
+        this.timer = setInterval(this.getLocation,1020000);
     },
     methods:{
-        entregar(){   
-
+        entregar(event){
+            
             let seleccionados = parseInt(sessionStorage.getItem('seleccionadosParaEntrega'));
             let idPunto = document.getElementById('idPunto').getAttribute('data-id');
 
-            this.fetchOrdersList();
             let pedidos = JSON.parse(sessionStorage.getItem('pedidos'));
             this.selectPedido(pedidos,seleccionados);
             for (let index = 0; index < this.pedidosSeleccionados.length; index++) {
                 this.updatePedidosEntregas(this.pedidosSeleccionados[index],idPunto);
             }
 
-
-            // this.getLocation();
+            let popUp = event.target.offsetParent;
+            popUp.remove();
         },
         fetchOrdersList () {
 
@@ -64,6 +63,9 @@ export default {
                         totalOrdersAvailable += element.cantidad_packs
                     });
                     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
+                })
+                .catch(error=>{
+                    console.log(error)
                 })
         },
         selectPedido(pedidos,seleccionados){
@@ -139,17 +141,20 @@ export default {
             let item = event.originalEvent.srcElement;
 
             if(item.classList[0].search("marker") == -1){
-                let coordinates = event.lngLat;
-                me.punto.latitud = coordinates.lat;
-                me.punto.longitud = coordinates.lng;
-                me.punto.fecha_inactivo = null;
-                me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
-                me.punto.fecha_baja = null;
-                me.punto.puntos = 10;
-                me.punto.tipo = "Homeless";
-                me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
-                me.showModalForm();
+                me.createHomeless(me,event)
             }
+        },
+        createHomeless(event){
+            let coordinates = event.lngLat;
+            this.punto.latitud = coordinates.lat;
+            this.punto.longitud = coordinates.lng;
+            this.punto.fecha_inactivo = null;
+            this.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+            this.punto.fecha_baja = null;
+            this.punto.puntos = 10;
+            this.punto.tipo = "Homeless";
+            this.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+            this.showModalForm();
         },
         printLocation() {
 
@@ -234,7 +239,7 @@ export default {
                     };
 
 
-                    const map = new mapboxgl.Map({
+                    me.map = new mapboxgl.Map({
                         container: 'map', // container ID
                         center: [this.lng, this.lat], // starting position [lng, lat]
                         zoom: 10, // starting zoom
@@ -242,34 +247,41 @@ export default {
                     });
 
                     // Add zoom and rotation controls to the map.
-                    map.addControl(new mapboxgl.NavigationControl());
+                    me.map.addControl(new mapboxgl.NavigationControl());
 
                     var touchActionId;
 
-                    map.on('touchstart', function(event) {
-                        let coordinates = event.lngLat;
-                        me.punto.latitud = coordinates.lat;
-                        me.punto.longitud = coordinates.lng;
-                        me.punto.fecha_inactivo = null;
-                        me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
-                        me.punto.fecha_baja = null;
-                        me.punto.puntos = 10;
-                        me.punto.tipo = "Homeless";
-                        me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+                    me.map.on('touchstart', function() {
+                        me.createHomeless(me,event)
+                        // let coordinates = event.lngLat;
+                        // me.punto.latitud = coordinates.lat;
+                        // me.punto.longitud = coordinates.lng;
+                        // me.punto.fecha_inactivo = null;
+                        // me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+                        // me.punto.fecha_baja = null;
+                        // me.punto.puntos = 10;
+                        // me.punto.tipo = "Nº Homeless:";
+                        // me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
 
                         touchActionId = setTimeout(me.showModalForm, 2000);
                     });
-                    map.on('touchend', function() {
+                    me.map.on('touchend', function() {
 
                         clearTimeout(touchActionId);
                     });
 
                     
-                    map.on('dblclick', function(event) {
+                    me.map.on('dblclick', function(event) {
                         me.dobleClick(event);
                     })
 
-                    map.on('click',function(){
+                    me.map.on('click',function(event){
+
+                        let item = event.originalEvent.srcElement;
+
+                        if(item.classList[0] == 'marker-homeless'){
+                            me.fetchOrdersList();
+                        }
 
                         setTimeout(function(){
                             let resetPopups = document.querySelectorAll('.mapboxgl-popup-content');
@@ -287,15 +299,17 @@ export default {
                     // add markers to map
                     for (const feature of geojson.features) {
 
-                        this.setPuntos(feature,map);
+                        this.setPuntos(feature,me.map);
 
                     }
                 })
         },
         insertPunto(){
+            const me = this;
+            
             let formContainer = document.getElementById('form-container');
             formContainer.classList.remove('mostrar');
-            const me = this
+           
             axios
                 .post('puntos',me.punto)
                 .then(response => {
@@ -320,12 +334,13 @@ export default {
                         'features': jsonDataPunto
                     };
 
-                    this.setPuntos(feature,map);
+                    this.setPuntos(geojson.features,me.map);
 
                 })
                 .catch(error=>{
                     // this.isError = true;
-                    me.messageError = error.response.data.error;
+                    console.log(error)
+                    //me.messageError = error.response.data.error;
                 })
         },
         setPuntos(feature,map){
