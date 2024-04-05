@@ -170,7 +170,7 @@ class UsuarioController extends Controller
                             break;
 
                 case 'centro':
-                            $response = redirect('socialcenter');
+                    $response = redirect()->action([CentroController::class, 'index']);
                             break;
 
                 case 'rider':

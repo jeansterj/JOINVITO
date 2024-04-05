@@ -100,16 +100,11 @@ Route::middleware(['auth'])->group(function () {
 
     /* Social Center routes */
 
-    Route::get('socialcenter', function () {
-        return view('SCenter.index');
-    });
-
     Route::get('stats', function () {
         return view('SCenter.stats');
     });
 
-
-    Route::get('edit-center', [CentroController::class,'showCenter']);
+    Route::resource('centro', CentroController::class);
 
     /** QR VIEWS */
 

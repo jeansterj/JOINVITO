@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CentroController extends Controller
 {
+
+    public function index()
+    {
+        $id_user = Auth::user()->id_usu;
+        
+        $centro = Centro::where('id_centro', '=' , $id_user)->first() ;
+
+        return view('SCenter.index', compact('centro'));
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +50,7 @@ class CentroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Centros $centro)
+    public function show(Centro $centro)
     {
         //
     }
@@ -48,9 +58,9 @@ class CentroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Centros $centro)
+    public function edit(Centro $centro)
     {
-        //
+        return view('SCenter.edit-center', compact('centro'));
     }
 
     /**
@@ -58,18 +68,17 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
-        // $centro->email=$request->input('email')
-        // $centro->password=$request->input('password')
-        // $centro->nombre=$request->input('nombre')
-        // $centro->direccion=$request->input('direccion')
-        // $centro->ciudad=$request->input('ciudad')
-        // $centro->piso=$request->input('piso')
-        // $centro->cp=$request->input('cp')
+        
+        $centro->nombre=$request->input('nombre');
+        $centro->direccion=$request->input('direccion');
+        $centro->piso=$request->input('piso');
+        $centro->ciudad=$request->input('ciudad');
+        $centro->cp=$request->input('cp');
 
 
 
-        // // $centro->save();
-        // return redirect()->action([CentroController::class,'index'])
+        $centro->save();
+        return redirect()->action([CentroController::class,'index']);
     }
 
     /**

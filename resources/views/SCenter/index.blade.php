@@ -26,6 +26,9 @@
 @endsection
 
 @section('content')
+{{-- @php
+    
+@endphp --}}
     <div class="container my-1 py-1">
         <div class="row margin-top my-3">
             <h2>Social Center</h2>
@@ -34,7 +37,7 @@
         <div class="row py-5 my-5">
             <div class="col">
                 <h3>PROFILE</h3>
-                <a href="{{ url('edit-center') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ action([App\Http\Controllers\CentroController::class, 'edit'], ['centro' => $centro->id_centro]) }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
 
             </div>
             <div class="col">
