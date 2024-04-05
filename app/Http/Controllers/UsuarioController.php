@@ -121,7 +121,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        //
+       //
     }
 
     /**
@@ -170,7 +170,7 @@ class UsuarioController extends Controller
                             break;
 
                 case 'centro':
-                            $response = redirect('socialcenter');
+                    $response = redirect()->action([CentroController::class, 'index']);
                             break;
 
                 case 'rider':
@@ -211,5 +211,13 @@ class UsuarioController extends Controller
 
     private function userRedirect(){
 
+    }
+
+    public function showUsers(){
+
+        $usuarios = Usuario::all();
+
+        return view('admin.users', compact('usuarios'));
+        
     }
 }

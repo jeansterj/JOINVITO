@@ -37,9 +37,9 @@
             <h2>CHANGE INFO CENTER</h2>
             <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
             <div class="bg-secondary section-form">
-                <form class="registerForm" action="" method="POST">
+                <form class="registerForm" action="{{ action([App\Http\Controllers\CentroController::class, 'update'], ['centro' => $centro->id_centro]) }}" method="POST">
                     @csrf
-                    @foreach ($centros as $centro)
+                    @method('PUT')
 
 
                     
@@ -51,7 +51,7 @@
                             <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
                                 <input class="form-control" type="text" id="nombre" maxlength="50" 
-                                    name = "name" required  value="{{ $centro->nombre}}"> 
+                                    name = "nombre" required  value="{{ $centro->nombre}}"> 
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="direccion">Direccion</label>
@@ -66,7 +66,7 @@
                             <div class="form-group gird-placeContent">
                                 <label for="piso">floor</label>
                                 <input class="form-control" type="number" id="piso" maxlength="50" 
-                                    name = "piso" required value="{{ $centro->piso}}">
+                                    name = "piso"  value="{{ $centro->piso}}">
                             </div>
                             <div class="form-group gird-placeContent">
                                 <label for="cp">Postal Code</label>
@@ -77,7 +77,6 @@
                                 value="riderForm">Save</button>
                         </div>
                     </div>
-                    @endforeach
                 </form>
             </div>
         </div>
