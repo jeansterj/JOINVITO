@@ -13,9 +13,20 @@
                     <!-- <span v-if="isError">{{ messageError }}</span> -->
             </form>
         </div>
+
+        <div id="success" class="bg-secondary">
+            <h1>Pedido entregado con éxito</h1>
+        </div>
+
+        <!-- <div id="error" class="bg-secondary">
+            <h1>Pedido no entregado</h1>
+        </div> -->
+        
 </template>
 
 <script>
+
+import * as bootstrap from 'bootstrap'
 
 export default {
 
@@ -24,7 +35,9 @@ export default {
             puntos: [],
             punto: {},
             pedidosSeleccionados: [],
-            map: {}
+            map: {},
+            myModalSuccess: {},
+            myModalError: {},
         }
     },
     created(){
@@ -65,7 +78,7 @@ export default {
                     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
                 })
                 .catch(error=>{
-                    console.log(error)
+                    
                 })
         },
         selectPedido(pedidos,seleccionados){
@@ -94,6 +107,8 @@ export default {
         },
         updatePedidosEntregas(data,idPunto){
 
+            const me = this;
+
             let pedido = {
                 "id_pedido": data.id_pedido,
                 "id_rider": data.id_rider,
@@ -108,11 +123,26 @@ export default {
             axios
                 .put(`pedidos/${pedido.id_pedido}`, pedido)
                 .then(response => {
-                    
+                    me.myModalSuccess = new bootstrap.Modal('#success');
+
+                    setTimeout(() => {
+                        me.hidemodal()
+                    },3000)
+
+                    me.myModalSuccess.show();
                 })
                 .catch(error => {
+                    // me.myModalError = new bootstrap.Modal('#error');
+                    // me.myModalError.show();
 
+                    // setTimeout(3000,() => {
+                    //     me.myModalError.hide();
+                    // })
                 })
+        },
+        hidemodal(){
+            
+            this.myModalSuccess.hide();
         },
         showModalForm() {
             // this.isError = false;
@@ -141,7 +171,7 @@ export default {
             let item = event.originalEvent.srcElement;
 
             if(item.classList[0].search("marker") == -1){
-                me.createHomeless(me,event)
+                me.createHomeless(event)
             }
         },
         createHomeless(event){
@@ -225,7 +255,8 @@ export default {
                                 'properties': {
                                 'title': item.tipo,
                                 },
-                                'id': item.id_punto
+                                'id': item.id_punto,
+                                'cantidad_personas': item.cantidad_personas
                             }
                         }
 
@@ -252,16 +283,7 @@ export default {
                     var touchActionId;
 
                     me.map.on('touchstart', function() {
-                        me.createHomeless(me,event)
-                        // let coordinates = event.lngLat;
-                        // me.punto.latitud = coordinates.lat;
-                        // me.punto.longitud = coordinates.lng;
-                        // me.punto.fecha_inactivo = null;
-                        // me.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
-                        // me.punto.fecha_baja = null;
-                        // me.punto.puntos = 10;
-                        // me.punto.tipo = "Nº Homeless:";
-                        // me.punto.id_usu = document.querySelector('meta[name="userId"]').content;
+                        me.createHomeless(event)
 
                         touchActionId = setTimeout(me.showModalForm, 2000);
                     });
@@ -317,6 +339,7 @@ export default {
                     formContainer.classList.remove('mostrar');
                     let jsonDataPunto;
 
+
                     jsonDataPunto = {
                         'type': me.punto.tipo,
                         'geometry': {
@@ -326,7 +349,8 @@ export default {
                         'properties': {
                         'title': me.punto.tipo,
                         },
-                        'id': me.punto.id_punto
+                        'id': me.punto.id_punto,
+                        'cantidad_personas': me.punto.cantidad_personas
                     }
 
                     const geojson = {
@@ -346,8 +370,12 @@ export default {
         setPuntos(feature,map){
             let content = document.createElement('div')
             let title = document.createElement('h3');
+            let group = document.createElement('div');
+            let subtitle = document.createElement('h2');
+            let imgSubtitle = document.createElement('img');
             let body = this.createButtons();
             let idPunto = document.createElement('input');
+
 
             idPunto.setAttribute('type','hidden');
             idPunto.setAttribute('id','idPunto')
@@ -365,6 +393,21 @@ export default {
             title.setAttribute('class','title')
 
             content.appendChild(title)
+
+            if(feature.type == "Homeless"){
+                group.setAttribute('class','groupHomeless');
+                subtitle.innerText = `${feature.cantidad_personas} / `;
+                subtitle.setAttribute('data-personas',feature.cantidad_personas)
+                subtitle.setAttribute('class','subtitle')
+    
+                imgSubtitle.setAttribute('src','../public/img/help.png');
+                imgSubtitle.setAttribute('class','imgSubtitle')
+                group.appendChild(subtitle);
+                group.appendChild(imgSubtitle);
+                content.appendChild(group);
+            }
+            
+            
 
             if(feature.properties.description != undefined){
 
@@ -455,12 +498,13 @@ export default {
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
             })
 
-            mas.addEventListener('click',() => {
+            mas.addEventListener('click',(event) => {
 
                 let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
                 let seleccionados = parseInt(valor.innerText);
+                let cantidadPersonas = parseInt(event.target.offsetParent.querySelector('.subtitle').getAttribute('data-personas'));
 
-                (seleccionados < totalOrdersAvailable) ? seleccionados++ : seleccionados = totalOrdersAvailable;
+                (seleccionados < totalOrdersAvailable && seleccionados < cantidadPersonas) ? seleccionados++ : null;
                 valor.innerText = seleccionados;
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
             })
@@ -609,6 +653,37 @@ cursor: pointer;
 
 .mostrar{
     display: block !important;
+}
+
+.groupHomeless{
+    padding: 5px;
+}
+
+.subtitle{
+    float: left;
+    margin-top: 6px;
+}
+
+.imgSubtitle{
+    width: 45px;
+}
+
+#success{
+    text-align: center;
+    width: 100%;
+    height: 130px;
+    position: relative;
+    z-index: 5000;
+    display: none;
+}
+
+#error{
+    text-align: center;
+    width: 100%;
+    height: 130px;
+    position: relative;
+    z-index: 5000;
+    display: none;
 }
 
 </style>
