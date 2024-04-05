@@ -18,9 +18,9 @@
             <h1>Pedido entregado con éxito</h1>
         </div>
 
-        <!-- <div id="error" class="bg-secondary">
-            <h1>Pedido no entregado</h1>
-        </div> -->
+        <div id="error" class="bg-secondary">
+            <h1>Error al entregar el pedido</h1>
+        </div>
         
 </template>
 
@@ -58,7 +58,7 @@ export default {
                 this.updatePedidosEntregas(this.pedidosSeleccionados[index],idPunto);
             }
 
-            let popUp = event.target.offsetParent;
+            let popUp = event.target.offsetParent.parentNode;
             popUp.remove();
         },
         fetchOrdersList () {
@@ -123,26 +123,24 @@ export default {
             axios
                 .put(`pedidos/${pedido.id_pedido}`, pedido)
                 .then(response => {
-                    me.myModalSuccess = new bootstrap.Modal('#success');
+                    
+                    let success = document.getElementById('success');
 
+                    success.classList.add('mostrar');
                     setTimeout(() => {
-                        me.hidemodal()
+                        success.classList.remove('mostrar');
                     },3000)
 
-                    me.myModalSuccess.show();
+                    
                 })
                 .catch(error => {
-                    // me.myModalError = new bootstrap.Modal('#error');
-                    // me.myModalError.show();
+                    let fail = document.getElementById('error');
 
-                    // setTimeout(3000,() => {
-                    //     me.myModalError.hide();
-                    // })
+                    fail.classList.add('mostrar');
+                    setTimeout(() => {
+                        fail.classList.remove('mostrar');
+                    },3000)
                 })
-        },
-        hidemodal(){
-            
-            this.myModalSuccess.hide();
         },
         showModalForm() {
             // this.isError = false;
@@ -672,17 +670,30 @@ cursor: pointer;
     text-align: center;
     width: 100%;
     height: 130px;
-    position: relative;
     z-index: 5000;
+    position: absolute;
+    border-radius: 45px;
+    height: 45px;
+    padding-top: 4px;
+    top: 15px;
     display: none;
+}
+
+#success h1, #error h1{
+    font-size: 20px;
+    padding-top: 6px;
 }
 
 #error{
     text-align: center;
     width: 100%;
     height: 130px;
-    position: relative;
     z-index: 5000;
+    position: absolute;
+    border-radius: 45px;
+    height: 45px;
+    padding-top: 4px;
+    top: 15px;
     display: none;
 }
 
