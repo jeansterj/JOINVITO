@@ -8,6 +8,9 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ProveedorController;
+
+use App\Models\Proveedor;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,19 +78,12 @@ Route::middleware(['auth'])->group(function () {
         return view('rider.menu_selection');
     });
 
-    /* SUPPLIER routes */
-
-    Route::get('provider', function () {
-        return view('provider.index');
-    });
+    // Routes Provider
 
     Route::get('orders', function () {
         return view('provider.orders');
     });
 
-    Route::get('edit-provider', function () {
-        return view('provider.edit-provider');
-    });
     Route::get('menusList', function () {
         return view('provider.menusList');
     });
@@ -97,6 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('modifyMenu', function () {
         return view('provider.modifyMenu');
     });
+
+    Route::resource('proveedor', ProveedorController::class);
+
 
     /* Social Center routes */
 

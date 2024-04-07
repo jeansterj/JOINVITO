@@ -26,9 +26,7 @@
 @endsection
 
 @section('content')
-{{-- @php
-    
-@endphp --}}
+
     <div class="container my-1 py-1">
         <div class="row margin-top my-3">
             <h2>Social Center</h2>

@@ -166,7 +166,7 @@ class UsuarioController extends Controller
                             break;
 
                 case 'proveedor':
-                            $response = redirect('provider');
+                    $response = redirect()->action([ProveedorController::class, 'index']);
                             break;
 
                 case 'centro':

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col">
                 <h3>PROFILE</h3>
-                <a href="{{ url('editProvider') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ action([App\Http\Controllers\ProveedorController::class, 'edit'], ['proveedor' => $proveedor->id_prov]) }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
             <div class="col">
                 <h3>USE</h3>
