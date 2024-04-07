@@ -174,7 +174,7 @@ class UsuarioController extends Controller
                             break;
 
                 case 'rider':
-                            $response = redirect('/rider');
+                    $response = redirect()->action([RiderController::class, 'index']);
                             break;
             }
 
