@@ -54,9 +54,9 @@ Route::middleware(['auth'])->group(function () {
 
     /* rider routes */
 
-    Route::get('rider', function () {
-        return view('rider.index');
-    });
+    // Route::get('rider', function () {
+    //     return view('rider.index');
+    // });
 
     Route::get('ordersRider', function () {
         return view('rider.ordersRider');
@@ -66,9 +66,9 @@ Route::middleware(['auth'])->group(function () {
         return view('rider.statsRider');
     });
 
-    Route::get('edit-rider', function () {
-        return view('rider.edit-rider');
-    });
+    // Route::get('edit-rider', function () {
+    //     return view('rider.edit-rider');
+    // });
 
     Route::get('addLocation', function () {
         return view('addLocation');
@@ -77,6 +77,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('getOrders', function () {
         return view('rider.menu_selection');
     });
+
+    Route::resource('rider', RiderController::class);
+
 
     // Routes Provider
 

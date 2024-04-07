@@ -13,12 +13,21 @@ class RiderController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     $riders = Rider::with('usuario.rol')->get();
+
+    //     return view('admin.users',compact('riders'));
+    // }
+
     public function index()
     {
-        $riders = Rider::with('usuario.rol')->get();
+        $id_user = Auth::user()->id_usu;
+        
+        $rider = Rider::where('id_rider', '=' , $id_user)->first() ;
 
-        return view('admin.users',compact('riders'));
-    }
+        return view('rider.index', compact('rider'));  
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +58,7 @@ class RiderController extends Controller
      */
     public function edit(Rider $rider)
     {
-        //
+        return view('rider.edit-rider', compact('rider'));
     }
 
     /**
@@ -57,7 +66,11 @@ class RiderController extends Controller
      */
     public function update(Request $request, Rider $rider)
     {
-        //
+        $rider->nombre=$request->input('nombre');
+        $rider->primer_apellido=$request->input('primer_apellido');
+    
+        $rider->save();
+        return redirect()->action([RiderController::class,'index']); 
     }
 
     /**
