@@ -163,7 +163,7 @@
                                     <input class="form-control" type="text" id="lastName" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
-                                <button type="submit" class=" btn-light btn_login" name="riderForm"
+                                <button type="submit" class="btn-light btn_login" name="riderForm"
                                     value="riderForm">Sign Up</button>
                             </div>
                         </div>

@@ -77,7 +77,7 @@
     @yield('content')
   </div>
   @if (Auth::check())
-    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider')
+    @if (Auth::user()->rol->nombre == 'rider')
     <div class="flotante container text-center" id="floatingMenu">
         <div class="row">
           <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt="" ></a></div>
@@ -86,7 +86,7 @@
         </div>
       </div>
     @endif
-    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'proveedor')
+    @if (Auth::user()->rol->nombre == 'proveedor')
     <div class="flotante container text-center" id="floatingMenu">
         <div class="row">
           <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
@@ -95,7 +95,16 @@
         </div>
       </div>
     @endif
-    @if (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'centro')
+    @if (Auth::user()->rol->nombre == 'centro')
+    <div class="flotante container text-center" id="floatingMenu">
+        <div class="row">
+          <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
+          <div class="col"><a class="nav-link" href="{{ url('edit-center') }}" aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+        </div>
+      </div>
+    @endif
+    @if (Auth::user()->rol->nombre == 'admin')
     <div class="flotante container text-center" id="floatingMenu">
         <div class="row">
           <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>

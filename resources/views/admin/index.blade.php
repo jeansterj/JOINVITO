@@ -1,17 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-
-<a href="{{ url('show-riders') }}"><button></button></a>
-<a href="{{ url('show-providers') }}"><button></button></a>
-<a href="{{ url('show-centro') }}"><button></button></a>
-
-
-
-
 <div class="container provider-home">
     <div class="row margin-top">
-        <h2>EDIT USERS</h2>
+        <h2>USERS</h2>
     </div>
     <div class="row">
         <div class="col">
