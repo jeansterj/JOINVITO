@@ -10,7 +10,6 @@
                     </div>
                     <button type="button" class="btn bg-light buttonOrder addPua" @click="insertPunto()">Guardar</button>
                     <input type="button" id="close" class="btn bg-light buttonOrder addPua" value="Cancelar"></input>
-                    <!-- <span v-if="isError">{{ messageError }}</span> -->
             </form>
         </div>
 
@@ -197,51 +196,59 @@ export default {
             axios
                 .get('puntos')
                 .then(response => {
-
+                    console.log(response.data)
                     let arrayPuntos = new Array();
                     response.data.forEach((item) => {
 
+                        
                         let menusPorProveedor = new Array();
 
-                        if(item.usuario.proveedor != null && item.usuario.proveedor.menus.length > 0){
+                        if(item.usuario != null) {
+                            
+                            if(item.usuario.proveedor != null && item.usuario.proveedor.menus.length > 0){
 
-                            for (let index = 0; index < item.usuario.proveedor.menus.length; index++) {
+                                for (let index = 0; index < item.usuario.proveedor.menus.length; index++) {
 
-                                let contenidoMenu = `<span class="badge text-bg-warning">${item.usuario.proveedor.menus[index].bebida} / ${item.usuario.proveedor.menus[index].plato1} / ${item.usuario.proveedor.menus[index].plato2}</span>`;
-                                menusPorProveedor.push(contenidoMenu)
-                            }
-                        }else{
+                                    let contenidoMenu = `<span class="badge text-bg-warning">${item.usuario.proveedor.menus[index].bebida} / ${item.usuario.proveedor.menus[index].plato1} / ${item.usuario.proveedor.menus[index].plato2}</span>`;
+                                    menusPorProveedor.push(contenidoMenu)
+                                }
+                            }else{
                             menusPorProveedor.push("No available menus")
+                            }
                         }
 
 
                         let jsonDataPunto;
 
-                        if(item.usuario.proveedor != null){
-                            jsonDataPunto =
-                            {
-                                'type': item.tipo,
-                                'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [item.longitud,item.latitud]
-                                    },
-                                'properties': {
-                                    'title': item.usuario.proveedor.nombre,
-                                    'description': menusPorProveedor
+                        if(item.usuario != null){
+
+                            if(item.usuario.proveedor != null){
+                                jsonDataPunto =
+                                {
+                                    'type': item.tipo,
+                                    'geometry': {
+                                            'type': 'Point',
+                                            'coordinates': [item.longitud,item.latitud]
+                                        },
+                                    'properties': {
+                                        'title': item.usuario.proveedor.nombre,
+                                        'description': menusPorProveedor
+                                        }
+                                }
+                            }else if(item.usuario.centro != null){
+                                jsonDataPunto =
+                                {
+                                    'type': item.tipo,
+                                    'geometry': {
+                                            'type': 'Point',
+                                            'coordinates': [item.longitud,item.latitud]
+                                        },
+                                    'properties': {
+                                    'title': item.usuario.centro.nombre,
                                     }
-                            }
-                        }else if(item.usuario.centro != null){
-                            jsonDataPunto =
-                            {
-                                'type': item.tipo,
-                                'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [item.longitud,item.latitud]
-                                    },
-                                'properties': {
-                                'title': item.usuario.centro.nombre,
                                 }
                             }
+                        
                         }else{
                             jsonDataPunto =
                             {
@@ -398,7 +405,7 @@ export default {
                 subtitle.setAttribute('data-personas',feature.cantidad_personas)
                 subtitle.setAttribute('class','subtitle')
     
-                imgSubtitle.setAttribute('src','../public/img/help.png');
+                imgSubtitle.setAttribute('src','http://localhost/joinvito/public/img/help.png');
                 imgSubtitle.setAttribute('class','imgSubtitle')
                 group.appendChild(subtitle);
                 group.appendChild(imgSubtitle);
