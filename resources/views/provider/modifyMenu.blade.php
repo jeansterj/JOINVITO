@@ -7,7 +7,7 @@
             <h2>CHANGE MENU</h2>
             <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
             <div class="bg-secondary section-form">
-                <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}"
+                <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'update']) }}"
                     method="POST">
                     @csrf
                     <input id="" name="" type="hidden" value="" />

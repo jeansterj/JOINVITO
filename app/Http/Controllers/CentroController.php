@@ -60,7 +60,20 @@ class CentroController extends Controller
      */
     public function edit(Centro $centro)
     {
-        return view('SCenter.edit-center', compact('centro'));
+        $rol = Auth::user()->id_rol;
+        $centerRol = 3;
+        $adminRol = 1;
+
+        switch($rol){
+            case $centerRol:
+                        return view('SCenter.edit-center', compact('centro'));
+                        break;
+
+            case $adminRol:
+                return view('admin.editCentroAdmin', compact('centro'));
+                        break;
+        }
+        
     }
 
     /**
@@ -78,7 +91,21 @@ class CentroController extends Controller
 
 
         $centro->save();
-        return redirect()->action([CentroController::class,'index']);
+
+        $rol = Auth::user()->id_rol;
+        $centerRol = 3;
+        $adminRol = 1;
+
+        switch($rol){
+            case $centerRol:
+                return redirect()->action([CentroController::class,'index']);
+                        break;
+
+            case $adminRol:
+                        return redirect()->action([CentroController::class,'showCentro']);
+                        break;
+        }
+       
     }
 
     /**
@@ -87,5 +114,13 @@ class CentroController extends Controller
     public function destroy(Centro $centro)
     {
         //
+    }
+
+    public function showCentro() {
+       
+        $centros = Centro::with('usuario.rol')->get();
+
+        return view('admin.centros',compact('centros'));
+    
     }
 }

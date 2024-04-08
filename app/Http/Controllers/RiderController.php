@@ -13,12 +13,6 @@ class RiderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $riders = Rider::with('usuario.rol')->get();
-
-    //     return view('admin.users',compact('riders'));
-    // }
 
     public function index()
     {
@@ -58,7 +52,20 @@ class RiderController extends Controller
      */
     public function edit(Rider $rider)
     {
-        return view('rider.edit-rider', compact('rider'));
+
+        $rol = Auth::user()->id_rol;
+        $riderRol = 2;
+        $adminRol = 1;
+
+        switch($rol){
+            case $riderRol:
+                        return view('rider.edit-rider', compact('rider'));
+                        break;
+
+            case $adminRol:
+                        return view('admin.editRiderAdmin', compact('rider'));
+                        break;
+        }
     }
 
     /**
@@ -70,7 +77,21 @@ class RiderController extends Controller
         $rider->primer_apellido=$request->input('primer_apellido');
     
         $rider->save();
-        return redirect()->action([RiderController::class,'index']); 
+
+        $rol = Auth::user()->id_rol;
+        $riderRol = 2;
+        $adminRol = 1;
+
+        switch($rol){
+            case $riderRol:
+                        return redirect()->action([RiderController::class,'index']);
+                        break;
+
+            case $adminRol:
+                        return redirect()->action([RiderController::class,'showRiders']);
+                        break;
+        }
+         
     }
 
     /**
@@ -110,5 +131,11 @@ class RiderController extends Controller
         return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));
     }
 
+    public function showRiders() {
+       
+        $riders = Rider::with('usuario.rol')->get();
 
+        return view('admin.riders',compact('riders'));
+    
+    }
 }
