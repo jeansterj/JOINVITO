@@ -49,8 +49,19 @@ class ProveedorController extends Controller
      */
     public function edit(Proveedor $proveedor)
     {
-        return view('provider.edit-provider', compact('proveedor'));
+        $rol = Auth::user()->id_rol;
+        $providerRol = 4;
+        $adminRol = 1;
 
+        switch($rol){
+            case $providerRol:
+                return view('provider.edit-provider', compact('proveedor'));
+                        break;
+
+            case $adminRol:
+                        return view('admin.editProviderAdmin', compact('proveedor'));
+                        break;
+        }
     }
 
     /**
@@ -67,10 +78,27 @@ class ProveedorController extends Controller
         $proveedor->ciudad=$request->input('ciudad');
         $proveedor->cp=$request->input('cp');
 
-
-
         $proveedor->save();
-        return redirect()->action([ProveedorController::class,'index']);    }
+
+        $rol = Auth::user()->id_rol;
+        $providerRol = 4;
+        $adminRol = 1;
+
+        switch($rol){
+            case $providerRol:
+                        return redirect()->action([ProveedorController::class,'index']);    
+                        break;
+
+            case $adminRol:
+                        return redirect()->action([ProveedorController::class,'showProviders']); 
+                        break;
+        }
+
+        
+
+
+        
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -78,5 +106,13 @@ class ProveedorController extends Controller
     public function destroy(Proveedor $proveedor)
     {
         //
+    }
+
+    public function showProviders() {
+       
+        $providers = Proveedor::with('usuario.rol')->get();
+
+        return view('admin.providers',compact('providers'));
+    
     }
 }

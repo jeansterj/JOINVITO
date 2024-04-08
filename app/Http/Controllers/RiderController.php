@@ -88,7 +88,7 @@ class RiderController extends Controller
                         break;
 
             case $adminRol:
-                        return redirect()->action([RiderController::class,'showUsers']);
+                        return redirect()->action([RiderController::class,'showRiders']);
                         break;
         }
          
@@ -131,7 +131,7 @@ class RiderController extends Controller
         return view('rider.menu_selection',compact('favoritosMenus','puntosCercanos'));
     }
 
-    public function showUsers() {
+    public function showRiders() {
        
         $riders = Rider::with('usuario.rol')->get();
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
-<a href="{{ url('show-users') }}"><button></button></a>
+<a href="{{ url('show-riders') }}"><button></button></a>
+<a href="{{ url('show-providers') }}"><button></button></a>
+<a href="{{ url('show-riders') }}"><button></button></a>
 
 @endsection

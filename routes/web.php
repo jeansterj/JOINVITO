@@ -45,8 +45,8 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.index');
     });
 
-    Route::get('show-users', [RiderController::class,'showUsers']);
-
+    Route::get('show-riders', [RiderController::class,'showRiders']);
+    Route::get('show-providers', [ProveedorController::class,'showProviders']);
 
     Route::get('addLocation', function () {
         return view('addLocation');
