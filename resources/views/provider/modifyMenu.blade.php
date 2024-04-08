@@ -7,12 +7,19 @@
             <h2>CHANGE MENU</h2>
             <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
             <div class="bg-secondary section-form">
-                <form class="registerForm" action="{{ action([App\Http\Controllers\UsuarioController::class, 'store']) }}"
+                <form action="{{ action([App\Http\Controllers\MenuController::class, 'update'], ['menu' => $menu->id_menu]) }}"
                     method="POST">
+        
                     @csrf
+                    @method('PUT')
                     <input id="" name="" type="hidden" value="" />
                     <div class="container-fluid" id="medForm">
                         <div class="col">
+                            <div class="form-group gird-placeContent">
+                                <label for="nombre_menu">Name Menu</label>
+                                <input class="form-control" type="text" id="nombre_menu" maxlength="50" placeholder="Pasta"
+                                    name = "nombre_menu" required>
+                            </div>
                             <div class="form-group gird-placeContent">
                                 <label for="plate1">Plate 1</label>
                                 <input class="form-control" type="text" id="plate1" maxlength="50" placeholder="Pasta"

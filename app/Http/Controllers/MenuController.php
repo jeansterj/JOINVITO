@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProveedorController;
 
 class MenuController extends Controller
 {
@@ -20,7 +22,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('provider.createMenu');
     }
 
     /**
@@ -28,7 +30,22 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $menu = new Menu();
+        $id_user = Auth::user()->id_usu;
+
+        $menu->nombre_menu = $request->input('nombre_menu');
+        $menu->bebida = $request->input('drink');
+        $menu->plato1 = $request->input('plate1');
+        $menu->plato2 = $request->input('plate2');
+        $menu->cantidad_packs = $request->input('amount');
+        $menu->id_prov = $id_user;
+        $menu->fecha_alta = date("Y-m-d");
+
+    
+        $menu->save();
+        $response = redirect()->action([ProveedorController::class, 'index']);
+
+        return $response;
     }
 
     /**
@@ -44,7 +61,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('provider.modifyMenu', compact('menu'));
     }
 
     /**
@@ -52,7 +69,17 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menus $menu)
     {
-        //
+        $menu->nombre_menu = $request->input('nombre_menu');
+        $menu->bebida = $request->input('drink');
+        $menu->plato1 = $request->input('plate1');
+        $menu->plato2 = $request->input('plate2');
+        $menu->cantidad_packs = $request->input('amount');
+
+    
+        $menu->save();
+        $response = redirect()->action([ProveedorController::class, 'index']);
+
+        return $response;    
     }
 
     /**

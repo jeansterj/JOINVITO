@@ -1,16 +1,17 @@
 <?php
 
+use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PuntoController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\WebcamController;
+
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProveedorController;
-
-use App\Models\Proveedor;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::resource('proveedor', ProveedorController::class);
+
+    Route::resource('menu', MenuController::class);
+
 
 
     /* Social Center routes */
