@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('show-riders', [RiderController::class,'showRiders']);
     Route::get('show-providers', [ProveedorController::class,'showProviders']);
+    Route::get('show-centro', [CentroController::class,'showCentro']);
 
     Route::get('addLocation', function () {
         return view('addLocation');

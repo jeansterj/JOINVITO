@@ -93,10 +93,6 @@ class ProveedorController extends Controller
                         return redirect()->action([ProveedorController::class,'showProviders']); 
                         break;
         }
-
-        
-
-
         
         }
 
