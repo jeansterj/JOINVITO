@@ -20,6 +20,7 @@ id_usu int auto_increment,
 email varchar(50) not null unique,
 pass_usu varchar(255) not null,
 id_rol int not null,
+estado boolean,
 FOREIGN KEY (id_rol) REFERENCES roles(id_rol),
 primary key(id_usu)
 );
