@@ -107,11 +107,13 @@ insert into puntos values(4,'Punto 4','Calle 4',41.3758608,2.03883,1,null,'2024-
 create table pedidos(
 id_pedido int auto_increment,
 id_rider int not null,
+id_provider int not null,
 id_menu int not null,
 cantidad_packs int not null,
 fecha date not null,
 entregado_a_rider boolean not null,
 FOREIGN KEY (id_rider) REFERENCES riders(id_rider),
+FOREIGN KEY (id_provider) REFERENCES riders(id_provider),
 FOREIGN KEY (id_menu) REFERENCES menus(id_menu),
 primary key(id_pedido)
 );

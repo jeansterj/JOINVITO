@@ -72,7 +72,9 @@ export default {
 
                     let totalOrdersAvailable = 0;
                     response.data.forEach(element => {
-                        totalOrdersAvailable += element.cantidad_packs
+                        if(element.entregado_a_rider){
+                            totalOrdersAvailable += element.cantidad_packs
+                        }
                     });
                     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
                 })
@@ -196,7 +198,7 @@ export default {
             axios
                 .get('puntos')
                 .then(response => {
-                    console.log(response.data)
+                    
                     let arrayPuntos = new Array();
                     response.data.forEach((item) => {
 
@@ -233,7 +235,8 @@ export default {
                                     'properties': {
                                         'title': item.usuario.proveedor.nombre,
                                         'description': menusPorProveedor
-                                        }
+                                        },
+                                    'id': item.id_punto
                                 }
                             }else if(item.usuario.centro != null){
                                 jsonDataPunto =
@@ -245,24 +248,26 @@ export default {
                                         },
                                     'properties': {
                                     'title': item.usuario.centro.nombre,
-                                    }
+                                    },
+                                    'id': item.id_punto,
+                                    'cantidad_personas': item.cantidad_personas
+                                }
+                            }else{
+                                jsonDataPunto =
+                                {
+                                    'type': item.tipo,
+                                    'geometry': {
+                                            'type': 'Point',
+                                            'coordinates': [item.longitud,item.latitud]
+                                        },
+                                    'properties': {
+                                    'title': item.tipo,
+                                    },
+                                    'id': item.id_punto,
+                                    'cantidad_personas': item.cantidad_personas
                                 }
                             }
                         
-                        }else{
-                            jsonDataPunto =
-                            {
-                                'type': item.tipo,
-                                'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [item.longitud,item.latitud]
-                                    },
-                                'properties': {
-                                'title': item.tipo,
-                                },
-                                'id': item.id_punto,
-                                'cantidad_personas': item.cantidad_personas
-                            }
                         }
 
                         arrayPuntos.push(jsonDataPunto);
@@ -368,7 +373,7 @@ export default {
                 })
                 .catch(error=>{
                     // this.isError = true;
-                    console.log(error)
+                    // console.log(error)
                     //me.messageError = error.response.data.error;
                 })
         },
@@ -409,6 +414,15 @@ export default {
                 imgSubtitle.setAttribute('class','imgSubtitle')
                 group.appendChild(subtitle);
                 group.appendChild(imgSubtitle);
+                content.appendChild(group);
+            }
+
+            if(feature.type == "Centro"){
+                group.setAttribute('class','groupHomeless');
+                subtitle.setAttribute('data-personas',feature.cantidad_personas)
+                subtitle.setAttribute('class','subtitle')
+    
+                group.appendChild(subtitle);
                 content.appendChild(group);
             }
             
