@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Pedido;
 use App\Models\Entrega;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PedidoResource;
+use Illuminate\Database\QueryException;
 
 class PedidoController extends Controller
 {
@@ -46,17 +48,35 @@ class PedidoController extends Controller
         $pedido->fecha = $request->fecha;
         $pedido->entregado_a_rider = $request->entregado_a_rider;
 
-        $pedido->save();
+        try 
+        {
+            $pedido->save();
 
-        $entrega = new Entrega();
+            $entrega = new Entrega();
 
-        $entrega->id_pedido = $request->id_pedido;
-        $entrega->id_punto = $request->id_punto;
-        $entrega->cantidad_packs = $request->entregados;
-        $entrega->fecha = $request->fecha;
-        $entrega->entregado = true;
+            $entrega->id_pedido = $request->id_pedido;
+            $entrega->id_punto = $request->id_punto;
+            $entrega->cantidad_packs = $request->entregados;
+            $entrega->fecha = $request->fecha;
+            $entrega->entregado = true;
 
-        $entrega->save();
+            $entrega->save();
+            $response = (new PedidoResource($pedido))
+                        ->response()
+                        ->setStatusCode(201);
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+            // $response = redirect()->action([CiclesController::class, 'create'])->withInput();
+        }
+        
+        return $response;
+
+
+        
 
     }
 

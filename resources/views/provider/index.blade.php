@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <h3>CREATE</h3>
-                <a href="{{ url('createMenu') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ url('menu/create')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
             <div class="col">
                 <h3>LIST</h3>
@@ -38,4 +38,5 @@
             </div>
         </div>
     </div>
+    <a href="{{ action([App\Http\Controllers\ProveedorController::class, 'edit'], ['proveedor' => $proveedor->id_prov]) }}">
 @endsection

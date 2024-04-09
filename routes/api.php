@@ -33,3 +33,6 @@ Route::apiResource('puntos', PuntoController::class);
 Route::apiResource('entregas', EntregaController::class);
 Route::apiResource('pedidos', PedidoController::class);
 Route::put('pedidos/{id_rider}/{id_provider}', [RiderController::class,'markAsCollected']);
+Route::apiResource('menu', MenuController::class);
+
+

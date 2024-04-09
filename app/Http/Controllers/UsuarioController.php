@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Rider;
 use App\Models\Centro;
 use App\Models\Usuario;
-use App\Models\Proveedor;
+use App\Clases\Utilitat;
 
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsuarioController extends Controller
@@ -81,12 +83,16 @@ class UsuarioController extends Controller
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
+            $response = redirect()->action([CentroController::class,'showCentro']);
 
         } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
             $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
+            
+            //respuesta
+            $response = redirect()->action([RiderController::class,'showRiders']);
 
 
         } else  {
@@ -100,20 +106,24 @@ class UsuarioController extends Controller
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
+
+            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+
         }
 
             $choosedUser->nombre = $request->name;
 
-
+        try {
             $choosedUser->save();
             $rol = $userData->id_rol;
-        // } catch (\Throwable $th) {
-        //     //throw $th;
-        // }
-        // var_dump($rol);
-        // die();
-        return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
-        // return redirect('/');
+        
+            $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+        } catch (QueryException $ex) {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([UsuarioController::class, 'index'])->withInput();
+        }
+        return $response;
     }
 
     /**
@@ -154,39 +164,32 @@ class UsuarioController extends Controller
         $username = $request->email;
         $password = $request->pass;
 
-        $user = Usuario::where('email',$username)->first();
-
-        if($user != null && Hash::check($password,$user->pass_usu)){
+        $user = Usuario::where('email', $username)->first();
+    
+        if ($user && Hash::check($password, $user->pass_usu)) {
             Auth::login($user);
-
-            switch(Auth::user()->rol->nombre){
-
+            switch (Auth::user()->rol->nombre) {
                 case 'admin':
-                            $response = redirect('/admin');
-                            break;
-
+                    $response = redirect('/admin');
+                    break;
+    
                 case 'proveedor':
                     $response = redirect()->action([ProveedorController::class, 'index']);
-                            break;
-
+                    break;
+    
                 case 'centro':
                     $response = redirect()->action([CentroController::class, 'index']);
-                            break;
-
+                    break;
+    
                 case 'rider':
                     $response = redirect()->action([RiderController::class, 'index']);
-                            break;
+                    break;
             }
-
-
-        }else{
-            return response(Response::HTTP_UNAUTHORIZED);
-            // $request->session()->flash('error','Usuari o password incorrecte');
-            // $response = redirect('/login')->withInput();
+        } else {
+            $response = redirect()->back()->withInput()->withErrors(['error' => 'Usuario o contraseña incorrectos']);
         }
 
         return $response;
-
     }
 
     public function showLogin(){

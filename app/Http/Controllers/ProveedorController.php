@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Clases\Utilitat;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
 
 class ProveedorController extends Controller
@@ -69,6 +71,7 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, Proveedor $proveedor)
     {
+
  
         $proveedor->nombre=$request->input('nombre');
         $proveedor->primer_apellido=$request->input('primer_apellido');
@@ -78,23 +81,38 @@ class ProveedorController extends Controller
         $proveedor->ciudad=$request->input('ciudad');
         $proveedor->cp=$request->input('cp');
 
-        $proveedor->save();
+        // $proveedor->save();
 
-        $rol = Auth::user()->id_rol;
-        $providerRol = 4;
-        $adminRol = 1;
+        // $rol = Auth::user()->id_rol;
+        // $providerRol = 4;
+        // $adminRol = 1;
 
-        switch($rol){
-            case $providerRol:
-                        return redirect()->action([ProveedorController::class,'index']);    
-                        break;
 
-            case $adminRol:
-                        return redirect()->action([ProveedorController::class,'showProviders']); 
-                        break;
+        try {
+            $proveedor->save();
+
+            $rol = Auth::user()->id_rol;
+            $providerRol = 4;
+            $adminRol = 1;
+
+            switch($rol){
+                case $providerRol:
+                            $response = redirect()->action([ProveedorController::class,'index']);    
+                            break;
+    
+                case $adminRol:
+                            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+                            break;
+            }
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([ProveedorController::class, 'index']);
         }
-        
-        }
+
+        return $response;
+    }
 
     /**
      * Remove the specified resource from storage.

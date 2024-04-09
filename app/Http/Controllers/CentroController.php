@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Centro;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
 class CentroController extends Controller
 {
@@ -89,22 +91,31 @@ class CentroController extends Controller
         $centro->cp=$request->input('cp');
 
 
+        try 
+        {
+            $centro->save();
 
-        $centro->save();
-
-        $rol = Auth::user()->id_rol;
-        $centerRol = 3;
-        $adminRol = 1;
-
-        switch($rol){
-            case $centerRol:
-                return redirect()->action([CentroController::class,'index']);
-                        break;
-
-            case $adminRol:
-                        return redirect()->action([CentroController::class,'showCentro']);
-                        break;
+            $rol = Auth::user()->id_rol;
+            $centerRol = 3;
+            $adminRol = 1;
+    
+            switch($rol){
+                case $centerRol:
+                    $response = redirect()->action([CentroController::class,'index']);
+                            break;
+    
+                case $adminRol:
+                    $response = redirect()->action([CentroController::class,'showCentro']);
+                            break;
+            }
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([CentroController::class, 'index'])->withInput();
         }
+        
+        return $response;
        
     }
 

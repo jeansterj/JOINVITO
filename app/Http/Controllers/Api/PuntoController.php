@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Punto;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PuntoResource;
+use Illuminate\Database\QueryException;
 
 class PuntoController extends Controller
 {
@@ -40,7 +42,23 @@ class PuntoController extends Controller
         $punto->tipo = $request->tipo;
         $punto->id_usu = $request->id_usu;
 
-        $punto->save();
+        try 
+        {
+            $punto->save();
+            $response = (new PuntoResource($punto))
+                        ->response()
+                        ->setStatusCode(201);
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+            // $response = redirect()->action([CiclesController::class, 'create'])->withInput();
+        }
+        
+        return $response;
+        
     }
 
     /**
