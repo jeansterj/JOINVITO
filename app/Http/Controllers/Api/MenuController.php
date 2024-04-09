@@ -42,7 +42,20 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        
+        $menu->nombre_menu = $request->input('nombre_menu');
+        $menu->bebida = $request->input('bebida');
+        $menu->plato1 = $request->input('plato1');
+        $menu->plato2 = $request->input('plato2');
+        $menu->cantidad_packs = $request->input('cantidad_packs');
+
+        try 
+        {
+            $menu->save();
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+        }
     }
 
     /**

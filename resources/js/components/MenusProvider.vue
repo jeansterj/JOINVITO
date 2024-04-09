@@ -73,6 +73,7 @@
                             </div>
                         </div>
                     </form>
+                    <span v-if="isError" class="badge text-bg-danger"> {{ mensajeError }}</span>
                 </div>
                 <div class="modal-footer justify-content-around">
                     <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => editMenu()">CHANGE MENU</button>
@@ -99,7 +100,9 @@ export default {
             menus: [],
             loading: false,
             myModal: {},
-            menu: {}
+            menu: {},
+            mensajeError: ' ',
+            isError: false
 
         }
     },
@@ -140,7 +143,7 @@ export default {
                 })
                 .catch(error => {
                     this.error = true;
-                    console.error('Error al editar el menú:', error);
+                    me.mensajeError = error.response.data.error
                 });
 
 
