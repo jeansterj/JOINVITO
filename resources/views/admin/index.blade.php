@@ -19,5 +19,11 @@
             <h3>CENTRO SOCIAL</h3>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ url('show-puntos') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+            <h3>PUNTOS</h3>
+        </div>
+    </div>
 </div>
 @endsection

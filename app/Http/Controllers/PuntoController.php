@@ -46,7 +46,7 @@ class PuntoController extends Controller
      */
     public function edit(Punto $punto)
     {
-        //
+        return view('admin.edit-punto', compact('punto'));
     }
 
     /**
@@ -64,4 +64,12 @@ class PuntoController extends Controller
     {
         //
     }
+
+    public function showPuntos()
+    {
+        $puntos = Punto::all()->where('fecha_baja','=',null);
+
+        return view('admin.puntos', compact('puntos'));
+    }
+
 }
