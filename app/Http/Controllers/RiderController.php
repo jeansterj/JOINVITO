@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Punto;
 use App\Models\Rider;
 use App\Models\Usuario;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
 class RiderController extends Controller
 {
@@ -73,24 +75,36 @@ class RiderController extends Controller
      */
     public function update(Request $request, Rider $rider)
     {
+
+        
+
         $rider->nombre=$request->input('nombre');
         $rider->primer_apellido=$request->input('primer_apellido');
     
-        $rider->save();
 
-        $rol = Auth::user()->id_rol;
-        $riderRol = 2;
-        $adminRol = 1;
+        try {
+            $rider->save();
 
-        switch($rol){
-            case $riderRol:
-                        return redirect()->action([RiderController::class,'index']);
-                        break;
+            $rol = Auth::user()->id_rol;
+            $riderRol = 2;
+            $adminRol = 1;
 
-            case $adminRol:
-                        return redirect()->action([RiderController::class,'showRiders']);
-                        break;
+            switch($rol){
+                case $riderRol:
+                            $response = redirect()->action([RiderController::class,'index']);
+                            break;
+
+                case $adminRol:
+                            $response = redirect()->action([RiderController::class,'showRiders']);
+                            break;
+            }
+        } catch (QueryException $ex) {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([RiderController::class, 'create'])->withInput();
         }
+
+        return $response;
          
     }
 

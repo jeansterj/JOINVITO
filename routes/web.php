@@ -38,6 +38,9 @@ Route::get('/register', function () { return view('register.index'); });
 Route::get('/camera', function () {
     return view('register.cameraPage');
 });
+
+Route::get('/qr', [QrCodeController::class, 'show']);
+
 Route::middleware(['auth'])->group(function () {
 
     /* Admin routes */
@@ -117,7 +120,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/camera', [WebcamController::class, 'index']);
 
-    Route::get('/qr', [QrCodeController::class, 'show']);
+    // Route::get('/qr', [QrCodeController::class, 'show']);
 
     /** CONTACT VIEW */
     Route::get('/contact', function () {

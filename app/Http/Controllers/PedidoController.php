@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Pedido;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class PedidoController extends Controller
 {
@@ -31,7 +33,8 @@ class PedidoController extends Controller
     {
         $pedido = new Pedido();
         $menu = new Menu();
-
+ 
+        DB::beginTransaction();
 
         try{
 
@@ -67,13 +70,19 @@ class PedidoController extends Controller
             $menu->fecha_alta = $menu->fecha_alta;
 
             $menu->save();
+            DB::commit();
+            // $response = redirect('ordersRider');
+
         }
         catch(QueryException $ex){
-
+            DB::rollback();
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            // $response = redirect('ordersRider');
         }
         
 
-        return redirect('ordersRider');
+        return redirect('ordersRider');;
     }
 
     /**
