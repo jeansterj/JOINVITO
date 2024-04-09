@@ -31,7 +31,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $pedido = new Pedido();
+        
         $menu = new Menu();
  
         DB::beginTransaction();
@@ -42,12 +42,17 @@ class PedidoController extends Controller
 
             if($pedido != null){
                 $pedido->id_rider = $request->id_rider;
+                $pedido->id_provider = $request->id_provider;
                 $pedido->id_menu = $request->id_menu;
                 $pedido->cantidad_packs = $pedido->cantidad_packs + $request->cantidad;
                 $pedido->fecha = date('y-m-d');
                 $pedido->entregado_a_rider = false;
             }else{
+                
+                $pedido = new Pedido();
+
                 $pedido->id_rider = $request->id_rider;
+                $pedido->id_provider = $request->id_provider;
                 $pedido->id_menu = $request->id_menu;
                 $pedido->cantidad_packs = $request->cantidad;
                 $pedido->fecha = date('y-m-d');

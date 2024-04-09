@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\PuntoController;
 use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\QrCodeController;
 use App\Http\Controllers\Api\EntregaController;
+use App\Http\Controllers\Api\RiderController;
 
 
 
@@ -39,3 +40,7 @@ Route::apiResource('pedidos', PedidoController::class);
 // });
 Route::apiResource('qrCode', QrCodeController::class);
 // Route::get('qrCode', [QrCodeController::class,'show']);
+Route::put('pedidos/{id_rider}/{id_provider}', [RiderController::class,'markAsCollected']);
+Route::apiResource('menu', MenuController::class);
+
+

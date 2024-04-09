@@ -27,6 +27,7 @@
                                             @csrf
                                             <div class="card">
                                                 <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
+                                                <input type="hidden" name="id_provider" value="{{ $puntoCercano->usuario->proveedor->id_prov }}"></input>
                                                 <div class="card-body">
                                                     <h5 class="card-title"><span>{{ $nombre }}</span></h5>
                                                     <p class="card-text">{{ $menu->bebida }}</p>
@@ -87,6 +88,7 @@
                                             @csrf
                                             <div class="card">
                                                 <input type="hidden" name="id_rider" value="{{ Auth::user()->id_usu }}"></input>
+                                                <input type="hidden" name="id_provider" value="{{ $dato->proveedor->id_prov }}"></input>
                                                 <div class="card-body">
                                                     <h5 class="card-title"><span>{{ $nombre }}</span></h5>
                                                     <input type="hidden" name="id_menu" value="{{ $menu->id_menu }}"></input>
