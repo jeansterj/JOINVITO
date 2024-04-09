@@ -102,7 +102,7 @@ class RiderController extends Controller
         //
     }
 
-    public function showFavoritesNearBy(Rider $rider, $lat, $long){
+    public function showFavoritesNearBy(Rider $rider){
 
         $riderId = Auth::user()->id_usu;
 
@@ -110,10 +110,10 @@ class RiderController extends Controller
 
         $favoritosMenus = $favoritosMenus->favoritos;
 
-        $latIni = $lat - 0.01;
-        $latFin = $lat + 0.01;
-        $longIni = $long - 0.01;
-        $longFin = $long + 0.01;
+        // $latIni = $lat - 0.01;
+        // $latFin = $lat + 0.01;
+        // $longIni = $long - 0.01;
+        // $longFin = $long + 0.01;
 
 
         $data = Usuario::where('id_rol',4)->get();

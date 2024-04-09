@@ -30,15 +30,48 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $pedido = new Pedido();
+        $menu = new Menu();
 
 
-        $pedido->id_rider = $request->id_rider;
-        $pedido->id_menu = $request->id_menu;
-        $pedido->cantidad_packs = $request->cantidad;
-        $pedido->fecha = date('y-m-d');
-        $pedido->entregado_a_rider = false;
+        try{
 
-        $pedido->save();
+            $pedido = Pedido::where('id_menu',$request->id_menu)->first();
+
+            if($pedido != null){
+                $pedido->id_rider = $request->id_rider;
+                $pedido->id_menu = $request->id_menu;
+                $pedido->cantidad_packs = $pedido->cantidad_packs + $request->cantidad;
+                $pedido->fecha = date('y-m-d');
+                $pedido->entregado_a_rider = false;
+            }else{
+                $pedido->id_rider = $request->id_rider;
+                $pedido->id_menu = $request->id_menu;
+                $pedido->cantidad_packs = $request->cantidad;
+                $pedido->fecha = date('y-m-d');
+                $pedido->entregado_a_rider = false;
+            }
+
+            
+
+            $pedido->save();
+
+            $menu = Menu::find($pedido->id_menu);
+            
+
+            $menu->nombre_menu = $menu->nombre_menu;
+            $menu->bebida = $menu->bebida;
+            $menu->plato1 = $menu->plato1;
+            $menu->plato2 = $menu->plato2;
+            $menu->cantidad_packs = ($menu->cantidad_packs - $pedido->cantidad_packs);
+            $menu->id_prov = $menu->id_prov;
+            $menu->fecha_alta = $menu->fecha_alta;
+
+            $menu->save();
+        }
+        catch(QueryException $ex){
+
+        }
+        
 
         return redirect('ordersRider');
     }

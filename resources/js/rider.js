@@ -85,15 +85,15 @@ document.addEventListener('DOMContentLoaded',function(){
         })
     });
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            lat  = position.coords.latitude;
-            lng  = position.coords.longitude;
-            const ordenarAhora = document.querySelector('#ordernow > a');
-            if(ordenarAhora != null){
-                ordenarAhora.setAttribute('href',`rider-menu-selection/${lat}/${lng}`);
-            }
-        })
-    }
+    // if (navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition((position) => {
+    //         lat  = position.coords.latitude;
+    //         lng  = position.coords.longitude;
+    //         const ordenarAhora = document.querySelector('#ordernow > a');
+    //         if(ordenarAhora != null){
+    //             ordenarAhora.setAttribute('href',`rider-menu-selection/${lat}/${lng}`);
+    //         }
+    //     })
+    // }
 });
 

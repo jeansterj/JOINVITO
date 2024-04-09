@@ -127,7 +127,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('usuario', UsuarioController::class);
 
-    Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
+    // Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
+    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
 
     Route::resource('pedido', PedidoController::class);
 

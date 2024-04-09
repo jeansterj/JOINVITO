@@ -25,4 +25,9 @@ class Menu extends Model
     {
         return $this->hasMany(Pedido::class, 'id_menu');
     }
+
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class, 'id_prov');
+    }
 }

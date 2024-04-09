@@ -15,7 +15,20 @@
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body bg-light">
                     <ul>
-                        <li v-for="order in orders" class="riderOrderCard"><a href="">{{ order.cantidad_packs }} PACK TO COLLECT</a></li>
+                        <template v-for="order in orders">
+                                <li v-if="order.entregado_a_rider == 1" class="riderOrderCard">
+                                    <div class="orderInfo">
+                                        <h3>{{ order.menu.proveedor.nombre }}</h3>
+                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} COLLECTED</p>
+                                    </div>
+                                </li>
+                                <li v-if="order.entregado_a_rider == 0" class="riderOrderCard">
+                                    <div class="orderInfo">
+                                        <h3>{{ order.menu.proveedor.nombre }} - {{ order.menu.proveedor.direccion }}</h3>
+                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} TO COLLECT</p>
+                                    </div>
+                                </li>
+                        </template>
                     </ul>
                 </div>
             </div>
@@ -50,6 +63,8 @@ export default {
             axios
                 .get(`orders/rider/${riderId}`)
                 .then(response => {
+
+                    console.log(response.data)
 
                     // let totalOrdersAvailable = 0;
                     // response.data.forEach(element => {
