@@ -81,12 +81,16 @@ class UsuarioController extends Controller
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
+            $response = redirect()->action([CentroController::class,'showCentro']);
 
         } else if (isset($request->riderForm)){
             $choosedUser = new Rider();
 
             $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
+            
+            //respuesta
+            $response = redirect()->action([RiderController::class,'showRiders']);
 
 
         } else  {
@@ -100,6 +104,9 @@ class UsuarioController extends Controller
             $choosedUser->piso = $request->input('floor', null);
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
+
+            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+
         }
 
             $choosedUser->nombre = $request->name;
@@ -112,7 +119,19 @@ class UsuarioController extends Controller
         // }
         // var_dump($rol);
         // die();
-        return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+        
+        $authRol = Auth::user()->id_rol;
+        $adminRol = 1;
+        
+        if ($authRol === $adminRol) {
+
+            return $response;
+
+        }else{
+            return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+        }
+
+        // return redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
         // return redirect('/');
     }
 
