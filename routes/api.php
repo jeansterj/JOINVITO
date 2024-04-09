@@ -31,3 +31,6 @@ Route::get('orders/rider/{riderId}', [PedidoController::class,'getOrdersRider'])
 Route::apiResource('puntos', PuntoController::class);
 Route::apiResource('entregas', EntregaController::class);
 Route::apiResource('pedidos', PedidoController::class);
+Route::apiResource('menu', MenuController::class);
+
+
