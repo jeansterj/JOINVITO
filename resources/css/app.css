@@ -25,6 +25,43 @@
 .foodForHomelessTitle {
   width: 150px;
 }
+.joinAsRiderText {
+  width: 291px;
+}
+.esfera1{
+  z-index: 1;
+  background-color: #FFCA10;
+  position: absolute;
+  width: 393px;
+  height: 200px;
+  right: -9px;
+  top: 290px;
+  border-radius: 1000%;
+  display: none;
+
+}
+#helpAsVoluntier {
+  z-index: 2;
+  width: 410px;
+}
+.landingBody {
+  color: white;
+  /* font-family: ; */
+}
+.waysToHelp {
+  display: flex;
+}
+.navbarWaysHelp {
+  padding: 30px;
+}
+.textHelp {
+  font-weight: 200;
+}
+
+.modal-header {
+    background-color: #FFCA10 ; 
+    color: #07203C ; 
+}
 /* .entranceAnimation {
   display: flex;
     width: 100%;
@@ -47,7 +84,9 @@
 }
 body {
   text-align: center !important;
+  overflow-x: hidden;
 }
+
 .content {
   display: grid;
   place-items: center;

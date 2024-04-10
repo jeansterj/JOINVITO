@@ -22,6 +22,12 @@
                             <input class="form-control" type="text" id="primer_apellido" maxlength="50" placeholder="Doe"
                                 name = "primer_apellido" required value="{{ $rider->primer_apellido}}">
                         </div>
+                        <div class="form-group gird-placeContent">
+                            <label class="switch">
+                                <input type="checkbox" id="estado" name="estado" {{$rider->usuario->estado== 1 ? 'checked' : '' }}>
+                                <span class="slider round"></span>
+                              </label>
+                        </div>
                         <button type="submit" class="btn btn-light btn_login" name="riderFrom"
                             value="riderForm">Save</button>
                     </div>

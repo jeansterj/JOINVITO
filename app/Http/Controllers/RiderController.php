@@ -80,7 +80,8 @@ class RiderController extends Controller
 
         $rider->nombre=$request->input('nombre');
         $rider->primer_apellido=$request->input('primer_apellido');
-    
+       
+        $rider->usuario->estado=$request->input('estado')==1;
 
         try {
             $rider->save();
