@@ -2,3 +2,39 @@ table.table-users{
     --bs-table-bg: transparent;
     --bs-table-color: #fff
 }
+
+select.form-select {
+    padding: 10px;
+    display: grid;
+    width: 20%;
+}
+
+
+
+/* Estilos para el input de tipo date */
+input[type="date"] {
+    /* Cambiar el tamaño del texto */
+    font-size: 16px;
+    /* Cambiar el color del texto */
+    color: #333;
+    /* Cambiar el color de fondo */
+    background-color: #fff;
+    /* Añadir un borde sólido */
+    border: 1px solid #ccc;
+    /* Redondear las esquinas */
+    border-radius: 4px;
+    /* Ajustar el relleno interno */
+    padding: 8px;
+    /* Establecer el ancho máximo */
+    max-width: 100%;
+    /* Hacer que el cursor sea de tipo texto */
+    cursor: text;
+    /* Asegurar que el contenido no se desborde */
+    box-sizing: border-box;
+    /* Hacer que el cursor sea de tipo puntero al pasar el mouse */
+    transition: border-color 0.3s ease;
+}
+
+
+
+
