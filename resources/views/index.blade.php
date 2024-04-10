@@ -1,12 +1,8 @@
 @extends('layouts.main')
-{{-- @extends('layouts.navbarLayout') --}}
 @section('title')
     Home - JoInvito
 @endsection
-{{-- <div class="navbarBody"> --}}
-    {{-- @yield('navbarContent') --}}
-    @include('layouts.navbarLayout')
-{{-- </div> --}}
+@include('layouts.navbarLayout')
 
 {{-- <div class="navbarBody"> --}}
     {{-- @yield('navbarContent') --}}
@@ -40,7 +36,30 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 </ul>
 </div>
 @endsection --}}
+@section('esfera')
+<div class="esfera1"></div>
 
+@endsection
 @section('content')
-sdasadasd
+<div class="landingBody">
+    <h2>WAYS TO HELP</h2>
+    <div class="waysToHelp">
+        <span class="navbarWaysHelp">
+            <img src="../public/img/rider_icono.png" alt="">
+            <h3>Rider</h3>
+            <p class="textHelp">El rider hace tal qual</p>
+        </span>
+        <span class="navbarWaysHelp">
+            <img src="../public/img/rider_icono.png" alt="">
+            <h3>Rider</h3>
+            <p class="textHelp">El rider hace tal qual</p>
+        </span>
+        <span class="navbarWaysHelp">
+            <img src="../public/img/rider_icono.png" alt="">
+            <h3>Rider</h3>
+            <p class="textHelp">El rider hace tal qual</p>
+        </span>
+    </div>
+</div>
+
 @endsection
