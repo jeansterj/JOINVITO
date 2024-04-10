@@ -1,9 +1,5 @@
 <template>
-    <Bar
-        id="barChart"
-        :options="chartOptions"
-        :data="chartData"
-    />
+    <Bar v-if="!isLoading" id="barChart" :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
@@ -20,14 +16,18 @@ export default {
     data() {
         return {
             chartData: {
-                // labels: [ 'January', 'February', 'March' ],
-                // datasets: [ { data: [40, 20, 12] } ]
                 labels: [],
-                datasets: [ { data: [] } ]
+                datasets: [ 
+                    { 
+                        data: [],
+                        backgroundColor: ['#FFCA10'] 
+                    } 
+                ],
             },
             chartOptions: {
                 responsive: true
-            }
+            },
+            isLoading:true
         }
     },
     created() {
@@ -39,20 +39,16 @@ export default {
             const me = this
             const userId = document.querySelector('meta[name="userId"]').content
             axios
-                .get(`bar-chart`)
+                .get(`bar-chart/${userId}`)
                 .then(response => {
-                    console.log('Data labels:', response.data.labels);
-                    console.log('Data content:', response.data.data);
-                    this.chartData.labels = response.data.labels;
-                    this.chartData.datasets[0].data = response.data.data;
-
-                    console.log('Data labels:',this.chartData.labels = response.data.labels);
-                    console.log('Data labels:',this.chartData.datasets[0].data = response.data.data);
-
+                    
                     me.chartData.labels = response.data.labels;
                     me.chartData.datasets[0].data = response.data.data;
-                    console.log('Data labels:',me.chartData.labels = response.data.labels);
-                    console.log('Data labels:',me.chartData.datasets[0].data = response.data.data);
+
+                    me.isLoading = false;
+
+                    // me.chartData.labels = response.data.labels;
+                    // me.chartData.datasets[0].data = response.data.data;
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
