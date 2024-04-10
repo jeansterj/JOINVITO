@@ -53,9 +53,11 @@
                       </button></a>
                     </li>
                     @else
+                    @yield('navbarContent')
                     <li class="nav-item" id="login">
                       <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
                     </li>
+                    @yield('img')
                   @endif
               </ul>
           </div>

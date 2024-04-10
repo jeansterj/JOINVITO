@@ -17,6 +17,14 @@
 @keyframes identifier {
   
 }
+.navbarBody {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+.foodForHomelessTitle {
+  width: 150px;
+}
 /* .entranceAnimation {
   display: flex;
     width: 100%;
