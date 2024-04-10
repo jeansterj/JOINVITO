@@ -6,6 +6,7 @@ use App\Models\Rider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RiderResource;
+use App\Models\Pedido;
 
 class RiderController extends Controller
 {
@@ -41,7 +42,7 @@ class RiderController extends Controller
      */
     public function update(Request $request, Rider $rider)
     {
-        //
+        
     }
 
     /**
@@ -52,8 +53,17 @@ class RiderController extends Controller
         //
     }
 
-    public function cercanos($lat, $long)
+    public function markAsCollected($id_rider,$id_provider)
     {
-        
+    
+        $listaPedidos = Pedido::where('id_provider',$id_provider)->where('id_rider',$id_rider)->get();
+
+        foreach ($listaPedidos as $pedido) {
+
+            $pedido->entregado_a_rider = 1;
+
+            $pedido->save();
+        }
+
     }
 }

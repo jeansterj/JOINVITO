@@ -9,10 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
-    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css' , 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js',
-    'resources/js/login.js','resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js'])
+    'resources/js/login.js','resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js'])
 </head>
 
 <body class="bg-primary">
@@ -40,18 +44,20 @@
                         $userName = Auth::user()->rol->nombre
                     @endphp
                     <li class="nav-item" id="logout">
-                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout 
+                      <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout
                         @if (Auth::user()->rol->nombre == 'admin')
-                          {{ $userName }}    
+                          {{ $userName }}
                         @else
-                          {{ Auth::user()->$userName->nombre }}    
-                        @endif 
+                          {{ Auth::user()->$userName->nombre }}
+                        @endif
                       </button></a>
                     </li>
                     @else
+                    @yield('navbarContent')
                     <li class="nav-item" id="login">
                       <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
                     </li>
+                    @yield('img')
                   @endif
               </ul>
           </div>
@@ -60,12 +66,12 @@
             @php
                 $userName = Auth::user()->rol->nombre
             @endphp
-                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout  
+                <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button" class="btn btn-logout">Logout
                   @if (Auth::user()->rol->nombre == 'admin')
-                    {{ $userName }}    
+                    {{ $userName }}
                   @else
-                    {{ Auth::user()->$userName->nombre }}    
-                  @endif 
+                    {{ Auth::user()->$userName->nombre }}
+                  @endif
                 </button></a>
             @else
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>

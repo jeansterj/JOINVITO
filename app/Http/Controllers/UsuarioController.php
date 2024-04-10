@@ -68,6 +68,7 @@ class UsuarioController extends Controller
         $user->email = $request->email;
         $user->pass_usu = bcrypt($request->passwd);
         $user->id_rol = $request->rol;
+        $user->estado = true;
 
         $user->save();
 

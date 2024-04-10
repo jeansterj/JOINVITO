@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 // use App\Models\QrCode;
 use Illuminate\Http\Request;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\Controller;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-// use SimpleSoftwareIQ\QrCode\Facades\QrCode;
+
 
 class QrCodeController extends Controller
 {
@@ -14,14 +14,6 @@ class QrCodeController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
         //
     }
@@ -39,24 +31,16 @@ class QrCodeController extends Controller
      */
     public function show($idRider)
     {
-        // $idRider = User;
-        //
-        return QrCode::generate($idRider);
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(QrCode $qrCode)
-    {
-        //
+        $qr = QrCode::generate($idRider);
+        
+        return $qr;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, QrCode $qrCode)
+    public function update(Request $request, QrCodeController $qrCodeController)
     {
         //
     }
@@ -64,7 +48,7 @@ class QrCodeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(QrCode $qrCode)
+    public function destroy(QrCodeController $qrCodeController)
     {
         //
     }

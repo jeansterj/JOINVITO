@@ -27,7 +27,9 @@
                 </div>
 
                 <div class="chartRiderMap bg-light">
-                    <a href="" ><img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR" data-toggle="modal" data-target="#exampleModal"></a>
+                    {{-- <form action="{{ action([App\Http\Controllers\QrCodeController::class, 'show'], ['idRider' => Auth::user()->id_usu]) }}"> --}}
+                        <a href="" data-toggle="modal" data-target="#exampleModal"><img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR" data-toggle="modal" data-target="#exampleModal" id="showQrModal" data-url="{{Auth::user()->id_usu}}"></a>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>
@@ -35,25 +37,33 @@
         {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> 
             <img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR">
         </button>  --}}
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
-        </button>
+        </button> --}}
           
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content bg-secondary text-white">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5 text-break mx-4" id="exampleModalLabel">ARE YOU SURE TO DELETE ORDER 1?</h1>
-                    </div>
-                    <div class="modal-footer justify-content-around">
-                        <button type="button" class="btn btn-light text-secondary btnOrdes px-5">YES</button>
-    
-                        <button type="button" class="btn btn-light text-secondary btnOrdes px-5"
-                            data-bs-dismiss="modal">NO</button>
-                    </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Título del Modal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
+                <div class="modal-body" id="modal_body">
+                  {{-- {{ App\Http\Controllers\QrCodeController::show() }} --}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+       
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
     @endsection
 
     @section('map')

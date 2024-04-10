@@ -1,9 +1,17 @@
 @extends('layouts.main')
-
+{{-- @extends('layouts.navbarLayout') --}}
 @section('title')
     Home - JoInvito
 @endsection
+{{-- <div class="navbarBody"> --}}
+    {{-- @yield('navbarContent') --}}
+    @include('layouts.navbarLayout')
+{{-- </div> --}}
 
+{{-- <div class="navbarBody"> --}}
+    {{-- @yield('navbarContent') --}}
+    {{-- @yield('img') --}}
+{{-- </div> --}}
 {{-- @section('navbar')
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,4 +42,5 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 @endsection --}}
 
 @section('content')
+sdasadasd
 @endsection
