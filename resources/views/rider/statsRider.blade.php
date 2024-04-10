@@ -4,9 +4,10 @@
     <div class="container">
         <div class="row margin-top">
             <h2>RIDER STATS</h2>
-            <img src="{{ asset('img/riderIcono.svg') }}" alt="">
+            <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
         </div>
-        <img src="" alt="">
-
+        <div id="stats" style="width: 80%; margin: auto;">
+            
+        </div>
     </div>
 @endsection
