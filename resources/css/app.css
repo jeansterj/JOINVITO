@@ -62,6 +62,32 @@
     background-color: #FFCA10 ; 
     color: #07203C ; 
 }
+
+.modal-body-camera {
+  display: flex !important;
+  flex-direction: column !important;
+  place-items: center !important;
+}
+#camera-button {
+  /* border: 5px solid #FFCA10; */
+  border-radius: 1000% !important;
+  height: 48px !important;
+  width: 50px !important;
+  margin: 10px !important;
+  background-image: url('../../public/img/camera_icon.png');
+}
+#cameraIcon {
+  transform: scale(2.5);
+    width: 19px;
+}
+.modal-footer {
+  /* background-color: #FFCA10 !important; */
+  justify-content: center !important;
+}
+.buttonCloseModal {
+  /* width: 160px !important; */
+  /* border-radius: 130px !important; */
+}
 /* .entranceAnimation {
   display: flex;
     width: 100%;
@@ -350,6 +376,9 @@ width: 70%;
 
 }
 /** QR CSS **/
+#qr-video {
+  background-color: black ;
+}
 #titleScan {
   color: white;
 }

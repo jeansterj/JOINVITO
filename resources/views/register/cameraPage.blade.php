@@ -12,13 +12,13 @@
     @if (isset($text))
         <p>Texto del código QR: {{ $text }}</p>
     @endif
-    <video id="qr-video" width="100%" height="auto" autoplay></video>
+    {{-- <video id="qr-video" width="100%" height="auto" autoplay></video>
     <button id="scan-button" class="btn btn-light" value="Pulsar para escanear qr">Pulsar para escanear qr</button>
     
     <button id="btnStart" value="Pulsar para abrir camara">Start</button>
-    <button id="btnStop" value="Pulsar para cerrar camara">Stop</button>
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <script>
+    <button id="btnStop" value="Pulsar para cerrar camara">Stop</button> --}}
+    {{-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             let scanner = new Instascan.Scanner({
                 video: document.getElementById('qr-video')
@@ -65,5 +65,5 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 @endsection

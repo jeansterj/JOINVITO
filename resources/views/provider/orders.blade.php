@@ -14,14 +14,48 @@
                 </div>
             </form>
         </div>
-        <div class="bg-light btnOrdes px-2 "><a href=""><img src="{{ asset('img/QRImg.svg') }}" alt="QR-Img"></a>
+        <div class="bg-light btnOrdes px-2 ">
+            <a href="" data-toggle="modal" data-target="#exampleModal">
+                <img src="{{ asset('img/QRImg.svg') }}" alt="QR-Img" >
+                
+            </a>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">QR Scan</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body modal-body-camera" id="modal_body">
+                <video id="qr-video" width="100%" height="auto" autoplay></video>
+                <div class="cameraButtonDiv">       
+                    {{-- btn-light --}}
+                    <button id="camera-button" class="btn btn-light scanButtonCamera" value="Pulsar para escanear qr">
+                        <img src="../public/img/camera_icon.png" alt="" id="cameraIcon">
+                    </button>
+                </div>
+                
+                {{-- <button id="btnStart" value="Pulsar para abrir camara">Start</button>
+                <button id="btnStop" value="Pulsar para cerrar camara">Stop</button> --}}
+              {{-- {{ App\Http\Controllers\QrCodeController::show() }} --}}
 
+            </div>
+            <div class="modal-footer">
+              <button type="button buttonCloseModal" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
     <div class="text-white py-2 text-center">ORDERS
         <div class="bg-light chartProviderOrder centerSpace my-3" id="ordersProvider">
 
         </div>
     </div>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 @endsection
