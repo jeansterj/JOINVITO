@@ -80,8 +80,11 @@
                 <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button" class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}" alt="">Login</button></a>
             @endif
         </div>
+        <a href="#" id="esLink" class="text-secondary">ES/</a>
+      <a href="#" id="catLink" class="text-secondary">CAT/</a>
+      <a href="#" id="engLink" class="text-secondary">ENG</a>
       </div>
-    </div>
+        </div>
   </nav>
   <div class="content">
     @yield('content')
@@ -128,7 +131,7 @@
   <footer class="py-2" id="footer">
     <hr>
     <p class="footerTitle">JOINVITO</p>
-    <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
+    <p data-translate="ProtecReCaptcha">Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
     </br> © 2024 JOINVITO Technologies Inc.</p>
   </footer>
 
