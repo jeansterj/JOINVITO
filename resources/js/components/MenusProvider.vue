@@ -1,9 +1,22 @@
 <template>
+
+
     <div class="card de">
+
+            <span v-if="confirm" class="badge text-bg-secondary my-2 btnChange"> {{ mensajeUpdate }}</span>
+
+
+
+        <h5 class="card-title"><button type="button" class="btn btn-primary text-white btnOrdes px-5"
+                    @click="confirmUpdate()">CONFIRM CHANGES</button></h5>
+
         <div class="card-body">
+       
+
             <div class="loading" v-if="loading">
                 Loading data....
             </div>
+
             <div v-else v-for="menu in menus" class="providerMenusCard">
                 <div class="row">
                     <div class="d-flex">
@@ -34,15 +47,15 @@
     </div>
 
     <!-- Modal Update  -->
-    <div class="modal fade" id="updateModal" tabindex="-1" >
-        <div  class="modal-dialog">
+    <div class="modal fade" id="updateModal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content bg-secondary text-white">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 text-break mx-4" id="exampleModalLabel">MODIFY MENU</h1>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div  class="container-fluid" id="medForm">
+                        <div class="container-fluid" id="medForm">
                             <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="nombre_menu">Name Menu</label>
@@ -69,17 +82,14 @@
                                     <input class="form-control" type="number" id="amount" maxlength="2" value="0"
                                         name="cantidad_packs" required v-model="menu.cantidad_packs">
                                 </div>
-            
+
                             </div>
                         </div>
                     </form>
                     <span v-if="isError" class="badge text-bg-danger"> {{ mensajeError }}</span>
                 </div>
                 <div class="modal-footer justify-content-around">
-                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => editMenu()">CHANGE MENU</button>
-
-                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5"
-                        data-bs-dismiss="modal">NO</button>
+                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => updateMenu(menu)" data-bs-dismiss="modal">Pre-save menu changes</button>
                 </div>
             </div>
         </div>
@@ -102,7 +112,9 @@ export default {
             myModal: {},
             menu: {},
             mensajeError: ' ',
-            isError: false
+            isError: false,
+            pendingUpdates: [],
+            confirm: false
 
         }
     },
@@ -133,22 +145,65 @@ export default {
             this.myModal = new bootstrap.Modal('#updateModal')
             this.myModal.show();
         },
-        editMenu() {
-            const me = this;
-            axios
-            .put(`menu/${me.menu.id_menu}`, me.menu)
+        // Guardar por Menu
+        // editMenu() {
+        //     const me = this;
+        //     axios
+        //     .put(`menu/${me.menu.id_menu}`, me.menu)
 
-                .then(response => {
-                    me.myModal.hide();
+        //         .then(response => {
+        //             me.myModal.hide();
+        //         })
+        //         .catch(error => {
+        //             this.error = true;
+        //             me.mensajeError = error.response.data.error
+        //         });
+
+
+        // },
+        updateMenu(menu) {
+            const existingUpdate = this.pendingUpdates.find(item => item.id_menu === menu.id_menu);
+            if (existingUpdate) {
+                // Si ya hay una actualización pendiente para este menú, actualiza los datos de la actualización.
+                existingUpdate.nombre_menu = menu.nombre_menu;
+                existingUpdate.plato1 = menu.plato1;
+                existingUpdate.plato2 = menu.plato2;
+                existingUpdate.bebida = menu.bebida;
+                existingUpdate.cantidad_packs = menu.cantidad_packs;
+            } else {
+                // Si no hay una actualización pendiente, añado una nueva actualización a la lista.
+                this.pendingUpdates.push({ ...menu }); // clono el objeto para evitar referencias
+            }
+        },
+        confirmUpdate() {
+            const me = this;
+            // Realizo las actualizaciones pendientes una por una
+            const updatePromises = this.pendingUpdates.map(update => {
+                return axios.put(`menu/${update.id_menu}`, update);
+            });
+
+            // Cuando todas las actualizaciones se completen o fallen
+            Promise.all(updatePromises)
+                .then(() => {
+                    //Se limpia la lista de actualizaciones pendientes
+                    me.pendingUpdates = [];
+                    this.confirm = true;
+
+                    me.mensajeUpdate = 'Menus changed'
+
+                    setTimeout(() => {
+                        this.confirm = false;
+
+                    }, 4000);
+                    
                 })
                 .catch(error => {
+                    console.error('Error al actualizar menús:', error);
                     this.error = true;
-                    me.mensajeError = error.response.data.error
-                });
+                     me.mensajeError = error.response.data.error      
+              });
+        }
 
-
-        },
-        
     }
 };
 </script>
@@ -178,11 +233,25 @@ button.btnEdit:hover {
     background-color: #07203C;
 }
 
+button.btnOrdes:hover {
+    background-color: #07203C !important;
+}
+
+
 button.btnDelete:hover {
     background-color: #a01010;
 }
 
 button.btn {
     width: 90% !important;
+}
+
+.btnChange {
+
+    border-radius: 20px;
+    width: 20%;
+    font-size: 25px;
+        align-self: center;
+
 }
 </style>

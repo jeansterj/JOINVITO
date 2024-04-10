@@ -1,0 +1,60 @@
+
+{
+    "iniciarSesion": {
+        "en": "Login",
+        "es": "Iniciar Sesión",
+        "cat": "Inicia Sesió"
+    },
+    "nombreUsuario": {
+        "en": "Username",
+        "es": "Nombre de Usuario",
+        "cat": "Nom d'Usuari"
+    },
+    "password": {
+        "en": "Password",
+        "es": "Contraseña",
+        "cat": "Contrasenya"
+    },
+    "registrate": {
+        "en": "Sign up",
+        "es": "Registrate",
+        "cat": "Registra't"
+    },
+    "cerrarSesion": {
+        "en": "Logout",
+        "es": "Cerrar Sesión",
+        "cat": "Tancar Sesió"
+    },
+    "nombre": {
+        "en": "Name",
+        "es": "Nombre",
+        "cat": "Nom"
+    },
+    "apellido": {
+        "en": "Last name/s",
+        "es": "Apellido/s",
+        "cat": "Cognom/s"
+    },
+    "fechaNacimiento": {
+        "en": "Date of birth",
+        "es": "Fecha de nacimiento",
+        "cat": "Data de naixement"
+    },
+    "terminos": {
+        "en": "I accept the terms and conditions",
+        "es": "Acepto los términos y condiciones",
+        "cat": "Accepto els termes i condicions"
+    },
+    "registro": {
+        "en": "Registration",
+        "es": "Registro",
+        "cat": "Registre"
+    },
+    "ProtecReCaptcha":{
+        "en": "This site is protected by reCAPTCHA and the Google Terms of Service and Privacy Policy apply. </br> © 2024 JOINVITO Technologies Inc.",
+        "es": "Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google. </br> © 2024 JOINVITO Technologies Inc.",
+        "cat": "Registre"
+
+    }
+
+}

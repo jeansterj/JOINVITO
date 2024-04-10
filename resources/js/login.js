@@ -1,4 +1,18 @@
+// import { setLanguage, getSelectedLanguage } from './translations.js';
+
 document.addEventListener ('DOMContentLoaded', function () {
+
+//    Traducciones
+
+
+// const selectedLanguage = getSelectedLanguage();
+
+// setLanguage(selectedLanguage);
+
+
+
+
+
   const dontHaveAccount = document.querySelector ('.dontHaveAccount');
   const col3Container = document.querySelector ('.col-4');
   const divRegister = document.getElementById ('register');
