@@ -2,12 +2,11 @@
     <div class="navbarBody">
 
         <h1 class="foodForHomelessTitle">FOOD FOR HOMELESS</h1>
-        <p>JOIN AS A RIDER OR SUPPLIER FOR HELP PEPOLE</p>
+        <p class="joinAsRiderText">JOIN AS A RIDER OR SUPPLIER FOR HELP PEPOLE</p>
     </div>
 @endsection
-{{-- @section('img') --}}
-
-    {{-- <img src="public/img/helpAsVoluntier.png" alt=""> --}}
-
-{{-- @endsection  --}}
-{{-- </div> --}}
+@section('img')
+    <div class="navbarBody">
+        <img src="../public/img/helpAsVoluntier.png" alt="helpAsVoluntier.png" id="helpAsVoluntier">
+    </div>
+@endsection 
