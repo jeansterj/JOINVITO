@@ -2,6 +2,11 @@
 
 
 @section('content')
+
+    <div id="spanMessage">
+
+
+    </div>
     {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="bg-light chartRiderOrder centerSpace my-3" id="divMenuList">
     </div>
