@@ -10,6 +10,7 @@
         <th scope="col">LONGITUD</th>
         <th scope="col">PERSONAS</th>
         <th scope="col">FECHA ALTA</th>
+        <th scope="col">TIPO</th>
         <th></th>
         <th></th>
       </tr>
@@ -23,6 +24,7 @@
             <td>{{ $punto->longitud }}</td>
             <td>{{ $punto->cantidad_personas }}</td>
             <td>{{ $punto->fecha_alta }}</td>
+            <td>{{ $punto->tipo }}</td>
             <td>
               <form class="float-right ml-1" action="{{ action([App\Http\Controllers\PuntoController::class, 'edit'], ['punto' => $punto->id_punto]) }}">
               @csrf
