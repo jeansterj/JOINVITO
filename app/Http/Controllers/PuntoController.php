@@ -46,7 +46,7 @@ class PuntoController extends Controller
      */
     public function edit(Punto $punto)
     {
-        return view('admin.edit-punto', compact('punto'));
+        return view('admin.editPunto', compact('punto'));
     }
 
     /**

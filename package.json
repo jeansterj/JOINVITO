@@ -17,6 +17,7 @@
         "chart.js": "^4.4.2",
         "tinker": "^0.0.4",
         "vue": "^3.4.21",
+        "vue-chart.js": "^0.2.0",
         "vue-chartjs": "^5.3.1",
         "vue-loader": "^17.4.2"
     }

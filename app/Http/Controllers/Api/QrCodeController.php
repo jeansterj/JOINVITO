@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 // use App\Models\QrCode;
-use Illuminate\Http\Request;
+use App\Models\Rider;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
@@ -16,6 +18,7 @@ class QrCodeController extends Controller
     public function index()
     {
         //
+        // var_dump
     }
 
     /**
@@ -32,7 +35,27 @@ class QrCodeController extends Controller
     public function show($idRider)
     {
 
-        $qr = QrCode::generate($idRider);
+        $idRider;
+        /** Cuando estemos en el server */
+        // $env = env('APP_URL');
+        // $info = $env . "/joinvito/public/api/pedidos/".$idRider."/1";
+        $info = "http://localhost:8080/joinvito/public/api/pedidos/".$idRider."/1";
+        Http::put($info); 
+
+        $url = json_encode(['ruta'=>$info]);
+
+        // $url = json_encode(['ruta'=>$info]);
+
+        // response()->json(['ruta'=>$response])
+
+        $array_url = json_decode($url, true);
+
+        // Acceder a la URL en el array asociativo
+        $ruta = $array_url['ruta'];
+
+        // Mostrar solo la URL
+
+        $qr = QrCode::generate($ruta);
         
         return $qr;
     }

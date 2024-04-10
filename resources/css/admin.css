@@ -2,3 +2,101 @@ table.table-users{
     --bs-table-bg: transparent;
     --bs-table-color: #fff
 }
+
+select.form-select {
+    padding: 10px;
+    display: grid;
+    width: 20%;
+}
+
+
+
+/* Estilos para el input de tipo date */
+input[type="date"] {
+    /* Cambiar el tamaño del texto */
+    font-size: 16px;
+    /* Cambiar el color del texto */
+    color: #333;
+    /* Cambiar el color de fondo */
+    background-color: #fff;
+    /* Añadir un borde sólido */
+    border: 1px solid #ccc;
+    /* Redondear las esquinas */
+    border-radius: 4px;
+    /* Ajustar el relleno interno */
+    padding: 8px;
+    /* Establecer el ancho máximo */
+    max-width: 100%;
+    /* Hacer que el cursor sea de tipo texto */
+    cursor: text;
+    /* Asegurar que el contenido no se desborde */
+    box-sizing: border-box;
+    /* Hacer que el cursor sea de tipo puntero al pasar el mouse */
+    transition: border-color 0.3s ease;
+}
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #DD052A;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2daf05;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2daf05;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

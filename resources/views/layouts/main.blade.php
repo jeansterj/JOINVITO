@@ -60,6 +60,7 @@
                     @yield('img')
                   @endif
               </ul>
+              @yield('esfera')
           </div>
           <div id="loginRegistroNavbar">
             @if (Auth::check() && (Auth::user()->rol->nombre == 'admin' || Auth::user()->rol->nombre == 'rider' || Auth::user()->rol->nombre == 'centro' || Auth::user()->rol->nombre == 'proveedor'))
@@ -126,6 +127,7 @@
   @endif
   @yield('map')
   <footer class="py-2" id="footer">
+    <hr>
     <p class="footerTitle">JOINVITO</p>
     <p data-translate="ProtecReCaptcha">Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google.
     </br> © 2024 JOINVITO Technologies Inc.</p>
