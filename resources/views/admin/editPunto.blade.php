@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row margin-top text-center">
         <h2>CHANGE INFO</h2>
-        <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
         <div class="bg-secondary section-form">
         <form class="registerForm" action="{{ action([App\Http\Controllers\PuntoController::class, 'update'], ['punto' => $punto->id_punto]) }}" method="POST">
                 @csrf
@@ -30,13 +29,13 @@
                             <label for="inactivo">Fecha inactivo</label>
                             <input type="date" id="inactivo" name="inactivo" value="{{ $punto->fecha_inactivo }}">
                         </div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="Proveedor" {{ $punto->tipo == 'Proveedor' ? 'selected' : '' }}>Proveedor</option>
-                            <option value="Centro" {{ $punto->tipo == 'Centro' ? 'selected' : '' }}>Centro</option>
-                            <option value="Homeless" {{ $punto->tipo == 'Homeless' ? 'selected' : '' }}>Homeless</option>
-                        </select>
-
-
+                        <div class="form-group gird-placeContent">
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="Proveedor" {{ $punto->tipo == 'Proveedor' ? 'selected' : '' }}>Proveedor</option>
+                                <option value="Centro" {{ $punto->tipo == 'Centro' ? 'selected' : '' }}>Centro</option>
+                                <option value="Homeless" {{ $punto->tipo == 'Homeless' ? 'selected' : '' }}>Homeless</option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-light btn_login" name="supplierFrom">SAVE</button>
                     </div>
                 </div>
