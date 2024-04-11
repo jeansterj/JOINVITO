@@ -60,6 +60,7 @@ class PuntoController extends Controller
         $punto->personas=$request->input('cantidad_personas');
         $punto->alta=$request->input('fecha_alta');
         $punto->inactivo=$request->input('fecha_baja');
+        
         $punto->tipo=$request->input('tipo');
         $activo = $request->has('estado');
 
@@ -76,7 +77,7 @@ class PuntoController extends Controller
         } catch (QueryException $ex) {
             $mensaje = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $mensaje);
-            $response = redirect()->action([PuntoController::class, 'edit'])->withInput();
+            $response = redirect()->action([PuntoController::class, 'update'])->withInput();
         }
         
         return $response;
