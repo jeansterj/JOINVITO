@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Punto;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class PuntoController extends Controller
 {
@@ -54,7 +56,31 @@ class PuntoController extends Controller
      */
     public function update(Request $request, Punto $punto)
     {
-        //
+        $punto->direccion=$request->input('direccion');
+        $punto->personas=$request->input('cantidad_personas');
+        $punto->alta=$request->input('fecha_alta');
+        $punto->inactivo=$request->input('fecha_baja');
+        
+        $punto->tipo=$request->input('tipo');
+        $activo = $request->has('estado');
+
+        if ($activo === true) {
+            $punto->estado = 1;
+        } else {
+            $punto->estado= 0;
+        }
+                
+        try {
+            $punto->save();
+            $response = redirect()->action([PuntoController::class,'showPuntos']);
+                           
+        } catch (QueryException $ex) {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([PuntoController::class, 'update'])->withInput();
+        }
+        
+        return $response;
     }
 
     /**

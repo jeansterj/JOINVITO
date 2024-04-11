@@ -12,7 +12,6 @@
         <th scope="col">FECHA ALTA</th>
         <th scope="col">TIPO</th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -24,17 +23,11 @@
             <td>{{ $punto->longitud }}</td>
             <td>{{ $punto->cantidad_personas }}</td>
             <td>{{ $punto->fecha_alta }}</td>
-            <td>{{ $punto->tipo }}</td>
             <td>
               <form class="float-right ml-1" action="{{ action([App\Http\Controllers\PuntoController::class, 'edit'], ['punto' => $punto->id_punto]) }}">
               @csrf
 
                 <button type="submit" class="btn btn-sm btn-light"><i class="fa fa-edit" aria-hidden="true"></i>Edit</button>
-              </form>
-            </td>
-            <td>
-              <form class="float-right ml-1">
-                <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
               </form>
             </td>
           </tr>   
@@ -65,14 +58,7 @@
                              required name="direccion">
                     </div>
                     <div class="form-group gird-placeContent">
-                        <label for="activo">Fecha activo</label>
-                        <input type="date" id="activo" name="activo ">
-                    </div>
-                    <div class="form-group gird-placeContent">
-                        <label for="inactivo">Fecha inactivo</label>
-                        <input type="date" id="inactivo" name="inactivo" >
-                    </div>
-                    <div class="form-group gird-placeContent">
+                      <p>Tipo de punto:</p>
                         <select class="form-select" aria-label="Default select example">
                             <option value="Proveedor">Proveedor</option>
                             <option value="Centro">Centro</option>
