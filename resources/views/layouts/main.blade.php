@@ -162,7 +162,7 @@
     <footer class="py-2" id="footer">
         <hr>
         <p class="footerTitle">JOINVITO</p>
-        <p>Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad
+        <p data-translate="ProtecReCaptcha">Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad
             de Google.
             </br> © 2024 JOINVITO Technologies Inc.</p>
     </footer>
