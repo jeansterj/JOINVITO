@@ -106,6 +106,9 @@
     </nav>
     <div class="content">
         @yield('content')
+        <div class="contentHome">
+            @yield('contentHome')
+        </div>
     </div>
     @if (Auth::check())
         @if (Auth::user()->rol->nombre == 'rider')
