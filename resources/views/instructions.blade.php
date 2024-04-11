@@ -18,7 +18,6 @@
 
                 @switch($rolActivo)
                     @case('rider')
-                        <h1 class="text-white">rider</h1>
                         <img src="" alt="videoInstructionsRider">
                     @break
 
@@ -29,7 +28,6 @@
 
                     @case('proveedor')
                         <img src="" alt="videoInstructionsProvider">
-                        <h1 class="text-white">provider</h1>
                     @break
 
                     @default
@@ -48,9 +46,9 @@
                                     <div class="row">
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold py-2">
-                                                <h2>Step 1</h2>
+                                                <h2>Step 1. Educate yourself</h2>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <p>Before approaching homeless people, take the time to educate yourself about local resources available to them. Investigate local shelters, food banks, and organizations that provide support services. This knowledge will help guide them to the right assistance.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -58,10 +56,26 @@
                                     <div class="ms-2 me-auto py-2">
                                         <div class="row">
                                             <div class="fw-bold">
-                                                <h2>Step 2</h2>
+                                                <h2>Step 2. Show respect</h2>
                                             </div>
-                                            <p>Donec molestie ornare orci tincidunt luctus.</p>
+                                            <p>Treat homeless people with dignity and respect. Avoid making assumptions or judgments about your situation. Remember that homelessness can happen to anyone, and it is essential to address it without prejudice.</p>
                                         </div>
+                                    </div>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-start py-3">
+                                    <div class="ms-2 me-auto py-2">
+                                        <div class="fw-bold">
+                                            <h2>Step 3. Offer assistance</h2>
+                                        </div>
+                                        <p>Start by asking if they need immediate help. It could be as simple as providing a meal, a bottle of water, or warm clothing during the colder months. Be aware of your space and personal boundaries, and always ask before offering any items or help.</p>
+                                    </div>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-start py-3 ">
+                                    <div class="ms-2 me-auto py-2">
+                                        <div class="fw-bold">
+                                            <h2>Step 4. Engage in a conversation</h2>
+                                        </div>
+                                        <p>Start a conversation to show genuine interest in their story and experiences. Ask open-ended questions to encourage them to share their thoughts and feelings. Active listening is crucial during these interactions as it demonstrates empathy and understanding.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -72,9 +86,9 @@
                                     <li class="d-flex justify-content-between align-items-start py-3">
                                         <div class="ms-2 me-auto py-2">
                                             <div class="fw-bold">
-                                                <h2>Step 3</h2>
+                                                <h2>Step 5. Don't judge</h2>
                                             </div>
-                                            <p>Maecenas imperdiet non tellus non ornare. Curabitur aliquet urna et massa iaculis faucibus.</p>
+                                            <p>Avoid making assumptions about the circumstances or decisions that led to their homelessness. Instead, focus on their immediate needs and how you can help them. Remember, everyone's journey is unique and it is not for us to judge.</p>
                                         </div>
                                     </li>
                                 </div>
@@ -82,9 +96,29 @@
                                     <li class="d-flex justify-content-between align-items-start py-3 ">
                                         <div class="ms-2 me-auto py-2">
                                             <div class="fw-bold">
-                                                <h2>Step 4</h2>
+                                                <h2>Step 6. Offer information and resources</h2>
                                             </div>
-                                            <p>Integer varius lacus a condimentum fringilla.</p>
+                                            <p>If the person expresses a desire to seek help, provide information about local shelters, food banks, or support organizations. Offer to make phone calls on their behalf or provide them with contact details they can use later.</p>
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="row">
+                                    <li class="d-flex justify-content-between align-items-start py-3 ">
+                                        <div class="ms-2 me-auto py-2">
+                                            <div class="fw-bold">
+                                                <h2>Step 7. Connect with local organizations</h2>
+                                            </div>
+                                            <p>If you encounter homelessness regularly, consider connecting with local organizations that specialize in homelessness. They can provide guidance on how to approach and help people effectively. Collaborating with these organizations ensures a more comprehensive and sustainable approach.</p>
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="row">
+                                    <li class="d-flex justify-content-between align-items-start py-3 ">
+                                        <div class="ms-2 me-auto py-2">
+                                            <div class="fw-bold">
+                                                <h2>Step 8. Volunteer or Donate</h2>
+                                            </div>
+                                            <p>Consider volunteering your time or donating to local organizations that support the homeless population. By contributing to these initiatives, you can have a broader impact and help address the root causes of homelessness.</p>
                                         </div>
                                     </li>
                                 </div>
