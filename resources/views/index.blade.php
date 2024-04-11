@@ -43,22 +43,41 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 @section('content')
 <div class="landingBody">
     <h2>WAYS TO HELP</h2>
-    <div class="waysToHelp">
-        <span class="navbarWaysHelp">
-            <img src="../public/img/rider_icono.png" alt="">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <img src="../public/img/rider_icon.png" class="img" id="riderIconLanding">
             <h3>Rider</h3>
-            <p class="textHelp">El rider hace tal qual</p>
+            <p class="textHelp">The rider take the food from the suppliers and gives it to the homeless pepole.</p>
+          </div>
+          <div class="col-sm">
+            <img src="../public/img/supplier_icon.png" alt="" class="img">
+            <h3>Supplier</h3>
+            <p class="textHelp">The supplier give food to the rider to help homeless pepole.</p>
+          </div>
+          <div class="col-sm">
+            <img src="../public/img/sCenter_icon.png" alt="" class="img">
+            <h3>S.Center</h3>
+            <p class="textHelp">The social center will be able to use the rider's food to help homeless pepole who are in the social center.</p>
+          </div>
+        </div>
+      </div>
+    <div class="waysToHelp sponsorsDiv">        
+        <span class="navbarWaysHelp sponsors">
+            <img src="../public/img/sponsor-1.png" alt="sponsor-1.png" class="sponsorsImg">
         </span>
-        <span class="navbarWaysHelp">
-            <img src="../public/img/rider_icono.png" alt="">
-            <h3>Rider</h3>
-            <p class="textHelp">El rider hace tal qual</p>
+        <span class="navbarWaysHelp sponsors">
+            <img src="../public/img/sponsor-1.png" alt="sponsor-2.png" class="sponsorsImg">
         </span>
-        <span class="navbarWaysHelp">
-            <img src="../public/img/rider_icono.png" alt="">
-            <h3>Rider</h3>
-            <p class="textHelp">El rider hace tal qual</p>
+        <span class="navbarWaysHelp sponsors">
+            <img src="../public/img/sponsor-1.png" alt="sponsor-1.png" class="sponsorsImg">
         </span>
+    </div>
+    <div class="waysToHelp slogan">
+        <h2>"You are not invisible"</h2>
+        <p class="sloganText">The principal cause for this project is to help all the homeless to have a eat all the days and the same treatment cause we all are humans, we are not better.</p>
+        <p class="phrase">“Humility will open more doors than arrogance ever will”</p>
+        <figcaption class="phrase">- Zig Ziglar -</figcaption>
     </div>
 </div>
 

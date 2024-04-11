@@ -46,18 +46,66 @@
 }
 .landingBody {
   color: white;
+  padding-top: 100px;
+  width: 90%;
   /* font-family: ; */
 }
+.container {
+  padding: 61px !important;
+}
 .waysToHelp {
-  display: flex;
+  /* display: flex;
+  justify-content: center; */
+    margin-bottom: 68px !important;
+    display: flex;
+    justify-content: center;
+}
+.img {
+  width: 120px;
+}
+#riderIconLanding {
+  width: 143px;
 }
 .navbarWaysHelp {
-  padding: 30px;
+  padding: 32px 70px 0 30px;
 }
+/* .textHelp {
+  width: 170px;
+  font-weight: 200;
+  padding-top: 13px;
+    
+} */
 .textHelp {
+  /* width: 170px; */
+  font-weight: 200;
+  padding-top: 13px;
+    
+}
+.sponsorsDiv {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  /* padding-top: 10px; */
+  padding: 16px;
+}
+.sponsors {
+  padding: 0 30px 0 30px !important;
+}
+.sponsorsImg {
+  width: 90px;
+}
+.slogan {
+  flex-direction: column !important;
+}
+.sloganText {
   font-weight: 200;
 }
-
+.phrase {
+  font-weight: 700;
+  font-style: italic;
+}
+p {
+  margin-top: none;
+}
 .modal-header {
     background-color: #FFCA10 ; 
     color: #07203C ; 
@@ -114,8 +162,8 @@ body {
 }
 
 .content {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
 }
 .gird-placeContent{
   padding: 10px;
@@ -296,16 +344,15 @@ button.btn.btn-signup {
 /* Footer */
 
 footer{
-  margin-top: 200px;
+  padding: 10px;
+  /* margin-top: 200px; */
   bottom: 0;
-  /* position: absolute; */
   width: 100%;
   background-color:#07203C;
   font-size: 15px;
   color: #fff;
   text-align: center;
-  /* margin: 10%; */
-}
+  }
 footer p{
   font-size: 13px;
 }
