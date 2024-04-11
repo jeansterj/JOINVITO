@@ -128,6 +128,9 @@
     @endif
   @endif
   @yield('map')
+  <div class="chatbot-icon">
+    <img src="../public/img/chatbot-icon.gif" alt="">
+  </div>
   <footer class="py-2" id="footer">
     <hr>
     <p class="footerTitle">JOINVITO</p>

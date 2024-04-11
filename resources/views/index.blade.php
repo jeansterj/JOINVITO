@@ -43,7 +43,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 @section('content')
 <div class="landingBody">
     <h2>WAYS TO HELP</h2>
-    <div class="container">
+    <div class="container container-2">
         <div class="row">
           <div class="col-sm">
             <img src="../public/img/rider_icon.png" class="img" id="riderIconLanding">
