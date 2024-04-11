@@ -1,3 +1,11 @@
+import { setLanguage, getSelectedLanguage } from './translations.js';
+document.addEventListener ('DOMContentLoaded', function () {
+
+const selectedLanguage = getSelectedLanguage();
+
+setLanguage(selectedLanguage);
+})
+
 
 import axios from "axios";
 let modal_body = document.getElementById('modal_body')

@@ -1,6 +1,12 @@
+import { setLanguage, getSelectedLanguage } from './translations.js';
+
 document.addEventListener('DOMContentLoaded', function() {
+    const selectedLanguage = getSelectedLanguage();
+
+setLanguage(selectedLanguage);
     let scanner = new Instascan.Scanner({
         video: document.getElementById('qr-video')
+        
     });
 
     scanner.addListener('scan', function(content) {

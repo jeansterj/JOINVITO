@@ -1,12 +1,13 @@
+import { setLanguage, getSelectedLanguage } from './translations.js';
 
 document.addEventListener ('DOMContentLoaded', function () {
 
 //    Traducciones
 
 
-// const selectedLanguage = getSelectedLanguage();
+const selectedLanguage = getSelectedLanguage();
 
-// setLanguage(selectedLanguage);
+setLanguage(selectedLanguage);
 
 
 

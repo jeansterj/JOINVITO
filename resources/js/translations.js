@@ -25,8 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function setLanguage(language) {
-    
+
+export function setLanguage(language) {
+    // Guardar el idioma seleccionado en localStorage
+    localStorage.setItem('language', language);
+
     // Cargar las traducciones según el idioma seleccionado
     fetch('translations.json')
         .then(response => response.json())
@@ -41,6 +44,7 @@ function setLanguage(language) {
         .catch(error => console.error('Error loading translations:', error));
 }
 
-function getSelectedLanguage() {
+// Función para obtener el idioma seleccionado
+export function getSelectedLanguage() {
     return localStorage.getItem('language') || 'en'; // Devuelve 'en' como idioma predeterminado si no se ha seleccionado uno
 }
