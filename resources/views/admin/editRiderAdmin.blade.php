@@ -23,6 +23,7 @@
                                 name = "primer_apellido" required value="{{ $rider->primer_apellido}}">
                         </div>
                         <div class="form-group gird-placeContent">
+                            <p>Usuario habilitado</p>
                             <label class="switch">
                                 <input type="checkbox" id="estado" name="estado" {{$rider->usuario->estado== 1 ? 'checked' : '' }}>
                                 <span class="slider round"></span>

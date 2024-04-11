@@ -36,6 +36,13 @@
                                 <input class="form-control" type="number" id="cp" maxlength="50" 
                                     name = "cp" required value="{{ $centro->cp}}">
                             </div>
+                            <div class="form-group gird-placeContent">
+                                <p>Usuario habilitado</p>
+                                <label class="switch">
+                                    <input type="checkbox" id="estado" name="estado" {{$centro->usuario->estado== 1 ? 'checked' : '' }}>
+                                    <span class="slider round"></span>
+                                  </label>
+                            </div>
                             <button type="submit" class="btn btn-light btn_login" name="riderFrom"
                                 value="riderForm">Save</button>
                         </div>

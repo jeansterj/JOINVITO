@@ -47,6 +47,13 @@
                                 <input class="form-control" type="text" id="cp" maxlength="5"
                                     placeholder="09989" required name = "cp" value="{{ $proveedor->cp}}">
                             </div>
+                            <div class="form-group gird-placeContent">
+                                <p>Usuario habilitado</p>
+                                <label class="switch">
+                                    <input type="checkbox" id="estado" name="estado" {{$proveedor->usuario->estado== 1 ? 'checked' : '' }}>
+                                    <span class="slider round"></span>
+                                  </label>
+                            </div>
                             <button type="submit" class="btn btn-light btn_login" name="supplierFrom">SAVE</button>
                         </div>
                     </div>

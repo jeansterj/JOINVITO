@@ -80,11 +80,16 @@ class RiderController extends Controller
 
         $rider->nombre=$request->input('nombre');
         $rider->primer_apellido=$request->input('primer_apellido');
-       
-        $rider->usuario->estado=$request->input('estado')==1;
+        $activo = $request->has('estado');
 
+        if ($activo === true) {
+            $rider->usuario->estado = 1;
+        } else {
+            $rider->usuario->estado= 0;
+        }
         try {
             $rider->save();
+            $rider->usuario->save();
 
             $rol = Auth::user()->id_rol;
             $riderRol = 2;
@@ -104,7 +109,7 @@ class RiderController extends Controller
             $request->session()->flash('error', $mensaje);
             $response = redirect()->action([RiderController::class, 'create'])->withInput();
         }
-
+        
         return $response;
          
     }

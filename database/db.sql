@@ -96,6 +96,7 @@ fecha_baja date,
 puntos int not null,
 tipo enum("Homeless","Centro","Proveedor"),
 id_usu int,
+estado boolean,
 FOREIGN KEY (id_usu) REFERENCES usuarios(id_usu),
 primary key(id_punto)
 );

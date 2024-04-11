@@ -1,3 +1,12 @@
+import { setLanguage, getSelectedLanguage } from './translations.js';
+document.addEventListener ('DOMContentLoaded', function () {
+
+const selectedLanguage = getSelectedLanguage();
+
+setLanguage(selectedLanguage);
+})
+
+
 let btnStart = document.getElementById('btnStart')
 let btnStop = document.getElementById('btnStop')
 

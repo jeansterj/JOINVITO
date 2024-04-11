@@ -161,7 +161,7 @@ body {
   overflow-x: hidden;
 }
 
-.content {
+.contentHome {
   display: flex;
   justify-content: center;
 }

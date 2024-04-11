@@ -89,11 +89,18 @@ class CentroController extends Controller
         $centro->piso=$request->input('piso');
         $centro->ciudad=$request->input('ciudad');
         $centro->cp=$request->input('cp');
+        $activo = $request->has('estado');
 
+        if ($activo === true) {
+            $centro->usuario->estado = 1;
+        } else {
+            $centro->usuario->estado= 0;
+        }
 
         try 
         {
             $centro->save();
+            $centro->usuario->save();
 
             $rol = Auth::user()->id_rol;
             $centerRol = 3;

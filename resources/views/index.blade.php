@@ -40,7 +40,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 <div class="esfera1"></div>
 
 @endsection
-@section('content')
+@section('contentHome')
 <div class="landingBody">
     <h2>WAYS TO HELP</h2>
     <div class="container container-2">

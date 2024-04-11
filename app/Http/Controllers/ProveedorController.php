@@ -70,6 +70,7 @@ class ProveedorController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Proveedor $proveedor)
+    
     {
 
  
@@ -86,10 +87,17 @@ class ProveedorController extends Controller
         // $rol = Auth::user()->id_rol;
         // $providerRol = 4;
         // $adminRol = 1;
+        $activo = $request->has('estado');
 
+        if ($activo === true) {
+            $proveedor->usuario->estado = 1;
+        } else {
+            $proveedor->usuario->estado= 0;
+        }
 
         try {
             $proveedor->save();
+            $proveedor->usuario->save();
 
             $rol = Auth::user()->id_rol;
             $providerRol = 4;
