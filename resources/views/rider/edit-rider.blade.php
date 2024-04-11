@@ -40,9 +40,14 @@
                 <form class="registerForm" action="{{ action([App\Http\Controllers\RiderController::class, 'update'], ['rider' => $rider->id_rider]) }}" method="POST">
                     @csrf
                     @method('PUT')
+                    
                     <input id="" name="" type="hidden" value="{{ $rider->id_rider}}" />
                     <div class="container-fluid" id="medForm">
                         <div class="col">
+                            <div class="form-group gird-placeContent">
+                                <h4>Rider Code</h4>
+                                <h5 class="form-control">{{ $rider->id_rider}}</h5>
+                            </div>
                             <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
                                 <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"
