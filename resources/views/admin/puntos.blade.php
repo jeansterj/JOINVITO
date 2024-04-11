@@ -1,7 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<table class="table table-users container">
+<div class="container puntos">
+    <div id="puntos" style="width: 80%; margin: auto;">
+
+    </div>
+</div>
+{{-- <table class="table table-users container">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -30,10 +35,10 @@
                 <button type="submit" class="btn btn-sm btn-light"><i class="fa fa-edit" aria-hidden="true"></i>Edit</button>
               </form>
             </td>
-          </tr>   
+          </tr>
         @endforeach
     </tbody>
-  </table>  
+  </table>
   <p class="d-inline-flex gap-1">
     <a class="btn btn-light" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">CREAR NUEVA UBICACION</a>
   </p>
@@ -72,5 +77,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
+
 @endsection
