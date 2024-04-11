@@ -12,14 +12,6 @@ setLanguage(selectedLanguage);
     scanner.addListener('scan', function(content) {
         // Envía el contenido al servidor para procesarlo (puedes usar AJAX).
         // Aquí se asume que el servidor está esperando una ruta POST '/camera'.
-        // fetch('/JOINVITO/public/camera', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        //     },
-        //     body: JSON.stringify({ content: content }) 
-        // })
         console.log(content);
         then(response => {
                 if (!response.ok) {
@@ -27,13 +19,6 @@ setLanguage(selectedLanguage);
                 }
                 return response.json()
             })
-            // .then(data => {
-            //     // Puedes manejar la respuesta del servidor según tus necesidades.
-            //     console.log(data);
-            //     if (data.success) {
-            //     console.log('Escaneo exitoso. Contenido del código QR:', data.content);
-            // }
-            // })
             .catch(error => console.error('Error:', error));
     });
 
@@ -41,7 +26,6 @@ setLanguage(selectedLanguage);
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
                 scanner.start(cameras[0]);
-                // console.log('scan2');
             } else {
                 console.error('No se encontraron cámaras.');
             }

@@ -17,9 +17,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js'])
 </head>
 
 <body class="bg-primary">
@@ -162,6 +164,27 @@
         @endif
     @endif
     @yield('map')
+        <div class="chatbot-icon" data-toggle="modal" data-target="#chat">
+            <img src="../public/img/chatbot-icon.gif" alt="" id="chatbot-icon">
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Contenido del Modal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                  <!-- Aquí se mostrará el contenido del modal -->
+                </div>
+              </div>
+            </div>
+        </div>
+          
+    </div>
+    {{-- </div> --}}
     <footer class="py-2" id="footer">
         <hr>
         <p class="footerTitle">JOINVITO</p>
