@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function setLanguage(language) {
-    localStorage.setItem('language', language);
     
     // Cargar las traducciones según el idioma seleccionado
     fetch('translations.json')

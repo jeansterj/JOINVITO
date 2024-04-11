@@ -1,4 +1,3 @@
-// import { setLanguage, getSelectedLanguage } from './translations.js';
 
 document.addEventListener ('DOMContentLoaded', function () {
 

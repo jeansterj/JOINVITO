@@ -3,7 +3,7 @@
     Register Supplier - JoInvito
 @endsection
 @section('prueba')
-'resources/js/login.js'
+    'resources/js/login.js'
 @endsection
 
 @section('content')
@@ -224,6 +224,6 @@
             </div>
         </div>
     </div>
-    
+
     <script src="../resources/js/carrouselMovement.js"></script>
 @endsection
