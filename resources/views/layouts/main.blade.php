@@ -29,6 +29,7 @@
             @if (Auth::check())
                 {{-- <a href="{{url('login')}}"> --}}
                 <meta name="userId" content="{{ Auth::user()->id_usu }}">
+                <meta name="userType" content="{{ Auth::user()->rol->nombre }}">
                 <button class="navbar-toggler userButton" type="button" data-bs-toggle="collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                     href="{{ url('login') }}">

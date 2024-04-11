@@ -10,22 +10,32 @@ use App\Http\Resources\ChartResource;
 
 class ChartController extends Controller
 {
-    public function barChart($userId)
+    public function barChart($userType, $userId,$year)
     {
 
-        // $entregas = Pedido::with('entregas')->where('id_rider',$userId)->get();
-        // $entregas = Pedido::with('entregas')
-        //                 ->selectRaw('MONTH(fecha) AS mes,YEAR(fecha) AS anyo, COUNT(*) AS total_entregas')
-        //                 ->where('id_rider', $userId)
-        //                 ->groupByRaw('YEAR(fecha), MONTH(fecha)')
-        //                 ->get();
-        
-        // Replace this with your actual data retrieval logic
-        $data = [
-            'labels' => ['January', 'February', 'March', 'April', 'May'],
-            'data' => [65, 59, 80, 81, 56],
-        ];
+        $userType == 'proveedor' ? $userType = 'id_provider' : $userType = 'id_rider';
 
+        // $entregas = Pedido::with('entregas')->where('id_rider',$userId)->get();
+        $entregas = Pedido::selectRaw('MONTH(STR_TO_DATE(fecha, "%Y-%m-%d")) AS mes, COUNT(*) AS total_entregas')
+                            ->where($userType, $userId)
+                            ->whereYear('fecha', $year)
+                            ->groupByRaw('MONTH(STR_TO_DATE(fecha, "%Y-%m-%d"))')
+                            ->get();
+
+        $items = Array();
+
+        $data['labels'] = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        
+
+        $items = Array();
+        
+        foreach ($entregas as $entrega) {
+            array_push($items,$entrega->total_entregas);
+        }
+
+        $data['data'] = $items;
+
+        // return $data;
         return ChartResource::collection($data);
     }
 }

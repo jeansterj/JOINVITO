@@ -19,13 +19,15 @@ export default {
                 labels: [],
                 datasets: [ 
                     { 
+                        label: 'Deliveries',
                         data: [],
                         backgroundColor: ['#FFCA10'] 
                     } 
                 ],
             },
             chartOptions: {
-                responsive: true
+                responsive: true,
+                maintainAspectRatio: false,
             },
             isLoading:true
         }
@@ -38,8 +40,14 @@ export default {
 
             const me = this
             const userId = document.querySelector('meta[name="userId"]').content
+            const userType = document.querySelector('meta[name="userType"]').content
+            
+            let fechaActual = new Date();
+
+            // Obtener el año actual
+            let anyoActual = fechaActual.getFullYear();
             axios
-                .get(`bar-chart/${userId}`)
+                .get(`bar-chart/${userType}/${userId}/${anyoActual}`)
                 .then(response => {
                     
                     me.chartData.labels = response.data.labels;
@@ -59,36 +67,9 @@ export default {
 };
 </script>
 <style>
-.flex {
-    display: flex;
+
+.stats{
+    margin-bottom: 150px;
 }
 
-.btnmenus {
-    border: 1px;
-}
-
-img.imageMenus {
-    width: 35px !important;
-}
-
-button.btnDelete {
-    border: 1px #a01010 solid !important;
-    background-color: #a01010;
-}
-
-button.btnEdit {
-    background-color: #07203C;
-}
-
-button.btnEdit:hover {
-    background-color: #07203C;
-}
-
-button.btnDelete:hover {
-    background-color: #a01010;
-}
-
-button.btn {
-    width: 90% !important;
-}
 </style>

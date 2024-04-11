@@ -73,6 +73,10 @@ Route::middleware(['auth'])->group(function () {
         return view('rider.statsRider');
     });
 
+    Route::get('statsProvider', function () {
+        return view('provider.statsProvider');
+    });
+
     // Route::get('edit-rider', function () {
     //     return view('rider.edit-rider');
     // });

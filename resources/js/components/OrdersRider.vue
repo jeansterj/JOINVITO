@@ -67,15 +67,6 @@ export default {
                 .get(`orders/rider/${riderId}`)
                 .then(response => {
 
-                    console.log(response.data)
-
-                    // let totalOrdersAvailable = 0;
-                    // response.data.forEach(element => {
-                    //     totalOrdersAvailable += element.cantidad_packs
-                    //     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
-                    // });
-
-
                     me.orders = response.data;
                     me.orders.length > 0 ? me.empty = false : me.empty = true;
                 })

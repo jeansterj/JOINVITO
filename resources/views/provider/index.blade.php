@@ -34,7 +34,7 @@
             </div>
             <div class="col">
                 <h3>STATISTICS</h3>
-                <a href="{{ url('') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ url('statsProvider') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
             </div>
         </div>
     </div>

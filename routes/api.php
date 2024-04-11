@@ -44,6 +44,6 @@ Route::apiResource('qrCode', QrCodeController::class);
 Route::put('pedidos/{id_rider}/{id_provider}', [RiderController::class,'markAsCollected']);
 Route::apiResource('menu', MenuController::class);
 
-Route::get('bar-chart/{userId}', [ChartController::class, 'barChart']);
+Route::get('bar-chart/{userType}/{userId}/{year}', [ChartController::class, 'barChart']);
 
 
