@@ -19,7 +19,9 @@
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <script src="https://mediafiles.botpress.cloud/e2ad7870-c28f-4c3e-8ab8-86109bc93443/webchat/config.js" defer></script>
-    
+
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
@@ -163,28 +165,8 @@
             </div>
         @endif
     @endif
-    @yield('map')
-        <div class="chatbot-icon" data-toggle="modal" data-target="#chat">
-            <img src="../public/img/chatbot-icon.gif" alt="" id="chatbot-icon">
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Contenido del Modal</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body" id="modalContent">
-                  <!-- Aquí se mostrará el contenido del modal -->
-                </div>
-              </div>
-            </div>
-        </div>
-          
+    @yield('map')          
     </div>
-    {{-- </div> --}}
     <footer class="py-2" id="footer">
         <hr>
         <p class="footerTitle">JOINVITO</p>
@@ -192,24 +174,7 @@
             de Google.
             </br> © 2024 JOINVITO Technologies Inc.</p>
     </footer>
-    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-    {{-- <script>
-      window.botpressWebChat.init({
-          "composerPlaceholder": "Chat with bot",
-          "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
-          "botId": "e2ad7870-c28f-4c3e-8ab8-86109bc93443",
-          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-          "messagingUrl": "https://messaging.botpress.cloud",
-          "clientId": "e2ad7870-c28f-4c3e-8ab8-86109bc93443",
-          "webhookId": "ef3f482a-83ab-46ca-b09a-f9cbb9dd3c48",
-          "lazySocket": true,
-          "themeName": "prism",
-          "frontendVersion": "v1",
-          "showPoweredBy": true,
-          "theme": "prism",
-          "themeColor": "#2563eb"
-      });
-    </script> --}}
+    
 </body>
 
 </html>

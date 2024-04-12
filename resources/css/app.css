@@ -217,15 +217,24 @@ body {
     margin-right: 20px;
 }
 nav.navbar.navbar-expand-lg {
-    margin-bottom: 30px;
     border-radius: 0 0 35px 35px;
 }
+
+div#register {
+  padding-top: 50px;
+}
+
+div#loginDiv {
+  margin-top: 50px;
+}
+
 .container-fluid {
     display: flex;
     color: white;
     text-align: center;
   }
 
+    
   .cuadroTitulo.logo {
     margin-bottom: auto;
   }
@@ -315,6 +324,7 @@ div#navbarSupportedContent .navbar-nav li:hover{
 
 #loginRegistroNavbar .nav-link{
   display: inline;
+  padding: .5rem 1rem;
 }
 
 #loginRegistroNavbar .nav-link:hover{
@@ -439,6 +449,7 @@ footer p{
 }
 
 .flotante.container.text-center {
+  z-index: 1;
   border-radius: 25px 25px 0 0;
 }
 

@@ -64,13 +64,13 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
       </div>
     <div class="waysToHelp sponsorsDiv">        
         <span class="navbarWaysHelp sponsors">
-            <img src="../public/img/sponsor-1.png" alt="sponsor-1.png" class="sponsorsImg">
+            <img src="../public/img/honest_greens_icon.jpg" alt="sponsor-1.png" class="sponsorsImg">
         </span>
         <span class="navbarWaysHelp sponsors">
             <img src="../public/img/sponsor-1.png" alt="sponsor-2.png" class="sponsorsImg">
         </span>
         <span class="navbarWaysHelp sponsors">
-            <img src="../public/img/sponsor-1.png" alt="sponsor-1.png" class="sponsorsImg">
+            <img src="../public/img/can_pizza.png" alt="sponsor-3.png" class="sponsorsImg">
         </span>
     </div>
     <div class="waysToHelp slogan">
