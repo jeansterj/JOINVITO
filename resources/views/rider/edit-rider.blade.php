@@ -33,14 +33,13 @@
 
 @section('content')
     <div class="container">
-        <div class="row margin-top text-center">
+        <div class="row margin-top text-center editRiderInfo">
             <h2>CHANGE INFO RIDER</h2>
             <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
             <div class="bg-secondary section-form">
                 <form class="registerForm" action="{{ action([App\Http\Controllers\RiderController::class, 'update'], ['rider' => $rider->id_rider]) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    
                     <input id="" name="" type="hidden" value="{{ $rider->id_rider}}" />
                     <div class="container-fluid" id="medForm">
                         <div class="col">
@@ -53,7 +52,6 @@
                                 <input class="form-control" type="email" id="email" maxlength="50" placeholder="Jon"
                                     name = "email" required value="{{ $rider->usuario->email}}">
                             </div>
-
                             <div class="form-group gird-placeContent">
                                 <label for="pass_usu">Contraseña</label>
                                 <input class="form-control" type="text" id="pass_usu" maxlength="50" placeholder="Jon"
@@ -76,7 +74,5 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 @endsection
