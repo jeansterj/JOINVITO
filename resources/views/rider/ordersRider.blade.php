@@ -57,7 +57,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="modal_body">
+                    <div class="modal-body" id="modal_body_qr">
                         {{-- {{ App\Http\Controllers\QrCodeController::show() }} --}}
                     </div>
                     <div class="modal-footer">

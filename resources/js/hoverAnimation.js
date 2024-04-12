@@ -1,7 +1,7 @@
 var leng
+// let dropdown = document.getElementById('dropdown')
 document.onclick = function (event) {
     let target = event.target
-    console.log(target.id);
     if (target.id === 'sp' || target.id === 'cat' || target.id === 'eng'  ) {
         leng = target.id
         let flags = document.getElementsByClassName('flags')

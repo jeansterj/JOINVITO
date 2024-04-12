@@ -91,6 +91,9 @@
 }
 
 /* DropDown */
+#dropdown:hover {
+  cursor: pointer;
+}
 .dropdownText {
   padding: 0;
   margin: 0;
