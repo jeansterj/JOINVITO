@@ -49,6 +49,17 @@
                                 <h5 class="form-control">{{ $rider->id_rider}}</h5>
                             </div>
                             <div class="form-group gird-placeContent">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" id="email" maxlength="50" placeholder="Jon"
+                                    name = "email" required value="{{ $rider->usuario->email}}">
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="pass_usu">Contraseña</label>
+                                <input class="form-control" type="text" id="pass_usu" maxlength="50" placeholder="Jon"
+                                    name = "pass_usu" required value="{{  $rider->usuario->pass_usu}}">
+                            </div>
+                            <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
                                 <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"
                                     name = "nombre" required value="{{ $rider->nombre}}">

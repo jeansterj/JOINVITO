@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row margin-top text-center">
             <h2>CHANGE INFO</h2>
-            <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="">
+            <img class="rider-logo" src="{{ asset('img/riderIcono.svg') }}" alt="proveedor-logo">
             <div class="bg-secondary section-form">
                 <form class="registerForm" action="{{ action([App\Http\Controllers\ProveedorController::class, 'update'], ['proveedor' => $proveedor->id_prov]) }}" method="POST">
                     @csrf
@@ -12,6 +12,17 @@
                     <input id="id_prov" name="" type="hidden" value="{{ $proveedor->id_prov}}" />
                     <div class="container-fluid" id="medForm">
                         <div class="col">
+                            <div class="form-group gird-placeContent">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" id="email" maxlength="50" placeholder="Jon"
+                                    name = "email" required value="{{ $proveedor->usuario->email}}">
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="pass_usu">Contraseña</label>
+                                <input class="form-control" type="text" id="pass_usu" maxlength="50" placeholder="Jon"
+                                    name = "pass_usu" required value="{{  $proveedor->usuario->pass_usu}}">
+                            </div>
                             <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
                                 <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"

@@ -13,6 +13,17 @@
                     <div class="container-fluid" id="medForm">
                         <div class="col">
                             <div class="form-group gird-placeContent">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" id="email" maxlength="50" placeholder="Jon"
+                                    name = "email" required value="{{ $proveedor->usuario->email}}">
+                            </div>
+
+                            <div class="form-group gird-placeContent">
+                                <label for="pass_usu">Contraseña</label>
+                                <input class="form-control" type="text" id="pass_usu" maxlength="50" placeholder="Jon"
+                                    name = "pass_usu" required value="{{  $proveedor->usuario->pass_usu}}">
+                            </div>
+                            <div class="form-group gird-placeContent">
                                 <label for="nombre">Name</label>
                                 <input class="form-control" type="text" id="nombre" maxlength="50" placeholder="Jon"
                                     name = "nombre" required value="{{ $proveedor->nombre}}">
