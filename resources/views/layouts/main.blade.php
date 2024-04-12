@@ -107,10 +107,10 @@
                                 alt="">Login</button></a>
                 @endif
             </div>
-            <div class="dropdown">
+            <div class="dropdown" >
                 <input type="checkbox" id="dropdown">
               
-                <label class="dropdown__face" for="dropdown">
+                <label class="dropdown__face" for="dropdown" id="dropdown" >
                     <p class="dropdownText">Lang</p>
                   <div class="dropdown__arrow"></div>
                 </label>
@@ -121,7 +121,7 @@
                     <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a>
                 </ul>
               </div>
-              <svg>
+              <svg id="svg">
                 <filter id="goo">
                   <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
                   <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
