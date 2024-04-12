@@ -191,10 +191,14 @@ img.rider-logo{
     border-radius: 25px;
 }
 
-.rider-home{
-
+.container.rider-home {
+    margin-bottom: 75px;
 }
 
 .rider-home .row{
     padding-bottom: 30px;
+}
+
+.editRiderInfo{
+    margin-bottom: 95px;
 }

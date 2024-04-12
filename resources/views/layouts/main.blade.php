@@ -47,9 +47,9 @@
             <div class="logo">
                 <a href="{{ url('/') }}"><img src="{{ asset('img/JoInvitoLogo.svg') }}" alt=""></a>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Toggle navigation" >
                 <img src="{{ asset('img/menuCorto.svg') }}" alt=""></button>
 
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
@@ -107,9 +107,30 @@
                                 alt="">Login</button></a>
                 @endif
             </div>
-            <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a>
-            <a href="#" id="catLink" class="text-secondary"><img src="../public/img/flag-cat-icon.png" alt="" class="flags" id="cat"></a>
-            <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a>
+            <div class="dropdown" >
+                <input type="checkbox" id="dropdown">
+              
+                <label class="dropdown__face" for="dropdown" id="dropdown" >
+                    <p class="dropdownText">Lang</p>
+                  <div class="dropdown__arrow"></div>
+                </label>
+              
+                <ul class="dropdown__items">
+                    <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a> 
+                    <a href="#" id="catLink" class="text-secondary"><img src="../public/img/flag-cat-icon.png" alt="" class="flags" id="cat"></a>
+                    <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a>
+                </ul>
+              </div>
+              <svg id="svg">
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+              </svg>
+            {{-- <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a> --}}
+            {{-- <a href="#" id="catLink" class="text-secondary"><img src="../public/img/flag-cat-icon.png" alt="" class="flags" id="cat"></a> --}}
+            {{-- <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a> --}}
         </div>
     </nav>
     <div class="content">

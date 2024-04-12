@@ -536,6 +536,7 @@ export default {
 <style>
 
 .chartRiderMap{
+    margin-bottom: 95px;
     margin-top: 50px;
     border-radius: 20px;
     padding: 0px;

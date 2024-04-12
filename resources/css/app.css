@@ -83,12 +83,27 @@
 .img {
   width: 120px;
 }
-.flags {
-  padding: 17px;
-  width: 80px;
-  filter: grayscale();
-  /* filter: ; */
+#sp {
+  filter: none;
 }
+.flags {
+  transform: scale(1.2);
+  padding: 10px 13px 10px 0;
+  width: 54px;
+  filter: grayscale();
+  /* transform: 0.5s; */
+}
+
+/* DropDown */
+#dropdown:hover {
+  cursor: pointer;
+}
+.dropdownText {
+  padding: 0;
+  margin: 0;
+  margin-left: -16px;
+}
+
 #riderIconLanding {
   width: 143px;
 }
@@ -325,7 +340,9 @@ div#navbarSupportedContent .navbar-nav li:hover{
 }
 
 #loginRegistroNavbar{
-    padding-top: 15px;
+    position: relative;
+    right: 58px;
+    /* padding-top: 15px; */
 }
 
 #loginRegistroNavbar .nav-link{
@@ -490,4 +507,8 @@ width: 70%;
 }
 .loading span {
   display: none;
+}
+
+.instructionsMargin{
+  margin-bottom: 95px; ;
 }

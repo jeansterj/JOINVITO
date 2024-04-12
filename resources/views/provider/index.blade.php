@@ -20,21 +20,21 @@
         <div class="row">
             <div class="col">
                 <h3>CREATE</h3>
-                <a href="{{ url('menu/create')}}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ url('menu/create')}}"> <img src="{{ asset('img/crearMenuCruzado.svg') }}" alt=""></a>
             </div>
             <div class="col">
                 <h3>LIST</h3>
-                <a href="{{ url('menusList') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+                <a href="{{ url('menusList') }}"> <img src="{{ asset('img/list.svg') }}" alt=""></a>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-3">
             <div class="col">
                 <h3>ORDERS</h3>
-                <a href="{{ url('orders') }}"> <img src="{{ asset('img/riderStasImg.svg') }}" alt=""></a>
+                <a href="{{ url('orders') }}"> <img src="{{ asset('img/orders.svg') }}" alt=""></a>
             </div>
             <div class="col">
                 <h3>STATISTICS</h3>
-                <a href="{{ url('statsProvider') }}"> <img src="{{ asset('img/riderInfo.svg') }}" alt=""></a>
+                <a href="{{ url('statsProvider') }}"> <img src="{{ asset('img/stast.svg') }}" alt=""></a>
             </div>
         </div>
     </div>

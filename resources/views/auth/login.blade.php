@@ -147,12 +147,12 @@
                             <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="emailR">Email</label>
-                                    <input class="form-control" type="text" id="emailR" maxlength="50"
-                                        placeholder="Jon@gmail.com" name = "email" required>
+                                    <input class="form-control" type="email" id="emailR" maxlength="50"
+                                        placeholder="Jon@gmail.com" name="email" required>
                                 </div>
                                 <div class="form-group gird-placeContent">
                                     <label for="passwdR">Password</label>
-                                    <input class="form-control" type="text" id="passwdR" maxlength="50"
+                                    <input class="form-control" type="password" id="passwdR" maxlength="50"
                                         placeholder="*****" name = "passwd" required>
                                 </div>
                                 <div class="form-group gird-placeContent">

@@ -32,7 +32,8 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
-Route::post('/login', [UsuarioController::class,'login']);
+// 'login'
+Route::post('/login', [UsuarioController::class, 'login']);
 Route::get('/register', function () { return view('register.index'); });
 
 Route::get('/camera', function () {

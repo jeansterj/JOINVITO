@@ -5,7 +5,7 @@
     <div class="d-flex align-items-center justify-content-center py-2"><img src="{{ asset('img/instructionIconCircle.svg') }}"
             alt=""></div>
 
-    <div class="container text-center">
+    <div class="container text-center instructionsMargin">
         <div class="row align-items-start">
             <div class="col">
                 <div class="bg-light buttonOrder text-center widthOptions my-2">
