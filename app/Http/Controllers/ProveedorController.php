@@ -72,7 +72,7 @@ class ProveedorController extends Controller
     public function update(Request $request, Proveedor $proveedor)
     
     {
-        $usuario = Usuario::find($centro->id_centro);
+        $usuario = Usuario::find($proveedor->id_prov);
         $usuario->email = $request->input('email');
         $usuario->pass_usu = $request->input('pass_usu');
  
