@@ -154,12 +154,8 @@
         @if (Auth::user()->rol->nombre == 'admin')
             <div class="flotante container text-center" id="floatingMenu">
                 <div class="row">
-                    <div class="col"><a class="nav-link" href="{{ url('addLocation') }}"
-                            aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
+                    <div class="col"><a class="nav-link" href="{{ url('/admin') }}" aria-expanded="false"><img
                                 src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('edit-center') }}"
-                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
                 </div>
             </div>
         @endif

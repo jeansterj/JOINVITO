@@ -100,3 +100,12 @@ input[type="date"] {
   .slider.round:before {
     border-radius: 50%;
   }
+
+  .adminImage{
+   
+    height: 100px;
+  }
+
+  .adminHome .adminTop{
+    margin-top: 50px!important;
+  }
