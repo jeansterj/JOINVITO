@@ -217,9 +217,17 @@ body {
     margin-right: 20px;
 }
 nav.navbar.navbar-expand-lg {
-    margin-bottom: 30px;
     border-radius: 0 0 35px 35px;
 }
+
+div#register {
+  padding-top: 50px;
+}
+
+div#loginDiv {
+  margin-top: 50px;
+}
+
 .container-fluid {
     display: flex;
     color: white;
@@ -316,6 +324,7 @@ div#navbarSupportedContent .navbar-nav li:hover{
 
 #loginRegistroNavbar .nav-link{
   display: inline;
+  padding: .5rem 1rem;
 }
 
 #loginRegistroNavbar .nav-link:hover{
