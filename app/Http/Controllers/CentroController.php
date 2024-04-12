@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Centro;
+use App\Models\Usuario;
 use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,7 +84,11 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
-        
+
+        $usuario = Usuario::find($centro->id_centro);
+        $usuario->email = $request->input('email');
+        $usuario->pass_usu = $request->input('pass_usu');
+
         $centro->nombre=$request->input('nombre');
         $centro->direccion=$request->input('direccion');
         $centro->piso=$request->input('piso');
@@ -99,6 +104,7 @@ class CentroController extends Controller
 
         try 
         {
+            $usuario->save();
             $centro->save();
             $centro->usuario->save();
 
