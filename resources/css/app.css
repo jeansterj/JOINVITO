@@ -83,6 +83,12 @@
 .img {
   width: 120px;
 }
+.flags {
+  padding: 17px;
+  width: 80px;
+  filter: grayscale();
+  /* filter: ; */
+}
 #riderIconLanding {
   width: 143px;
 }

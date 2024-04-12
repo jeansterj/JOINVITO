@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js'])
 </head>
 
 <body class="bg-primary">
@@ -107,9 +107,9 @@
                                 alt="">Login</button></a>
                 @endif
             </div>
-            <a href="#" id="esLink" class="text-secondary">ES/</a>
-            <a href="#" id="catLink" class="text-secondary">CAT/</a>
-            <a href="#" id="engLink" class="text-secondary">ENG</a>
+            <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a>
+            <a href="#" id="catLink" class="text-secondary"><img src="../public/img/flag-cat-icon.png" alt="" class="flags" id="cat"></a>
+            <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a>
         </div>
     </nav>
     <div class="content">
