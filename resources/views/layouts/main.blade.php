@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/e2ad7870-c28f-4c3e-8ab8-86109bc93443/webchat/config.js" defer></script>
+<script src="https://mediafiles.botpress.cloud/e2ad7870-c28f-4c3e-8ab8-86109bc93443/webchat/config.js" defer></script>
     
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
