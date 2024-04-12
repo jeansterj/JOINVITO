@@ -83,11 +83,15 @@
 .img {
   width: 120px;
 }
+#sp {
+  filter: none;
+}
 .flags {
   transform: scale(1.2);
   padding: 10px 13px 10px 0;
   width: 54px;
   filter: grayscale();
+  /* transform: 0.5s; */
 }
 
 /* DropDown */
