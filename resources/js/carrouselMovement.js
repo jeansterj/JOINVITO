@@ -1,10 +1,10 @@
-import { setLanguage, getSelectedLanguage } from './translations.js';
-document.addEventListener ('DOMContentLoaded', function () {
+// import { setLanguage, getSelectedLanguage } from './translations.js';
+// document.addEventListener ('DOMContentLoaded', function () {
 
-const selectedLanguage = getSelectedLanguage();
+// const selectedLanguage = getSelectedLanguage();
 
-setLanguage(selectedLanguage);
-})
+// setLanguage(selectedLanguage);
+// })
 
 
 /** 1. Attr */
