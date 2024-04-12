@@ -74,7 +74,22 @@ class PuntoController extends Controller
      */
     public function update(Request $request, Punto $punto)
     {
-        //
+
+        $punto->direccion = $request->direccion;
+        $punto->latitud = $request->latitud;
+        $punto->longitud = $request->longitud;
+        $punto->cantidad_personas = $request->cantidad_personas;
+        $punto->tipo = $request->tipo;
+        $punto->estado = $request->estado;
+
+        try 
+        {
+            $punto->save();
+        } catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+        }
     }
 
     /**

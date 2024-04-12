@@ -145,22 +145,6 @@ export default {
             this.myModal = new bootstrap.Modal('#updateModal')
             this.myModal.show();
         },
-        // Guardar por Menu
-        // editMenu() {
-        //     const me = this;
-        //     axios
-        //     .put(`menu/${me.menu.id_menu}`, me.menu)
-
-        //         .then(response => {
-        //             me.myModal.hide();
-        //         })
-        //         .catch(error => {
-        //             this.error = true;
-        //             me.mensajeError = error.response.data.error
-        //         });
-
-
-        // },
         updateMenu(menu) {
             const existingUpdate = this.pendingUpdates.find(item => item.id_menu === menu.id_menu);
             if (existingUpdate) {

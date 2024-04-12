@@ -72,7 +72,7 @@ export default {
 
                     let totalOrdersAvailable = 0;
                     response.data.forEach(element => {
-                        if(element.entregado_a_rider){
+                        if(!element.entregado_a_rider){
                             totalOrdersAvailable += element.cantidad_packs
                         }
                     });
@@ -410,7 +410,7 @@ export default {
                 subtitle.setAttribute('data-personas',feature.cantidad_personas)
                 subtitle.setAttribute('class','subtitle')
 
-                imgSubtitle.setAttribute('src','http://localhost/joinvito/public/img/help.png');
+                imgSubtitle.setAttribute('src','http://localhost:8080/joinvito/public/img/help.png');
                 imgSubtitle.setAttribute('class','imgSubtitle')
                 group.appendChild(subtitle);
                 group.appendChild(imgSubtitle);
