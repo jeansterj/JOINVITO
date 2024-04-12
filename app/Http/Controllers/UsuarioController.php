@@ -61,7 +61,8 @@ class UsuarioController extends Controller
         // $riderRol = 2;
         // $centerRol = 3;
         // $supplierRol = 4;
-
+        var_dump('hola');
+        die();
         // try {
         $user = new Usuario();
 
@@ -223,5 +224,77 @@ class UsuarioController extends Controller
 
         return view('admin.users', compact('usuarios'));
         
+    }
+
+    public function store2() {
+           // Value of bd.
+        // $riderRol = 2;
+        // $centerRol = 3;
+        // $supplierRol = 4;
+        var_dump('hola');
+        die();
+        // try {
+        $user = new Usuario();
+
+        $user->email = $request->email;
+        $user->pass_usu = bcrypt($request->passwd);
+        $user->id_rol = $request->rol;
+        $user->estado = true;
+
+        $user->save();
+
+        $userData = Usuario::where('email','=',$request->email)->first();
+
+
+        if (isset($request->sCenterForm)) {
+            $choosedUser = new Centro();
+
+            $choosedUser->id_centro = $userData->id_usu;
+            $choosedUser->direccion = $request->address;
+            $choosedUser->piso = $request->input('floor', null);
+            $choosedUser->ciudad = $request->city;
+            $choosedUser->cp = $request->cp;
+
+            $response = redirect()->action([CentroController::class,'showCentro']);
+
+        } else if (isset($request->riderForm)){
+            $choosedUser = new Rider();
+
+            $choosedUser->id_rider = $userData->id_usu;
+            $choosedUser->primer_apellido = $request->lastName;
+            
+            //respuesta
+            $response = redirect()->action([RiderController::class,'showRiders']);
+
+
+        } else  {
+
+            $choosedUser = new Proveedor();
+
+            $choosedUser->id_prov = $userData->id_usu;
+            $choosedUser->primer_apellido = $request->lastName;
+            $choosedUser->nombre_negocio = $request->surname;
+            $choosedUser->direccion = $request->address;
+            $choosedUser->piso = $request->input('floor', null);
+            $choosedUser->ciudad = $request->city;
+            $choosedUser->cp = $request->cp;
+
+            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+
+        }
+
+            $choosedUser->nombre = $request->name;
+
+        try {
+            $choosedUser->save();
+            $rol = $userData->id_rol;
+        
+            $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+        } catch (QueryException $ex) {
+            $mensaje = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $mensaje);
+            $response = redirect()->action([UsuarioController::class, 'index'])->withInput();
+        }
+        return $response;
     }
 }

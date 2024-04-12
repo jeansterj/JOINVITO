@@ -7,6 +7,6 @@
 @endsection
 @section('img')
     <div class="navbarBody">
-        <img src="../public/img/helpAsVoluntier.png" alt="helpAsVoluntier.png" id="helpAsVoluntier">
+        {{-- <img src="../public/img/helpAsVoluntier.png" alt="helpAsVoluntier.png" id="helpAsVoluntier"> --}}
     </div>
 @endsection 
