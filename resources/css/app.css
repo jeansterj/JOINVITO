@@ -226,6 +226,7 @@ nav.navbar.navbar-expand-lg {
     text-align: center;
   }
 
+    
   .cuadroTitulo.logo {
     margin-bottom: auto;
   }
@@ -439,6 +440,7 @@ footer p{
 }
 
 .flotante.container.text-center {
+  z-index: 1;
   border-radius: 25px 25px 0 0;
 }
 
