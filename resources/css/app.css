@@ -84,11 +84,19 @@
   width: 120px;
 }
 .flags {
-  padding: 17px;
-  width: 80px;
+  transform: scale(1.2);
+  padding: 10px 13px 10px 0;
+  width: 54px;
   filter: grayscale();
-  /* filter: ; */
 }
+
+/* DropDown */
+.dropdownText {
+  padding: 0;
+  margin: 0;
+  margin-left: -16px;
+}
+
 #riderIconLanding {
   width: 143px;
 }
@@ -325,7 +333,9 @@ div#navbarSupportedContent .navbar-nav li:hover{
 }
 
 #loginRegistroNavbar{
-    padding-top: 15px;
+    position: relative;
+    right: 58px;
+    /* padding-top: 15px; */
 }
 
 #loginRegistroNavbar .nav-link{
