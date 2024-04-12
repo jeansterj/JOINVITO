@@ -501,3 +501,7 @@ width: 70%;
 .loading span {
   display: none;
 }
+
+.instructionsMargin{
+  margin-bottom: 95px; ;
+}

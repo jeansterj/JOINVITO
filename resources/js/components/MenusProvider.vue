@@ -254,4 +254,8 @@ button.btn {
         align-self: center;
 
 }
+
+.card.de {
+    margin-bottom: 95px;
+}
 </style>
