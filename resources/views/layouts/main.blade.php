@@ -17,6 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/e2ad7870-c28f-4c3e-8ab8-86109bc93443/webchat/config.js" defer></script>
+    
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
@@ -193,7 +196,24 @@
             de Google.
             </br> © 2024 JOINVITO Technologies Inc.</p>
     </footer>
-
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    {{-- <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Chat with bot",
+          "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+          "botId": "e2ad7870-c28f-4c3e-8ab8-86109bc93443",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "e2ad7870-c28f-4c3e-8ab8-86109bc93443",
+          "webhookId": "ef3f482a-83ab-46ca-b09a-f9cbb9dd3c48",
+          "lazySocket": true,
+          "themeName": "prism",
+          "frontendVersion": "v1",
+          "showPoweredBy": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script> --}}
 </body>
 
 </html>
