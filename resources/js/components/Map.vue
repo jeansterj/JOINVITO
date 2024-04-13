@@ -37,6 +37,7 @@ export default {
             map: {},
             myModalSuccess: {},
             myModalError: {},
+            isLoading: true
         }
     },
     created(){
@@ -77,6 +78,8 @@ export default {
                         }
                     });
                     sessionStorage.setItem('totalOrdersAvailable',totalOrdersAvailable)
+
+
                 })
                 .catch(error=>{
 
@@ -144,7 +147,7 @@ export default {
                 })
         },
         showModalForm() {
-            // this.isError = false;
+
             let close = document.getElementById('close');
 
             close.addEventListener('click', (event) => {
@@ -178,7 +181,7 @@ export default {
             this.punto.latitud = coordinates.lat;
             this.punto.longitud = coordinates.lng;
             this.punto.fecha_inactivo = null;
-            this.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
+            this.punto.fecha_alta = new Date().toLocaleDateString('es-ES');
             this.punto.fecha_baja = null;
             this.punto.puntos = 10;
             this.punto.tipo = "Homeless";
@@ -487,11 +490,11 @@ export default {
 
             let menos = document.createElement('div');
             menos.setAttribute('class','col simbol decrement')
-            menos.innerHTML = `<span>-</span>`;
+            menos.innerHTML = `-`;
 
             let mas = document.createElement('div');
             mas.setAttribute('class','col simbol increment')
-            mas.innerHTML = `<span>+</span>`;
+            mas.innerHTML = `+`;
 
             let valor = document.createElement('span');
             valor.setAttribute('class','quantity');
@@ -515,10 +518,10 @@ export default {
                 (seleccionados > 0) ? seleccionados-- : seleccionados = 0;
                 valor.innerText = seleccionados;
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
-            })
+            },false)
 
             mas.addEventListener('click',(event) => {
-
+                console.log(event);
                 let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
                 let seleccionados = parseInt(valor.innerText);
                 let cantidadPersonas = parseInt(event.target.offsetParent.querySelector('.subtitle').getAttribute('data-personas'));
@@ -526,7 +529,7 @@ export default {
                 (seleccionados < totalOrdersAvailable && seleccionados < cantidadPersonas) ? seleccionados++ : null;
                 valor.innerText = seleccionados;
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
-            })
+            },false)
 
             return buttons;
         }
@@ -611,10 +614,6 @@ cursor: pointer;
     font-size: 18px;
 }
 
-.mapboxgl-popup-content span{
-    font-size: 14px;
-}
-
 .mapboxgl-popup-close-button{
     font-size: 27px;
 }
@@ -655,6 +654,7 @@ cursor: pointer;
     padding-bottom: 3px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 .deliverQuantity .increment{
@@ -665,6 +665,7 @@ cursor: pointer;
     padding-bottom: 3px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 .deliverQuantity .total{
