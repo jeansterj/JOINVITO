@@ -1,15 +1,21 @@
 <template>
-    <div class="accordion " id="accordionExample">
+    <div class="accordion " id="accordionOrders">
         <div class="accordion-item ">
             <h2 class="accordion-header">
-                <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse"
+                <button v-if="!empty" class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 
                     <img class="rounded mx-auto d-flex imgRiderMot" src="../../../public/img/rider-unscreen.gif"
                         alt="riderMot">
 
-                    <h1 v-if="!empty">SHOW ORDERS LIST</h1>
-                    <h1 v-else="empty">THERE ARE NO ORDERS</h1>
+                    <h1 >SHOW ORDERS LIST</h1>
+                </button>
+                <button v-if="empty" class="accordion-button bg-light collapsed" type="button">
+
+                    <img class="rounded mx-auto d-flex imgRiderMot" src="../../../public/img/rider-unscreen.gif"
+                        alt="riderMot">
+
+                    <h1 >THERE ARE NO ORDERS TO COLLECT/DELIVER</h1>
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -19,13 +25,13 @@
                                 <li v-if="order.entregado_a_rider == 1" class="riderOrderCard">
                                     <div class="orderInfo">
                                         <h3>{{ order.menu.proveedor.nombre }}</h3>
-                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} COLLECTED</p>
+                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} AVAILABLE TO DELIVER</p>
                                     </div>
                                 </li>
                                 <li v-if="order.entregado_a_rider == 0" class="riderOrderCard">
                                     <div class="orderInfo">
                                         <h3>{{ order.menu.proveedor.nombre }} - {{ order.menu.proveedor.direccion }}</h3>
-                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} TO COLLECT</p>
+                                        <p>{{ order.cantidad_packs }} {{ order.menu.nombre_menu }} WAITING TO BE COLLECTED</p>
                                     </div>
                                 </li>
                         </template>
@@ -75,5 +81,14 @@ export default {
 };
 </script>
 <style>
+
+#accordionOrders button.bg-light:hover,
+#accordionOrders button.bg-light:focus{
+    background-color: #FFCA10 !important;
+}
+
+/* a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover {
+    background-color: #FFCA10 !important;
+} */
 
 </style>

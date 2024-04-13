@@ -36,6 +36,8 @@ Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
 Route::post('/login', [UsuarioController::class, 'login']);
 Route::get('/register', function () { return view('register.index'); });
 
+Route::resource('usuario', UsuarioController::class);
+
 Route::get('/camera', function () {
     return view('register.cameraPage');
 });
@@ -135,7 +137,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-    Route::resource('usuario', UsuarioController::class);
+
 
     // Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
     Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);

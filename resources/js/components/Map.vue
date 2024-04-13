@@ -73,7 +73,7 @@ export default {
 
                     let totalOrdersAvailable = 0;
                     response.data.forEach(element => {
-                        if(!element.entregado_a_rider){
+                        if(element.entregado_a_rider){
                             totalOrdersAvailable += element.cantidad_packs
                         }
                     });
@@ -521,7 +521,6 @@ export default {
             },false)
 
             mas.addEventListener('click',(event) => {
-                console.log(event);
                 let totalOrdersAvailable = parseInt(sessionStorage.getItem('totalOrdersAvailable'));
                 let seleccionados = parseInt(valor.innerText);
                 let cantidadPersonas = parseInt(event.target.offsetParent.querySelector('.subtitle').getAttribute('data-personas'));

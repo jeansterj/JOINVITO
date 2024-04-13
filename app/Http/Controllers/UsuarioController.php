@@ -29,15 +29,15 @@ class UsuarioController extends Controller
 
         switch($rol){
             case $riderRol:
-                        return view('register.index');
+                        return view('auth.login');
                         break;
 
             case $centerRol:
-                        return view('register.index');
+                        return view('auth.login');
                         break;
 
             case $supplierRol:
-                        return view('register.index');
+                        return view('auth.login');
                         break;
         }
         // return view('register.index');
@@ -61,8 +61,7 @@ class UsuarioController extends Controller
         // $riderRol = 2;
         // $centerRol = 3;
         // $supplierRol = 4;
-        var_dump('hola');
-        die();
+
         // try {
         $user = new Usuario();
 
@@ -92,10 +91,8 @@ class UsuarioController extends Controller
 
             $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
-            
-            //respuesta
-            $response = redirect()->action([RiderController::class,'showRiders']);
 
+            $response = redirect()->action([RiderController::class,'showRiders']);
 
         } else  {
 
@@ -109,7 +106,7 @@ class UsuarioController extends Controller
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
-            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+            $response = redirect()->action([ProveedorController::class,'showProviders']);
 
         }
 
@@ -118,7 +115,7 @@ class UsuarioController extends Controller
         try {
             $choosedUser->save();
             $rol = $userData->id_rol;
-        
+
             $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
         } catch (QueryException $ex) {
             $mensaje = Utilitat::errorMessage($ex);
@@ -149,7 +146,7 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        
+
     }
 
     /**
@@ -167,22 +164,22 @@ class UsuarioController extends Controller
         $password = $request->pass;
 
         $user = Usuario::where('email', $username)->first();
-    
+
         if ($user && Hash::check($password, $user->pass_usu)) {
             Auth::login($user);
             switch (Auth::user()->rol->nombre) {
                 case 'admin':
                     $response = redirect('/admin');
                     break;
-    
+
                 case 'proveedor':
                     $response = redirect()->action([ProveedorController::class, 'index']);
                     break;
-    
+
                 case 'centro':
                     $response = redirect()->action([CentroController::class, 'index']);
                     break;
-    
+
                 case 'rider':
                     $response = redirect()->action([RiderController::class, 'index']);
                     break;
@@ -223,7 +220,7 @@ class UsuarioController extends Controller
         $usuarios = Usuario::all();
 
         return view('admin.users', compact('usuarios'));
-        
+
     }
 
     public function store2() {
@@ -262,7 +259,7 @@ class UsuarioController extends Controller
 
             $choosedUser->id_rider = $userData->id_usu;
             $choosedUser->primer_apellido = $request->lastName;
-            
+
             //respuesta
             $response = redirect()->action([RiderController::class,'showRiders']);
 
@@ -279,7 +276,7 @@ class UsuarioController extends Controller
             $choosedUser->ciudad = $request->city;
             $choosedUser->cp = $request->cp;
 
-            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+            $response = redirect()->action([ProveedorController::class,'showProviders']);
 
         }
 
@@ -288,7 +285,7 @@ class UsuarioController extends Controller
         try {
             $choosedUser->save();
             $rol = $userData->id_rol;
-        
+
             $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
         } catch (QueryException $ex) {
             $mensaje = Utilitat::errorMessage($ex);

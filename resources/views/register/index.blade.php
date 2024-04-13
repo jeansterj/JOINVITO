@@ -98,8 +98,8 @@
                                         placeholder="Jon" name = "name" required>
                                 </div>
                                 <div class="form-group gird-placeContent">
-                                    <label for="lastName">Last Name</label>
-                                    <input class="form-control" type="text" id="lastName" maxlength="50"
+                                    <label for="lastNameSupplier">Last Name</label>
+                                    <input class="form-control" type="text" id="lastNameSupplier" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
                                 <div class="form-group gird-placeContent">
@@ -159,8 +159,8 @@
                                         placeholder="Jon" name = "name" required>
                                 </div>
                                 <div class="form-group gird-placeContent">
-                                    <label for="lastName">Last Name</label>
-                                    <input class="form-control" type="text" id="lastName" maxlength="50"
+                                    <label for="lastNameRider">Last Name</label>
+                                    <input class="form-control" type="text" id="lastNameRider" maxlength="50"
                                         placeholder="Doe" name = "lastName" required>
                                 </div>
                                 <button type="submit" class="btn-light btn_login" name="riderForm"
