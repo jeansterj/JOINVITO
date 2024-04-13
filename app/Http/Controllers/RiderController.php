@@ -76,7 +76,7 @@ class RiderController extends Controller
     public function update(Request $request, Rider $rider)
     {
 
-        $usuario = Usuario::find($centro->id_centro);
+        $usuario = Usuario::find($rider->id_rider);
         $usuario->email = $request->input('email');
         $usuario->pass_usu = $request->input('pass_usu');
 
