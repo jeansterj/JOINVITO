@@ -66,7 +66,7 @@ setLanguage(selectedLanguage);
           col3Container.classList.remove ('col-4');
           col3Container.classList.add ('col-12');
         }
-    }   
+    }
 
     if (divRegister != null) {
       if (divRegister.classList.contains ('d-block')) {
@@ -187,7 +187,7 @@ setLanguage(selectedLanguage);
 
   //Bring your own spinner. You can use any html as the spinner. You can find lots of cool spinners for example here on Codepen. I'm using just plain text. Maybe technically not a spinner, but this is more about the script than graphics.
   var exampleForm = document.querySelector ('#example');
-  var exampleLoader = new LoadingSpinner (exampleForm, 'Sending...');
+  var exampleLoader = new LoadingSpinner (exampleForm, '...');
   //Delay submit so you can see the spinner spinning, then stop the loading spinner instead of submitting because we're on Codepen.
   if (exampleForm != null) {
     exampleForm.addEventListener ('submit', function (event) {

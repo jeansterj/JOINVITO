@@ -32,14 +32,15 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $menu = new Menu();
- 
+
         DB::beginTransaction();
 
         try{
 
-            $pedido = Pedido::where('id_menu',$request->id_menu)->first();
+            $currentDate = date('y-m-d');
+            $pedido = Pedido::where('id_menu',$request->id_menu)->where('fecha',$currentDate)->first();
 
             if($pedido != null){
                 $pedido->id_rider = $request->id_rider;
@@ -49,7 +50,7 @@ class PedidoController extends Controller
                 $pedido->fecha = date('y-m-d');
                 $pedido->entregado_a_rider = false;
             }else{
-                
+
                 $pedido = new Pedido();
 
                 $pedido->id_rider = $request->id_rider;
@@ -60,12 +61,12 @@ class PedidoController extends Controller
                 $pedido->entregado_a_rider = false;
             }
 
-            
+
 
             $pedido->save();
 
             $menu = Menu::find($pedido->id_menu);
-            
+
 
             $menu->nombre_menu = $menu->nombre_menu;
             $menu->bebida = $menu->bebida;
@@ -86,7 +87,7 @@ class PedidoController extends Controller
             $request->session()->flash('error', $mensaje);
             // $response = redirect('ordersRider');
         }
-        
+
 
         return redirect('ordersRider');;
     }

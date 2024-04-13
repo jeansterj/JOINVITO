@@ -16,7 +16,7 @@ class Pedido extends Model
 
     public function entregas()
     {
-        return $this->hasMany(Entrega::class, 'id_pedido');
+        return $this->hasMany(Entrega::class, 'id_entrega');
     }
 
 

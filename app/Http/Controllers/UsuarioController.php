@@ -9,6 +9,7 @@ use App\Clases\Utilitat;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
@@ -57,67 +58,67 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        // Value of bd.
-        // $riderRol = 2;
-        // $centerRol = 3;
-        // $supplierRol = 4;
 
-        // try {
-        $user = new Usuario();
+        DB::beginTransaction();
+        try {
+            $user = new Usuario();
 
-        $user->email = $request->email;
-        $user->pass_usu = bcrypt($request->passwd);
-        $user->id_rol = $request->rol;
-        $user->estado = true;
+            $user->email = $request->email;
+            $user->pass_usu = bcrypt($request->passwd);
+            $user->id_rol = $request->rol;
+            $user->estado = true;
 
-        $user->save();
+            $user->save();
 
-        $userData = Usuario::where('email','=',$request->email)->first();
+            $userData = Usuario::where('email','=',$request->email)->first();
 
 
-        if (isset($request->sCenterForm)) {
-            $choosedUser = new Centro();
+            if (isset($request->sCenterForm)) {
+                $choosedUser = new Centro();
 
-            $choosedUser->id_centro = $userData->id_usu;
-            $choosedUser->direccion = $request->address;
-            $choosedUser->piso = $request->input('floor', null);
-            $choosedUser->ciudad = $request->city;
-            $choosedUser->cp = $request->cp;
+                $choosedUser->id_centro = $userData->id_usu;
+                $choosedUser->direccion = $request->address;
+                $choosedUser->piso = $request->input('floor', null);
+                $choosedUser->ciudad = $request->city;
+                $choosedUser->cp = $request->cp;
 
-            $response = redirect()->action([CentroController::class,'showCentro']);
+                $response = redirect()->action([CentroController::class,'showCentro']);
 
-        } else if (isset($request->riderForm)){
-            $choosedUser = new Rider();
+            } else if (isset($request->riderForm)){
+                $choosedUser = new Rider();
 
-            $choosedUser->id_rider = $userData->id_usu;
-            $choosedUser->primer_apellido = $request->lastName;
+                $choosedUser->id_rider = $userData->id_usu;
+                $choosedUser->primer_apellido = $request->lastName;
 
-            $response = redirect()->action([RiderController::class,'showRiders']);
+                $response = redirect()->action([RiderController::class,'showRiders']);
 
-        } else  {
+            } else  {
 
-            $choosedUser = new Proveedor();
+                $choosedUser = new Proveedor();
 
-            $choosedUser->id_prov = $userData->id_usu;
-            $choosedUser->primer_apellido = $request->lastName;
-            $choosedUser->nombre_negocio = $request->surname;
-            $choosedUser->direccion = $request->address;
-            $choosedUser->piso = $request->input('floor', null);
-            $choosedUser->ciudad = $request->city;
-            $choosedUser->cp = $request->cp;
+                $choosedUser->id_prov = $userData->id_usu;
+                $choosedUser->primer_apellido = $request->lastName;
+                $choosedUser->nombre_negocio = $request->surname;
+                $choosedUser->direccion = $request->address;
+                $choosedUser->piso = $request->input('floor', null);
+                $choosedUser->ciudad = $request->city;
+                $choosedUser->cp = $request->cp;
 
-            $response = redirect()->action([ProveedorController::class,'showProviders']);
+                $response = redirect()->action([ProveedorController::class,'showProviders']);
 
-        }
+            }
 
             $choosedUser->nombre = $request->name;
 
-        try {
             $choosedUser->save();
-            $rol = $userData->id_rol;
 
+            DB::commit();
+            $rol = $userData->id_rol;
+            $mensaje = 'Usuario creado correctamente';
+            $request->session()->flash('mensaje', $mensaje);
             $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
         } catch (QueryException $ex) {
+            DB::rollBack();
             $mensaje = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $mensaje);
             $response = redirect()->action([UsuarioController::class, 'index'])->withInput();
@@ -185,6 +186,8 @@ class UsuarioController extends Controller
                     break;
             }
         } else {
+            $mensaje = 'Usuario o contraseña incorrectos';
+            $request->session()->flash('error', $mensaje);
             $response = redirect()->back()->withInput()->withErrors(['error' => 'Usuario o contraseña incorrectos']);
         }
 
@@ -192,15 +195,6 @@ class UsuarioController extends Controller
     }
 
     public function showLogin(){
-
-
-        // $user = new Usuario;
-
-        // $user->id_rol = 2;
-        // $user->email = 'pepe';
-        // $user->pass_usu = bcrypt('pepe');
-
-        // $user->save();
 
         return view('auth.login');
     }
@@ -223,75 +217,71 @@ class UsuarioController extends Controller
 
     }
 
-    public function store2() {
-           // Value of bd.
-        // $riderRol = 2;
-        // $centerRol = 3;
-        // $supplierRol = 4;
-        var_dump('hola');
-        die();
-        // try {
-        $user = new Usuario();
-
-        $user->email = $request->email;
-        $user->pass_usu = bcrypt($request->passwd);
-        $user->id_rol = $request->rol;
-        $user->estado = true;
-
-        $user->save();
-
-        $userData = Usuario::where('email','=',$request->email)->first();
+    // public function store2() {
 
 
-        if (isset($request->sCenterForm)) {
-            $choosedUser = new Centro();
+    //     // try {
+    //     $user = new Usuario();
 
-            $choosedUser->id_centro = $userData->id_usu;
-            $choosedUser->direccion = $request->address;
-            $choosedUser->piso = $request->input('floor', null);
-            $choosedUser->ciudad = $request->city;
-            $choosedUser->cp = $request->cp;
+    //     $user->email = $request->email;
+    //     $user->pass_usu = bcrypt($request->passwd);
+    //     $user->id_rol = $request->rol;
+    //     $user->estado = true;
 
-            $response = redirect()->action([CentroController::class,'showCentro']);
+    //     $user->save();
 
-        } else if (isset($request->riderForm)){
-            $choosedUser = new Rider();
-
-            $choosedUser->id_rider = $userData->id_usu;
-            $choosedUser->primer_apellido = $request->lastName;
-
-            //respuesta
-            $response = redirect()->action([RiderController::class,'showRiders']);
+    //     $userData = Usuario::where('email','=',$request->email)->first();
 
 
-        } else  {
+    //     if (isset($request->sCenterForm)) {
+    //         $choosedUser = new Centro();
 
-            $choosedUser = new Proveedor();
+    //         $choosedUser->id_centro = $userData->id_usu;
+    //         $choosedUser->direccion = $request->address;
+    //         $choosedUser->piso = $request->input('floor', null);
+    //         $choosedUser->ciudad = $request->city;
+    //         $choosedUser->cp = $request->cp;
 
-            $choosedUser->id_prov = $userData->id_usu;
-            $choosedUser->primer_apellido = $request->lastName;
-            $choosedUser->nombre_negocio = $request->surname;
-            $choosedUser->direccion = $request->address;
-            $choosedUser->piso = $request->input('floor', null);
-            $choosedUser->ciudad = $request->city;
-            $choosedUser->cp = $request->cp;
+    //         $response = redirect()->action([CentroController::class,'showCentro']);
 
-            $response = redirect()->action([ProveedorController::class,'showProviders']);
+    //     } else if (isset($request->riderForm)){
+    //         $choosedUser = new Rider();
 
-        }
+    //         $choosedUser->id_rider = $userData->id_usu;
+    //         $choosedUser->primer_apellido = $request->lastName;
 
-            $choosedUser->nombre = $request->name;
+    //         //respuesta
+    //         $response = redirect()->action([RiderController::class,'showRiders']);
 
-        try {
-            $choosedUser->save();
-            $rol = $userData->id_rol;
 
-            $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
-        } catch (QueryException $ex) {
-            $mensaje = Utilitat::errorMessage($ex);
-            $request->session()->flash('error', $mensaje);
-            $response = redirect()->action([UsuarioController::class, 'index'])->withInput();
-        }
-        return $response;
-    }
+    //     } else  {
+
+    //         $choosedUser = new Proveedor();
+
+    //         $choosedUser->id_prov = $userData->id_usu;
+    //         $choosedUser->primer_apellido = $request->lastName;
+    //         $choosedUser->nombre_negocio = $request->surname;
+    //         $choosedUser->direccion = $request->address;
+    //         $choosedUser->piso = $request->input('floor', null);
+    //         $choosedUser->ciudad = $request->city;
+    //         $choosedUser->cp = $request->cp;
+
+    //         $response = redirect()->action([ProveedorController::class,'showProviders']);
+
+    //     }
+
+    //         $choosedUser->nombre = $request->name;
+
+    //     try {
+    //         $choosedUser->save();
+    //         $rol = $userData->id_rol;
+
+    //         $response = redirect()->action([UsuarioController::class, 'index'], ['rol' => $rol]);
+    //     } catch (QueryException $ex) {
+    //         $mensaje = Utilitat::errorMessage($ex);
+    //         $request->session()->flash('error', $mensaje);
+    //         $response = redirect()->action([UsuarioController::class, 'index'])->withInput();
+    //     }
+    //     return $response;
+    // }
 }

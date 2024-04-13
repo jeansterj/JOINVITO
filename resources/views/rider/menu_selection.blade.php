@@ -30,6 +30,7 @@
                                                 <input type="hidden" name="id_provider" value="{{ $puntoCercano->usuario->proveedor->id_prov }}"></input>
                                                 <div class="card-body">
                                                     <h5 class="card-title"><span>{{ $nombre }}</span></h5>
+                                                    <input type="hidden" name="id_menu" value="{{ $menu->id_menu }}"></input>
                                                     <p class="card-text">{{ $menu->bebida }}</p>
                                                     <p class="card-text">{{ $menu->plato1 }}</p>
                                                     <p class="card-text">{{ $menu->plato2 }}</p>
@@ -50,7 +51,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn btn-primary">GET</button>
+                                                    <button type="submit" class="btn btn-primary">GET</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -115,7 +116,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="submnit" class="btn btn-primary">GET</button>
+                                                    <button type="submit" class="btn btn-primary">GET</button>
                                                 </div>
                                             </div>
                                         </form>
