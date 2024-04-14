@@ -1,5 +1,19 @@
-
 {
+    "voluntari": {
+        "en": "Voluntari",
+        "es": "Voluntario",
+        "cat": "Voluntari"
+    },
+    "Supplier": {
+        "en": "Supplier",
+        "es": "Proveedor",
+        "cat": "Proveïdor"
+    },
+    "sCenter": {
+        "en": "Social Center",
+        "es": "Centro Social",
+        "cat": "Centre Social"
+    },
     "iniciarSesion": {
         "en": "Login",
         "es": "Iniciar Sesión",
@@ -50,11 +64,50 @@
         "es": "Registro",
         "cat": "Registre"
     },
-    "ProtecReCaptcha":{
+    "ProtecReCaptcha": {
         "en": "This site is protected by reCAPTCHA and the Google Terms of Service and Privacy Policy apply. </br> © 2024 JOINVITO Technologies Inc.",
         "es": "Este sitio está protegido por reCAPTCHA y se aplican las Condiciones de servicio y la Política de privacidad de Google. </br> © 2024 JOINVITO Technologies Inc.",
         "cat": "Aquest lloc està protegit per reCAPTCHA i s'apliquen les Condicions de servei i la Política de privacitat de Google. </br> © 2024 JOINVITO Technologies Inc."
-
+    },
+    "riderHome": {
+        "en": "The volunteer take the food from the suppliers and gives it to the homeless pepole.",
+        "es": "El voluntario recoge la comida de los proveedores y la entrega a las personas sin hogar.",
+        "cat": "El voluntari recull els aliments dels proveïdors i els dóna a les persones sense llar."
+    },
+    "proveedorHome": {
+        "en": "The supplier give food to the rider to help homeless pepole.",
+        "es": "El proveedor proporciona comida al repartidor para ayudar a las personas sin hogar.",
+        "cat": "El proveïdor dóna menjar al repartidor per ajudar a les persones sense llar."
+    },
+    "centerHome": {
+        "en": "The social center will be able to use the rider's food to help homeless pepole who are in the social center.",
+        "es": "El centro social podrá utilizar la comida del repartidor para ayudar a las personas sin hogar que se encuentren en el centro social.",
+        "cat": "El centre social podrà fer servir els aliments del repartidor per ajudar les persones sense llar que es troben al centre social."
+    },
+    "invisible": {
+        "en": "“You are not invisible”",
+        "es": "“No eres invisible”",
+        "cat": "“Tu no ets invisible”"
+    },
+    "principalCause": {
+        "en": "The principal cause for this project is to help all the homeless to have a eat all the days and the same treatment cause we all are humans, we are not better.",
+        "es": "La causa principal de este proyecto es ayudar a todos los sin hogar a tener una comida todos los días y el mismo trato, porque todos somos humanos, no somos mejores.",
+        "cat": "La causa principal d'aquest projecte és ajudar tots els sense sostre a tenir un àpat cada dia i el mateix tracte, perquè tots som humans, no som millors."
+    },
+    "frase": {
+        "en": "“Humility will open more doors than arrogance ever will”",
+        "es": "“La humildad abrirá más puertas que la arrogancia nunca lo hará.”",
+        "cat": "“La humilitat obrirà més portes que l'arrogància mai ho farà”"
     }
-
+    ,
+    "WaysHelp": {
+        "en": "WAYS TO HELP",
+        "es": "FORMAS DE AYUDAR",
+        "cat": "FORMES D'AJUDAR"
+    },
+    "lang": {
+        "en": "lang",
+        "es": "lang",
+        "cat": "lleng"
+    }
 }

@@ -1,11 +1,7 @@
 
-import { setLanguage, getSelectedLanguage } from './translations.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const selectedLanguage = getSelectedLanguage();
-
-setLanguage(selectedLanguage);
     const divMenuList = document.getElementById('divMenuList');
  
     // if (divMenuList != null) {

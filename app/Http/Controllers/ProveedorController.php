@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Clases\Utilitat;
 use App\Models\Proveedor;
+use App\Models\Usuario;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;

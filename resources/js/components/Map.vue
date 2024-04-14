@@ -413,7 +413,7 @@ export default {
                 subtitle.setAttribute('data-personas',feature.cantidad_personas)
                 subtitle.setAttribute('class','subtitle')
 
-                imgSubtitle.setAttribute('src','http://localhost:8080/joinvito/public/img/help.png');
+                imgSubtitle.setAttribute('src','http://localhost:8080/joinvito/public/img/help.svg');
                 imgSubtitle.setAttribute('class','imgSubtitle')
                 group.appendChild(subtitle);
                 group.appendChild(imgSubtitle);
