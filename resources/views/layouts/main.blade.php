@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js', 'resources/js/translations.js'])
 </head>
 
 <body class="bg-primary">
@@ -63,8 +63,8 @@
                             $userName = Auth::user()->rol->nombre;
                         @endphp
                         <li class="nav-item" id="logout">
-                            <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button"
-                                    class="btn btn-logout">Logout
+                            <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button data-translate="cerrarSesion" type="button"
+                                    class="btn btn-logout" >Logout
                                     @if (Auth::user()->rol->nombre == 'admin')
                                         {{ $userName }}
                                     @else
@@ -76,8 +76,8 @@
                         @yield('navbarContent')
                         <li class="nav-item" id="login">
                             <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button"
-                                    class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}"
-                                        alt="">Login</button></a>
+                                    class="btn btn-login" data-translate="iniciarSesion"><img src="{{ asset('img/logoUsuario.svg') }}"
+                                        alt="" >Login</button></a>
                         </li>
                         @yield('img')
                     @endif
@@ -93,8 +93,8 @@
                     @php
                         $userName = Auth::user()->rol->nombre;
                     @endphp
-                    <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button type="button"
-                            class="btn btn-logout">Logout
+                    <a class="nav-link" href="{{ url('/logout') }}" aria-expanded="false"><button data-translate="cerrarSesion" type="button"
+                            class="btn btn-logout" >Logout
                             @if (Auth::user()->rol->nombre == 'admin')
                                 {{ $userName }}
                             @else
@@ -103,15 +103,15 @@
                         </button></a>
                 @else
                     <a class="nav-link" href="{{ url('/login') }}" aria-expanded="false"><button type="button"
-                            class="btn btn-login"><img src="{{ asset('img/logoUsuario.svg') }}"
-                                alt="">Login</button></a>
+                            class="btn btn-login" data-translate="iniciarSesion"><img src="{{ asset('img/logoUsuario.svg') }}"
+                                alt="" >Login</button></a>
                 @endif
             </div>
             <div class="dropdown" >
                 <input type="checkbox" id="dropdown">
 
                 <label class="dropdown__face" for="dropdown" id="dropdown" >
-                    <p class="dropdownText">Lang</p>
+                    <p class="dropdownText" data-translate="lang">Lang</p>
                   <div class="dropdown__arrow"></div>
                 </label>
 

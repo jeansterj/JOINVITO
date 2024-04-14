@@ -20,7 +20,7 @@
 
                             <div class="form-group gird-placeContent">
                                 <label for="pass_usu">Contraseña</label>
-                                <input class="form-control" type="text" id="pass_usu" maxlength="50" placeholder="Jon"
+                                <input class="form-control" type="password" id="pass_usu" maxlength="50" placeholder="Jon"
                                     name = "pass_usu" required value="{{  $proveedor->usuario->pass_usu}}">
                             </div>
                             <div class="form-group gird-placeContent">

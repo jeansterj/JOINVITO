@@ -30,14 +30,20 @@ export function setLanguage(language) {
     // Guardar el idioma seleccionado en localStorage
     localStorage.setItem('language', language);
 
+
     // Cargar las traducciones según el idioma seleccionado
-    fetch('translations.json')
+    fetch('./translations.json')
         .then(response => response.json())
+
         .then(translations => {
             // Aplicar las traducciones a los elementos con el atributo 'data-translate'
             document.querySelectorAll('[data-translate]').forEach(element => {
+
                 const translationKey = element.getAttribute('data-translate');
-                const translationText = translations[translationKey][language] || translations[translationKey]["en"];
+
+                const defaultLanguage = 'en';
+                const translationText = translations[translationKey][language] || translations[translationKey][defaultLanguage];
+
                 element.innerHTML = translationText;
             });
         })

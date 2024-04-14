@@ -1,10 +1,4 @@
-import { setLanguage, getSelectedLanguage } from './translations.js';
-document.addEventListener ('DOMContentLoaded', function () {
 
-const selectedLanguage = getSelectedLanguage();
-
-setLanguage(selectedLanguage);
-})
 
 
 let footer = document.getElementById('footer')
