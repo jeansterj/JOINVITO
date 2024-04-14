@@ -109,5 +109,15 @@
         "en": "lang",
         "es": "lang",
         "cat": "lleng"
+    },
+    "JOIN": {
+        "en": "FOOD FOR HOMELESS",
+        "es": "COMIDA PARA SIN HOGAR",
+        "cat": "ALIMENTS PER A SENSE LLAR"
+    },
+    "FOOD_HOMELESS": {
+        "en": "JOIN AS A VOLUNTARI OR SUPPLIER FOR HELP PEOPLE",
+        "es": "ÚNETE COMO VOLUNTARIO O PROVEEDOR DE AYUDA A LAS PERSONAS",
+        "cat": "UNEIX-TE COM A VOLUNTARI O PROVEÏDOR PER AJUDAR A LA PERSONA"
     }
 }
