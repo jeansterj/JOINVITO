@@ -2,7 +2,7 @@
 
 @section('content')
     @include('partials.mensajes')
-    <div class="container-fluid">
+    <div class="container-fluid login-signup">
         <div class="col-4" id="loginDiv">
             <h1>LOGIN</h1>
 
