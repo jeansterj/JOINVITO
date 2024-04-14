@@ -1,44 +1,48 @@
 <template>
 
     <span v-if="confirm"  class="badge text-bg-secondary my-3 btnChange"> {{ mensajeUpdate }}</span>
-    <h5 class="card-title"><button type="button" class="btn btn-light text-white btnOrdes px-5 my-3"
+    <h5 class="card-title"><button type="button" class="btn btn-light text-white btnPuntos px-5 my-3"
         @click="confirmUpdate()">CONFIRM CHANGES</button></h5>
 
-    <table class="table table-users container">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">DIRECCION</th>
-            <th scope="col">LATITUD</th>
-            <th scope="col">LONGITUD</th>
-            <th scope="col">PERSONAS</th>
-            <th scope="col">FECHA ALTA</th>
-            <th scope="col">TIPO</th>
-            <th scope="col">ESTADO</th>
+    <div class="row">
+        <table class="table table-users container">
+            <thead>
+            <tr>
+                <!-- <th scope="col">ID</th> -->
+                <th scope="col">DIRECCION</th>
+                <!-- <th scope="col">LATITUD</th> -->
+                <!-- <th scope="col">LONGITUD</th> -->
+                <th scope="col">PERSONAS</th>
+                <!-- <th scope="col">FECHA ALTA</th> -->
+                <th scope="col">TIPO</th>
+                <th scope="col">ESTADO</th>
 
-            <th></th>
+                <th></th>
 
-        </tr>
-        </thead>
-        <tbody>
-            <template v-for="punto in puntos">
-                <tr>
-                    <td>{{ punto.id_punto }}</td>
-                    <td>{{ punto.direccion }}</td>
-                    <td>{{ punto.latitud }}</td>
-                    <td>{{ punto.longitud }}</td>
-                    <td>{{ punto.cantidad_personas }}</td>
-                    <td>{{ punto.fecha_alta }}</td>
-                    <td>{{ punto.tipo }}</td>
-                    <td>{{ punto.estado ? 'Active' : 'Inactive'}}</td>
-
-                <td>
-                    <button type="button" class="btn btn-sm btn-light" @click="showUpdate(punto)"><i class="fa fa-edit" aria-hidden="true"></i>Edit</button>
-                </td>
             </tr>
-            </template>
-        </tbody>
-  </table>
+            </thead>
+            <tbody>
+                <template v-for="punto in puntos">
+                    <tr>
+                        <!-- <td>{{ punto.id_punto }}</td> -->
+                        <td>{{ punto.direccion }}</td>
+                        <!-- <td>{{ punto.latitud }}</td> -->
+                        <!-- <td>{{ punto.longitud }}</td> -->
+                        <td>{{ punto.cantidad_personas }}</td>
+                        <!-- <td>{{ punto.fecha_alta }}</td> -->
+                        <td>{{ punto.tipo }}</td>
+                        <td>{{ punto.estado ? 'Active' : 'Inactive'}}</td>
+
+                    <td>
+                        <button type="button" class="btn btn-sm btn-light" @click="showUpdate(punto)"><i class="fa fa-edit" aria-hidden="true"></i>Edit</button>
+                    </td>
+                </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+
+
 
     <!-- Modal Update  -->
     <div class="modal fade" id="updateModal" tabindex="-1">
@@ -81,7 +85,7 @@
                         <div class="form-group gird-placeContent">
                             <p>Punto habilitado</p>
                                 <label class="switch">
-                                    <input type="checkbox" name="estado" v-model="punto.estado" :checked="punto.estado == 1">    
+                                    <input type="checkbox" name="estado" v-model="punto.estado" :checked="punto.estado == 1">
                                     <span class="slider round"></span>
                                 </label>
                         </div>
@@ -91,6 +95,7 @@
                 </div>
                 <div class="modal-footer justify-content-around">
                     <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => updatePunto(punto)" data-bs-dismiss="modal">Pre-save point changes</button>
+                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
@@ -228,4 +233,15 @@ export default {
     align-self: center;
 
 }
+
+.btnPuntos{
+    border-radius: 20px;
+    color:#07203C !important;
+}
+
+.btnPuntos:hover{
+    color: white !important;
+    background-color: #07203C !important;;
+}
+
 </style>

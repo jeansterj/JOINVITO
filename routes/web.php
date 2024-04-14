@@ -34,7 +34,10 @@ Route::get('/', function () {
 Route::get('/login', [UsuarioController::class,'showLogin'])->name('login');
 // 'login'
 Route::post('/login', [UsuarioController::class, 'login']);
-Route::get('/register', function () { return view('register.index'); });
+
+Route::get('/register', function () {
+    return view('register.index');
+});
 
 Route::resource('usuario', UsuarioController::class);
 
@@ -44,6 +47,11 @@ Route::get('/camera', function () {
 
 Route::get('/qr', [QrCodeController::class, 'show']);
 
+/** CONTACT VIEW */
+Route::get('/contact', function () {
+    return view('contact.index');
+});
+
 Route::middleware(['auth'])->group(function () {
 
     /* Admin routes */
@@ -52,15 +60,15 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.index');
     });
 
-    Route::get('show-riders', [RiderController::class,'showRiders']);
-    Route::get('show-providers', [ProveedorController::class,'showProviders']);
-    Route::get('show-centro', [CentroController::class,'showCentro']);
-    Route::get('show-puntos', [PuntoController::class,'showPuntos']);
+    Route::get('show-riders', [RiderController::class,'showRiders'])->middleware(['checkRole:admin']);;
+    Route::get('show-providers', [ProveedorController::class,'showProviders'])->middleware(['checkRole:admin']);;
+    Route::get('show-centro', [CentroController::class,'showCentro'])->middleware(['checkRole:admin']);;
+    Route::get('show-puntos', [PuntoController::class,'showPuntos'])->middleware(['checkRole:admin']);;
     Route::resource('puntos', PuntoController::class);
 
-    Route::get('addLocation', function () {
-        return view('addLocation');
-    });
+    // Route::get('addLocation', function () {
+    //     return view('addLocation');
+    // });
 
     /* rider routes */
 
@@ -70,48 +78,48 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('ordersRider', function () {
         return view('rider.ordersRider');
-    });
+    })->middleware(['checkRole:rider']);
 
     Route::get('statsRider', function () {
         return view('rider.statsRider');
-    });
+    })->middleware(['checkRole:rider']);
 
     Route::get('statsProvider', function () {
         return view('provider.statsProvider');
-    });
+    })->middleware(['checkRole:proveedor']);
 
     // Route::get('edit-rider', function () {
     //     return view('rider.edit-rider');
     // });
 
-    Route::get('addLocation', function () {
-        return view('addLocation');
-    });
+    // Route::get('addLocation', function () {
+    //     return view('addLocation');
+    // });
 
     Route::get('getOrders', function () {
         return view('rider.menu_selection');
-    });
+    })->middleware(['checkRole:rider']);
 
-    Route::resource('rider', RiderController::class);
+    Route::resource('rider', RiderController::class)->middleware(['checkRole:rider']);
 
 
     // Routes Provider
 
     Route::get('orders', function () {
         return view('provider.orders');
-    });
+    })->middleware(['checkRole:proveedor']);
 
     Route::get('menusList', function () {
         return view('provider.menusList');
-    });
+    })->middleware(['checkRole:proveedor']);
     Route::get('createMenu', function () {
         return view('provider.createMenu');
-    });
+    })->middleware(['checkRole:proveedor']);
     Route::get('modifyMenu', function () {
         return view('provider.modifyMenu');
-    });
+    })->middleware(['checkRole:proveedor']);
 
-    Route::resource('proveedor', ProveedorController::class);
+    Route::resource('proveedor', ProveedorController::class)->middleware(['checkRole:proveedor']);
 
     Route::resource('menu', MenuController::class);
 
@@ -121,7 +129,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('stats', function () {
         return view('SCenter.stats');
-    });
+    })->middleware(['checkRole:centro']);
 
     Route::resource('centro', CentroController::class);
 
@@ -131,16 +139,13 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::get('/qr', [QrCodeController::class, 'show']);
 
-    /** CONTACT VIEW */
-    Route::get('/contact', function () {
-        return view('contact.index');
-    });
+
 
 
 
 
     // Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
-    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy']);
+    Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy'])->middleware(['checkRole:rider']);
 
     Route::resource('pedido', PedidoController::class);
 

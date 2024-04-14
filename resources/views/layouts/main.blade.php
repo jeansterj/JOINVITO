@@ -109,14 +109,14 @@
             </div>
             <div class="dropdown" >
                 <input type="checkbox" id="dropdown">
-              
+
                 <label class="dropdown__face" for="dropdown" id="dropdown" >
                     <p class="dropdownText">Lang</p>
                   <div class="dropdown__arrow"></div>
                 </label>
-              
+
                 <ul class="dropdown__items">
-                    <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a> 
+                    <a href="#" id="esLink" class="text-secondary"><img src="../public/img/flag-spain-icon.png" alt="" class="flags" id="sp"></a>
                     <a href="#" id="catLink" class="text-secondary"><img src="../public/img/flag-cat-icon.png" alt="" class="flags" id="cat"></a>
                     <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a>
                 </ul>
@@ -157,7 +157,7 @@
                 <div class="row">
                     <div class="col"><a class="nav-link" href="{{ url('addLocation') }}"
                             aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('/provider') }}"
+                    <div class="col"><a class="nav-link" href="{{ url('/proveedor') }}"
                             aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
                     </div>
                     <div class="col"><a class="nav-link" href="{{ url('edit-provider') }}"
@@ -186,7 +186,7 @@
             </div>
         @endif
     @endif
-    @yield('map')          
+    @yield('map')
     </div>
     <footer class="py-2" id="footer">
         <hr>
@@ -195,7 +195,7 @@
             de Google.
             </br> © 2024 JOINVITO Technologies Inc.</p>
     </footer>
-    
+
 </body>
 
 </html>

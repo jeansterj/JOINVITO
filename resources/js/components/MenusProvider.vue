@@ -11,7 +11,7 @@
                     @click="confirmUpdate()">CONFIRM CHANGES</button></h5>
 
         <div class="card-body">
-       
+
 
             <div class="loading" v-if="loading">
                 Loading data....
@@ -90,6 +90,7 @@
                 </div>
                 <div class="modal-footer justify-content-around">
                     <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => updateMenu(menu)" data-bs-dismiss="modal">Pre-save menu changes</button>
+                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
@@ -120,7 +121,7 @@ export default {
     },
     created() {
         this.fetchEventsList();
-        this.timer = setInterval(this.fetchEventsList, 60000);
+        //this.timer = setInterval(this.fetchEventsList, 60000);
     },
     methods: {
         fetchEventsList() {
@@ -179,12 +180,12 @@ export default {
                         this.confirm = false;
 
                     }, 4000);
-                    
+
                 })
                 .catch(error => {
                     console.error('Error al actualizar menús:', error);
                     this.error = true;
-                     me.mensajeError = error.response.data.error      
+                     me.mensajeError = error.response.data.error
               });
         }
 
@@ -239,7 +240,9 @@ button.btn {
 
 }
 
-.card.de {
-    margin-bottom: 95px;
+
+#divMenuList{
+    margin-bottom: 150px !important;
 }
+
 </style>

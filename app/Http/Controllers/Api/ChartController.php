@@ -20,11 +20,7 @@ class ChartController extends Controller
 
         $items = Array(0,0,0,0,0,0,0,0,0,0,0,0);
 
-        // $entregas = Entrega::with(['pedido' => function ($query) use ($userType,$userId) {
-        //     $query->where($userType, $userId)->select('cantidad_packs'); // Aquí especifica los campos que deseas recuperar de la relación "pedido"
-        // }])->get();
-
-        // $entregas = Entrega::with('pedido')->get();
+       
         $entregas = Entrega::with(['pedido' => function ($query) use ($userType, $userId) {
             $query->where($userType, $userId); // No es necesario especificar select() si deseas recuperar todos los campos de la relación "pedido"
         }])
