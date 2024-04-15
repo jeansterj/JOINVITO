@@ -14,9 +14,11 @@ qr.onclick = function (Event) {
     let target = Event.target
     // if(qr != null){
         if (target.id === qr.id) {
-            let id = qr.getAttribute('data-url')
+            let idRider = qr.getAttribute('data-url')
+            // let idProv = document.querySelector('meta[name="userId"]').content
+            console.log(idRider);
             axios
-            .get("http://localhost:8080/joinvito/public/api/qrCode/" + id)
+            .get(`qrCode/${idRider}`)
             .then(function (response) {
               console.log(response.data);
                 let qrCode = response.data

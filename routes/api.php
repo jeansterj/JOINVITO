@@ -40,6 +40,7 @@ Route::apiResource('pedidos', PedidoController::class);
 
 // });
 Route::apiResource('qrCode', QrCodeController::class);
+// Route::get('qrCode/{idRider}/{idProv}', [QrCodeController::class, 'show']);
 // Route::get('qrCode', [QrCodeController::class,'show']);
 Route::put('pedidos/{id_rider}/{id_provider}', [RiderController::class,'markAsCollected']);
 Route::apiResource('menu', MenuController::class);

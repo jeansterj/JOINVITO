@@ -37,11 +37,13 @@ class QrCodeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($idRider)
+    public function show($idRider, $idProv)
     {
+        $info = "http://localhost:8080/joinvito/public/api/pedidos/".$idRider. "/". $idProv;
+        return $info;
         // $idRider = User;
         //
-        return QrCode::generate($idRider);
+        // return QrCode::generate($idRider);
 
     }
 

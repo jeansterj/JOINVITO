@@ -36,11 +36,14 @@ class QrCodeController extends Controller
     {
 
         $idRider;
+        // $idProv;
+    
         /** Cuando estemos en el server */
         // $env = env('APP_URL');
         // $info = $env . "/joinvito/public/api/pedidos/".$idRider."/1";
-        $info = "http://localhost:8080/joinvito/public/api/pedidos/".$idRider."/1";
-        Http::put($info); 
+        $info = "http://localhost:8080/joinvito/public/confirmQr/". $idRider;
+        // $info ;= "http://localhost:8080/joinvito/public/api/pedidos/".$idRider. "/". $idProv;
+        // Http::put($info); 
 
         $url = json_encode(['ruta'=>$info]);
 

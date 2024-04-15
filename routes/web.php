@@ -45,7 +45,12 @@ Route::get('/camera', function () {
     return view('register.cameraPage');
 });
 
-Route::get('/qr', [QrCodeController::class, 'show']);
+// Route::get('/qr', [QrCodeController::class, 'show']);
+
+Route::get('/confirmQr/{idRider}' , function() {
+    // $data['idRider'] = ;
+    return view('confirmQr', compact('idRider'));
+});
 
 /** CONTACT VIEW */
 Route::get('/contact', function () {
