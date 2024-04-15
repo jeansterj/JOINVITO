@@ -41,10 +41,13 @@ export function setLanguage(language) {
 
                 const translationKey = element.getAttribute('data-translate');
 
-                const defaultLanguage = 'en';
+                const defaultLanguage = 'es';
                 const translationText = translations[translationKey][language] || translations[translationKey][defaultLanguage];
 
-                element.innerHTML = translationText;
+                if(translationKey != 'cerrarSesion'){
+                    element.innerHTML = translationText;    
+                }
+                
             });
         })
         .catch(error => console.error('Error loading translations:', error));
@@ -52,5 +55,5 @@ export function setLanguage(language) {
 
 // Función para obtener el idioma seleccionado
 export function getSelectedLanguage() {
-    return localStorage.getItem('language') || 'en'; // Devuelve 'en' como idioma predeterminado si no se ha seleccionado uno
+    return localStorage.getItem('language') || 'es'; // Devuelve 'en' como idioma predeterminado si no se ha seleccionado uno
 }
