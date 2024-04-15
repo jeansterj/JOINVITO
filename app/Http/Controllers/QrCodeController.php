@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use App\Models\QrCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\QrCodeController;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // use SimpleSoftwareIQ\QrCode\Facades\QrCode;
@@ -40,7 +41,9 @@ class QrCodeController extends Controller
     public function show($idRider, $idProv)
     {
         $info = "http://localhost:8080/joinvito/public/api/pedidos/".$idRider. "/". $idProv;
-        return $info;
+
+        $data['idRider'] = $idRider;
+        return view('confirmQr', compact('idRider'));
         // $idRider = User;
         //
         // return QrCode::generate($idRider);
@@ -69,5 +72,13 @@ class QrCodeController extends Controller
     public function destroy(QrCode $qrCode)
     {
         //
+    }
+
+    public function confirm($idRider)
+    {
+        $idRider;
+        $idProv = Auth::user()->id_usu;
+        $data['idRider'] = $idRider;
+    return view('confirmQr', compact('data'));
     }
 }

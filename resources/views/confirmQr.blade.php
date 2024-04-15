@@ -3,14 +3,13 @@
     Home - JoInvitoCorrect
 @endsection
 @include('layouts.navbarLayout')
-@endsection
 @section('content')
     <div class="container-form" id="riderDiv">
         <form class="registerForm"
-            action="{{ action([App\Http\Controllers\QrCodeController::class, 'show']) }}" method="POST">
+            action="{{ action([App\Http\Controllers\QrCodeController::class, 'show'] ,) }}" method="POST">
             @csrf
             <input id="" name="rol" type="hidden" value="{{Auth::user()->id_usu }}"/>
-            <input id="" name="rol" type="hidden" value="{{Auth::user()->id_usu }}" />
+            <input id="" name="rol" type="hidden" value="{{$data['idRider']}}" />
 
             <div class="container-fluid " id="medForm">
                 <div class="col">
@@ -20,4 +19,4 @@
             </div>
         </form>
     </div>
-@endsection()
+@endsection

@@ -47,10 +47,12 @@ Route::get('/camera', function () {
 
 // Route::get('/qr', [QrCodeController::class, 'show']);
 
-Route::get('/confirmQr/{idRider}' , function() {
-    // $data['idRider'] = ;
-    return view('confirmQr', compact('idRider'));
-});
+// Route::get('/confirmQr/{idRider}' , function() {
+//     $data['idRider'] = $re;
+//     return view('confirmQr', compact('idRider'));
+// });
+
+Route::get('/confirmQr/{idRider}' , [QrCodeController::class, 'confirm']);
 
 /** CONTACT VIEW */
 Route::get('/contact', function () {
