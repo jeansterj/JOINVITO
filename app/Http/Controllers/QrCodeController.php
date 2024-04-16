@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 // use App\Models\QrCode;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\QrCodeController;
@@ -38,16 +39,25 @@ class QrCodeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($idRider, $idProv)
+    // $idRider, $idProv
+    public function show(Request $request)
     {
-        $info = "http://localhost:8080/joinvito/public/api/pedidos/".$idRider. "/". $idProv;
-
-        $data['idRider'] = $idRider;
-        return view('confirmQr', compact('idRider'));
-        // $idRider = User;
-        //
-        // return QrCode::generate($idRider);
-
+        
+        $idProv = $request->idProv;
+        $idRider = $request->idRider;
+        // Esta el JOINVITO en mayuscula porque en mi casa esta la carpeta en mayuscula, en clase es joinvito en minuscula
+        $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
+        $response = Http::put($url); 
+        $statusCode = $response->status();
+ 
+        if ($statusCode >= 200 && $statusCode < 300) {
+            var_dump('bien');
+            die();
+        } else {
+            var_dump('mal');
+            die();
+        }
+        return $response;
     }
 
     /**
@@ -77,8 +87,8 @@ class QrCodeController extends Controller
     public function confirm($idRider)
     {
         $idRider;
-        $idProv = Auth::user()->id_usu;
+        // $idProv = Auth::user()->id_usu;
         $data['idRider'] = $idRider;
-    return view('confirmQr', compact('data'));
+        return view('confirmQr', compact('data'));
     }
 }
