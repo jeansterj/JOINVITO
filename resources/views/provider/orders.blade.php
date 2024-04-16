@@ -6,13 +6,15 @@
     <div class="text-center text-white my-2">Write the rider’s code or scan it.</div>
     <div class="d-flex justify-content-around">
         <div class="bg-light btnOrdes d-flex text-center my-auto justify-content-center mx-4 px-5">
-            <form action="">
-                <label for="rider-Code" class="text-secondary">WRITE CODE</label>
+            <form action="{{ action([App\Http\Controllers\QrCodeController::class, 'confirmQrWrite']) }}" method="GET">
+              @csrf
+                <label for="rider_Code" class="text-secondary">WRITE CODE</label>
                 <div class="row">
-                    <input type="text" name="rider-Code" id="rider-Code"
+                    <input type="text" name="rider_Code" id="rider_Code"
                         class="btnOrdes bg-primary text-white py-1 my-1 codBorder">
                 </div>
-            </form>
+                <button type="submit" class="btn btn-primary">Check Code</button>
+              </form>
         </div>
         <div class="bg-light btnOrdes px-2 ">
             <a href="" data-toggle="modal" data-target="#exampleModal">

@@ -54,6 +54,7 @@ Route::get('/camera', function () {
 
 Route::get('/confirmQr/{idRider}' , [QrCodeController::class, 'confirm']);
 Route::get('/confirmQr' , [QrCodeController::class, 'show']);
+Route::get('/confirmQrWrite' , [QrCodeController::class, 'confirmQrWrite']);
 
 /** CONTACT VIEW */
 Route::get('/contact', function () {

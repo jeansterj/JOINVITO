@@ -91,7 +91,7 @@ class QrCodeController extends Controller
         // $data['idRider'] = $idRider;
         // return view('confirmQr', compact('data'));
 
-        
+
         $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
         $put = Http::put($url); 
         $statusCode = $put->status();
@@ -110,5 +110,30 @@ class QrCodeController extends Controller
         return $response;
         /** Antes de cagarla */
         
+    }
+
+    public function confirmQrWrite(Request $request) 
+    {
+        $idRider = $request->rider_Code;
+        $idProv = Auth::user()->id_usu;
+
+        // var_dump($idRider, $idProv);
+        // die();
+
+        $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
+        $put = Http::put($url); 
+        $statusCode = $put->status();
+ 
+        if ($statusCode >= 200 && $statusCode < 300) {
+            // var_dump('bien');
+            // die();
+            $response = view('provider.orders');;
+        } else {
+            // var_dump('mal');
+            // die();
+            $response = view('provider.index');;
+
+        }
+        return $response;
     }
 }
