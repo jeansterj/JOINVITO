@@ -61,6 +61,8 @@ Route::get('/contact', function () {
     return view('contact.index');
 });
 
+
+
 Route::middleware(['auth'])->group(function () {
 
     /* Admin routes */
@@ -74,10 +76,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('show-centro', [CentroController::class,'showCentro'])->middleware(['checkRole:admin']);;
     Route::get('show-puntos', [PuntoController::class,'showPuntos'])->middleware(['checkRole:admin']);;
     Route::resource('puntos', PuntoController::class);
-
-    // Route::get('addLocation', function () {
-    //     return view('addLocation');
-    // });
 
     /* rider routes */
 
@@ -101,9 +99,7 @@ Route::middleware(['auth'])->group(function () {
     //     return view('rider.edit-rider');
     // });
 
-    // Route::get('addLocation', function () {
-    //     return view('addLocation');
-    // });
+    
 
     Route::get('getOrders', function () {
         return view('rider.menu_selection');
@@ -149,7 +145,9 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/qr', [QrCodeController::class, 'show']);
 
 
-
+    // Route::get('/addLocation', function () {
+    //     return view('addLocation');
+    // });
 
 
 
