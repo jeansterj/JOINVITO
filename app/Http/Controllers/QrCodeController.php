@@ -51,11 +51,11 @@ class QrCodeController extends Controller
         $statusCode = $response->status();
  
         if ($statusCode >= 200 && $statusCode < 300) {
-            var_dump('bien');
-            die();
+            // var_dump('bien');
+            // die();
         } else {
-            var_dump('mal');
-            die();
+            // var_dump('mal');
+            // die();
         }
         return $response;
     }
