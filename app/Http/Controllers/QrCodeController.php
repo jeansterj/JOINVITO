@@ -91,7 +91,7 @@ class QrCodeController extends Controller
         // $data['idRider'] = $idRider;
         // return view('confirmQr', compact('data'));
 
-
+        // Esta el JOINVITO en mayuscula porque en mi casa esta la carpeta en mayuscula, en clase es joinvito en minuscula
         $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
         $put = Http::put($url); 
         $statusCode = $put->status();
@@ -108,7 +108,6 @@ class QrCodeController extends Controller
 
         }
         return $response;
-        /** Antes de cagarla */
         
     }
 
@@ -117,9 +116,8 @@ class QrCodeController extends Controller
         $idRider = $request->rider_Code;
         $idProv = Auth::user()->id_usu;
 
-        // var_dump($idRider, $idProv);
-        // die();
 
+        // Esta el JOINVITO en mayuscula porque en mi casa esta la carpeta en mayuscula, en clase es joinvito en minuscula
         $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
         $put = Http::put($url); 
         $statusCode = $put->status();
