@@ -3,47 +3,60 @@
 
     <div class="card de">
 
-            <span v-if="confirm" class="badge text-bg-secondary my-2 btnChange"> {{ mensajeUpdate }}</span>
+        <span v-if="confirm" class="badge text-bg-secondary my-2 btnChange"> {{ mensajeUpdate }}</span>
 
 
 
         <h5 class="card-title"><button type="button" class="btn btn-primary text-white btnOrdes px-5"
-                    @click="confirmUpdate()">CONFIRM CHANGES</button></h5>
+                @click="confirmUpdate()">CONFIRM CHANGES</button></h5>
 
         <div class="card-body">
 
+            <div class="row">
 
-            <div class="loading" v-if="loading">
-                Loading data....
-            </div>
+                <div class="loading" v-if="loading">
+                    Loading data....
+                </div>
 
-            <div v-else v-for="menu in menus" class="providerMenusCard">
-                <div class="row">
-                    <div class="d-flex">
-                        <div class="col">
-                            <h2 class="text-start">{{ menu.nombre_menu }}</h2>
-                            <p class="text-start">{{ menu.bebida }}</p>
-                            <p class="text-start">{{ menu.plato1 }}</p>
-                            <p class="text-start">{{ menu.plato2 }}</p>
-                            <p class="text-start">{{ menu.cantidad_packs }}</p>
-                            <div class="flex">
-                                <div class="col">
-                                    <button type="button" class="btn btnEdit" @click="$event => showUpdate(menu)">
-                                        <img src="../../../public/img/editIcon.svg" class="imageMenus" alt="">
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button type="button" class="btn btnDelete" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <img src="../../../public/img/deleteIcon.svg" class="imageMenus" alt="">
-                                    </button>
+                <div v-else v-for="menu in menus" class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card de">
+                        <div class="card-body">
+                            <div class="providerMenusCard">
+                                <div class="row">
+                                    <div class="d-flex">
+                                        <div class="col">
+                                            <h2 class="text-start">{{ menu.nombre_menu }}</h2>
+                                            <p class="text-start">{{ menu.bebida }}</p>
+                                            <p class="text-start">{{ menu.plato1 }}</p>
+                                            <p class="text-start">{{ menu.plato2 }}</p>
+                                            <p class="text-start">{{ menu.cantidad_packs }}</p>
+                                            <div class="flex">
+                                                <div class="col">
+                                                    <button type="button" class="btn btnEdit"
+                                                        @click="$event => showUpdate(menu)">
+                                                        <img src="../../../public/img/editIcon.svg" class="imageMenus"
+                                                            alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" class="btn btnDelete" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
+                                                        <img src="../../../public/img/deleteIcon.svg" class="imageMenus"
+                                                            alt="">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Modal Update  -->
@@ -89,8 +102,10 @@
                     <span v-if="isError" class="badge text-bg-danger"> {{ mensajeError }}</span>
                 </div>
                 <div class="modal-footer justify-content-around">
-                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" @click="$event => updateMenu(menu)" data-bs-dismiss="modal">Pre-save menu changes</button>
-                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5"
+                        @click="$event => updateMenu(menu)" data-bs-dismiss="modal">Pre-save menu changes</button>
+                    <button type="button" class="btn btn-light text-secondary btnOrdes px-5"
+                        data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
@@ -185,8 +200,8 @@ export default {
                 .catch(error => {
                     console.error('Error al actualizar menús:', error);
                     this.error = true;
-                     me.mensajeError = error.response.data.error
-              });
+                    me.mensajeError = error.response.data.error
+                });
         }
 
     }
@@ -236,13 +251,12 @@ button.btn {
     border-radius: 20px;
     width: 20%;
     font-size: 25px;
-        align-self: center;
+    align-self: center;
 
 }
 
 
-#divMenuList{
+#divMenuList {
     margin-bottom: 150px !important;
 }
-
 </style>
