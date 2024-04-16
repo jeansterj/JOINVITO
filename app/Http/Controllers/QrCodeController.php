@@ -51,11 +51,11 @@ class QrCodeController extends Controller
         $statusCode = $response->status();
  
         if ($statusCode >= 200 && $statusCode < 300) {
-            // var_dump('bien');
-            // die();
+            var_dump('bien');
+            die();
         } else {
-            // var_dump('mal');
-            // die();
+            var_dump('mal');
+            die();
         }
         return $response;
     }
@@ -87,8 +87,28 @@ class QrCodeController extends Controller
     public function confirm($idRider)
     {
         $idRider;
-        // $idProv = Auth::user()->id_usu;
-        $data['idRider'] = $idRider;
-        return view('confirmQr', compact('data'));
+        $idProv = Auth::user()->id_usu;
+        // $data['idRider'] = $idRider;
+        // return view('confirmQr', compact('data'));
+
+        
+        $url = "http://localhost:8080/JOINVITO/public/api/pedidos/".$idRider. "/". $idProv;
+        $put = Http::put($url); 
+        $statusCode = $put->status();
+ 
+        if ($statusCode >= 200 && $statusCode < 300) {
+            // var_dump('bien');
+            // die();
+            // redirect()->action([CentroController::class,'showCentro']
+            $response = view('provider.orders');;
+        } else {
+            // var_dump('mal');
+            // die();
+            $response = view('provider.index');;
+
+        }
+        return $response;
+        /** Antes de cagarla */
+        
     }
 }
