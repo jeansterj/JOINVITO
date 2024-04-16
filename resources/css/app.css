@@ -57,6 +57,108 @@
 .bpw-floating-button {
   background-image: url(../../public/img/chatbot-icon.gif) !important ;
 }
+
+.accesibilityDiv {
+  right: 43px;
+  position: fixed;
+  bottom: 99px;
+  transition: 0.5s;
+}
+.accesibilityDiv:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+#accesibilityIcon {
+  width: 48px;
+}
+.inputAcc {
+  /* --s: 50px; 
+  
+  height: calc(var(--s) + var(--s)/5);
+  width: auto; 
+  aspect-ratio: 2.25;
+  border-radius: var(--s);
+  margin: calc(var(--s)/2);
+  display: grid;
+  cursor: pointer;
+  background-color:#ff7a7a;
+  box-sizing: content-box;
+  overflow: hidden;
+  transition: .3s .1s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+
+
+
+
+  transform: scale(0.9);
+  --s: 48px;
+  height: 41px;
+  width: 86px;
+  aspect-ratio: 2.25;
+  border-radius: var(--s);
+  /* margin: calc(var(--s) / 2); */
+  display: grid;
+  cursor: pointer;
+  background-color: #ff7a7a;
+  box-sizing: content-box;
+  overflow: hidden;
+  transition: .3s .1s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.inputAcc:before{
+  content: "";
+  padding: calc(var(--s)/10);
+  --_g: radial-gradient(circle closest-side at calc(100% - var(--s)/2) 50%,#000 96%,#0000);
+  background: 
+    var(--_g) 0 /var(--_p,var(--s)) 100% no-repeat content-box,
+    var(--_g) var(--_p,0)/var(--s)  100% no-repeat content-box,
+    #fff;
+  mix-blend-mode: darken;
+  filter: blur(calc(var(--s)/12)) contrast(11);
+  transition: .4s, background-position .4s .1s,
+    padding cubic-bezier(0,calc(var(--_i,-1)*200),1,calc(var(--_i,-1)*200)) .25s .1s;
+}
+.inputAcc:checked {
+  background-color: #FFCA10;
+}
+.inputAcc:checked:before {
+  padding: calc(var(--s)/10 + .05px) calc(var(--s)/10);
+  --_p: 100%;
+  --_i: 1;
+}
+.accTitle {
+  font-size: 1.5rem !important;
+}
+#containerDivSubrayador {
+  /* filter: sepia(); */
+  display: none;
+  background-color: transparent;
+  width: 100%;
+  height: 22px;
+  /* height: 50px; */
+  z-index: 9999;
+  position: absolute;
+  pointer-events: none;
+}
+
+#divSubrayador {
+  bottom: 1px;
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: #FFCA10;
+  pointer-events: none;
+}
+
+#tableMain {
+  display: grid !important;
+  place-items: center !important;
+}
 /* .bpw-header-container {
   background: #FFCA10 !important;
 } */

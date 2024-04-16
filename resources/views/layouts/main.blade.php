@@ -26,11 +26,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js', 'resources/js/translations.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js', 'resources/js/translations.js', 'resources/js/accesibility.js'])
 </head>
 
-<body class="bg-primary">
-
+<body class="bg-primary" id="bodyMain">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
             @if (Auth::check())
@@ -133,11 +132,46 @@
             {{-- <a href="#" id="engLink" class="text-secondary"><img src="../public/img/flag-eng-icon.png" alt="" class="flags" id="eng"></a> --}}
         </div>
     </nav>
-    <div class="content">
+    <div class="content" id="content">
+        <div id="containerDivSubrayador">
+            <div id="divSubrayador"></div>
+        </div>
         @yield('content')
         <div class="contentHome">
             @yield('contentHome')
         </div>
+        <div class="accesibilityDiv" id="accesibilityDiv">
+            <img src="../public/img/accesibility_icon2.png" id="accesibilityIcon" data-toggle="modal" data-target="#exampleModal"> 
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Accesibility Options</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table" id="tableMain">
+                        <tbody>
+                          <tr>
+                            <td><h1 class="accTitle">Dislexia</h1></td>
+                            <td><input type="checkbox" class="inputAcc" id="dislexiaButton" value="off" ></td>
+                          </tr>
+                          <tr>
+                            <td><h1 class="accTitle">Epilepsia</h1></td>
+                            <td><input type="checkbox" class="inputAcc" id="epilepsiaButton" value="off"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
     @if (Auth::check())
         @if (Auth::user()->rol->nombre == 'rider')
