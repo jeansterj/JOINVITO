@@ -202,3 +202,7 @@ img.rider-logo{
 .editRiderInfo{
     margin-bottom: 95px;
 }
+
+p.text-white.bg-primary{
+    font-size: 28;
+}

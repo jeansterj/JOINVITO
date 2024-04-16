@@ -27,7 +27,7 @@
             <div class="container-fluid my-3">
                 <div class="container chartRiderMap bg-light d-tc mx-2">
                     <h4 class="text-primary">RIDER CODE</h4>
-                    <p class="container text-white bg-primary chartRiderMap">{{ $rolActivo = Auth::user()->id_usu }}</p>
+                    <p class=" text-white bg-primary ">{{ $rolActivo = Auth::user()->id_usu }}</p>
                 </div>
 
                 <div class="chartRiderMap bg-light">

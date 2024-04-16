@@ -147,7 +147,7 @@
                                 src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
                     <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
                                 src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ action([App\Http\Controllers\RiderController::class, 'edit'], ['rider' => $rider->id_rider]) }}"
+                    <div class="col"><a class="nav-link" href="{{ url('/edit-rider') }}"
                             aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
                     <div class="col"><a class="nav-link" href="{{ url('/proveedor') }}"
                             aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
                     </div>
-                    <div class="col"><a class="nav-link" href="{{ action([App\Http\Controllers\ProveedorController::class, 'edit'], ['proveedor' => $proveedor->id_prov]) }}"
+                    <div class="col"><a class="nav-link" href="{{ url('edit-provider') }}"
                             aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
                 </div>
             </div>
@@ -168,11 +168,11 @@
         @if (Auth::user()->rol->nombre == 'centro')
             <div class="flotante container text-center" id="floatingMenu">
                 <div class="row">
-                    <div class="col"><a class="nav-link" href="{{ url('/addLocation') }}"
+                    <div class="col"><a class="nav-link" href="{{ url('addLocation') }}"
                             aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('/centro') }}" aria-expanded="false"><img
+                    <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
                                 src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ action([App\Http\Controllers\CentroController::class, 'edit'], ['centro' => $centro->id_centro]) }}"
+                    <div class="col"><a class="nav-link" href="{{ url('edit-center') }}"
                             aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
                 </div>
             </div>
