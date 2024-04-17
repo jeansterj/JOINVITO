@@ -19,14 +19,15 @@
                                         <div class="row">
                                             <div class="d-flex">
                                                 <div class="col-10">
-                                                    <h2 class="text-start">{{ order.nombre_menu }} - {{
-                    pedido.cantidad_packs }} pack/s</h2>
+                                                    <h2 class="text-start text-break">{{ order.nombre_menu }} - {{
+                    pedido.cantidad_packs }} pack/s - De {{ pedido.id_rider }}</h2>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="d-flex">
                                                 <div class="col-10">
+
                                                     <p class="text-start">{{ order.bebida }}</p>
                                                     <p class="text-start">{{ order.plato1 }}</p>
                                                     <p class="text-start">{{ order.plato2 }}</p>
