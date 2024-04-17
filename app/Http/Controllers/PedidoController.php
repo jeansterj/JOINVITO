@@ -72,7 +72,7 @@ class PedidoController extends Controller
             $menu->bebida = $menu->bebida;
             $menu->plato1 = $menu->plato1;
             $menu->plato2 = $menu->plato2;
-            $menu->cantidad_packs = ($menu->cantidad_packs - $pedido->cantidad_packs);
+            $menu->cantidad_packs = ($menu->cantidad_packs - $request->cantidad);
             $menu->id_prov = $menu->id_prov;
             $menu->fecha_alta = $menu->fecha_alta;
 
