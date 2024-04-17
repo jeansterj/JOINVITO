@@ -54,9 +54,11 @@
       </div>
    
     <div class="text-white py-2 text-center">ORDERS
-        <div class="bg-light chartProviderOrder centerSpace my-3" id="ordersProvider">
+      <div class="container">
+        <div class="bg-light chartProviderOrder centerSpace my-3 " id="ordersProvider">
 
         </div>
+      </div>
     </div>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
