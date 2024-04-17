@@ -106,12 +106,13 @@
                                 alt="" >Login</button></a>
                 @endif
             </div>
-            <div class="dropdown" >
+            <div class="dropdown langItem">
                 <input type="checkbox" id="dropdown">
 
-                <label class="dropdown__face" for="dropdown" id="dropdown" >
-                    <p class="dropdownText" data-translate="lang">Lang</p>
-                  <div class="dropdown__arrow"></div>
+                <label class="dropdown__face langDropdown" for="dropdown" id="dropdown" >
+                    {{-- <p class="dropdownText" data-translate="lang">Lang</p> --}}
+                    <img src="./img/traducir.svg"></img>
+                  {{-- <div class="dropdown__arrow"></div> --}}
                 </label>
 
                 <ul class="dropdown__items">
@@ -141,13 +142,13 @@
             @yield('contentHome')
         </div>
         <div class="accesibilityDiv" id="accesibilityDiv">
-            <img src="../public/img/accesibility_icon2.png" id="accesibilityIcon" data-toggle="modal" data-target="#exampleModal"> 
+            <img src="../public/img/accesibility_icon2.svg" id="accesibilityIcon" data-toggle="modal" data-target="#acModal"> 
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="acModal" tabindex="-1" role="dialog" aria-labelledby="acModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Accesibility Options</h5>
+                  <h5 class="modal-title" id="acModal">Accesibility Options</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -177,37 +178,51 @@
         @if (Auth::user()->rol->nombre == 'rider')
             <div class="flotante container text-center" id="floatingMenu">
                 <div class="row">
-                    <div class="col"><a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img
-                                src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('addLocation') }}" aria-expanded="false"><img
+                                src="{{ asset('img/puaMap.svg') }}" alt=""></a> --}}
+                            </div>
                     <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
                                 src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('/edit-rider') }}"
-                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('/edit-rider') }}"
+                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a> --}}
+                        </div>
                 </div>
             </div>
         @endif
         @if (Auth::user()->rol->nombre == 'proveedor')
             <div class="flotante container text-center" id="floatingMenu">
                 <div class="row">
-                    <div class="col"><a class="nav-link" href="{{ url('addLocation') }}"
-                            aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('addLocation') }}"
+                            aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a> --}}
+                        </div>
                     <div class="col"><a class="nav-link" href="{{ url('/proveedor') }}"
                             aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
                     </div>
-                    <div class="col"><a class="nav-link" href="{{ url('edit-provider') }}"
-                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('edit-provider') }}"
+                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a> --}}
+                        </div>
                 </div>
             </div>
         @endif
         @if (Auth::user()->rol->nombre == 'centro')
             <div class="flotante container text-center" id="floatingMenu">
                 <div class="row">
-                    <div class="col"><a class="nav-link" href="{{ url('addLocation') }}"
-                            aria-expanded="false"><img src="{{ asset('img/puaMap.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
-                                src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                    <div class="col"><a class="nav-link" href="{{ url('edit-center') }}"
-                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a></div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('addLocation') }}"
+                            aria-expanded="false" ><img src="{{ asset('img/puaMap.svg') }}" alt=""></a> --}}
+                        </div>
+                    <div class="col">
+                        <a class="nav-link" href="{{ url('/centro') }}" aria-expanded="false"><img
+                                src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
+                            </div>
+                    <div class="col">
+                        {{-- <a class="nav-link" href="{{ url('edit-center') }}"
+                            aria-expanded="false"><img src="{{ asset('img/user.png') }}" alt=""></a> --}}
+                        </div>
                 </div>
             </div>
         @endif

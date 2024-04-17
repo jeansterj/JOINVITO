@@ -63,6 +63,10 @@
   position: fixed;
   bottom: 99px;
   transition: 0.5s;
+  border-radius: 100%;
+  border: 1px solid black;
+  height: 48px;
+  z-index: 10000;
 }
 .accesibilityDiv:hover {
   cursor: pointer;
@@ -151,7 +155,7 @@
   position: absolute;
   width: 100%;
   height: 6px;
-  background-color: #FFCA10;
+  background-color: red;
   pointer-events: none;
 }
 
@@ -617,4 +621,20 @@ width: 70%;
 
 .login-signup{
     margin-bottom: 150px;
+}
+
+.dropdown.langItem{
+  position: relative;
+  right: 0px !important;
+}
+
+.langDropdown{
+  position: relative;
+  height: 70px;
+}
+
+#dropdown img{
+  width: 35px; 
+  position: absolute;
+  left: 25px;
 }

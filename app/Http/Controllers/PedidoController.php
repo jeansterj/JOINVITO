@@ -40,7 +40,7 @@ class PedidoController extends Controller
         try{
 
             $currentDate = date('y-m-d');
-            $pedido = Pedido::where('id_menu',$request->id_menu)->where('fecha',$currentDate)->first();
+            $pedido = Pedido::where('id_menu',$request->id_menu)->where('id_rider',$request->id_rider)->where('fecha',$currentDate)->first();
 
             if($pedido != null){
                 $pedido->id_rider = $request->id_rider;
@@ -72,7 +72,7 @@ class PedidoController extends Controller
             $menu->bebida = $menu->bebida;
             $menu->plato1 = $menu->plato1;
             $menu->plato2 = $menu->plato2;
-            $menu->cantidad_packs = ($menu->cantidad_packs - $pedido->cantidad_packs);
+            $menu->cantidad_packs = ($menu->cantidad_packs - $request->cantidad);
             $menu->id_prov = $menu->id_prov;
             $menu->fecha_alta = $menu->fecha_alta;
 

@@ -14,6 +14,14 @@ document.onclick = function (event) {
     } else if (target.id === 'epilepsiaButton') {
         // console.log('hola');
         epilepsiaMode()
+    } else if (target.id === 'sp' || target.id === 'cat' || target.id === 'eng'  ) {
+        // leng = target.id
+        let flags = document.getElementsByClassName('flags')
+        for (const i of flags) {
+            i.style.filter = (i.style.filter !== 'grayscale()') ? 'grayscale()' : i.style.filter;
+        }
+        let flag = document.getElementById(target.id)
+        flag.style.filter = 'none';
     }
 }
 
