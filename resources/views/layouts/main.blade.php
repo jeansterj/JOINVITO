@@ -106,7 +106,7 @@
                                 alt="" >Login</button></a>
                 @endif
             </div>
-            <div class="dropdown">
+            <div class="dropdown langItem">
                 <input type="checkbox" id="dropdown">
 
                 <label class="dropdown__face langDropdown" for="dropdown" id="dropdown" >
