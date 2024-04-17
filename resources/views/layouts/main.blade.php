@@ -142,7 +142,7 @@
             @yield('contentHome')
         </div>
         <div class="accesibilityDiv" id="accesibilityDiv">
-            <img src="../public/img/accesibility_icon2.png" id="accesibilityIcon" data-toggle="modal" data-target="#acModal"> 
+            <img src="../public/img/accesibility_icon2.svg" id="accesibilityIcon" data-toggle="modal" data-target="#acModal"> 
         </div>
         <div class="modal fade" id="acModal" tabindex="-1" role="dialog" aria-labelledby="acModal" aria-hidden="true">
             <div class="modal-dialog" role="document">

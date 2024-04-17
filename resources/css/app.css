@@ -63,6 +63,10 @@
   position: fixed;
   bottom: 99px;
   transition: 0.5s;
+  border-radius: 100%;
+  border: 1px solid black;
+  height: 48px;
+  z-index: 10000;
 }
 .accesibilityDiv:hover {
   cursor: pointer;
