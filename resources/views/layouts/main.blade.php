@@ -106,12 +106,13 @@
                                 alt="" >Login</button></a>
                 @endif
             </div>
-            <div class="dropdown" >
+            <div class="dropdown">
                 <input type="checkbox" id="dropdown">
 
-                <label class="dropdown__face" for="dropdown" id="dropdown" >
-                    <p class="dropdownText" data-translate="lang">Lang</p>
-                  <div class="dropdown__arrow"></div>
+                <label class="dropdown__face langDropdown" for="dropdown" id="dropdown" >
+                    {{-- <p class="dropdownText" data-translate="lang">Lang</p> --}}
+                    <img src="./img/traducir.svg"></img>
+                  {{-- <div class="dropdown__arrow"></div> --}}
                 </label>
 
                 <ul class="dropdown__items">

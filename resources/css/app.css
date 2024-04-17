@@ -618,3 +618,14 @@ width: 70%;
 .login-signup{
     margin-bottom: 150px;
 }
+
+.langDropdown{
+  position: relative;
+  height: 70px;
+}
+
+#dropdown img{
+  width: 35px; 
+  position: absolute;
+  left: 25px;
+}
