@@ -719,4 +719,8 @@ cursor: pointer;
     display: none;
 }
 
+.mapboxgl-ctrl{
+    display: none !important;
+}
+
 </style>
