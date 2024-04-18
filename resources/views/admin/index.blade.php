@@ -28,5 +28,13 @@
             <h3>PUNTOS</h3>
         </div>
     </div>
+    <div class="row margin-top adminTop">
+        <h2>ASIGNACION DE PEDIDOS</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ url('add-pedido') }}"> <img src="{{ asset('img/crearMenuCruzado.svg') }}" alt="" class="adminImage"></a>
+        </div>
+    </div>
 </div>
 @endsection
