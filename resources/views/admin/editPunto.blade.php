@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group gird-placeContent">
                             <label for="personas">Cantidad personas</label>
-                            <input class="form-control" type="text" id="personas" maxlength="250"
+                            <input class="form-control" type="text" id="personas" maxlength=" 250"
                                  required name="personas" value="{{ $punto->cantidad_personas}}">
                         </div>
                         <div class="form-group gird-placeContent">

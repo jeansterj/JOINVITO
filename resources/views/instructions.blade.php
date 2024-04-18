@@ -18,7 +18,7 @@
 
                 @switch($rolActivo)
                     @case('rider')
-                        <img src="" alt="videoInstructionsRider">
+                        <img src="{{ asset('img/riderInteractivo.mp4')}}" alt="videoInstructionsRider">
                     @break
 
                     @case('centro')
@@ -27,7 +27,7 @@
                     @break
 
                     @case('proveedor')
-                        <img src="" alt="videoInstructionsProvider">
+                        <img src="{{ asset('img/videoInteractivoProvider.mp4') }}" alt="videoInstructionsProvider">
                     @break
 
                     @default

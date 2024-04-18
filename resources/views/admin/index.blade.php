@@ -29,11 +29,22 @@
         </div>
     </div>
     <div class="row margin-top adminTop">
+<<<<<<< HEAD
         <h2>ASIGNACION DE PEDIDOS</h2>
     </div>
     <div class="row">
         <div class="col">
             <a href="{{ url('add-pedido') }}"> <img src="{{ asset('img/crearMenuCruzado.svg') }}" alt="" class="adminImage"></a>
+=======
+        <h2>MENUS Y PEDIDOS</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ url('show-menus') }}"> <img src="{{ asset('img/') }}" alt="" class="adminImage"></a>
+        </div>
+        <div class="col">
+            <a href="{{ url('show-pedidos') }}"> <img src="{{ asset('img/') }}" alt="" class="adminImage"></a>
+>>>>>>> 0a35eea376e651688522a5c551cffb8393c01975
         </div>
     </div>
 </div>
