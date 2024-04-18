@@ -66,6 +66,7 @@
                                   </label>
                             </div>
                             <button type="submit" class="btn btn-light btn_login" name="supplierFrom">SAVE</button>
+                            <a href="../../show-providers"><button type="button" class="btn btn-light btn_login">Cancel</button></a>
                         </div>
                     </div>
                 </form>

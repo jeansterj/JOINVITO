@@ -80,8 +80,6 @@ setLanguage(selectedLanguage);
       }
     }
 
-
-
       loginRegistroNavbar.classList.add ('ocultar');
 
       if (btnLoginMobile != null) {

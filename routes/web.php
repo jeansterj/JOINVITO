@@ -9,7 +9,6 @@ use App\Http\Controllers\CentroController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\WebcamController;
-
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProveedorController;
 
@@ -71,11 +70,14 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.index');
     });
 
-    Route::get('show-riders', [RiderController::class,'showRiders'])->middleware(['checkRole:admin']);;
-    Route::get('show-providers', [ProveedorController::class,'showProviders'])->middleware(['checkRole:admin']);;
-    Route::get('show-centro', [CentroController::class,'showCentro'])->middleware(['checkRole:admin']);;
-    Route::get('show-puntos', [PuntoController::class,'showPuntos'])->middleware(['checkRole:admin']);;
+    Route::get('show-riders', [RiderController::class,'showRiders'])->middleware(['checkRole:admin']);
+    Route::get('show-providers', [ProveedorController::class,'showProviders'])->middleware(['checkRole:admin']);
+    Route::get('show-centro', [CentroController::class,'showCentro'])->middleware(['checkRole:admin']);
+    Route::get('show-puntos', [PuntoController::class,'showPuntos'])->middleware(['checkRole:admin']);
     Route::resource('puntos', PuntoController::class);
+
+    Route::get('add-pedidos', [PedidoController::class, 'getAllItems'])->middleware(['checkRole:admin']);
+    
 
     /* rider routes */
 
@@ -105,7 +107,7 @@ Route::middleware(['auth'])->group(function () {
         return view('rider.menu_selection');
     })->middleware(['checkRole:rider']);
 
-    Route::resource('rider', RiderController::class)->middleware(['checkRole:rider']);
+    Route::resource('rider', RiderController::class)->middleware(['checkRole:rider,admin']);
 
 
     // Routes Provider
@@ -117,14 +119,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('menusList', function () {
         return view('provider.menusList');
     })->middleware(['checkRole:proveedor']);
+
     Route::get('createMenu', function () {
         return view('provider.createMenu');
     })->middleware(['checkRole:proveedor']);
+    
     Route::get('modifyMenu', function () {
         return view('provider.modifyMenu');
     })->middleware(['checkRole:proveedor']);
 
-    Route::resource('proveedor', ProveedorController::class)->middleware(['checkRole:proveedor']);
+    Route::resource('proveedor', ProveedorController::class)->middleware(['checkRole:proveedor,admin']);
 
     Route::resource('menu', MenuController::class);
 
@@ -154,7 +158,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('rider-menu-selection/{long}/{lat}', [RiderController::class,'showFavoritesNearBy']);
     Route::get('rider-menu-selection', [RiderController::class,'showFavoritesNearBy'])->middleware(['checkRole:rider']);
 
-    Route::resource('pedido', PedidoController::class);
+    Route::resource('pedido', PedidoController::class)->middleware(['checkRole:rider,admin']);
 
     Route::get('/logout', [UsuarioController::class,'logout']);
 

@@ -12,17 +12,7 @@
         <div id="ordersRider" class="buttonOrder">
         </div>
 
-        <div>
-            {{-- <div class="container chartRiderMap bg-light py-2 px-2 my-3">
-                <div class="riderOrderCard">
-                    <p>PROV1</p>
-                    <p>CHEESE BURGUER</p>
-                    <p>FISH</p>
-                    <p>COCA-COLA</p>
-                </div>
-            </div> --}}
-
-          
+        <div>          
 
             <div class="container-fluid my-3">
                 <div class="container chartRiderMap bg-light d-tc mx-2">
@@ -39,13 +29,6 @@
                 </div>
             </div>
         </div>
-        <!-- Button trigger modal -->
-        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> 
-            <img class="my-2" src="{{ asset('img/QRImg.svg') }}" alt="QR">
-        </button>  --}}
-        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button> --}}
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">

@@ -55,6 +55,8 @@
                                     <input class="form-control" type="text" id="name" maxlength="50"
                                         placeholder="Jon" name = "name" required>
                                 </div>
+                            </div>
+                            <div class="col">
                                 <div class="form-group gird-placeContent">
                                     <label for="lastName">Last Name</label>
                                     <input class="form-control" type="text" id="lastName" maxlength="50"
@@ -65,13 +67,13 @@
                                     <input class="form-control" type="text" id="surname" maxlength="100"
                                         placeholder="Doe" name = "surname" required>
                                 </div>
+                                <div class="form-group gird-placeContent">
+                                  <label for="address">Direction</label>
+                                  <input class="form-control" type="text" id="address" maxlength="250"
+                                      placeholder="Barcelona" name = "address" required>
+                                </div>
                             </div>
                             <div class="col">
-                                <div class="form-group gird-placeContent">
-                                    <label for="address">Direction</label>
-                                    <input class="form-control" type="text" id="address" maxlength="250"
-                                        placeholder="Barcelona" name = "address" required>
-                                </div>
                                 <div class="form-group gird-placeContent">
                                     <label for="floor">Floor (Opcional)</label>
                                     <input class="form-control" type="text" id="floor" maxlength="30"

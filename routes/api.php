@@ -46,5 +46,3 @@ Route::put('pedidos/{id_rider}/{id_provider}', [RiderController::class,'markAsCo
 Route::apiResource('menu', MenuController::class);
 
 Route::get('bar-chart/{userType}/{userId}/{year}', [ChartController::class, 'barChart']);
-
-

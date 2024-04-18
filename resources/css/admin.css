@@ -9,6 +9,10 @@ select.form-select {
     width: 30%;
 }
 
+.table-users button.btn{
+  width: 100% !important;
+}
+
 
 
 /* Estilos para el input de tipo date */
@@ -111,5 +115,9 @@ input[type="date"] {
   }
 
   .adminHome{
+    margin-bottom: 150px;
+  }
+
+  .registerForm{
     margin-bottom: 150px;
   }
