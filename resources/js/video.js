@@ -15,22 +15,57 @@ const opcion6 =  document.getElementById('option6');
 
 videoRider?.addEventListener('seeked', function () {
 
-    // ocultar()
-    // divReintentar.classList.remove('d-flex');
-    // divReintentar.classList.add('d-none')
-    // divCreador.classList.remove('d-flex')
-    // divCreador.classList.add('d-none');
+    ocultar()
+
 
 })
 
 
-
-
-
 videoRider?.addEventListener('timeupdate', function () {
 
+    opcion1.innerText = 'Edit Profile'
+    opcion2.innerText = 'Stats'
+    opcion3.innerText = 'make delivery'
+    opcion4.innerText = 'Translations'
+    opcion5.innerText = 'Make an order'
+
+  
+    if (videoRider.currentTime >= 0 && videoRider.currentTime <= 8) {
+
+        showEleccion()
+        eleccion(videoRider,49,160,9,127,84)
+
+    }
+
+    else if (videoRider.currentTime >= 40 && videoRider.currentTime <= 48) {
+
+        showEleccion()
+        eleccion(videoRider,49,160,9,127,84)
+
+    }
+
+    else if (videoRider.currentTime >= 75 && videoRider.currentTime <= 83) {
+
+        showEleccion()
+        eleccion(videoRider,49,160,9,127,84)
+
+    }
+
+    else if (videoRider.currentTime >= 118 && videoRider.currentTime <= 126) {
+
+        showEleccion()
+        eleccion(videoRider,49,160,9,127,84)
+
+    }
+    else if (videoRider.currentTime >= 151 && videoRider.currentTime <= 159) {
+
+        showEleccion()
+        eleccion(videoRider,49,160,9,127,84)
 
 
+    } else {
+        ocultar()
+    }
 
 })
 
@@ -62,38 +97,41 @@ videoProvider?.addEventListener('timeupdate', function () {
 
     }
 
-    if (videoProvider.currentTime >= 43 && videoProvider.currentTime <= 51) {
+    else if (videoProvider.currentTime >= 43 && videoProvider.currentTime <= 51) {
 
         showEleccion()
         eleccion(videoProvider,52,9,147,186,80,125)
 
     }
 
-    if (videoProvider.currentTime >= 69 && videoProvider.currentTime <= 77) {
+    else if (videoProvider.currentTime >= 69 && videoProvider.currentTime <= 77) {
 
         showEleccion()
         eleccion(videoProvider,52,9,147,186,80,125)
 
     }
 
-    if (videoProvider.currentTime >= 116 && videoProvider.currentTime <= 124) {
+    else if (videoProvider.currentTime >= 116 && videoProvider.currentTime <= 124) {
 
         showEleccion()
         eleccion(videoProvider,52,9,147,186,80,125)
 
     }
-    if (videoProvider.currentTime >= 138 && videoProvider.currentTime <= 146) {
+    else if (videoProvider.currentTime >= 138 && videoProvider.currentTime <= 146) {
 
         showEleccion()
         eleccion(videoProvider,52,9,147,186,80,125)
 
 
     }
-    if (videoProvider.currentTime >= 177 && videoProvider.currentTime <= 185) {
+    else if (videoProvider.currentTime >= 177 && videoProvider.currentTime <= 185) {
       
         showEleccion()
         eleccion(videoProvider,52,9,147,186,80,125)
 
+    } else {
+
+        ocultar()
     }
 
 

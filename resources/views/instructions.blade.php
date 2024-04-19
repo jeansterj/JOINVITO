@@ -20,9 +20,32 @@
 
                 @switch($rolActivo)
                     @case('rider')
-                    <div id="divRiderV">
+                    <div>
                         <video src="{{ asset('img/riderInteractivo.mp4') }}" alt="videoInstructionsRider" controls id="videoRider" class="video"></video>
-
+                        <div id="divRiderV" class="d-none">
+                            <div class="row prueba1">
+                                <div class="col">
+                                    <button id="option1" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option2" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option3" class="btn btn-light "></button>
+                                </div>
+                            </div>
+                            <div class="row prueba2">
+                                <div class="col">
+                                    <button id="option4" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option5" class="btn btn-light "></button>
+                                </div>
+                                <div class="col d-none">
+                                    <button id="option6" class="btn btn-light "></button>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
                         @break
 
