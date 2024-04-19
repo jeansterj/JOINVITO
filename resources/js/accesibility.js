@@ -1,9 +1,14 @@
 let db = document.getElementById('dislexiaButton')
+let eb = document.getElementById('epilepsiaButton')
 // console.log(db.value);
-let l1 = localStorage.getItem('epilepsiaMode')
+let l1 = localStorage.getItem('dislexia')
+let l2 = localStorage.getItem('epilepsia')
 if (l1 === 'on') {
     db.checked = true
     dislexiaMode()
+} else if (l2 === 'on') {
+    eb.checked = true
+    epilepsiaMode()
 }
 document.onclick = function (event) {
     let target = event.target
@@ -27,11 +32,12 @@ document.onclick = function (event) {
 
 
 function epilepsiaMode() {
-    let content = document.getElementById('content')
-    // let body = document.getElementById('bodyMain')
-    // let epilepsiaButton = document.getElementById('epilepsiaButton')
-    content.style.filter = (content.style.filter === 'sepia()') ? 'none' : 'sepia()'
+    let page = document.getElementById('page')
+    // page.style.filter = (page.style.filter == 'sepia()') ? 'none' : 'sepia()'
+    if (page.style.filter === 'sepia()'){page.style.filter = 'none'; eb.value = 'off'}
+    else{page.style.filter = 'sepia()'; eb.value = 'on'}
 
+    localStorage.setItem('epilepsia', eb.value)
 }
 
 function dislexiaMode() {
@@ -42,11 +48,10 @@ function dislexiaMode() {
         containerDivUnderLiner.style.display = 'none'
         db.value = 'off' 
     } else {
-
         containerDivUnderLiner.style.display = 'block'
         db.value = 'on'
     }
-    localStorage.setItem('epilepsiaMode', db.value)
+    localStorage.setItem('dislexia', db.value)
 
     document.addEventListener('mousemove', function (event) {
         moveDiv(event, containerDivUnderLiner)

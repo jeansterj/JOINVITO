@@ -314,7 +314,20 @@ body {
   text-align: center !important;
   overflow-x: hidden;
 }
-
+.alertEpilepsia {
+  display: none;
+  z-index: 99999;
+  border: 1px solid red !important;
+  color: black !important;
+  background-color: #F8D7D9 !important;
+  right: 30%;
+  position: fixed !important;
+  top: 40px;
+}
+.pAlert {
+  margin: 0;
+  padding: 0;
+}
 .contentHome {
   display: flex;
   justify-content: center;
