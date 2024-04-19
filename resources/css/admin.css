@@ -121,3 +121,22 @@ input[type="date"] {
   .registerForm{
     margin-bottom: 150px;
   }
+
+  li{
+    list-style: none;
+    color: black;
+}
+
+ul{
+    padding: 0;
+}
+
+.rider{
+    color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.bg-body-tertiary{
+    border-radius: 20px;
+}
