@@ -22,8 +22,8 @@
                     @case('rider')
                     <div>
                         <video src="{{ asset('img/riderInteractivo.mp4') }}" alt="videoInstructionsRider" controls id="videoRider" class="video"></video>
-                        <div id="divRiderV" class="d-none">
-                            <div class="row prueba1">
+                        <div id="divRiderV" class="d-none" >
+                            <div class="row col1Video" id="rowVid1">
                                 <div class="col">
                                     <button id="option1" class="btn btn-light "></button>
                                 </div>
@@ -34,7 +34,7 @@
                                     <button id="option3" class="btn btn-light "></button>
                                 </div>
                             </div>
-                            <div class="row prueba2">
+                            <div class="row col2Video" id="rowVid2">
                                 <div class="col">
                                     <button id="option4" class="btn btn-light "></button>
                                 </div>
@@ -61,7 +61,7 @@
                         <div >
                             <video src="{{ asset('img/videoInteractivoProvider.mp4') }}" alt="videoInstructionsProvider" controls id="videoProvider" class="video"></video>
                             <div id="divProvV" class="d-none">
-                                <div class="row prueba1">
+                                <div class="row col1Video" id="rowVid1">
                                     <div class="col">
                                         <button id="option1" class="btn btn-light "></button>
                                     </div>
@@ -72,7 +72,7 @@
                                         <button id="option3" class="btn btn-light "></button>
                                     </div>
                                 </div>
-                                <div class="row prueba2">
+                                <div class="row col2Video" id="rowVid2">
                                     <div class="col">
                                         <button id="option4" class="btn btn-light "></button>
                                     </div>

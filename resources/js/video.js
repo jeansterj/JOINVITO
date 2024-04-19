@@ -1,3 +1,5 @@
+
+
 const videoRider = document.getElementById('videoRider');
 const divRiderV = document.getElementById('divRiderV');
 
@@ -199,3 +201,57 @@ function eleccion(video,eleccion1,eleccion2,eleccion3,eleccion4,eleccion5,elecci
     })
 
 }
+
+const rowVid1 = document.getElementById('rowVid1')
+const rowVid2 = document.getElementById('rowVid2')
+
+document.addEventListener ('DOMContentLoaded', function () {
+
+    handleResize ();
+})
+
+function handleResize () {
+    let screenWidth = window.innerWidth;
+
+    if (screenWidth < 767) {
+
+        rowVid1.classList.remove('col1Video', 'col1VideoM','col1VideoMM')
+        rowVid2.classList.remove('col2Video', 'col2VideoM','col2VideoMM')
+        rowVid1.classList.add('py-3')
+        rowVid2.classList.add('py-3')
+
+    } 
+    
+    else if (screenWidth >= 768 && screenWidth < 993) 
+    
+    {
+        rowVid1.classList.remove('py-3')
+        rowVid2.classList.remove('py-3')
+        rowVid1.classList.add('col1VideoM')
+        rowVid2.classList.add('col2VideoM')
+      
+
+    }
+
+    else if (screenWidth >= 993 && screenWidth < 1201)
+    {
+        rowVid1.classList.remove('col1VideoM')
+        rowVid2.classList.remove('col2VideoM')
+        rowVid1.classList.add('col1VideoMM')
+        rowVid2.classList.add('col2VideoMM')
+    }
+
+    else if (screenWidth >= 1201)
+    {
+        rowVid1.classList.remove('col1VideoM','col1VideoMM')
+        rowVid2.classList.remove('col2VideoM','col2VideoMM')
+        rowVid1.classList.add('col1Video')
+        rowVid2.classList.add('col2Video')
+    }
+
+
+}
+
+window.addEventListener ('resize', handleResize);
+
+handleResize ();
