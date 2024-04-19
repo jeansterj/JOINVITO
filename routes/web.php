@@ -76,8 +76,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('show-puntos', [PuntoController::class,'showPuntos'])->middleware(['checkRole:admin']);
     Route::resource('puntos', PuntoController::class);
 
-    Route::get('add-pedidos', [PedidoController::class, 'getAllItems'])->middleware(['checkRole:admin']);
-    
+    Route::get('add-pedido', [ProveedorController::class, 'getProvidersMenusRiders'])->middleware(['checkRole:admin']);
+
 
     /* rider routes */
 
@@ -101,7 +101,7 @@ Route::middleware(['auth'])->group(function () {
     //     return view('rider.edit-rider');
     // });
 
-    
+
 
     Route::get('getOrders', function () {
         return view('rider.menu_selection');
@@ -123,7 +123,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('createMenu', function () {
         return view('provider.createMenu');
     })->middleware(['checkRole:proveedor']);
-    
+
     Route::get('modifyMenu', function () {
         return view('provider.modifyMenu');
     })->middleware(['checkRole:proveedor']);

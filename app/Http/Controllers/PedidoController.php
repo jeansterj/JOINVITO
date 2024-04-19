@@ -126,12 +126,9 @@ class PedidoController extends Controller
 
     public function getAllItems()
     {
-        
+
         return view('admin.asignarPedidosRider');
     }
 
-    public function addPedido()
-    {
-        
-    }
+
 }

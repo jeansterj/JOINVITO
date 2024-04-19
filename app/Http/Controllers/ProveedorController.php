@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Clases\Utilitat;
-use App\Models\Proveedor;
+use App\Models\Rider;
 use App\Models\Usuario;
+use App\Clases\Utilitat;
 
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
@@ -19,7 +20,7 @@ class ProveedorController extends Controller
     public function index()
     {
         $id_user = Auth::user()->id_usu;
-        
+
         $proveedor = Proveedor::where('id_prov', '=' , $id_user)->first() ;
 
         return view('provider.index', compact('proveedor'));    }
@@ -72,12 +73,12 @@ class ProveedorController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Proveedor $proveedor)
-    
+
     {
         $usuario = Usuario::find($proveedor->id_prov);
         $usuario->email = $request->input('email');
         $usuario->pass_usu = $request->input('pass_usu');
- 
+
         $proveedor->nombre=$request->input('nombre');
         $proveedor->primer_apellido=$request->input('primer_apellido');
         $proveedor->nombre_negocio=$request->input('nombre_negocio');
@@ -110,11 +111,11 @@ class ProveedorController extends Controller
 
             switch($rol){
                 case $providerRol:
-                            $response = redirect()->action([ProveedorController::class,'index']);    
+                            $response = redirect()->action([ProveedorController::class,'index']);
                             break;
-    
+
                 case $adminRol:
-                            $response = redirect()->action([ProveedorController::class,'showProviders']); 
+                            $response = redirect()->action([ProveedorController::class,'showProviders']);
                             break;
             }
         } catch (QueryException $ex)
@@ -136,10 +137,21 @@ class ProveedorController extends Controller
     }
 
     public function showProviders() {
-       
+
         $providers = Proveedor::with('usuario.rol')->get();
 
         return view('admin.providers',compact('providers'));
-    
+
+    }
+
+    public function getProvidersMenusRiders() {
+
+        $providers = Proveedor::with('menus')
+                    ->whereHas('menus')
+                    ->get();
+        $riders = Rider::all();
+        // $providers[0]->menus
+        return view('admin.asignarPedidosRider',compact('providers','riders'));
+
     }
 }
