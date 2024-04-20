@@ -73,7 +73,9 @@
   transform: scale(1.05);
 }
 #accesibilityIcon {
-  width: 48px;
+    width: 48px;
+    background-color: #07203C;
+    border-radius: 22px;
 }
 .inputAcc {
   /* --s: 50px; 
