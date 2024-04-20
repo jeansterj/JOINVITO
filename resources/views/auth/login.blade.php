@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="form-group gird-placeContent">
                                     <label for="passwdS">Password</label>
-                                    <input class="form-control" type="text" id="passwdS" maxlength="50"
+                                    <input class="form-control" type="password" id="passwdS" maxlength="50"
                                         placeholder="*****" name = "passwd" required>
                                 </div>
                                 <div class="form-group gird-placeContent">
@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="form-group gird-placeContent">
                                     <label for="passwdC">Password</label>
-                                    <input class="form-control" type="text" id="passwdC" maxlength="50"
+                                    <input class="form-control" type="password" id="passwdC" maxlength="50"
                                         placeholder="****" name = "passwd" required>
                                 </div>
                                 <div class="form-group gird-placeContent">

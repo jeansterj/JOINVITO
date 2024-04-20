@@ -142,7 +142,7 @@ ul{
 }
 
 
-#dataTableProvider,#dataTableRider{
+.table-header{
     margin-top: 10px;
 }
 
@@ -150,8 +150,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     color: white;
-  }
-
+}
 
 tr{
     border: 1px solid #FFCA10 !important;
@@ -173,7 +172,7 @@ tbody tr:hover {
     margin-top: 10px;
 }
 
-.addPedido .addPedido .form-control{
+.addPedido .form-control{
     width: 100% !important;
 }
 
@@ -207,3 +206,37 @@ tbody tr:hover {
 .addPedido #pedir{
     margin-top: 20px;
 }
+
+/* Estilos para la barra de desplazamiento en WebKit (Safari, Chrome) */
+.addPedido .table-wrapper {
+    overflow-x: auto;
+    max-height: 353px; /* Ajusta esto según sea necesario */
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb {
+    background: #FFCA10;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #FFCA10;
+  }
+  
+  /* Estilos para la barra de desplazamiento en Firefox */
+  .table-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #FFCA10 transparent;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #FFCA10;
+  }
+
+  

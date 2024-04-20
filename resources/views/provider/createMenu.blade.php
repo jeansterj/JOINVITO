@@ -33,12 +33,11 @@
                                     placeholder="Cocacola" name = "drink" required>
                             </div>
                             <div class="form-group gird-placeContent">
-                                <label for="amount">Amount</label>
+                                <label for="amount">Quantity</label>
                                 <input class="form-control" type="number" id="amount" maxlength="2" value="0"
                                     name = "amount" required>
                             </div>
-                            <button type="submit" class="btn btn-light btn_login" name="supplierFrom">TO REGISTER
-                                MENU</button>
+                            <button type="submit" class="btn btn-light btn_login" name="supplierFrom">REGISTER MENU</button>
                         </div>
                     </div>
                 </form>

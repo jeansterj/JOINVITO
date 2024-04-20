@@ -12,39 +12,45 @@
                     <h3>SELECT MENU</h3>
                     <div class="container bg-body-primary">
                         <input type="text" class="form-control" id="searchInputProvider" placeholder="Buscar...">
-                        <table id="dataTableProvider">
+                        <table class="table-header">
                             <thead>
                             <tr>
                                 <th>PROVEEDOR</th>
                                 <th>MENU</th>
                                 <th>PACKS</th>
                             </tr>
-                            </thead>
-                            <tbody id="dataBodyProvider">
-                                @foreach ($providers as $provider)
-                                    @foreach ($provider->menus as $menu)
-                                        <tr data-idprovider="{{ $provider->id_prov }}" data-idmenu="{{ $menu->id_menu }}" data-nameMenu="{{ $menu->nombre_menu }}" data-cantidad="{{ $menu->cantidad_packs }}">
-                                            <td>{{ $provider->nombre }}</td>
-                                            <td class="nombre">{{ $menu->nombre_menu }}</td>
-                                            <td class="cantidad">{{ $menu->cantidad_packs }}</td>
-                                            </div>
-                                        </tr>
-                                    @endforeach
-                                @endforeach
-                            </tbody>
                         </table>
+                        <div class="table-wrapper">
+                            <table id="dataTableProvider">
+                                <tbody id="dataBodyProvider">
+                                    @foreach ($providers as $provider)
+                                        @foreach ($provider->menus as $menu)
+                                            <tr data-idprovider="{{ $provider->id_prov }}" data-idmenu="{{ $menu->id_menu }}" data-nameMenu="{{ $menu->nombre_menu }}" data-cantidad="{{ $menu->cantidad_packs }}">
+                                                <td>{{ $provider->nombre }}</td>
+                                                <td class="nombre">{{ $menu->nombre_menu }}</td>
+                                                <td class="cantidad">{{ $menu->cantidad_packs }}</td>
+                                                </div>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </div>
                 <div class="col">
                     <h3>SELECT RIDER</h3>
                     <input type="text" class="form-control" id="searchInputRider" placeholder="Buscar...">
+                    <table class="table-header">
+                        <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="table-wrapper">
                         <table id="dataTableRider">
-                            <thead>
-                            <tr>
-                                <th>NOMBRE</th>
-                            </tr>
-                            </thead>
                             <tbody id="dataBodyRider">
                                 @foreach ($riders as $rider)
                                     <tr data-idrider="{{ $rider->id_rider }}" data-nameRider="{{ $rider->nombre }}">
@@ -53,6 +59,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>                        
                 </div>
                 <div class="col">
                     <h3>ADD PEDIDO</h3>

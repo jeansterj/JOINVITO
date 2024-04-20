@@ -638,7 +638,14 @@ cursor: pointer;
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
     border-bottom-color: #243E57;
+    border-top-color: #243E57;
 }
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-bottom-color: #243E57;
+    border-top-color: #243E57;
+}
+
 
 .deliverQuantity{
     padding-top: 5px;

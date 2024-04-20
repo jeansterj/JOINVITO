@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let menuId = document.getElementById('idmenu');
     let provId = document.getElementById('idprovider');
     let total = document.getElementById('total');
+    let hasResults = false;
 
     // Función para restaurar la tabla original
     function restoreOriginalTable() {
@@ -25,24 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
       
             // Filtrar las filas de la tabla y actualizar la tabla
             if (searchText) {
-              restoreOriginalTable();
-              let hasResults = false;
-              dataRows.forEach(row => {
-                const rowData = row.children[0].textContent.trim().toLowerCase();
-                if (rowData.includes(searchText)) {
-                  row.style.display = '';
-                  hasResults = true;
-                } else {
-                  row.style.display = 'none';
-                }
-              });
-      
-              if (!hasResults) {
-                  dataRows[0].parentElement.innerHTML = noResultsMessage;
-              }
+                restoreOriginalTable();
+                hasResults = false;
+                dataRows.forEach(row => {
+                    const rowData = row.children[0].textContent.trim().toLowerCase();
+                    if (rowData.includes(searchText)) {
+                    row.style.display = '';
+                    hasResults = true;
+                    } else {
+                    row.style.display = 'none';
+                    }
+                });
       
             } else {
               // Si el campo de búsqueda está vacío, restaurar la tabla original
+              hasResults = true;
               restoreOriginalTable();
             }
         });
