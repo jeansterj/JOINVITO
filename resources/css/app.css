@@ -78,10 +78,10 @@
     border-radius: 22px;
 }
 .inputAcc {
-  /* --s: 50px; 
-  
+  /* --s: 50px;
+
   height: calc(var(--s) + var(--s)/5);
-  width: auto; 
+  width: auto;
   aspect-ratio: 2.25;
   border-radius: var(--s);
   margin: calc(var(--s)/2);
@@ -120,7 +120,7 @@
   content: "";
   padding: calc(var(--s)/10);
   --_g: radial-gradient(circle closest-side at calc(100% - var(--s)/2) 50%,#000 96%,#0000);
-  background: 
+  background:
     var(--_g) 0 /var(--_p,var(--s)) 100% no-repeat content-box,
     var(--_g) var(--_p,0)/var(--s)  100% no-repeat content-box,
     #fff;
@@ -650,13 +650,13 @@ width: 70%;
 }
 
 #dropdown img{
-  width: 35px; 
+  width: 35px;
   position: absolute;
   left: 25px;
 }
 
 img#showQrModal {
-  padding-top: 10px;
+    padding-top: 18px;
 }
 
 .btnInteractive{

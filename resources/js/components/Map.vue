@@ -3,12 +3,12 @@
         <div id="form-container" class="bg-secondary">
             <form id="dataForm">
                     <div class="input-group mb-3">
-                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion">
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion" @change="checkInputs()">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas">
+                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()">
                     </div>
-                    <button type="button" class="btn bg-light buttonOrder addPua" @click="insertPunto()">Guardar</button>
+                    <button type="button" id="addPua" disabled class="btn bg-light buttonOrder addPua" @click="insertPunto()">Guardar</button>
                     <input type="button" id="close" class="btn bg-light buttonOrder addPua" value="Cancelar"></input>
             </form>
         </div>
@@ -315,8 +315,10 @@ export default {
                         let item = event.originalEvent.srcElement;
 
                         if(item.classList[0] == 'marker-homeless'){
+
                             me.fetchOrdersList();
                         }
+
 
                         setTimeout(function(){
                             let resetPopups = document.querySelectorAll('.mapboxgl-popup-content');
@@ -327,6 +329,7 @@ export default {
                                     popup.querySelector('.quantity').innerHTML = cantidad;
                                 }
                             });
+                            me.checkEntregar(0)
                         },1)
 
                     })
@@ -398,6 +401,7 @@ export default {
 
             entregar.setAttribute('type','button');
             entregar.setAttribute('class','btn bg-light');
+            entregar.setAttribute('id','entregar');
             entregar.setAttribute('value',"Entregar");
             entregar.addEventListener('click', this.entregar);
 
@@ -518,6 +522,11 @@ export default {
                 (seleccionados > 0) ? seleccionados-- : seleccionados = 0;
                 valor.innerText = seleccionados;
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
+
+                if(seleccionados == 0){
+                    this.checkEntregar(seleccionados)
+                }
+
             },false)
 
             mas.addEventListener('click',(event) => {
@@ -528,9 +537,34 @@ export default {
                 (seleccionados < totalOrdersAvailable && seleccionados < cantidadPersonas) ? seleccionados++ : null;
                 valor.innerText = seleccionados;
                 sessionStorage.setItem('seleccionadosParaEntrega',seleccionados);
+
+                if(seleccionados > 0){
+                    this.checkEntregar(seleccionados)
+                }
+
             },false)
 
             return buttons;
+        },
+        checkInputs(){
+            let direccion = document.getElementById('direccion').value;
+            let cantidad = document.getElementById('cantidad').value;
+            let addPua = document.getElementById('addPua');
+
+            if(direccion == '' || cantidad == 0){
+                addPua.setAttribute('disabled','true')
+            }else{
+                addPua.removeAttribute('disabled')
+            }
+        },
+        checkEntregar(seleccionados){
+            let btnEntregar = document.getElementById('entregar');
+
+            if(seleccionados == 0){
+                btnEntregar.setAttribute('disabled','true')
+            }else{
+                btnEntregar.removeAttribute('disabled')
+            }
         }
     }
 };
