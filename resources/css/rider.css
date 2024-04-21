@@ -222,3 +222,7 @@ p.text-white.bg-primary{
 #accordionOrders h1{
     font-size: 30px;
 }
+
+#modal_body_qr{
+    color: black;
+}
