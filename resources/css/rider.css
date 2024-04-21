@@ -226,3 +226,8 @@ p.text-white.bg-primary{
 #modal_body_qr{
     color: black;
 }
+
+#validationDireccion,#validationCantidad{
+    font-size: 17px;
+    font-weight: 700;
+}

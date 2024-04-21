@@ -3,10 +3,16 @@
         <div id="form-container" class="bg-secondary">
             <form id="dataForm">
                     <div class="input-group mb-3">
-                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion" @change="checkInputs()">
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion" @change="checkInputs()" @keydown.tab="checkInputs()" aria-describedby="validationDireccion">
+                        <div id="validationDireccion" class="invalid-feedback">
+                            Please provide an address
+                        </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()">
+                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()" aria-describedby="validationCantidad">
+                        <div id="validationCantidad" class="invalid-feedback">
+                            Please provide a valid number
+                        </div>
                     </div>
                     <button type="button" id="addPua" disabled class="btn bg-light buttonOrder addPua" @click="insertPunto()">Guardar</button>
                     <input type="button" id="close" class="btn bg-light buttonOrder addPua" value="Cancelar"></input>
@@ -181,7 +187,7 @@ export default {
             this.punto.latitud = coordinates.lat;
             this.punto.longitud = coordinates.lng;
             this.punto.fecha_inactivo = null;
-            this.punto.fecha_alta = new Date().toLocaleDateString('es-ES');
+            this.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
             this.punto.fecha_baja = null;
             this.punto.puntos = 10;
             this.punto.tipo = "Homeless";
@@ -547,24 +553,46 @@ export default {
             return buttons;
         },
         checkInputs(){
-            let direccion = document.getElementById('direccion').value;
-            let cantidad = document.getElementById('cantidad').value;
+            let direccion = document.getElementById('direccion');
+            let cantidad = document.getElementById('cantidad');
             let addPua = document.getElementById('addPua');
 
-            if(direccion == '' || cantidad == 0){
-                addPua.setAttribute('disabled','true')
-            }else{
+            if((direccion.value != '' && parseInt(cantidad.value) > 0 && parseInt(cantidad.value) != NaN)){
                 addPua.removeAttribute('disabled')
+                direccion.classList.remove('is-invalid');
+                cantidad.classList.remove('is-invalid');
+            }else{
+                addPua.setAttribute('disabled','true')
+
+                if(direccion.value == ''){
+                    if(!direccion.classList.contains('is-invalid')){
+                        direccion.classList.add('is-invalid');
+                    }
+                }else{
+                    direccion.classList.remove('is-invalid');
+                }
+
+                if(cantidad.value == "" || parseInt(cantidad.value) == NaN || parseInt(cantidad.value) < 0){
+                    if(!cantidad.classList.contains('is-invalid')){
+                        cantidad.classList.add('is-invalid');
+                    }
+                }else{
+                    cantidad.classList.remove('is-invalid');
+                }
+
             }
         },
         checkEntregar(seleccionados){
             let btnEntregar = document.getElementById('entregar');
 
-            if(seleccionados == 0){
-                btnEntregar.setAttribute('disabled','true')
-            }else{
-                btnEntregar.removeAttribute('disabled')
+            if(btnEntregar != null){
+                if(seleccionados == 0){
+                    btnEntregar.setAttribute('disabled','true')
+                }else{
+                    btnEntregar.removeAttribute('disabled')
+                }
             }
+
         }
     }
 };
