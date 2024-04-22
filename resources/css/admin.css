@@ -121,3 +121,122 @@ input[type="date"] {
   .registerForm{
     margin-bottom: 150px;
   }
+
+  li{
+    list-style: none;
+    color: black;
+}
+
+ul{
+    padding: 0;
+}
+
+.rider{
+    color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.bg-body-tertiary{
+    border-radius: 20px;
+}
+
+
+.table-header{
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+tr{
+    border: 1px solid #FFCA10 !important;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+    color: black;
+    cursor: pointer;
+}
+
+.addPedido .addPedido .col{
+    margin-top: 10px;
+}
+
+.addPedido .form-control{
+    width: 100% !important;
+}
+
+.addPedido .card .quantity{
+    font-size: 45px;
+    color: #07203C;
+}
+
+.addPedido .card .simbol{
+    border: 1px solid #07203C;
+    border-radius: 11px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+
+.addPedido .card .decrement,
+.addPedido .card .increment{
+    font-size: 45px;
+    color: #07203C;
+}
+
+.addPedido .addPedido .card button{
+    border: none;
+    background-color: #07203C;
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 25px;
+}
+
+.addPedido #pedir{
+    margin-top: 20px;
+}
+
+/* Estilos para la barra de desplazamiento en WebKit (Safari, Chrome) */
+.addPedido .table-wrapper {
+    overflow-x: auto;
+    max-height: 353px; /* Ajusta esto según sea necesario */
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb {
+    background: #FFCA10;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #FFCA10;
+  }
+  
+  /* Estilos para la barra de desplazamiento en Firefox */
+  .table-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #FFCA10 transparent;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #FFCA10;
+  }
+
+  

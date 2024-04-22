@@ -20,9 +20,32 @@
 
                 @switch($rolActivo)
                     @case('rider')
-                    <div id="divRiderV">
+                    <div>
                         <video src="{{ asset('img/riderInteractivo.mp4') }}" alt="videoInstructionsRider" controls id="videoRider" class="video"></video>
-
+                        <div id="divRiderV" class="d-none" >
+                            <div class="row col1Video" id="rowVid1">
+                                <div class="col">
+                                    <button id="option1" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option2" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option3" class="btn btn-light "></button>
+                                </div>
+                            </div>
+                            <div class="row col2Video" id="rowVid2">
+                                <div class="col">
+                                    <button id="option4" class="btn btn-light "></button>
+                                </div>
+                                <div class="col">
+                                    <button id="option5" class="btn btn-light "></button>
+                                </div>
+                                <div class="col d-none">
+                                    <button id="option6" class="btn btn-light "></button>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
                         @break
 
@@ -35,8 +58,33 @@
                             @break
 
                         @case('proveedor')
-                        <div id="divProvV">
+                        <div >
                             <video src="{{ asset('img/videoInteractivoProvider.mp4') }}" alt="videoInstructionsProvider" controls id="videoProvider" class="video"></video>
+                            <div id="divProvV" class="d-none">
+                                <div class="row col1Video" id="rowVid1">
+                                    <div class="col">
+                                        <button id="option1" class="btn btn-light "></button>
+                                    </div>
+                                    <div class="col">
+                                        <button id="option2" class="btn btn-light "></button>
+                                    </div>
+                                    <div class="col">
+                                        <button id="option3" class="btn btn-light "></button>
+                                    </div>
+                                </div>
+                                <div class="row col2Video" id="rowVid2">
+                                    <div class="col">
+                                        <button id="option4" class="btn btn-light "></button>
+                                    </div>
+                                    <div class="col">
+                                        <button id="option5" class="btn btn-light "></button>
+                                    </div>
+                                    <div class="col">
+                                        <button id="option6" class="btn btn-light "></button>
+                                    </div>
+                                </div> 
+                            </div>
+                                
                         </div>
                             
                              @break
@@ -56,7 +104,7 @@
                                         <ul class="list-group list-group-numbered text-white px-3 text-start">
                                             <li class="justify-content-between align-items-start py-3">
                                                 <div class="row">
-                                                    <div class="ms-2 me-auto">
+                                                    <div class="ms-2 me-auto text-white">
                                                         <div class="fw-bold py-2">
                                                             <h2>Step 1. Educate yourself</h2>
                                                         </div>
@@ -70,7 +118,7 @@
                                             </li>
                                             <li class="d-flex justify-content-between align-items-start py-3">
                                                 <div class="ms-2 me-auto py-2">
-                                                    <div class="row">
+                                                    <div class="row text-white">
                                                         <div class="fw-bold">
                                                             <h2>Step 2. Show respect</h2>
                                                         </div>
@@ -82,7 +130,7 @@
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-between align-items-start py-3">
-                                                <div class="ms-2 me-auto py-2">
+                                                <div class="ms-2 me-auto py-2 text-white">
                                                     <div class="fw-bold">
                                                         <h2>Step 3. Offer assistance</h2>
                                                     </div>
@@ -93,7 +141,7 @@
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-between align-items-start py-3 ">
-                                                <div class="ms-2 me-auto py-2">
+                                                <div class="ms-2 me-auto py-2 text-white">
                                                     <div class="fw-bold">
                                                         <h2>Step 4. Engage in a conversation</h2>
                                                     </div>
@@ -109,7 +157,7 @@
                                         <ul class="list-group list-group-numbered text-white px-3 text-start">
                                             <div class="row">
                                                 <li class="d-flex justify-content-between align-items-start py-3">
-                                                    <div class="ms-2 me-auto py-2">
+                                                    <div class="ms-2 me-auto py-2 text-white">
                                                         <div class="fw-bold">
                                                             <h2>Step 5. Don't judge</h2>
                                                         </div>
@@ -122,7 +170,7 @@
                                             </div>
                                             <div class="row">
                                                 <li class="d-flex justify-content-between align-items-start py-3 ">
-                                                    <div class="ms-2 me-auto py-2">
+                                                    <div class="ms-2 me-auto py-2 text-white">
                                                         <div class="fw-bold">
                                                             <h2>Step 6. Offer information and resources</h2>
                                                         </div>
@@ -135,7 +183,7 @@
                                             </div>
                                             <div class="row">
                                                 <li class="d-flex justify-content-between align-items-start py-3 ">
-                                                    <div class="ms-2 me-auto py-2">
+                                                    <div class="ms-2 me-auto py-2 text-white">
                                                         <div class="fw-bold">
                                                             <h2>Step 7. Connect with local organizations</h2>
                                                         </div>
@@ -149,7 +197,7 @@
                                             </div>
                                             <div class="row">
                                                 <li class="d-flex justify-content-between align-items-start py-3 ">
-                                                    <div class="ms-2 me-auto py-2">
+                                                    <div class="ms-2 me-auto py-2 text-white">
                                                         <div class="fw-bold">
                                                             <h2>Step 8. Volunteer or Donate</h2>
                                                         </div>

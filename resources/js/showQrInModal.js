@@ -12,6 +12,7 @@ let modal_body = document.getElementById('modal_body_qr')
 let qr = document.getElementById('showQrModal')
 let epilepsiaAlert = document.getElementById('alertEpilepsia')
 qr.onclick = function (Event) {
+    modal_body.innerHTML = 'Loading QR...'
     let target = Event.target
     let epilepsiaMode = localStorage.getItem('epilepsia')
     if (epilepsiaMode === 'off') {
@@ -22,11 +23,11 @@ qr.onclick = function (Event) {
             axios
             .get(`qrCode/${idRider}`)
             .then(function (response) {
-                console.log(response.data);
+                // console.log(response.data);
                 let qrCode = response.data
                 modal_body.innerHTML = qrCode
             });
-        } 
+        }
     } else {
         epilepsiaAlert.style.display = 'block'
         setTimeout(() => {

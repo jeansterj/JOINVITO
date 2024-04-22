@@ -26,12 +26,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <title>@yield('title')</title>
-    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js', 'resources/js/translations.js', 'resources/js/accesibility.js', 'resources/js/admin.js'])
+    @vite(['resources/css/app.css', 'resources/css/home.css', 'resources/css/provider.css', 'resources/css/admin.css', 'resources/css/center.css', 'resources/css/rider.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/js/custom.js', 'resources/js/rider.js', 'resources/js/login.js', 'resources/js/provider.js', 'resources/js/footerAndMenuCollision.js', 'resources/js/voiceRec.js', 'resources/js/carrouselMovement.js', 'resources/js/showQrInModal.js', 'resources/js/cameraAction.js', 'resources/js/openChatIa.js', 'resources/js/hoverAnimation.js', 'resources/js/translations.js', 'resources/js/accesibility.js', 'resources/js/admin.js', 'resources/js/video.js', 'resources/js/searchProvider.js', 'resources/js/searchRider.js', 'resources/js/addPedido.js'])
 </head>
 
 <body class="bg-primary" id="bodyMain">
     <div class="accesibilityDiv" id="accesibilityDiv">
-        <img src="{{ asset('img/accesibility_icon2.svg') }}" id="accesibilityIcon" data-toggle="modal" data-target="#acModal"> 
+        <img src="{{ asset('img/accesibility_icon2.svg') }}" id="accesibilityIcon" data-toggle="modal" data-target="#acModal">
     </div>
     <div class="modal fade" id="acModal" tabindex="-1" role="dialog" aria-labelledby="acModal" aria-hidden="true">
         <div class="modal-dialog" role="document">

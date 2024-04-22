@@ -61,8 +61,6 @@ class PedidoController extends Controller
                 $pedido->entregado_a_rider = false;
             }
 
-
-
             $pedido->save();
 
             $menu = Menu::find($pedido->id_menu);
@@ -88,8 +86,11 @@ class PedidoController extends Controller
             // $response = redirect('ordersRider');
         }
 
-
-        return redirect('ordersRider');;
+        if($request->isadmin){
+            return redirect('add-pedido');
+        }else{
+            return redirect('ordersRider');
+        }        
     }
 
     /**
@@ -126,12 +127,9 @@ class PedidoController extends Controller
 
     public function getAllItems()
     {
-        
+
         return view('admin.asignarPedidosRider');
     }
 
-    public function addPedido()
-    {
-        
-    }
+
 }

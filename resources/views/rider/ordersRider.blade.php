@@ -22,6 +22,20 @@
 @section('content')
     {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="container">
+        <div class="container-fluid my-3">
+            <div class="container chartRiderMap riderCode bg-light d-tc mx-2">
+                <h4 class="text-primary">RIDER CODE</h4>
+                <p class=" text-white bg-primary ">{{ $rolActivo = Auth::user()->id_usu }}</p>
+            </div>
+
+            <div class="chartRiderMap riderCode bg-light">
+                {{-- <form action="{{ action([App\Http\Controllers\QrCodeController::class, 'show'], ['idRider' => Auth::user()->id_usu]) }}"> --}}
+                <a href="" data-toggle="modal" data-target="#exampleModal"><img class="my-2"
+                        src="{{ asset('img/QRImg.svg') }}" alt="QR" data-toggle="modal"
+                        data-target="#exampleModal" id="showQrModal" data-url="{{ Auth::user()->id_usu }}"></a>
+                {{-- </form> --}}
+            </div>
+        </div>
         <div id="ordernow" class="buttonOrder bg-light ">
             <a href="rider-menu-selection">
                 <h1>GET ORDER NOW</h1>
@@ -30,23 +44,7 @@
         <div id="ordersRider" class="buttonOrder">
         </div>
 
-        <div>          
 
-            <div class="container-fluid my-3">
-                <div class="container chartRiderMap bg-light d-tc mx-2">
-                    <h4 class="text-primary">RIDER CODE</h4>
-                    <p class=" text-white bg-primary ">{{ $rolActivo = Auth::user()->id_usu }}</p>
-                </div>
-
-                <div class="chartRiderMap bg-light">
-                    {{-- <form action="{{ action([App\Http\Controllers\QrCodeController::class, 'show'], ['idRider' => Auth::user()->id_usu]) }}"> --}}
-                    <a href="" data-toggle="modal" data-target="#exampleModal"><img class="my-2"
-                            src="{{ asset('img/QRImg.svg') }}" alt="QR" data-toggle="modal"
-                            data-target="#exampleModal" id="showQrModal" data-url="{{ Auth::user()->id_usu }}"></a>
-                    {{-- </form> --}}
-                </div>
-            </div>
-        </div>
 
         
 

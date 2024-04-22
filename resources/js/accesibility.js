@@ -12,7 +12,7 @@ if (l1 === 'on') {
 }
 document.onclick = function (event) {
     let target = event.target
-    console.log(db.value);
+    // console.log(db.value);
     if (target.id === 'dislexiaButton') {
         // console.log('hola');
         dislexiaMode()
@@ -46,7 +46,7 @@ function dislexiaMode() {
     // containerDivUnderLiner.style.display = (containerDivUnderLiner.style.display === 'block') ? 'none' : 'block'
     if (containerDivUnderLiner.style.display === 'block' ) {
         containerDivUnderLiner.style.display = 'none'
-        db.value = 'off' 
+        db.value = 'off'
     } else {
         containerDivUnderLiner.style.display = 'block'
         db.value = 'on'
