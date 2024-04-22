@@ -46,7 +46,7 @@
         </div>
         <div class="bg-light btnOrdes px-2 ">
             <a href="" data-toggle="modal" data-target="#exampleModal">
-                <img src="{{ asset('img/QRImg.svg') }}" alt="QR-Img" >
+                <img src="{{ asset('img/QRImg.svg') }}" alt="QR-Img" id="readQrSuplier">
                 
             </a>
         </div>

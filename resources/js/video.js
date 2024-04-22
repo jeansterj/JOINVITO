@@ -215,38 +215,38 @@ function handleResize () {
 
     if (screenWidth < 767) {
 
-        rowVid1.classList.remove('col1Video', 'col1VideoM','col1VideoMM')
-        rowVid2.classList.remove('col2Video', 'col2VideoM','col2VideoMM')
-        rowVid1.classList.add('py-3')
-        rowVid2.classList.add('py-3')
+        rowVid1?.classList.remove('col1Video', 'col1VideoM','col1VideoMM')
+        rowVid2?.classList.remove('col2Video', 'col2VideoM','col2VideoMM')
+        rowVid1?.classList.add('py-3')
+        rowVid2?.classList.add('py-3')
 
     } 
     
     else if (screenWidth >= 768 && screenWidth < 993) 
     
     {
-        rowVid1.classList.remove('py-3')
-        rowVid2.classList.remove('py-3')
-        rowVid1.classList.add('col1VideoM')
-        rowVid2.classList.add('col2VideoM')
+        rowVid1?.classList.remove('py-3')
+        rowVid2?.classList.remove('py-3')
+        rowVid1?.classList.add('col1VideoM')
+        rowVid2?.classList.add('col2VideoM')
       
 
     }
 
     else if (screenWidth >= 993 && screenWidth < 1201)
     {
-        rowVid1.classList.remove('col1VideoM')
-        rowVid2.classList.remove('col2VideoM')
-        rowVid1.classList.add('col1VideoMM')
-        rowVid2.classList.add('col2VideoMM')
+        rowVid1?.classList.remove('col1VideoM')
+        rowVid2?.classList.remove('col2VideoM')
+        rowVid1?.classList.add('col1VideoMM')
+        rowVid2?.classList.add('col2VideoMM')
     }
 
     else if (screenWidth >= 1201)
     {
-        rowVid1.classList.remove('col1VideoM','col1VideoMM')
-        rowVid2.classList.remove('col2VideoM','col2VideoMM')
-        rowVid1.classList.add('col1Video')
-        rowVid2.classList.add('col2Video')
+        rowVid1?.classList.remove('col1VideoM','col1VideoMM')
+        rowVid2?.classList.remove('col2VideoM','col2VideoMM')
+        rowVid1?.classList.add('col1Video')
+        rowVid2?.classList.add('col2Video')
     }
 
 
