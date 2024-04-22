@@ -77,6 +77,10 @@
     background-color: #07203C;
     border-radius: 22px;
 }
+#readQrSuplier {  
+  padding-top: 33px !important;
+}
+
 .inputAcc {
   /* --s: 50px;
 
@@ -114,6 +118,9 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+.epilepsiaButton {
+  background-color: grey !important;
 }
 
 .inputAcc:before{
