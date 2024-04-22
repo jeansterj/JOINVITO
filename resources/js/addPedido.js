@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let card = document.querySelector('.card');
     
     if(card != null){
-        card.querySelector('.decrement').addEventListener('click',() => {
+        card.querySelector('.decrement')?.addEventListener('click',() => {
 
             let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
         
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         
-        card.querySelector('.increment').addEventListener('click',() => {
+        card.querySelector('.increment')?.addEventListener('click',() => {
         
             let total = parseInt(document.getElementById('total').value);
             let cantidad = parseInt(card.querySelector('.quantity').innerHTML);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function disablePedir(){
             let pedir = document.getElementById('pedir');
 
-            pedir.setAttribute('disabled','true');
+            pedir?.setAttribute('disabled','true');
         }
     }
     
