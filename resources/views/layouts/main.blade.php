@@ -52,7 +52,7 @@
                       <tr>
                         <td><h1 class="accTitle">Epilepsia</h1></td>
                         <td><input type="checkbox" class="inputAcc" id="epilepsiaButton" value="off"></td>
-                        <p>For read the qr or enable the camera, you have to disable the epilepsia mode</p>
+                        {{-- <p>For read the qr or enable the camera, you have to disable the epilepsia mode</p> --}}
                       </tr>
                     </tbody>
                   </table>

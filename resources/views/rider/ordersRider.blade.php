@@ -1,6 +1,24 @@
 @extends('layouts.main')
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">QR Code</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal_body_qr">
+                        {{-- {{ App\Http\Controllers\QrCodeController::show() }} --}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button buttonCloseModal" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+    </div>
 @section('content')
     {{-- <meta name="userId" content="{{ Auth::user()->id_usu }}"> --}}
     <div class="container">
@@ -30,25 +48,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">QR Code</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal_body_qr">
-                        {{-- {{ App\Http\Controllers\QrCodeController::show() }} --}}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button buttonCloseModal" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
