@@ -9,7 +9,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()" aria-describedby="validationCantidad">
+                        <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()" aria-describedby="validationCantidad">
                         <div id="validationCantidad" class="invalid-feedback">
                             Please provide a valid number
                         </div>
@@ -572,7 +572,7 @@ export default {
                     direccion.classList.remove('is-invalid');
                 }
 
-                if(cantidad.value == "" || parseInt(cantidad.value) == NaN || parseInt(cantidad.value) < 0){
+                if(parseInt(cantidad.value) < 0){
                     if(!cantidad.classList.contains('is-invalid')){
                         cantidad.classList.add('is-invalid');
                     }
