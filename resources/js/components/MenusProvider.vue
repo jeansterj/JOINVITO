@@ -18,18 +18,18 @@
                     Loading data....
                 </div>
 
-                <div v-else v-for="menu in menus" class="col-sm-6 mb-3 mb-sm-0">
+                <div v-else v-for="menu in menus" class="col-sm-3 mb-3 mb-sm-0">
                     <div class="card de">
                         <div class="card-body">
                             <div class="providerMenusCard">
                                 <div class="row">
                                     <div class="d-flex">
-                                        <div class="col">
-                                            <h2 class="text-start">{{ menu.nombre_menu }}</h2>
-                                            <p class="text-start">{{ menu.bebida }}</p>
-                                            <p class="text-start">{{ menu.plato1 }}</p>
-                                            <p class="text-start">{{ menu.plato2 }}</p>
-                                            <p class="text-start">{{ menu.cantidad_packs }}</p>
+                                        <div class="col d-grid justify-content-center">
+                                            <h2 class="text-center ">{{ menu.nombre_menu }}</h2>
+                                            <p class="text-center form-control fomrTextColor">{{ menu.bebida }}</p>
+                                            <p class="text-center form-control fomrTextColor">{{ menu.plato1 }}</p>
+                                            <p class="text-center form-control fomrTextColor">{{ menu.plato2 }}</p>
+                                            <p class="text-center form-control fomrTextColor">{{ menu.cantidad_packs }}</p>
                                             <div class="flex">
                                                 <div class="col">
                                                     <button type="button" class="btn btnEdit"

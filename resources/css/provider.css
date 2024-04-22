@@ -57,5 +57,9 @@ border: none !important;
 .provider-home{
     margin-bottom: 150px;
 }
+/* MenusProvider menusCss */
 
-
+.fomrTextColor{
+    background-color: #07203C !important;
+    color: white !important;
+}
