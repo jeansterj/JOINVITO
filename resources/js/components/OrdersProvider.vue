@@ -56,7 +56,7 @@ export default {
     },
     created() {
         this.fetchEventsList();
-        // this.timer = setInterval(this.fetchEventsList, 60000);
+        this.timer = setInterval(this.fetchEventsList, 60000);
     },
     methods: {
         fetchEventsList() {
