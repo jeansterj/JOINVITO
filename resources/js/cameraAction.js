@@ -1,4 +1,4 @@
-
+import Instascan from 'instascan';
 document.addEventListener('DOMContentLoaded', function() {
 
 

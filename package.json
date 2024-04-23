@@ -15,6 +15,7 @@
     "dependencies": {
         "@vitejs/plugin-vue": "^5.0.4",
         "chart.js": "^4.4.2",
+        "instascan": "^1.0.0",
         "tinker": "^0.0.4",
         "vue": "^3.4.21",
         "vue-chart.js": "^0.2.0",
