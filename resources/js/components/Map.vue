@@ -186,6 +186,7 @@ export default {
             let coordinates = event.lngLat;
             this.punto.latitud = coordinates.lat;
             this.punto.longitud = coordinates.lng;
+            this.convertLatLong(this.punto.latitud,this.punto.longitud)
             this.punto.fecha_inactivo = null;
             this.punto.fecha_alta = new Date().toLocaleDateString('en-CA');
             this.punto.fecha_baja = null;
@@ -593,6 +594,24 @@ export default {
                 }
             }
 
+        },
+        async convertLatLong(lat,long) {
+            try {
+                const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lat},${long}.json`;
+                const params = {
+                access_token: this.accessToken
+                };
+                const response = await axios.get(url, { params });
+
+                if (response.data.features.length > 0) {
+                    console.log(response.data.features);
+                } else {
+                throw new Error("No se encontraron resultados para la dirección proporcionada.");
+                }
+            } catch (error) {
+                this.coordinates = null;
+                this.errorMessage = "Ocurrió un error al obtener las coordenadas: " + error.message;
+            }
         }
     }
 };
@@ -690,6 +709,14 @@ cursor: pointer;
     font-size: 12px;
 }
 
+.mapboxgl-popup.mapboxgl-popup-anchor-top{
+    width: 170px !important;
+}
+
+.mapboxgl-popup.mapboxgl-popup-anchor-bottom{
+    width: 170px !important;
+}
+
 .mapboxgl-popup-close-button{
     color: #fff;
 }
@@ -699,13 +726,13 @@ cursor: pointer;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-    border-bottom-color: #243E57;
-    border-top-color: #243E57;
+    border-bottom-color: #243E57 !important;
+    border-top-color: #243E57 !important;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-    border-bottom-color: #243E57;
-    border-top-color: #243E57;
+    border-bottom-color: #243E57 !important;
+    border-top-color: #243E57 !important;
 }
 
 
@@ -745,7 +772,7 @@ cursor: pointer;
 }
 
 .groupHomeless{
-    padding: 5px;
+    padding: 12px;
 }
 
 .subtitle{

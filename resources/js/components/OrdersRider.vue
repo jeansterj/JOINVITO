@@ -56,7 +56,7 @@ export default {
     },
     created(){
         this.fetchOrdersList();
-        this.timer = setInterval(this.fetchOrdersList, 60000);
+        this.timer = setInterval(this.fetchOrdersList, 5000);
     },
     methods:{
         fetchOrdersList () {
