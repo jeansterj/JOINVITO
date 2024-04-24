@@ -65,7 +65,7 @@
                     <h3>ADD PEDIDO</h3>
                     <form action="{{ action([App\Http\Controllers\PedidoController::class, 'store']) }}" method="POST">
                     @csrf
-                        <div class="card">
+                        <div class="card adminCard">
                             <div class="card-body">
                                 <input type="hidden" id="idmenu" name="id_menu" value=""></input>
                                 <input type="hidden" id="idrider" name="id_rider" value=""></input>

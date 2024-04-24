@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     dataRows.forEach(row => {
         row.addEventListener('click',(event) => {
 
+            dataRows.forEach(row => {
+              row.classList.remove('selected');
+            })
+            row.classList.add('selected');
             const trElement = event.target.parentElement;
             menuName.textContent = trElement.getAttribute('data-nameMenu');
             menuId.value = trElement.getAttribute('data-idmenu');

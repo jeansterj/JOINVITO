@@ -706,6 +706,7 @@ export default {
 #map{
     width: 100%;
     height: 400px;
+    margin-bottom: 40px;
     /* margin-bottom: 80px;
     margin-top: 50px; */
 }

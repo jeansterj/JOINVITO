@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     dataRows.forEach(row => {
         row.addEventListener('click',(event) => {
 
+            dataRows.forEach(row => {
+              row.classList.remove('selected');
+            })
+            row.classList.add('selected');
             const trElement = event.target.parentElement;
             riderName.textContent = trElement.getAttribute('data-nameRider');
             riderId.value = trElement.getAttribute('data-idRider');

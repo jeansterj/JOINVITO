@@ -72,6 +72,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
             card.querySelector('#cantidad').value = cantidad;
             card.querySelector('.quantity').innerHTML = cantidad;
+
+            if(cantidad == 0){
+                disablePedir(card);
+            }
         })
 
         card.querySelector('.increment').addEventListener('click',() => {
@@ -82,8 +86,24 @@ document.addEventListener('DOMContentLoaded',function(){
 
             card.querySelector('#cantidad').value = cantidad;
             card.querySelector('.quantity').innerHTML = cantidad;
+
+            if(cantidad > 0){
+                enablePedir(card);
+            }
         })
     });
+
+
+    function enablePedir(card){
+
+
+        card.querySelector('.enviar').removeAttribute('disabled');
+    }
+
+    function disablePedir(card){
+
+        card.querySelector('.enviar').setAttribute('disabled','true');
+    }
 
     // if (navigator.geolocation) {
     //     navigator.geolocation.getCurrentPosition((position) => {
