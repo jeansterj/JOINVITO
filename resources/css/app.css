@@ -59,15 +59,16 @@
 }
 
 .accesibilityDiv {
-  right: 43px;
+  right: 93px;
   position: fixed;
-  bottom: 99px;
+  bottom: 49px;
   transition: 0.5s;
   border-radius: 100%;
   border: 1px solid black;
   height: 48px;
   z-index: 10000;
 }
+
 .accesibilityDiv:hover {
   cursor: pointer;
   transform: scale(1.05);
@@ -733,3 +734,4 @@ img#showQrModal {
   left: 63%;
   height: 18%;
 }
+
