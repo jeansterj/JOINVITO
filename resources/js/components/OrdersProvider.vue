@@ -19,7 +19,7 @@
                                         <div class="row">
                                                 <div class="col">
                                                     <h2 class="text-center text-break">{{ order.nombre_menu }} - {{
-                    pedido.cantidad_packs }} pack/s - De {{ pedido.id_rider }}</h2>
+                    pedido.cantidad_packs }} pack/s - Rider {{ pedido.id_rider }}</h2>
                                                 </div>
                                         </div>
                                         <div class="row">
