@@ -3,13 +3,13 @@
         <div id="form-container" class="bg-secondary">
             <form id="dataForm">
                     <div class="input-group mb-3">
-                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" v-model="punto.direccion" @change="checkInputs()" @keydown.tab="checkInputs()" aria-describedby="validationDireccion">
+                        <input type="text" id="direccion" name="direccion" disabled class="form-control" placeholder="Direccion" aria-describedby="validationDireccion">
                         <div id="validationDireccion" class="invalid-feedback">
                             Please provide an address
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()" aria-describedby="validationCantidad">
+                        <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Nº Personas" v-model="punto.cantidad_personas" @change="checkInputs()" @keydown.tab="checkInputs()" aria-describedby="validationCantidad">
                         <div id="validationCantidad" class="invalid-feedback">
                             Please provide a valid number
                         </div>
@@ -50,7 +50,7 @@ export default {
         this.getLocation();
         this.fetchOrdersList();
 
-        this.timer = setInterval(this.getLocation,1020000);
+        this.timer = setInterval(this.getLocation,600000);
     },
     methods:{
         entregar(event){
@@ -183,6 +183,7 @@ export default {
             }
         },
         createHomeless(event){
+            document.getElementById('cantidad').value = '';
             let coordinates = event.lngLat;
             this.punto.latitud = coordinates.lat;
             this.punto.longitud = coordinates.lng;
@@ -244,6 +245,7 @@ export default {
                                         },
                                     'properties': {
                                         'title': item.usuario.proveedor.nombre,
+                                        'address': item.usuario.proveedor.direccion,
                                         'description': menusPorProveedor
                                         },
                                     'id': item.id_punto
@@ -258,6 +260,7 @@ export default {
                                         },
                                     'properties': {
                                     'title': item.usuario.centro.nombre,
+                                    'address': item.usuario.centro.direccion,
                                     },
                                     'id': item.id_punto,
                                     'cantidad_personas': item.cantidad_personas
@@ -272,6 +275,7 @@ export default {
                                         },
                                     'properties': {
                                     'title': item.tipo,
+                                    'address': item.direccion,
                                     },
                                     'id': item.id_punto,
                                     'cantidad_personas': item.cantidad_personas
@@ -293,12 +297,18 @@ export default {
                     me.map = new mapboxgl.Map({
                         container: 'map', // container ID
                         center: [this.lng, this.lat], // starting position [lng, lat]
-                        zoom: 10, // starting zoom
+                        zoom: 14, // starting zoom
                         doubleClickZoom: false
                     });
 
                     // Add zoom and rotation controls to the map.
                     me.map.addControl(new mapboxgl.NavigationControl());
+
+                    // Agregar marcador en la ubicación actual
+                    let popup = new mapboxgl.Popup({ offset: 25 })
+                    let tuposicion = document.createElement('p');
+                    tuposicion.innerHTML = "Your position";
+                    new mapboxgl.Marker().setLngLat([this.lng, this.lat]).setPopup(popup.setDOMContent(tuposicion)).addTo(me.map);
 
                     var touchActionId;
 
@@ -320,6 +330,77 @@ export default {
                     me.map.on('click',function(event){
 
                         let item = event.originalEvent.srcElement;
+
+                        if(item.classList[0] == 'marker-homeless' || item.classList[0] == 'marker-centro' || item.classList[0] == 'marker-provider'){
+                            
+                            let sourceExists = me.map.getSource('ruta');
+                            let layerExists = me.map.getLayer('ruta');
+
+                            // Paso 1: Verificar si la capa "ruta" existe y eliminarla si es así
+                            if (layerExists) {
+                                me.map.removeLayer('ruta');
+                            }
+
+                            // Paso 2: Verificar si la fuente "ruta" existe y eliminarla si es así
+                            if (sourceExists) {
+                                me.map.removeSource('ruta');
+                            }
+
+                            
+                            const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${me.lng},${me.lat};${event.lngLat.lng},${event.lngLat.lat}?steps=true&access_token=${mapboxgl.accessToken}`;
+                            
+                            axios.get(url)
+                                .then(response => {
+                                const route = response.data.routes[0];
+                                const steps = route.legs[0].steps;
+                                
+                                // Paso 2: Dibujar la ruta en el mapa
+                                const coordinates = [];
+                                steps.forEach(step => {
+                                step.intersections.forEach(intersection => {
+                                    coordinates.push(intersection.location);
+                                });
+                                });
+
+                                
+
+                                // Añadir una línea desde la coordenada A a la coordenada B
+                                
+                                    me.map.addSource('ruta', {
+                                    'type': 'geojson',
+                                    'data': {
+                                        'type': 'Feature',
+                                        'properties': {},
+                                        'geometry': {
+                                        'type': 'LineString',
+                                        'coordinates': coordinates
+                                        }
+                                    }
+                                    });
+
+
+                                    me.map.addLayer({
+                                        'id': 'ruta',
+                                        'type': 'line',
+                                        'source': 'ruta',
+                                        'layout': {
+                                            'line-join': 'round',
+                                            'line-cap': 'round'
+                                        },
+                                        'paint': {
+                                            'line-color': '#FFCA10', // Color de la línea
+                                            'line-width': 8 // Ancho de la línea
+                                        }
+                                    });
+                            
+                                })
+                                .catch(error => {
+                                    console.error('Error al obtener la ruta:', error);
+                                });
+                        }
+
+                        
+                        
 
                         if(item.classList[0] == 'marker-homeless'){
 
@@ -354,6 +435,8 @@ export default {
 
             let formContainer = document.getElementById('form-container');
             formContainer.classList.remove('mostrar');
+
+            me.punto.direccion = document.getElementById('direccion').value;
 
             axios
                 .post('puntos',me.punto)
@@ -393,6 +476,7 @@ export default {
         setPuntos(feature,map){
             let content = document.createElement('div')
             let title = document.createElement('h3');
+            let address = document.createElement('h6');
             let group = document.createElement('div');
             let subtitle = document.createElement('h2');
             let imgSubtitle = document.createElement('img');
@@ -417,6 +501,11 @@ export default {
             title.setAttribute('class','title')
 
             content.appendChild(title)
+
+            address.innerHTML = feature.properties.address;
+            address.setAttribute('class','address')
+
+            content.appendChild(address)
 
             if(feature.type == "Homeless"){
                 group.setAttribute('class','groupHomeless');
@@ -554,26 +643,16 @@ export default {
             return buttons;
         },
         checkInputs(){
-            let direccion = document.getElementById('direccion');
             let cantidad = document.getElementById('cantidad');
             let addPua = document.getElementById('addPua');
 
-            if((direccion.value != '' && parseInt(cantidad.value) > 0 && parseInt(cantidad.value) != NaN)){
+            if(parseInt(cantidad.value) > 0 && parseInt(cantidad.value) != NaN){
                 addPua.removeAttribute('disabled')
-                direccion.classList.remove('is-invalid');
                 cantidad.classList.remove('is-invalid');
             }else{
                 addPua.setAttribute('disabled','true')
 
-                if(direccion.value == ''){
-                    if(!direccion.classList.contains('is-invalid')){
-                        direccion.classList.add('is-invalid');
-                    }
-                }else{
-                    direccion.classList.remove('is-invalid');
-                }
-
-                if(parseInt(cantidad.value) < 0){
+                if(cantidad.value == "" || parseInt(cantidad.value) == NaN || parseInt(cantidad.value) < 0){
                     if(!cantidad.classList.contains('is-invalid')){
                         cantidad.classList.add('is-invalid');
                     }
@@ -597,14 +676,13 @@ export default {
         },
         async convertLatLong(lat,long) {
             try {
-                const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lat},${long}.json`;
-                const params = {
-                access_token: this.accessToken
-                };
-                const response = await axios.get(url, { params });
+                const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?access_token=${mapboxgl.accessToken}`;
+                
+                const response = await axios.get(url);
 
                 if (response.data.features.length > 0) {
-                    console.log(response.data.features);
+                    let direccion = document.getElementById('direccion');
+                    direccion.value = response.data.features[0].place_name;
                 } else {
                 throw new Error("No se encontraron resultados para la dirección proporcionada.");
                 }
@@ -725,6 +803,13 @@ cursor: pointer;
     color: #fff;
 }
 
+.mapboxgl-popup .title{
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
     border-bottom-color: #243E57 !important;
     border-top-color: #243E57 !important;
@@ -815,8 +900,12 @@ cursor: pointer;
     display: none;
 }
 
-.mapboxgl-ctrl{
+.mapboxgl-ctrl-logo,.mapboxgl-ctrl-attrib-inner{
     display: none !important;
+}
+
+.marker-provider,.marker-centro,.marker-homeless{
+    cursor: pointer;
 }
 
 </style>

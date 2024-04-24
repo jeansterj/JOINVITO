@@ -10,13 +10,13 @@
         </button>
       </div>
       <div class="modal-body modal-body-camera" id="modal_body">
-          <video id="qr-video" width="100%" height="auto" autoplay></video>
-          <div class="cameraButtonDiv">       
-              {{-- btn-light --}}
-              <button id="camera-button" class="btn btn-light scanButtonCamera" value="Pulsar para escanear qr">
-                  <img src="../public/img/camera_icon.png" alt="" id="cameraIcon">
-              </button>
-          </div>
+        <video id="preview" width="100%" height="auto" autoplay></video>
+        <div class="cameraButtonDiv">       
+            <button id="camera-button" class="btn btn-light scanButtonCamera" value="Pulsar para escanear qr">
+                <img src="../public/img/camera_icon.png" alt="" id="cameraIcon">
+            </button>
+        </div>
+        
           
           {{-- <button id="btnStart" value="Pulsar para abrir camara">Start</button>
           <button id="btnStop" value="Pulsar para cerrar camara">Stop</button> --}}
