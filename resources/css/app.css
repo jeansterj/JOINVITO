@@ -735,3 +735,7 @@ img#showQrModal {
   height: 18%;
 }
 
+#floatingMenu{
+    display: flex;
+    justify-content: center;
+}
