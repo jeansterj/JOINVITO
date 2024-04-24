@@ -143,7 +143,7 @@ primary key(id_entrega)
 );
 
 create table favoritos(
-id_fav int not null unique,
+id_fav int not null unique auto_increment,
 id_rider int not null,
 id_proveedor int not null,
 FOREIGN KEY (id_rider) REFERENCES riders(id_rider),

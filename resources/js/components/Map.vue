@@ -43,7 +43,8 @@ export default {
             map: {},
             myModalSuccess: {},
             myModalError: {},
-            isLoading: true
+            isLoading: true,
+            favorito: {}
         }
     },
     created(){
@@ -248,7 +249,8 @@ export default {
                                         'address': item.usuario.proveedor.direccion,
                                         'description': menusPorProveedor
                                         },
-                                    'id': item.id_punto
+                                    'id': item.id_punto,
+                                    'id_prov': item.id_usu
                                 }
                             }else if(item.usuario.centro != null){
                                 jsonDataPunto =
@@ -332,7 +334,7 @@ export default {
                         let item = event.originalEvent.srcElement;
 
                         if(item.classList[0] == 'marker-homeless' || item.classList[0] == 'marker-centro' || item.classList[0] == 'marker-provider'){
-                            
+
                             let sourceExists = me.map.getSource('ruta');
                             let layerExists = me.map.getLayer('ruta');
 
@@ -346,14 +348,14 @@ export default {
                                 me.map.removeSource('ruta');
                             }
 
-                            
+
                             const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${me.lng},${me.lat};${event.lngLat.lng},${event.lngLat.lat}?steps=true&access_token=${mapboxgl.accessToken}`;
-                            
+
                             axios.get(url)
                                 .then(response => {
                                 const route = response.data.routes[0];
                                 const steps = route.legs[0].steps;
-                                
+
                                 // Paso 2: Dibujar la ruta en el mapa
                                 const coordinates = [];
                                 steps.forEach(step => {
@@ -362,10 +364,10 @@ export default {
                                 });
                                 });
 
-                                
+
 
                                 // Añadir una línea desde la coordenada A a la coordenada B
-                                
+
                                     me.map.addSource('ruta', {
                                     'type': 'geojson',
                                     'data': {
@@ -392,15 +394,15 @@ export default {
                                             'line-width': 8 // Ancho de la línea
                                         }
                                     });
-                            
+
                                 })
                                 .catch(error => {
                                     console.error('Error al obtener la ruta:', error);
                                 });
                         }
 
-                        
-                        
+
+
 
                         if(item.classList[0] == 'marker-homeless'){
 
@@ -456,7 +458,7 @@ export default {
                         'title': me.punto.tipo,
                         },
                         'id': me.punto.id_punto,
-                        'cantidad_personas': me.punto.cantidad_personas
+                        'cantidad_personas': me.punto.cantidad_personas,
                     }
 
                     const geojson = {
@@ -482,7 +484,6 @@ export default {
             let imgSubtitle = document.createElement('img');
             let body = this.createButtons();
             let idPunto = document.createElement('input');
-
 
             idPunto.setAttribute('type','hidden');
             idPunto.setAttribute('id','idPunto')
@@ -529,6 +530,20 @@ export default {
                 content.appendChild(group);
             }
 
+            if(feature.type == "Proveedor"){
+                let idProv = document.createElement('input');
+                idProv.setAttribute('type','hidden');
+                idProv.setAttribute('id','id_prov');
+                idProv.setAttribute('value',feature.id_prov);
+
+                let fav = document.createElement('span');
+                fav.setAttribute('class','fa fa-home fa-2x favorite');
+
+                // style="color: #FFD43B;">
+
+                content.appendChild(fav);
+                content.appendChild(idProv);
+            }
 
 
             if(feature.properties.description != undefined){
@@ -677,7 +692,7 @@ export default {
         async convertLatLong(lat,long) {
             try {
                 const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?access_token=${mapboxgl.accessToken}`;
-                
+
                 const response = await axios.get(url);
 
                 if (response.data.features.length > 0) {
@@ -690,6 +705,25 @@ export default {
                 this.coordinates = null;
                 this.errorMessage = "Ocurrió un error al obtener las coordenadas: " + error.message;
             }
+        },
+        addFavorites(){
+
+            me = this;
+
+            this.favorito.id_rider = document.querySelector('meta[name="userId"]').content;
+            this.favorito.id_prov = document.getElementById('id_prov').value;
+
+            axios
+                .post(`favorito`,me.favorito)
+                .then(response => {
+
+
+                })
+                .catch(error=>{
+                    // this.isError = true;
+                    // console.log(error)
+                    //me.messageError = error.response.data.error;
+                })
         }
     }
 };

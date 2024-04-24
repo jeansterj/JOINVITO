@@ -21,7 +21,12 @@ class FavoritoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $favorito = new Favorito();
+
+        $favorito->id_rider = $request->id_rider;
+        $favorito->id_proveedor = $request->id_prov;
+
+        $favorito->save();
     }
 
     /**
@@ -43,8 +48,11 @@ class FavoritoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Favorito $favorito)
+    public function destroy(Favorito $favorito, Request $request)
     {
-        //
+
+
+
+        $favorito->destroy();
     }
 }

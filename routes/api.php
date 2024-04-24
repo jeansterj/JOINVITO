@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\RiderController;
 use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\QrCodeController;
 use App\Http\Controllers\Api\EntregaController;
+use App\Http\Controllers\Api\FavoritoController;
 
 
 
@@ -34,6 +35,7 @@ Route::get('orders/rider/{riderId}', [PedidoController::class,'getOrdersRider'])
 Route::apiResource('puntos', PuntoController::class);
 Route::apiResource('entregas', EntregaController::class);
 Route::apiResource('pedidos', PedidoController::class);
+Route::apiResource('favorito', FavoritoController::class);
 
 
 // Route::post('qrCode/{id}', function ($id) {

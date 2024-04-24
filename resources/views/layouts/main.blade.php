@@ -186,33 +186,33 @@
             @if (Auth::user()->rol->nombre == 'rider')
                 <div class="flotante container text-center" id="floatingMenu">
                     <div class="row">
-                       
+
                         <div class="col"><a class="nav-link" href="{{ url('/rider') }}" aria-expanded="false"><img
                                     src="{{ asset('img/homeCorto.svg') }}" alt=""></a></div>
-                        
+
                     </div>
                 </div>
             @endif
             @if (Auth::user()->rol->nombre == 'proveedor')
                 <div class="flotante container text-center" id="floatingMenu">
                     <div class="row">
-                        
+
                         <div class="col"><a class="nav-link" href="{{ url('/proveedor') }}"
                                 aria-expanded="false"><img src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
                         </div>
-                        
+
                     </div>
                 </div>
             @endif
             @if (Auth::user()->rol->nombre == 'centro')
                 <div class="flotante container text-center" id="floatingMenu">
                     <div class="row">
-                        
+
                         <div class="col">
                             <a class="nav-link" href="{{ url('/centro') }}" aria-expanded="false"><img
                                     src="{{ asset('img/homeCorto.svg') }}" alt=""></a>
                                 </div>
-                       
+
                     </div>
                 </div>
             @endif
@@ -227,6 +227,7 @@
         @endif
         @yield('map')
         </div>
+
         <footer class="py-2" id="footer">
             <hr>
             <p class="footerTitle">JOINVITO</p>
